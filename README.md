@@ -15,6 +15,7 @@ JavaScript testing
  * Using with AngularJS: https://docs.angularjs.org/guide/e2e-testing 
  * Protractor: 
    * http://angular.github.io/protractor 
+   * https://github.com/juliemr/protractor-demo - Demo project with tests (used in Protractor tutorial)
 
 TODO
 ----

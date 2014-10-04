@@ -9,7 +9,8 @@ JavaScript testing
 ----
 * [Advanced Testing and Debugging in AngularJS]
 * [AngularJS Testing with Karma and Jasmine]
-
+* E2E Testing
+ * Using Protractor: https://docs.angularjs.org/guide/e2e-testing
 
 [AngularJS Testing with Karma and Jasmine]:http://www.tuesdaydeveloper.com/2013/06/angularjs-testing-with-karma-and-jasmine/
 [Advanced Testing and Debugging in AngularJS]:http://www.yearofmoo.com/2013/09/advanced-testing-and-debugging-in-angularjs.html

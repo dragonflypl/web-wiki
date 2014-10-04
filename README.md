@@ -7,10 +7,18 @@ CSS Performance
 
 JavaScript testing
 ----
-* [Advanced Testing and Debugging in AngularJS]
-* [AngularJS Testing with Karma and Jasmine]
+* Jasmine
+ * http://jasmine.github.io/ 
+ * [Advanced Testing and Debugging in AngularJS]
+ * [AngularJS Testing with Karma and Jasmine]
 * E2E Testing
- * Using Protractor: https://docs.angularjs.org/guide/e2e-testing
+ * Using with AngularJS: https://docs.angularjs.org/guide/e2e-testing 
+ * Protractor: 
+   * http://angular.github.io/protractor 
+
+TODO
+----
+* Prepare Bixbite Seed based on Angular Seed project
 
 [AngularJS Testing with Karma and Jasmine]:http://www.tuesdaydeveloper.com/2013/06/angularjs-testing-with-karma-and-jasmine/
 [Advanced Testing and Debugging in AngularJS]:http://www.yearofmoo.com/2013/09/advanced-testing-and-debugging-in-angularjs.html

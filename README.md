@@ -13,9 +13,11 @@ JavaScript testing
  * [AngularJS Testing with Karma and Jasmine]
 * E2E Testing
  * Using with AngularJS: https://docs.angularjs.org/guide/e2e-testing 
- * Protractor: 
-   * http://angular.github.io/protractor 
-   * https://github.com/juliemr/protractor-demo - Demo project with tests (used in Protractor tutorial)
+ * E2E Testing with Protractor: 
+   * http://angular.github.io/protractor
+   * https://github.com/angular/protractor/blob/master/docs/tutorial.md - tutorial   
+   * https://github.com/juliemr/protractor-demo - Demo project with tests for tutorial
+   
 
 TODO
 ----

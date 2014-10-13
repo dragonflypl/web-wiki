@@ -1,8 +1,10 @@
 Web-wiki
 =========
-Blogs:
+Blogs
 ----
 * http://www.yearofmoo.com
+ 
+
 CSS Performance
 ----
 * [Writing efficient CSS]

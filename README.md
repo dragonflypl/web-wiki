@@ -2,8 +2,7 @@ Web-wiki
 =========
 Blogs:
 ----
-* http://www.yearofmoo.com/
-* 
+* http://www.yearofmoo.com
 CSS Performance
 ----
 * [Writing efficient CSS]

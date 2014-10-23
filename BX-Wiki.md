@@ -123,3 +123,4 @@ Another approach is to use **ngInject** and **gulp-ng-annotate** and move inject
 ### TODO: ###
 
 - https://github.com/angular/angular-hint
+- add route exception handling (ng-demos, routehelper.js)

@@ -1,5 +1,10 @@
 Web-wiki
 =========
+Blogs
+----
+* http://www.yearofmoo.com
+ 
+
 CSS Performance
 ----
 * [Writing efficient CSS]
@@ -10,8 +15,21 @@ CSS Performance
 
 JavaScript testing
 ----
-* [Advanced Testing and Debugging in AngularJS]
-* [AngularJS Testing with Karma and Jasmine]
+* Jasmine
+ * http://jasmine.github.io/ 
+ * [Advanced Testing and Debugging in AngularJS]
+ * [AngularJS Testing with Karma and Jasmine]
+* E2E Testing
+ * Using with AngularJS: https://docs.angularjs.org/guide/e2e-testing 
+ * E2E Testing with Protractor: 
+   * http://angular.github.io/protractor
+   * https://github.com/angular/protractor/blob/master/docs/tutorial.md - tutorial   
+   * https://github.com/juliemr/protractor-demo - Demo project with tests for tutorial
+   
+
+TODO
+----
+* Prepare Bixbite Seed based on Angular Seed project
 
 [JBehave]:http://jbehave.org/
 [AngularJS Testing with Karma and Jasmine]:http://www.tuesdaydeveloper.com/2013/06/angularjs-testing-with-karma-and-jasmine/

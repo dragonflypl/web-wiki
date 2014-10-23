@@ -12,6 +12,7 @@ CSS Performance
 
 ## Testing ##
 * [JBehave]
+* [Getting started with GhostDriver and PhantomJS]
 
 JavaScript testing
 ----
@@ -31,6 +32,7 @@ TODO
 ----
 * Prepare Bixbite Seed based on Angular Seed project
 
+[Getting started with GhostDriver and PhantomJS]:http://assertselenium.com/2013/03/25/getting-started-with-ghostdriver-phantomjs/
 [JBehave]:http://jbehave.org/
 [AngularJS Testing with Karma and Jasmine]:http://www.tuesdaydeveloper.com/2013/06/angularjs-testing-with-karma-and-jasmine/
 [Advanced Testing and Debugging in AngularJS]:http://www.yearofmoo.com/2013/09/advanced-testing-and-debugging-in-angularjs.html

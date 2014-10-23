@@ -125,3 +125,4 @@ Another approach is to use **ngInject** and **gulp-ng-annotate** and move inject
 - https://github.com/angular/angular-hint
 - add route exception handling (ng-demos, routehelper.js)
 - have a look at https://github.com/johnpapa/angularjs-styleguide and use it to create a bx styleguide
+- https://github.com/toddmotto/angularjs-styleguide

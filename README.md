@@ -6,7 +6,8 @@ Blogs
  
 Design
 ----
-* http://design-seeds.com/
+* http://design-seeds.com
+* https://color.adobe.com
 
 CSS Performance
 ----

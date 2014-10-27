@@ -11,6 +11,8 @@ Design
 * https://www.google.com/fonts
 * https://typekit.com/fonts
 * http://fortawesome.github.io/Font-Awesome/
+* https://icomoon.io
+* http://fontello.com/
 
 CSS Performance
 ----

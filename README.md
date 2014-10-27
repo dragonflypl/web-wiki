@@ -4,6 +4,9 @@ Blogs
 ----
 * http://www.yearofmoo.com
  
+Design
+----
+* http://design-seeds.com/
 
 CSS Performance
 ----

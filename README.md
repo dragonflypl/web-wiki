@@ -10,6 +10,7 @@ Design
 * https://color.adobe.com
 * https://www.google.com/fonts
 * https://typekit.com/fonts
+* http://fortawesome.github.io/Font-Awesome/
 
 CSS Performance
 ----

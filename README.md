@@ -29,6 +29,8 @@ CSS Performance
  * http://karma-runner.github.io/0.12/dev/plugins.html - plugins 
  * Reporters
    * karma-growl-reporter & karma-jasmine-html-reporter
+* Protractor
+ * https://www.youtube.com/watch?v=BvAeabvZ61o - Protractor E2E testing for AngularJS, starts at 30:30
 * Jasmine
  * http://jasmine.github.io/ 
  * https://www.npmjs.org/package/karma-jasmine - A Karma plugin - adapter for Jasmine testing framework

@@ -30,21 +30,21 @@ CSS Performance
  * Reporters
    * karma-growl-reporter & karma-jasmine-html-reporter
 * Protractor
- * https://www.youtube.com/watch?v=BvAeabvZ61o - Protractor E2E testing for AngularJS, starts at 30:30
+
 * Jasmine
  * http://jasmine.github.io/ 
  * https://www.npmjs.org/package/karma-jasmine - A Karma plugin - adapter for Jasmine testing framework
  * [Advanced Testing and Debugging in AngularJS]
  * [AngularJS Testing with Karma and Jasmine]
  * [Full-Spectrum Testing with AngularJS and Karma] - obsolete stuff
-* E2E Testing
- * Using with AngularJS: https://docs.angularjs.org/guide/e2e-testing 
- * E2E Testing with Protractor: 
-   * http://angular.github.io/protractor
-   * https://github.com/angular/protractor/blob/master/docs/tutorial.md - tutorial   
-   * https://github.com/juliemr/protractor-demo - Demo project with tests for tutorial
+* E2E Testing with AngularJS and [Protractor]
+ * https://docs.angularjs.org/guide/e2e-testing - Using with AngularJS
+ * https://www.youtube.com/watch?v=BvAeabvZ61o - Protractor E2E testing for AngularJS, starts at 30:30
+ * https://github.com/angular/protractor/blob/master/docs/tutorial.md - tutorial   
+ * https://github.com/juliemr/protractor-demo - Demo project with tests for tutorial
    
 
+[Protractor]:http://angular.github.io/protractor
 [Getting started with GhostDriver and PhantomJS]:http://assertselenium.com/2013/03/25/getting-started-with-ghostdriver-phantomjs/
 [JBehave]:http://jbehave.org/
 [AngularJS Testing with Karma and Jasmine]:http://www.tuesdaydeveloper.com/2013/06/angularjs-testing-with-karma-and-jasmine/

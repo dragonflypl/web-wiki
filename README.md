@@ -34,7 +34,7 @@ JavaScript testing
  * https://www.npmjs.org/package/karma-jasmine - A Karma plugin - adapter for Jasmine testing framework
  * [Advanced Testing and Debugging in AngularJS]
  * [AngularJS Testing with Karma and Jasmine]
- * [Full-Spectrum Testing with AngularJS and Karma]
+ * [Full-Spectrum Testing with AngularJS and Karma] - obsolete stuff
 * E2E Testing
  * Using with AngularJS: https://docs.angularjs.org/guide/e2e-testing 
  * E2E Testing with Protractor: 
@@ -47,7 +47,6 @@ TODO
 ----
 * Prepare Bixbite Seed based on Angular Seed project
 
-[Full-Spectrum Testing with AngularJS and Karma]:http://www.yearofmoo.com/2013/01/full-spectrum-testing-with-angularjs-and-karma.html
 [Getting started with GhostDriver and PhantomJS]:http://assertselenium.com/2013/03/25/getting-started-with-ghostdriver-phantomjs/
 [JBehave]:http://jbehave.org/
 [AngularJS Testing with Karma and Jasmine]:http://www.tuesdaydeveloper.com/2013/06/angularjs-testing-with-karma-and-jasmine/

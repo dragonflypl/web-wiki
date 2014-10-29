@@ -44,6 +44,9 @@ CSS Performance
 ### FAQ
 - How to run subset of tests with protractor:
  - use --specs argument in command line tool
+- Where can I find web drivers & selenium standalone server
+ - http://selenium-release.storage.googleapis.com/index.html
+ - http://chromedriver.storage.googleapis.com/index.html
 
 [Protractor]:http://angular.github.io/protractor
 [Getting started with GhostDriver and PhantomJS]:http://assertselenium.com/2013/03/25/getting-started-with-ghostdriver-phantomjs/

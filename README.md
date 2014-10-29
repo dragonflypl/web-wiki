@@ -28,6 +28,7 @@ JavaScript testing
 ----
 * Jasmine
  * http://jasmine.github.io/ 
+ * https://www.npmjs.org/package/karma-jasmine - A Karma plugin - adapter for Jasmine testing framework
  * [Advanced Testing and Debugging in AngularJS]
  * [AngularJS Testing with Karma and Jasmine]
 * E2E Testing

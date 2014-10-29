@@ -29,6 +29,10 @@ CSS Performance
 
 JavaScript testing
 ----
+* Karma
+ * http://karma-runner.github.io/0.12/dev/plugins.html - plugins 
+ * Reporters
+   * karma-growl-reporter & karma-jasmine-html-reporter
 * Jasmine
  * http://jasmine.github.io/ 
  * https://www.npmjs.org/package/karma-jasmine - A Karma plugin - adapter for Jasmine testing framework

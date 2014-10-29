@@ -29,8 +29,6 @@ CSS Performance
  * http://karma-runner.github.io/0.12/dev/plugins.html - plugins 
  * Reporters
    * karma-growl-reporter & karma-jasmine-html-reporter
-* Protractor
-
 * Jasmine
  * http://jasmine.github.io/ 
  * https://www.npmjs.org/package/karma-jasmine - A Karma plugin - adapter for Jasmine testing framework
@@ -42,7 +40,10 @@ CSS Performance
  * https://www.youtube.com/watch?v=BvAeabvZ61o - Protractor E2E testing for AngularJS, starts at 30:30
  * https://github.com/angular/protractor/blob/master/docs/tutorial.md - tutorial   
  * https://github.com/juliemr/protractor-demo - Demo project with tests for tutorial
-   
+
+### FAQ
+- How to run subset of tests with protractor:
+ - use --specs argument in command line tool
 
 [Protractor]:http://angular.github.io/protractor
 [Getting started with GhostDriver and PhantomJS]:http://assertselenium.com/2013/03/25/getting-started-with-ghostdriver-phantomjs/

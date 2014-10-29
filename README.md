@@ -23,12 +23,8 @@ CSS Performance
 ## AngularJS
 * http://yearofmoo-articles.github.io/angularjs-testing-article/app/#!/videos - video collection
 
-## Testing ##
-* [JBehave]
+## JavaScript testing ##
 * [Getting started with GhostDriver and PhantomJS]
-
-JavaScript testing
-----
 * Karma
  * http://karma-runner.github.io/0.12/dev/plugins.html - plugins 
  * Reporters
@@ -46,10 +42,6 @@ JavaScript testing
    * https://github.com/angular/protractor/blob/master/docs/tutorial.md - tutorial   
    * https://github.com/juliemr/protractor-demo - Demo project with tests for tutorial
    
-
-TODO
-----
-* Prepare Bixbite Seed based on Angular Seed project
 
 [Getting started with GhostDriver and PhantomJS]:http://assertselenium.com/2013/03/25/getting-started-with-ghostdriver-phantomjs/
 [JBehave]:http://jbehave.org/

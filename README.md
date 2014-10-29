@@ -20,6 +20,9 @@ CSS Performance
 * [Writing efficient CSS]
 * [Efficiently Rendering CSS]
 
+## AngularJS
+* http://yearofmoo-articles.github.io/angularjs-testing-article/app/#!/videos - video collection
+
 ## Testing ##
 * [JBehave]
 * [Getting started with GhostDriver and PhantomJS]

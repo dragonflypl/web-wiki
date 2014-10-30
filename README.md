@@ -40,6 +40,8 @@ CSS Performance
  * https://www.youtube.com/watch?v=BvAeabvZ61o - Protractor E2E testing for AngularJS, starts at 30:30
  * https://github.com/angular/protractor/blob/master/docs/tutorial.md - tutorial   
  * https://github.com/juliemr/protractor-demo - Demo project with tests for tutorial
+* Test Coverage
+ * http://tntim96.github.io/JSCover/
 
 ### FAQ
 - How to run subset of tests with protractor:

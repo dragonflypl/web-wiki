@@ -3,6 +3,7 @@ Web-wiki
 Blogs
 ----
 * http://www.yearofmoo.com
+* http://toddmotto.com/ - AngularJS / JavaScript / Web
  
 Design
 ----
@@ -22,6 +23,8 @@ CSS Performance
 
 ## AngularJS
 * http://yearofmoo-articles.github.io/angularjs-testing-article/app/#!/videos - video collection
+* Styleguides:
+ * http://toddmotto.com/opinionated-angular-js-styleguide-for-teams/ - Opinionated AngularJS styleguide for teams
 
 ## JavaScript testing ##
 * [Getting started with GhostDriver and PhantomJS]

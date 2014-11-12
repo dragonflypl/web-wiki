@@ -26,6 +26,9 @@ CSS Performance
 * http://yearofmoo-articles.github.io/angularjs-testing-article/app/#!/videos - video collection
 * Styleguides:
  * http://toddmotto.com/opinionated-angular-js-styleguide-for-teams/ - Opinionated AngularJS styleguide for teams
+* Articles:
+ * https://medium.com/opinionated-angularjs/techniques-for-authentication-in-angularjs-applications-7bbf0346acec - Techniques for authentication in AngularJS applications
+ * https://github.com/witoldsz/angular-http-auth - module for handling common auth stuff
 
 ## JavaScript testing ##
 * [Getting started with GhostDriver and PhantomJS]

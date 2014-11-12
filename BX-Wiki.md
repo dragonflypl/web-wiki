@@ -10,12 +10,10 @@ Some useful Gulp plugins are:
 
  
 ### TODO: ###
-
+- https://medium.com/opinionated-angularjs/techniques-for-authentication-in-angularjs-applications-7bbf0346acec - Techniques for authentication in AngularJS applications
+- https://github.com/witoldsz/angular-http-auth - module for handling common auth stuff
 - lear about karma-coverage
-- make use of karma init for karma configuration file
 - https://github.com/angular/angular-hint
 - add route exception handling (ng-demos, routehelper.js)
-- have a look at https://github.com/johnpapa/angularjs-styleguide and use it to create a bx styleguide
 - https://github.com/toddmotto/angularjs-styleguide
-- start using https://github.com/olov/ng-annotate
 - start using jsdoc

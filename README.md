@@ -36,6 +36,8 @@ CSS Performance
  * http://karma-runner.github.io/0.12/dev/plugins.html - plugins 
  * Reporters
    * karma-growl-reporter & karma-jasmine-html-reporter
+* Unit Testing
+ * http://bardo.io/posts/testing-your-ui-router-configuration/ - testing states
 * Jasmine
  * http://jasmine.github.io/ 
  * https://www.npmjs.org/package/karma-jasmine - A Karma plugin - adapter for Jasmine testing framework

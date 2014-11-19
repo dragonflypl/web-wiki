@@ -16,6 +16,11 @@ Design
 * https://icomoon.io
 * http://fontello.com
 * https://vimeo.com/68331768
+* Frameworks:
+ * http://semantic-ui.com/ - still waiting for 1.0 release!
+ * http://foundation.zurb.com/
+ * http://purecss.io/
+ * http://getbootstrap.com/
 
 CSS Performance
 ----

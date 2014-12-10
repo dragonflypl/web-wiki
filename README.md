@@ -22,7 +22,7 @@ Design
  * http://purecss.io/
  * http://getbootstrap.com/
 
-CSS Performance
+CSS Performance Tips
 ----
 * [Writing efficient CSS]
 * [Efficiently Rendering CSS]

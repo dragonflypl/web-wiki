@@ -36,6 +36,23 @@ bower install <package-name>
 ```
 bower uninstall <package-name>
 ```
+* Install specyfic version of a package:
+```
+bower install <package-name>#<version>
+```
+* Find out what versions of the package are available:
+```
+bower info <package-name>
+```
+* Update all packages
+```
+bower update
+```
+* Update single package
+```
+bower install <package-name>
+```
+
 
 ## AngularJS
 * http://yearofmoo-articles.github.io/angularjs-testing-article/app/#!/videos - video collection

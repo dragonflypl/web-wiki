@@ -27,6 +27,16 @@ CSS Performance Tips
 * [Writing efficient CSS]
 * [Efficiently Rendering CSS]
 
+## Bower
+* Install package:
+```
+bower install <package-name>
+```
+* Uninstall package:
+```
+bower uninstall <package-name>
+```
+
 ## AngularJS
 * http://yearofmoo-articles.github.io/angularjs-testing-article/app/#!/videos - video collection
 * Styleguides:

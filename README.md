@@ -38,15 +38,19 @@ CSS Performance Tips
 ```
 
 * bower.json - purpose is two-fold:
+ * contains meta-data about the package, that is used when package is published with Bower
  * keeps track of packages installed/referenced using bower (dependencies/devDependencies). Dependencies can be installed using:
 ```
 bower install
 ```
 Bower will install all packages that are not yet installed.
 
- * contains meta-data about the package, that is used when package is published with Bower
-
 #### Commands
+* Install packages specified in bower.json:
+```
+bower install
+```
+
 * Install package:
 ```
 bower install <package-name>

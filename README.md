@@ -28,6 +28,20 @@ CSS Performance Tips
 * [Efficiently Rendering CSS]
 
 ## Bower
+#### Configuration
+* .bowerrc - it is Bower (as a tool) configuration file. Used to:
+ * configure the name of the folder were Bower installs packages:
+```
+{
+ "directory": <directory-name>
+}
+```
+
+* bower.json - purpose is two-fold:
+ * keeps track of packages installed using bower (dependencies/devDependencies)
+ * contains meta-data about the package, that is used when package is published with Bower
+
+#### Commands
 * Install package:
 ```
 bower install <package-name>
@@ -51,6 +65,14 @@ bower update
 * Update single package
 ```
 bower install <package-name>
+```
+* List all installed packages
+```
+bower list
+```
+* Search for package
+```
+bower search <to-find>
 ```
 
 

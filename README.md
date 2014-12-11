@@ -51,11 +51,11 @@ Bower will install all packages that are not yet installed.
 bower install
 ```
 
-* Install package:
+* Install package (use with --save|--save-dev flags to save changes to bower.json):
 ```
 bower install <package-name>
 ```
-* Uninstall package:
+* Uninstall package (use with --save|--save-dev flags to save changes to bower.json):
 ```
 bower uninstall <package-name>
 ```

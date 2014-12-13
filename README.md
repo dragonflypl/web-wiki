@@ -84,6 +84,17 @@ bower list
 bower search <to-find>
 ```
 
+##### Bower's cache
+Bower uses its cache before fetching packages.
+* List cache entries
+```
+bower cache list
+```
+* Clean cache
+```
+bower cache clean
+```
+
 
 ## AngularJS
 * http://yearofmoo-articles.github.io/angularjs-testing-article/app/#!/videos - video collection

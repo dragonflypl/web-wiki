@@ -87,6 +87,10 @@ bower search <to-find>
 ```
 bower lookup <package-name>
 ```
+* Do clean up of packages that are not listed in bower.json (direct/indirect dependencies)
+```
+bower prune
+```
 
 ##### Bower's install options
 * Install only regular dependencies, without devDependencies

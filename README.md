@@ -83,6 +83,11 @@ bower list
 ```
 bower search <to-find>
 ```
+* View package's GIT url
+```
+bower lookup <package-name>
+```
+
 ##### Bower's install options
 * Install only regular dependencies, without devDependencies
 ```

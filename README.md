@@ -83,6 +83,15 @@ bower list
 ```
 bower search <to-find>
 ```
+##### Bower's install options
+* Install only regular dependencies, without devDependencies
+```
+bower install --production
+```
+* Install package into custom directory
+```
+bower install <dir-name>=<package-name>
+```
 
 ##### Bower's cache
 Bower uses its cache before fetching packages.

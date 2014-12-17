@@ -122,6 +122,7 @@ bower cache clean
 * Articles:
  * https://medium.com/opinionated-angularjs/techniques-for-authentication-in-angularjs-applications-7bbf0346acec - Techniques for authentication in AngularJS applications
  * https://github.com/witoldsz/angular-http-auth - module for handling common auth stuff
+ * [The Top 10 Mistakes AngularJS Developers Make]
 
 ## JavaScript testing ##
 * [Getting started with GhostDriver and PhantomJS]
@@ -159,3 +160,4 @@ bower cache clean
 [Writing efficient CSS]:https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS
 [Efficiently Rendering CSS]:http://css-tricks.com/efficiently-rendering-css/
 [How Bad is DOM Interaction - Really]:http://andyshora.com/how-bad-is-dom-interaction-javascript.html
+[The Top 10 Mistakes AngularJS Developers Make]:https://www.airpair.com/angularjs/posts/top-10-mistakes-angularjs-developers-make

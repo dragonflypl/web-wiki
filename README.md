@@ -6,6 +6,8 @@ Blogs
 * http://toddmotto.com/ - AngularJS / JavaScript / Web
 * https://medium.com/opinionated-angularjs
 * http://andyshora.com/
+* http://www.jvandemo.com/ - AngularJS mostly
+ * http://www.jvandemo.com/top-5-benefits-after-6-months-of-component-driven-angularjs-development/
  
 Design
 ----
@@ -22,6 +24,11 @@ Design
  * http://foundation.zurb.com/
  * http://purecss.io/
  * http://getbootstrap.com/
+
+## AngularJS
+### UI-Router
+* http://www.jvandemo.com/how-to-resolve-application-wide-resources-centrally-in-angularjs-with-ui-router/ - How to resolve application-wide resources centrally in AngularJS with ui-router
+* http://www.jvandemo.com/how-to-resolve-angularjs-resources-with-ui-router/ - How to force AngularJS resource resolution with ui-router
 
 Performance Tips
 ----

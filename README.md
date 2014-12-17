@@ -127,6 +127,8 @@ bower cache clean
 
 ## JavaScript testing ##
 * [Getting started with GhostDriver and PhantomJS]
+* Tips & Tricks
+ * http://sravi-kiran.blogspot.co.uk/2013/12/TriggeringEventsInAngularJsDirectiveTests.html - trigger events in tests
 * Karma
  * http://karma-runner.github.io/0.12/dev/plugins.html - plugins 
  * Reporters

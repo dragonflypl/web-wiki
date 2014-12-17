@@ -22,10 +22,11 @@ Design
  * http://purecss.io/
  * http://getbootstrap.com/
 
-CSS Performance Tips
+Performance Tips
 ----
 * [Writing efficient CSS]
 * [Efficiently Rendering CSS]
+* [How Bad is DOM Interaction - Really]
 
 ## Bower
 #### Configuration
@@ -157,3 +158,4 @@ bower cache clean
 [Advanced Testing and Debugging in AngularJS]:http://www.yearofmoo.com/2013/09/advanced-testing-and-debugging-in-angularjs.html
 [Writing efficient CSS]:https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Writing_efficient_CSS
 [Efficiently Rendering CSS]:http://css-tricks.com/efficiently-rendering-css/
+[How Bad is DOM Interaction - Really]:http://andyshora.com/how-bad-is-dom-interaction-javascript.html

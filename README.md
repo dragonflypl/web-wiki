@@ -5,6 +5,7 @@ Blogs
 * http://www.yearofmoo.com
 * http://toddmotto.com/ - AngularJS / JavaScript / Web
 * https://medium.com/opinionated-angularjs
+* http://andyshora.com/
  
 Design
 ----

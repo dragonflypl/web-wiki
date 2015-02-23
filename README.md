@@ -1,6 +1,8 @@
 Web-wiki
 =========
 ## Awesome node / gulp
+#### yargs
+#### gulp-task-listing
 #### gulp-load-plugins
 
 Saves gulp plugins loading code:

@@ -1,6 +1,13 @@
 Web-wiki
 =========
-### Awesome node / gulp
+## Awesome node / gulp
+#### gulp-load-plugins
+
+Saves gulp plugins loading code:
+
+<pre>var $ = require('gulp-load-plugins')({lazy: true});
+$.util.log("This is how to access gulp-util plugin");</pre>
+
 #### browsersync
 #### wiredep / gulp-inject
 #### gulp-util

@@ -1,6 +1,8 @@
 Web-wiki
 =========
 ## Awesome node / gulp
+#### gulp-useref
+Parse build blocks in HTML files to replace references to non-optimized scripts or stylesheets.
 #### gulp-angular-templatecache
 #### yargs
 #### gulp-task-listing

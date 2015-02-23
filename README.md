@@ -4,6 +4,10 @@ Web-wiki
 * browsersync
 * wiredep / gulp-inject
 * gulp-util
+ * enables logging & coloring:
+ 
+<pre><code>var gutil = require('gulp-util');
+gutil.log(gutil.colors.blue(msg))</code><pre>
 * node-notifier
 * gulp-browserify
 * gulp-connect - fires a server

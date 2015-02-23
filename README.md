@@ -9,6 +9,47 @@ Saves gulp plugins loading code:
 $.util.log("This is how to access gulp-util plugin");</pre>
 
 #### browsersync
+
+Plugins that speeds up development by reloading files in the browser:
+
+<pre><code>function startBrowserSync() {
+    var browserSync = require('browser-sync');
+    if (browserSync.active) {
+        return;
+    }
+
+    log('Starting browser-sync on port ' + port);
+
+    gulp.watch([config.less], ['styles'])
+        .on('change', function (event) {
+            changeEvent(event);
+        });
+
+    var options = {
+        proxy: 'localhost:' + port,
+        port: 3000,
+        files: [
+            config.client + '**/*.*',
+            '!' + config.less,
+            config.temp + '**/*.css'
+        ],
+        ghostMode: {
+            clicks: true,
+            location: false,
+            forms: true,
+            scroll: true
+        },
+        injectChanges: true,
+        logFileChanges: true,
+        logLevel: 'debug',
+        logPrefix: 'gulp-patterns',
+        notify: true,
+        reloadDelay: 0 //1000
+    };
+
+    browserSync(options);
+}</code></pre>
+
 #### wiredep / gulp-inject
 #### gulp-util
 Enables logging & coloring:

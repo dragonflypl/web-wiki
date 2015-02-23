@@ -3,6 +3,15 @@ Web-wiki
 ## Awesome node / gulp
 #### yargs
 #### gulp-task-listing
+
+Plugin for making help
+
+<pre><code>gulp.task('help', require('gulp-task-listing'));
+// or with gulp-load-plugins
+var $ = require('gulp-load-plugins')({lazy: true})
+gulp.task('help', $.taskListing)
+</code></pre>
+
 #### gulp-load-plugins
 
 Saves gulp plugins loading code:

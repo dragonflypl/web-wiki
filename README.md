@@ -1,6 +1,12 @@
 Web-wiki
 =========
 ## Awesome node / gulp
+#### gulp-ng-annotate
+Add angularjs dependency injection annotations with ng-annotate
+#### gulp-filter
+Filter files in a vinyl stream.
+
+Enables you to work on a subset of the original files by filtering them using globbing. When you're done and want all the original files back you just call the restore method.
 #### csso
 <a href=http://css.github.com/csso/>CSS-optimizer</a>
 #### gulp-useref

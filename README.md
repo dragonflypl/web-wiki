@@ -1,6 +1,7 @@
 Web-wiki
 =========
 ## Awesome node / gulp
+#### gulp-angular-templatecache
 #### yargs
 #### gulp-task-listing
 
@@ -70,7 +71,8 @@ gutil.log(gutil.colors.blue(msg));</code></pre>
 #### gulp-browserify
 #### gulp-connect - fires a server
 #### gulp-if
-#### gulp-minify-html / gulp-jsonminify
+#### gulp-minify-html
+#### gulp-jsonminify
 
 Blogs
 ----

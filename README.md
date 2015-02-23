@@ -1,5 +1,14 @@
 Web-wiki
 =========
+### Awesome node / gulp
+* browsersync
+* wiredep / gulp-inject
+* gulp-util
+* node-notifier
+* gulp-browserify
+* gulp-connect - fires a server
+* gulp-if
+* gulp-minify-html / gulp-jsonminify
 Blogs
 ----
 * http://www.yearofmoo.com

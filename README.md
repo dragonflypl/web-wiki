@@ -92,7 +92,11 @@ Blogs
 * http://andyshora.com/
 * http://www.jvandemo.com/ - AngularJS mostly
  * http://www.jvandemo.com/top-5-benefits-after-6-months-of-component-driven-angularjs-development/
- 
+
+CSS
+----
+* <a href="http://css3.bradshawenterprises.com/">CSS3 Transitions, Transforms, Animation, Filters and more!</a>
+
 Design
 ----
 * http://design-seeds.com

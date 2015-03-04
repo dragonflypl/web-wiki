@@ -1,8 +1,10 @@
 Web-wiki
 =========
 ## Awesome node / gulp
+#### gulp-print
+Prints names of files to the console so that you can see what's in the pipe
 #### gulp-bump
-For bumping versions 
+Bump any JSON file which supports semver versioning
 #### gulp-ng-annotate
 Add angularjs dependency injection annotations with ng-annotate
 #### gulp-filter

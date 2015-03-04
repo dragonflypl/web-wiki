@@ -145,8 +145,7 @@ Performance Tips
 * Karma
  * http://karma-runner.github.io/0.12/dev/plugins.html - plugins 
  * Reporters
-   * karma-growl-reporter & karma-jasmine-html-reporter
-   * karma-mocha-reporter - Karma reporter with mocha style logging (to console). Can be used with Jasmine framework.
+   * karma-growl-reporter & karma-jasmine-html-reporter & karma-mocha-reporter (reporter with mocha style logging - to console - can be used with Jasmine framework)
 * Unit Testing
  * http://bardo.io/posts/testing-your-ui-router-configuration/ - testing states
 * Sinon

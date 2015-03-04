@@ -1,6 +1,8 @@
 Web-wiki
 =========
 ## Awesome node / gulp
+#### karma-mocha-reporter
+Karma reporter with mocha style logging. Can be used with Jasmine framework.
 #### gulp-print
 Prints names of files to the console so that you can see what's in the pipe
 #### gulp-bump

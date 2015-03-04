@@ -1,8 +1,6 @@
 Web-wiki
 =========
 ## Awesome node / gulp
-#### karma-mocha-reporter
-Karma reporter with mocha style logging. Can be used with Jasmine framework.
 #### gulp-print
 Prints names of files to the console so that you can see what's in the pipe
 #### gulp-bump
@@ -148,8 +146,12 @@ Performance Tips
  * http://karma-runner.github.io/0.12/dev/plugins.html - plugins 
  * Reporters
    * karma-growl-reporter & karma-jasmine-html-reporter
+   * karma-mocha-reporter - Karma reporter with mocha style logging (to console). Can be used with Jasmine framework.
 * Unit Testing
  * http://bardo.io/posts/testing-your-ui-router-configuration/ - testing states
+* Sinon
+ * http://sinonjs.org/ - Standalone test spies, stubs and mocks for JavaScript.
+No dependencies, works with any unit testing framework.
 * Jasmine
  * http://jasmine.github.io/ 
  * https://www.npmjs.org/package/karma-jasmine - A Karma plugin - adapter for Jasmine testing framework

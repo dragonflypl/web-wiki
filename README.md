@@ -1,6 +1,8 @@
 Web-wiki
 =========
 ## Awesome node / gulp
+#### gulp-bump
+For bumping versions 
 #### gulp-ng-annotate
 Add angularjs dependency injection annotations with ng-annotate
 #### gulp-filter

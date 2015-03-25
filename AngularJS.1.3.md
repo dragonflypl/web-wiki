@@ -64,9 +64,11 @@ Another option is ```debounce```. For what debouncing is, check ...
 
  - ```$rollbackViewValue``` method - let's synchronize view value with model value.
 
-```formInputController.$rollbackViewValue()```
+```
+formInputController.$rollbackViewValue()
+```
 
-> Both ```$rollbackViewValue``` and ```ng-model-options``` can be also used on ```form``` level. It can be used to add form level rollback.
+Both ```$rollbackViewValue``` and ```ng-model-options``` can be also used on ```form``` level. It can be used to add form level rollback.
 
 ### formController.$submitted
 
@@ -80,7 +82,9 @@ Form controller has new property ```$submitted``` that is set after form was sub
 
 ```$touched``` specifies if form control was touched, i.e. if the user entered the field and the left it. Can be used to hide validation messages untill user touched form control.
 
-```formController.$touched```
+```
+formController.$touched
+```
 
 ### Enhanced custom validation
 

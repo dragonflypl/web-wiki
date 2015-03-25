@@ -113,3 +113,8 @@ $q(function(resolve, reject) {
 	// call reject or resolve
 });
 ```
+
+New filters:
+
+ - ```limitTo``` : enables display of last or first "n" number of characters
+ - ```date:"w"``` : displays week number for the year

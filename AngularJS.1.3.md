@@ -154,6 +154,8 @@ As of 1.3, new ```animate``` methods was introduced, that allows inline animatio
 
 ## Testing
 
+### $httpBacked Function URL Matcher
+
 As of 1.3, all ```expectXXX``` methods of ```$httpBackend``` service accept function, that can perform matching of requested url.
 
 ### $rootScope extensions

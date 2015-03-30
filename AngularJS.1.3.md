@@ -138,3 +138,16 @@ deregistration();
 More on [https://code.angularjs.org/1.3.14/docs/api/ng/directive/ngInclude](https://code.angularjs.org/1.3.14/docs/api/ng/directive/ngInclude)
 
 ## Animation
+
+1.3 introduces fundamental change: animations no longer happen until next digest cycle. As a result:
+
+- animations are grouped and Angular can optimize them
+- if animation is caused outside of digest cycle, the animation will not happen unless digest cycle is triggered manually
+
+### Promises
+
+```$animate``` service methods no longer take callbacks. Instead, they return promises.
+
+### New $animate.animate method
+
+As of 1.3, new ```animate``` methods was introduced, that allows inline animation of CSS properties (no CSS class is needed).

@@ -151,3 +151,14 @@ More on [https://code.angularjs.org/1.3.14/docs/api/ng/directive/ngInclude](http
 ### New $animate.animate method
 
 As of 1.3, new ```animate``` methods was introduced, that allows inline animation of CSS properties (no CSS class is needed).
+
+## Testing
+
+As of 1.3, all ```expectXXX``` methods of ```$httpBackend``` service accept function, that can perform matching of requested url.
+
+### $rootScope extensions
+
+```ngMock``` module extend all scopes with additional methods:
+
+- $countWatchers()
+- $countChildScopes()

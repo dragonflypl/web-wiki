@@ -118,3 +118,14 @@ New filters:
 
  - ```limitTo``` : enables display of last or first "n" number of characters
  - ```date:"w"``` : displays week number for the year
+ - ```currency:'$':0``` :  currency filter has two parameters: first is currency symbol, and second specifies fractional rounding
+
+## Directives
+
+- New ```bindToController``` property, that belongs to directive's definition object, enables binding ```scope``` data to controller if ```controllerAs``` feature is used.
+- Deregistratrion of ```$observe``` - as of Angular 1.3 it is possible to deregister watcher that was created with ```$observe``` function. ```$observe``` returns deregistration function.
+
+```javascript
+var deregistration = attrs.$observe('test' function() {});
+deregistration();
+```

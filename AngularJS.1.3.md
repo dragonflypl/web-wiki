@@ -129,3 +129,12 @@ New filters:
 var deregistration = attrs.$observe('test' function() {});
 deregistration();
 ```
+
+- ```ng-include``` events:  three new events are emited when tempates are included:
+ - ```$includeContentRequested```
+ - ```$includeContentLoaded```
+ - ```$includeContentError```
+
+More on [https://code.angularjs.org/1.3.14/docs/api/ng/directive/ngInclude](https://code.angularjs.org/1.3.14/docs/api/ng/directive/ngInclude)
+
+- this is 

@@ -34,7 +34,7 @@ Improves performance. Works with:
 	
 ### Disable scope annotations
 
-```
+```javascript
 $compileProvider.debugInfoEnabled(false);
 ```
 	
@@ -82,7 +82,7 @@ Form controller has new property ```$submitted``` that is set after form was sub
 
 ```$touched``` specifies if form control was touched, i.e. if the user entered the field and the left it. Can be used to hide validation messages untill user touched form control.
 
-```
+```javascript
 formController.$touched
 ```
 
@@ -108,7 +108,7 @@ In order to check if input element has validation in progress, ```$pending``` pr
 
 ```$q``` service has new **ES6** interface:
 
-```
+```javascript
 $q(function(resolve, reject) {
 	// call reject or resolve
 });
@@ -137,4 +137,4 @@ deregistration();
 
 More on [https://code.angularjs.org/1.3.14/docs/api/ng/directive/ngInclude](https://code.angularjs.org/1.3.14/docs/api/ng/directive/ngInclude)
 
-- this is 
+## Animation

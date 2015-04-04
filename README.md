@@ -166,7 +166,11 @@ No dependencies, works with any unit testing framework.
  * http://tntim96.github.io/JSCover/
 
 ### Online tools
+#### For Bootstrap
 - http://www.bootply.com/ : The Bootstrap Playground
+- http://bootswatchr.com/ - Theme roller with live preview
+- http://pikock.github.io/bootstrap-magic/ - Yet another theme roller
+- http://bootswatch.com/ - Free themes for Bootstrap, some really interesting like Paper
 
 ### FAQ
 - How to run subset of tests with protractor:

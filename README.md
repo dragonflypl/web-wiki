@@ -166,6 +166,8 @@ No dependencies, works with any unit testing framework.
  * http://tntim96.github.io/JSCover/
 
 ### Online tools
+- https://stackedit.io - Markdown Editor that uploads to Github
+
 #### For Bootstrap
 - http://www.bootply.com/ : The Bootstrap Playground
 - http://bootswatchr.com/ - Theme roller with live preview

@@ -16,8 +16,20 @@
 - simple solution with query string (page/page size) + adding links to prev/next in headers
 
 ## Shaping the data
-- simple solution with query string parameter that holds list of fields & ExpandoObject (C#)
+- inclusion of fields: simple solution with query string parameter that holds list of fields & ExpandoObject (C#)
+- collections inclusion
 
+## Caching
+- ETag: identifies version of the resource. Use it with:
+ - ```If-None-Match ETag```: client sends it to server along with ETag, for instance with GET
+ - ```If-Match ETag```: for updates. In case when client is working with outdated version, 412 should be returned
+
+## Versioning
+- through URI
+ - http://domain/api/resource
+ - http://domain/api/v2/resource
+- content negotiantion: custom Content Type in request Accept Header
+- custom request header: custom version header added to request, containing version number
 
 
 > Written with [StackEdit](https://stackedit.io/).

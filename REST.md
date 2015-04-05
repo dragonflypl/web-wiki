@@ -31,6 +31,9 @@
 - content negotiantion: custom Content Type in request Accept Header
 - custom request header: custom version header added to request, containing version number
 
+## CORS (Cross-Origin resource sharing)
+CORS must be enabled if RESTful API is not hosted with the client.
+
 <hr />
 
 > Written with [StackEdit](https://stackedit.io/).

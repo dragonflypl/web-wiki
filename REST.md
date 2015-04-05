@@ -31,5 +31,6 @@
 - content negotiantion: custom Content Type in request Accept Header
 - custom request header: custom version header added to request, containing version number
 
+<hr />
 
 > Written with [StackEdit](https://stackedit.io/).

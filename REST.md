@@ -28,7 +28,7 @@
 - through URI
  - http://domain/api/resource
  - http://domain/api/v2/resource
-- content negotiantion: custom Content Type in request Accept Header
+- content negotiation: custom Content Type in request's Accept header
 - custom request header: custom version header added to request, containing version number
 
 ## CORS (Cross-Origin resource sharing)

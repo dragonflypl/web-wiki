@@ -169,11 +169,14 @@ No dependencies, works with any unit testing framework.
 - https://stackedit.io - Markdown Editor that uploads to Github
 
 #### For Bootstrap
+- http://bootsnipp.com/ - snippets/components/widgets (design elements, playground and code snippets)
 - http://www.bootply.com/ : The Bootstrap Playground
 - http://bootswatchr.com/ - Theme roller with live preview
 - http://pikock.github.io/bootstrap-magic/ - Yet another theme roller
-- http://bootswatch.com/ - Free themes for Bootstrap, some really interesting like Paper
-- http://themeforest.net/item/material-design-admin-template-landing/10713818 - awesome Bootstrap Theme that looks like Material Design + it features plenty of plugins
+- Themes
+ - http://bootswatch.com/ - Free themes for Bootstrap, some really interesting like Paper (http://bootswatch.com/paper/)
+ - http://startbootstrap.com/ - Another free themes (A collection of full, multi-page website themes and templates)
+ - http://themeforest.net/item/material-design-admin-template-landing/10713818 - awesome Bootstrap Theme that looks like Material Design + it features plenty of plugins
 ### FAQ
 - How to run subset of tests with protractor:
  - use --specs argument in command line tool

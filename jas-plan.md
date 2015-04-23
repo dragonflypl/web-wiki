@@ -1,3 +1,4 @@
+* Create app with angular 1.3.X
 * Create POC layout with angular material with
  * sidebar
  * content

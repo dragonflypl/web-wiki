@@ -1,4 +1,29 @@
-
+```
+<form novalidate name=completeForm>
+  <div class="form-group" pw-has-feedback>
+    <label for="email">Email address</label>
+    <input ng-model=completeFormData.email required type="email" class="form-control" name="email" id="email" placeholder="Enter email">
+    <pw-feedback-icon-valid field="completeForm.email"></pw-feedback-icon-valid>
+    <pw-feedback-icon-invalid field="completeForm.email" form="completeForm"></pw-feedback-icon-invalid>
+    <pw-error-help-block field="completeForm.email" form="completeForm">
+      <span ng-message="required">Email is required</span>
+      <span ng-message="email">Email is not valid</span>
+    </pw-error-help-block>
+  </div>
+  <div class="form-group" pw-has-feedback>
+    <label for="password">Password</label>
+    <input ng-model=completeFormData.password required type="password" class="form-control" name="password" id="password" placeholder="Password">
+    <pw-feedback-icon-valid field="completeForm.password"></pw-feedback-icon-valid>
+    <pw-feedback-icon-invalid field="completeForm.password" form="completeForm"></pw-feedback-icon-invalid>
+    <pw-error-help-block field="completeForm.password" form="completeForm">
+      <span ng-message="required">Password is required</span>
+    </pw-help-block>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+```
+  
+  
   appModule.directive('pwErrorHelpBlock', function() {
     return {
       restrict: 'E',

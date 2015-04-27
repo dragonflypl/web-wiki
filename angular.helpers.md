@@ -1,4 +1,4 @@
-```
+```html
 <form novalidate name=completeForm>
   <div class="form-group" pw-has-feedback>
     <label for="email">Email address</label>
@@ -23,7 +23,7 @@
 </form>
 ```
 
-```
+```javascript
   appModule.directive('pwErrorHelpBlock', function() {
     return {
       restrict: 'E',

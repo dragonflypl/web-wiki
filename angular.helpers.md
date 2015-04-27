@@ -22,8 +22,8 @@
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
 ```
-  
-  
+
+```
   appModule.directive('pwErrorHelpBlock', function() {
     return {
       restrict: 'E',
@@ -101,3 +101,4 @@
       template: '<i ng-show="(form.$submitted || field.$touched) && field.$invalid" class="fa fa-exclamation-triangle form-control-feedback"></i>'
     };
   })
+```

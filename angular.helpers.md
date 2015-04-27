@@ -1,3 +1,5 @@
+## Simplified validation + has-feedback + messages:
+
 ```html
 <form novalidate name=completeForm>
   <div class="form-group" pw-has-feedback>

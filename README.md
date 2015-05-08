@@ -182,6 +182,7 @@ No dependencies, works with any unit testing framework.
  - http://blog.javierusobiaga.com/stop-using-the-viewport-tag-until-you-know-ho
  - http://webdesign.tutsplus.com/articles/quick-tip-dont-forget-the-viewport-meta-tag--webdesign-5972
  - http://www.webdesignerdepot.com/2012/02/common-mobile-web-design-mistakes/
+ - http://www.quirksmode.org/mobile/metaviewport/
 - How to run subset of tests with protractor:
  - use --specs argument in command line tool
 - Where can I find web drivers & selenium standalone server

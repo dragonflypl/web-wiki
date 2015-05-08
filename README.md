@@ -178,6 +178,10 @@ No dependencies, works with any unit testing framework.
  - http://startbootstrap.com/ - Another free themes (A collection of full, multi-page website themes and templates)
  - http://themeforest.net/item/material-design-admin-template-landing/10713818 - awesome Bootstrap Theme that looks like Material Design + it features plenty of plugins
 ### FAQ
+- what is meta viewport and how to use it?
+ - http://blog.javierusobiaga.com/stop-using-the-viewport-tag-until-you-know-ho
+ - http://webdesign.tutsplus.com/articles/quick-tip-dont-forget-the-viewport-meta-tag--webdesign-5972
+ - http://www.webdesignerdepot.com/2012/02/common-mobile-web-design-mistakes/
 - How to run subset of tests with protractor:
  - use --specs argument in command line tool
 - Where can I find web drivers & selenium standalone server

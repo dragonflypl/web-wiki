@@ -29,3 +29,51 @@ app.controller('Ctrl', function ($scope, $translate) {
   };
 });
 ```
+
+### Automatic language detection
+
+Since version 2.0 there's also a method determinePreferredLanguage() on the $translateProvider, that uses this approach:
+
+It searches for values in the window.navigator object in the following properties (also in this order):
+
+- navigator.languages[0]
+- navigator.language
+- navigator.browserLanguage
+- navigator.systemLanguage
+- navigator.userLanguage
+
+If this is not what you need, use callback:
+
+``` javascript
+$translateProvider.determinePreferredLanguage(function () {
+  var preferredlangKey = '';
+  // some custom logic's going on in here
+  return preferredLangKey;
+});
+```
+
+### Language negotiation
+
+Very useful feature that makes relationships between language keys (eg navigator could return en_US, en_UK) and supported translation keys:
+
+``` javascript
+$translateProvider
+  .translations('en', { /* ... */ })
+  .translations('de', { /* ... */ })
+  .registerAvailableLanguageKeys(['en', 'de'], {
+    'en_US': 'en',
+    'en_UK': 'en',
+    'de_DE': 'de',
+    'de_CH': 'de'
+  })
+  .determinePreferredLanguage();
+```
+
+### Fallback languages
+
+``` javascript
+$translateProvider
+  .translations('de', { /* ... */ })
+  .translations('en', { /* ... */ })
+  .fallbackLanguage('en');
+```

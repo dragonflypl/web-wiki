@@ -98,5 +98,5 @@ $translateProvider.useStaticFilesLoader({
 $translateProvider.preferredLanguage('en');
 ```
 
-angular-translate will concatenate the given information to {{prefix}}{{langKey}}{{suffix}}. So this will load locale-en.json.
+angular-translate will concatenate the given information to ```{{prefix}}{{langKey}}{{suffix}}```. So this will load ```locale-en.json```.
 

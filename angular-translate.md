@@ -77,3 +77,9 @@ $translateProvider
   .translations('en', { /* ... */ })
   .fallbackLanguage('en');
 ```
+
+### Rembering language
+
+- enable ngCookies
+- install & enable ```angular-translate-storage-cookie``` or ```angular-translate-storage-local```
+- enable storage with ```$translateProvider.useCookieStorage();``` or ```$translateProvider.useLocalStorage();```

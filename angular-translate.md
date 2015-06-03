@@ -1,3 +1,5 @@
+## angular-translate cheat sheet
+
 ### Configuration
 
 ``` javascript
@@ -117,4 +119,6 @@ More on that in http://angular-translate.github.io/docs/#/guide/14_pluralization
 
 ### Error Handling
 
-Can be done with ```angular-translate-handler-log``` and ```$translateProvider.useMissingTranslationHandlerLog();```. Simple as that.
+Can be done with ```angular-translate-handler-log``` and ```$translateProvider.useMissingTranslationHandlerLog();```. Simple as that. Adding custom handlers is also possible.
+
+### Events

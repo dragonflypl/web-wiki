@@ -114,3 +114,7 @@ angular-translate uses ```MessageFormat``` via ```angular-translate-interpolatio
 However it is not that simple as ```MessageFormat``` uses different interpolation service. 
 
 More on that in http://angular-translate.github.io/docs/#/guide/14_pluralization
+
+### Error Handling
+
+Can be done with ```angular-translate-handler-log``` and ```$translateProvider.useMissingTranslationHandlerLog();```. Simple as that.

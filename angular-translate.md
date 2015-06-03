@@ -100,3 +100,17 @@ $translateProvider.preferredLanguage('en');
 
 angular-translate will concatenate the given information to ```{{prefix}}{{langKey}}{{suffix}}```. So this will load ```locale-en.json```.
 
+
+### Pluralization
+
+angular-translate uses ```MessageFormat``` via ```angular-translate-interpolation-messageformat```. To enable it use ```$translateProvider.useMessageFormatInterpolation();```. Once done, ```MessageFormat``` syntax can be used in translation values:
+
+```
+{
+  "LIKE_TEXT": "{GENDER, select, male{He} female{She} other{They}} liked this."
+}
+```
+
+However it is not that simple as ```MessageFormat``` uses different interpolation service. 
+
+More on that in http://angular-translate.github.io/docs/#/guide/14_pluralization

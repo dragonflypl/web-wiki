@@ -83,3 +83,20 @@ $translateProvider
 - enable ngCookies
 - install & enable ```angular-translate-storage-cookie``` or ```angular-translate-storage-local```
 - enable storage with ```$translateProvider.useCookieStorage();``` or ```$translateProvider.useLocalStorage();```
+
+### Loading translations asynchronously
+
+#### angular-translate-loader-static-files
+
+In its simplest form (on the server there is one file per language in common path) use:
+
+``` javascript
+$translateProvider.useStaticFilesLoader({
+    prefix: 'locale-',
+    suffix: '.json'
+});
+$translateProvider.preferredLanguage('en');
+```
+
+angular-translate will concatenate the given information to {{prefix}}{{langKey}}{{suffix}}. So this will load locale-en.json.
+

@@ -1,1 +1,2 @@
 - http://www.scribd.com/doc/30548590/Cognitive-Biases-A-Visual-Study-Guide
+- http://www.billyhollis.com/designprinciplelist/

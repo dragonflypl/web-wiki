@@ -122,6 +122,7 @@ Design
 
 ## AngularJS
 ### UI-Router
+* https://medium.com/opinionated-angularjs/advanced-routing-and-resolves-a2fcbf874a1c 
 * http://www.jvandemo.com/how-to-resolve-application-wide-resources-centrally-in-angularjs-with-ui-router/ - How to resolve application-wide resources centrally in AngularJS with ui-router
 * http://www.jvandemo.com/how-to-resolve-angularjs-resources-with-ui-router/ - How to force AngularJS resource resolution with ui-router
 

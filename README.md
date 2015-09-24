@@ -106,6 +106,7 @@ CSS
 
 Design
 ----
+* http://www.smashingmagazine.com/
 * http://design-seeds.com
 * https://color.adobe.com
 * https://www.google.com/fonts

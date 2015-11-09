@@ -122,6 +122,15 @@ Design
  * http://getbootstrap.com/
 
 ## AngularJS
+* http://yearofmoo-articles.github.io/angularjs-testing-article/app/#!/videos - video collection
+* Styleguides:
+ * http://toddmotto.com/opinionated-angular-js-styleguide-for-teams/ - Opinionated AngularJS styleguide for teams
+* Articles:
+ * http://blog.xebia.com/2014/08/08/extending-angularjs-services-with-the-decorate-method/ - decorators sample, decorating $q
+ * https://medium.com/opinionated-angularjs/techniques-for-authentication-in-angularjs-applications-7bbf0346acec - Techniques for authentication in AngularJS applications
+ * https://github.com/witoldsz/angular-http-auth - module for handling common auth stuff
+ * [The Top 10 Mistakes AngularJS Developers Make]
+
 ### UI-Router
 * https://medium.com/opinionated-angularjs/advanced-routing-and-resolves-a2fcbf874a1c 
 * http://www.jvandemo.com/how-to-resolve-application-wide-resources-centrally-in-angularjs-with-ui-router/ - How to resolve application-wide resources centrally in AngularJS with ui-router
@@ -132,16 +141,6 @@ Performance Tips
 * [Writing efficient CSS]
 * [Efficiently Rendering CSS]
 * [How Bad is DOM Interaction - Really]
-
-
-## AngularJS
-* http://yearofmoo-articles.github.io/angularjs-testing-article/app/#!/videos - video collection
-* Styleguides:
- * http://toddmotto.com/opinionated-angular-js-styleguide-for-teams/ - Opinionated AngularJS styleguide for teams
-* Articles:
- * https://medium.com/opinionated-angularjs/techniques-for-authentication-in-angularjs-applications-7bbf0346acec - Techniques for authentication in AngularJS applications
- * https://github.com/witoldsz/angular-http-auth - module for handling common auth stuff
- * [The Top 10 Mistakes AngularJS Developers Make]
 
 ## JavaScript testing ##
 * [Getting started with GhostDriver and PhantomJS]

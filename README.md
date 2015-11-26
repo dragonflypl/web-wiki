@@ -152,6 +152,7 @@ Performance Tips
    * karma-growl-reporter & karma-jasmine-html-reporter & karma-mocha-reporter (reporter with mocha style logging - to console - can be used with Jasmine framework)
 * Unit Testing
  * http://bardo.io/posts/testing-your-ui-router-configuration/ - testing states
+ * http://nikas.praninskas.com/angular/2014/09/27/unit-testing-ui-router-configuration/ - ui-router testing
 * Sinon
  * http://sinonjs.org/ - Standalone test spies, stubs and mocks for JavaScript.
 No dependencies, works with any unit testing framework.

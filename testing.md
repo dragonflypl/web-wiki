@@ -1,13 +1,13 @@
 # With ngMock
 
-- regiestering modules
- - with string
+1. regiestering modules
+
+* with string
 
 ``` javascript
 angular.mock.module('moduleName')
 ```
-
- - with function
+* with function
 
 ``` javascript
 angular.mock.module(function($provide) {
@@ -17,7 +17,7 @@ angular.mock.module(function($provide) {
 }
 ```
 
- - with object (registers services as values)
+* with object (registers services as values)
  
 ``` javascript
 angular.mock.module({

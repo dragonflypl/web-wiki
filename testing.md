@@ -31,8 +31,8 @@ $httpBackend has two methods to set up $http: when & expect (difference between 
 
 ``` javascript
 // also whenXXX exist, where XXX is method name eg. whenGET
-$httpBackend.when(method, url).respond(statusCode, data);
-$httpBackend.expect(method, url).respond(statusCode, data);
+$httpBackend.when(method, url, data, headers).respond(statusCode, data);
+$httpBackend.expect(method, url, data, headers).respond(statusCode, data);
 ```
 
 Instead of string URL , a method can be used that returns boolean if url matches the pattern.

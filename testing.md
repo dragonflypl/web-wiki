@@ -27,7 +27,7 @@ angular.mock.module({
 
 ## $http & $httpBackend
 
-$httpBackend has two methods to set up $http: when & expect (difference between both is that expect is strict eg. and order of calls is important):
+$httpBackend has two methods to set up $http: when & expect (difference between both is that expect is strict and used to make assertions about the calls eg. and order of calls is important and call must be done):
 
 ``` javascript
 // also whenXXX exist, where XXX is method name eg. whenGET

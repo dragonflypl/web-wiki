@@ -35,8 +35,19 @@ $httpBackend.when(method, url, data, headers).respond(statusCode, data);
 $httpBackend.expect(method, url, data, headers).respond(statusCode, data);
 ```
 
+To assert requests call:
+
+``` javascript
+afterEach($httpBackend.verifyNoOutstandingRequest);
+afterEach($httpBackend.verifyNoOutstandingExpectation);
+```
+
 Instead of string URL , a method can be used that returns boolean if url matches the pattern.
 
-```$httpBackend.flush``` must be called in order to execute all pending http requests.
+```$httpBackend.flush``` must be called in order to execute all pending http requests. It is a good practice to use it as (in order to aviod errors when programmer wants to flush something, but there's nothing to flush):
+
+```
+expect($httpBackend.flush).not.toThrow();
+```
 
 

@@ -50,4 +50,8 @@ Instead of string URL , a method can be used that returns boolean if url matches
 expect($httpBackend.flush).not.toThrow();
 ```
 
+## $controller service
+
+```$controller(controllerNameOrFactoryFnk, locals, bindings)``` enables controller creation. It can be created based on name or by function. 2nd argument is list of locals used with DI and 3rd argument is object with controller bindings (used with controllerAs approach)
+
 

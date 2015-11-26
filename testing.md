@@ -1,6 +1,6 @@
 # With ngMock
 
-1. regiestering modules
+## Regiestering modules
 
 * with string
 
@@ -24,3 +24,15 @@ angular.mock.module({
   'serviceName': {}
 })
 ```
+
+## $http & $httpBackend
+
+$httpBackend has two methods to set up $http: when & expect:
+
+```
+// also whenXXX exist, where XXX is method name eg. whenGET
+$httpBackend.when(method, url).respond(statusCode, data);
+$httpBackend.expect(method, url).respond(statusCode, data);
+```
+
+

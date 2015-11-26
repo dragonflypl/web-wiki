@@ -35,6 +35,8 @@ $httpBackend.when(method, url).respond(statusCode, data);
 $httpBackend.expect(method, url).respond(statusCode, data);
 ```
 
+Instead of string URL , a method can be used that returns boolean if url matches the pattern.
+
 ```$httpBackend.flush``` must be called in order to execute all pending http requests.
 
 

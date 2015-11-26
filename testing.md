@@ -35,4 +35,6 @@ $httpBackend.when(method, url).respond(statusCode, data);
 $httpBackend.expect(method, url).respond(statusCode, data);
 ```
 
+```$httpBackend.flush``` must be called in order to execute all pending http requests.
+
 

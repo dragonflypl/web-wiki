@@ -54,8 +54,9 @@ expect($httpBackend.flush).not.toThrow();
 
 ```$controller(controllerNameOrFactoryFnk, locals, bindings)``` enables controller creation. It can be created based on name or by function. 2nd argument is list of locals used with DI and 3rd argument is object with controller bindings (used with controllerAs approach)
 
-## $timeout
+## $timeout & $interval
 
-ngMock decorator. Two important methods:
-- ```$timeout.flush([delay])```
+ngMock decorators. Two important methods are:
+- ```$interval/$timeout.flush([delay])```
 - ```$timeout.verifyNoPendingTasks()```
+

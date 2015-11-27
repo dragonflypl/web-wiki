@@ -59,4 +59,3 @@ expect($httpBackend.flush).not.toThrow();
 ngMock decorator. Two important methods:
 - ```$timeout.flush([delay])```
 - ```$timeout.verifyNoPendingTasks()```
-- 

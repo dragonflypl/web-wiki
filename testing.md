@@ -66,6 +66,8 @@ TzDate is a mock of the Date type which has its timezone specified via construct
 
 The main purpose is to create Date-like instances with timezone fixed to the specified timezone offset, so that we can test code that depends on local timezone settings without dependency on the time zone settings of the machine where the code is running.
 
-## $exceptionHandler
+## $exceptionHandler & $log
 
-Serivce for handling exceptions. It's mock implementation has ```errors``` collection that stores handled exceptions. Configuration is made via ```exceptionHandlerProvider.mode```.
+```$exceptionHandler``` is serivce for handling exceptions. It's mock implementation has ```errors``` collection that stores handled exceptions. Configuration is made via ```exceptionHandlerProvider.mode```.
+
+

@@ -77,7 +77,7 @@ $log.info.logs
 $log.error.logs
 $log.debug.logs
 // ....
-```
+$log.reset(); // clears all arrays
 ```
 
 

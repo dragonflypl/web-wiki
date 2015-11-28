@@ -86,18 +86,18 @@ $log.assertEmpty() // throws error if any of log levels has value
 This version of ```$httpBackend``` allows to set up fake backend useful for e2e testing or **backendless development**. The difference between ```ngMock``` and ```ngMockE2E``` versions of ```$httpBackend``` is that later enables a mixture of real and fake HTTP calls with ```passThrough()```:
 
 ``` javascript
-  module.run(function ($httpBackend) {    
-      var data = ['tt0076759', 'tt0080684', 'tt0086190'];
-      var headers = {
-        headers: {'Content-Type': 'application/json'}
-      };
+module.run(function ($httpBackend) {    
+    var data = ['tt0076759', 'tt0080684', 'tt0086190'];
+    var headers = {
+      headers: {'Content-Type': 'application/json'}
+    };
 
-      // return the Popular Movie Ids
-      $httpBackend.whenGET(function(s) {
-        return (s.indexOf('popular') !== -1);
-      }).respond(200, data, headers);
+    // return the Popular Movie Ids
+    $httpBackend.whenGET(function(s) {
+      return (s.indexOf('popular') !== -1);
+    }).respond(200, data, headers);
 
-      //allow all other requests to run
-      $httpBackend.whenGET(/.*/).passThrough();
-  });
+    //allow all other requests to run
+    $httpBackend.whenGET(/.*/).passThrough();
+});
 ```

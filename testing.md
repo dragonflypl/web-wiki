@@ -70,7 +70,7 @@ The main purpose is to create Date-like instances with timezone fixed to the spe
 
 ```$exceptionHandler``` is serivce for handling exceptions. It's mock implementation has ```errors``` collection that stores handled exceptions. Configuration is made via ```exceptionHandlerProvider.mode```.
 
-```$log``` is service for logging. It's mock implementation has collection of logged messages per log level:
+```$log``` is service for logging. It's mock implementation has collection of logged messages per log level + a handful of useful methods:
 
 ``` javascript
 $log.info.logs
@@ -78,6 +78,7 @@ $log.error.logs
 $log.debug.logs
 // ....
 $log.reset(); // clears all arrays
+$log.assertEmpty() // throws error if any of log levels has value
 ```
 
 

@@ -83,5 +83,5 @@ $log.assertEmpty() // throws error if any of log levels has value
 
 ## ngMockE2E $httpBackend 
 
-This version of ```$httpBackend``` allows to set up fake backend useful for e2e testing or **backendless development**.
+This version of ```$httpBackend``` allows to set up fake backend useful for e2e testing or **backendless development**. The difference between ```ngMock``` and ```ngMockE2E``` versions of ```$httpBackend``` is that later enables a mixture of real and fake HTTP calls.
 

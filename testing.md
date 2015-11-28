@@ -81,4 +81,7 @@ $log.reset(); // clears all arrays
 $log.assertEmpty() // throws error if any of log levels has value
 ```
 
+## ngMockE2E $httpBackend 
+
+This version of ```$httpBackend``` allows to set up fake backend useful for e2e testing or **backendless development**.
 

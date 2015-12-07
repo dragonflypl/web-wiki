@@ -37,4 +37,6 @@ class DataAccessService implements IDataAccessService {
   }
   
 }
+
+angular.module('app).service("dataAccessService', DataAccessServcice);
 ```

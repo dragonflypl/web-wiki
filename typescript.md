@@ -12,3 +12,16 @@ tsd tool (https://www.npmjs.com/package/tsd) enables access to https://github.co
 npm install tsd -g
 tsd install <lib-name> --save
 ```
+
+
+## AngularJS & TypeScript
+
+### $resource service
+
+``` typescript
+
+interface IProduct {}
+
+interface IProductResource extends ng.resource.IResource<IProduct> {
+}
+```

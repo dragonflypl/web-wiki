@@ -22,6 +22,19 @@ tsd install <lib-name> --save
 
 interface IProduct {}
 
-interface IProductResource extends ng.resource.IResource<IProduct> {
+interface IProductResource extends ng.resource.IResource<IProduct> {}
+
+interface IDataAccessService {
+  getProductService(): ng.resource.IResourceClass<IProductResource>
+}
+
+class DataAccessService implements IDataAccessService {
+  static $inject = ['$resource'];
+  constructor(private $resource: ng.resource.IResourceService) {}
+  
+  getProductService(): ng.resource.IResourceClass<IProductResource> {
+    return this.$resource(url);
+  }
+  
 }
 ```

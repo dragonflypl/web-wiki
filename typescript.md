@@ -4,6 +4,10 @@
 
 To define task runner, use CTRL+SHIFT+B
 
+### tslint
+
+linting tool for TypeScript
+
 ### tsd tool
 
 tsd tool (https://www.npmjs.com/package/tsd) enables access to https://github.com/DefinitelyTyped/DefinitelyTyped repo via cli:

@@ -49,6 +49,7 @@ module app.controllers {
 
 ### $resource service
 
+Some example code (yet this one is much better and supports creating new instances: https://gist.github.com/scottmcarthur/9005953 ):
 ``` typescript
 module app.product1 {
 

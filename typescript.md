@@ -16,27 +16,67 @@ tsd install <lib-name> --save
 
 ## AngularJS & TypeScript
 
+### Building controllers
+
+``` typescript
+module app.controllers {
+
+    interface IProductDetailModel {
+        title: string;
+        product: app.product1.IProduct;
+    }
+
+    interface  IProductParams extends ng.route.IRouteParamsService {
+        productId: number
+    }
+
+    class ProductDetailCtrl implements IProductDetailModel {
+
+        title: string;
+        product: app.product1.IProduct;
+
+        constructor(private $routeParams: IProductParams, private dataAccessService: app.product1.IDataAccessService) {
+            this.title = "Title";
+            var obj:app.product1.IProduct = dataAccessService.getProductService().get();
+            obj.productName = "test";
+            obj.$save();
+        }
+    }
+
+    angular.module("app").controller("ProductDetailCtrl", ProductDetailCtrl);
+}
+```
+
 ### $resource service
 
 ``` typescript
+module app.product12 {
 
-interface IProduct {}
+    interface IProduct {
+        productName: string;
+    }
 
-interface IProductResource extends ng.resource.IResource<IProduct> {}
+    interface IProductResource
+        extends ng.resource.IResource<IProduct>, IProduct {
+    }
 
-interface IDataAccessService {
-  getProductService(): ng.resource.IResourceClass<IProductResource>
+    interface IDataAccessService {
+        getProductService() : ng.resource.IResourceClass<IProductResource>
+    }
+
+    class DataAccessService implements IDataAccessService {
+        constructor(private $resource:ng.resource.IResourceService) {
+        }
+
+        getProductService() : ng.resource.IResourceClass<IProductResource> {
+            return this.$resource("sampleUrl");
+        }
+    }
+
+    var dac = new DataAccessService(null);
+    var res : IProductResource = dac.getProductService().get();
+    res.productName = "test";
+
+    angular.module('app').service('dataAccessService', DataAccessService);
 }
-
-class DataAccessService implements IDataAccessService {
-  static $inject = ['$resource'];
-  constructor(private $resource: ng.resource.IResourceService) {}
-  
-  getProductService(): ng.resource.IResourceClass<IProductResource> {
-    return this.$resource(url);
-  }
-  
-}
-
-angular.module('app).service("dataAccessService', DataAccessServcice);
 ```

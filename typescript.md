@@ -50,31 +50,35 @@ module app.controllers {
 ### $resource service
 
 ``` typescript
-module app.product12 {
+module app.product1 {
 
-    interface IProduct {
+    export interface IProduct
+        extends ng.resource.IResource<IProduct> {
         productName: string;
     }
 
     interface IProductResource
-        extends ng.resource.IResource<IProduct>, IProduct {
+        extends ng.resource.IResourceClass<IProduct> {
     }
 
-    interface IDataAccessService {
-        getProductService() : ng.resource.IResourceClass<IProductResource>
+    export interface IDataAccessService {
+        getProductService(): IProductResource
     }
 
     class DataAccessService implements IDataAccessService {
+        static $inject = ['$resource'];
+
         constructor(private $resource:ng.resource.IResourceService) {
         }
 
-        getProductService() : ng.resource.IResourceClass<IProductResource> {
-            return this.$resource("sampleUrl");
+        getProductService():IProductResource {
+            return <IProductResource> this.$resource("sampleUrl");
         }
+
     }
 
     var dac = new DataAccessService(null);
-    var res : IProductResource = dac.getProductService().get();
+    var res = dac.getProductService().get();
     res.productName = "test";
 
     angular.module('app').service('dataAccessService', DataAccessService);

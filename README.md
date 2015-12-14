@@ -129,6 +129,7 @@ Design
 * Styleguides:
  * http://toddmotto.com/opinionated-angular-js-styleguide-for-teams/ - Opinionated AngularJS styleguide for teams
 * Articles:
+ * http://solutionoptimist.com/2013/10/07/enhance-angularjs-logging-using-decorators/ - Enhancing AngularJS Logging using Decorators
  * http://blog.xebia.com/2014/08/08/extending-angularjs-services-with-the-decorate-method/ - decorators sample, decorating $q
  * https://medium.com/opinionated-angularjs/techniques-for-authentication-in-angularjs-applications-7bbf0346acec - Techniques for authentication in AngularJS applications
  * https://github.com/witoldsz/angular-http-auth - module for handling common auth stuff

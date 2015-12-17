@@ -21,6 +21,8 @@ DOM --------------------> CSSOM -> Render Tree -> Layout -> Paint
 
 DOM and CSSOM is combined into Render Tree. Render Tree has only visible content.
 
+Layout step is responsible for setting width/height and position of the elements. Basically Box Model boxes are constructed.
+
 ##### CSS is render blocking!
 
 Partial CSSOM tree cannot be used to render the page. Browser blocks page rendering untill it receives and processes all CSS!

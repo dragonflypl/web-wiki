@@ -19,6 +19,10 @@ DOM --------------------> CSSOM -> Render Tree -> Layout -> Paint
  <-----> JavaScript  <------->
 ```
 
+##### CSS is render blocking!
+
+Partial CSSOM tree cannot be used to render the page. Browser blocks page rendering untill it receives and processes all CSS!
+
 ### Tips/Hints/Tricks:
 
 - **Incremental HTML delivery**:  browser constructs DOM incrementally, so this is first tip to speed up rendering of the page. Browser does not have to wait for all HTML to arrive to start processing and building DOM.

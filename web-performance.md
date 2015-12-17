@@ -42,5 +42,13 @@ When browser is fetching CSS & JS resources, next step it to parse CSS and const
  - execute/load scripts on load event (https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers.onload event)
  - async attribute on script tag (!) - it tells browser not to block DOM construction and execution of the script does not get blocked if CSSOM is not ready. So if script is available before CSSOM is ready, it still can be executed. **async does not block CRP!**
 
+> JavaScript can query and modify DOM and CSSOM.
+
+> JavaScript execution blocks on CSSOM.
+
+> JavaScript blocks DOM construction unless explicitly declared as async.
+
 ### Questions
 - why Paint events happend before last css finishes downloading (for page)
+- https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp#performance-patterns - **TODO**
+- https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path - **TODO**

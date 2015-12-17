@@ -19,6 +19,8 @@ DOM --------------------> CSSOM -> Render Tree -> Layout -> Paint
  <-----> JavaScript  <------->
 ```
 
+DOM and CSSOM is combined into Render Tree. Render Tree has only visible content.
+
 ##### CSS is render blocking!
 
 Partial CSSOM tree cannot be used to render the page. Browser blocks page rendering untill it receives and processes all CSS!

@@ -50,6 +50,7 @@ When browser is fetching CSS & JS resources, next step it to parse CSS and const
 
 ### Questions
 - why Paint events happend before last css finishes downloading (for page)
+- http://chimera.labs.oreilly.com/books/1230000000545 - book High Performance Browser Networking
 - https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-interactivity-with-javascript#parser-blocking-vs-asynchronous-javascript **TODO**
 - https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp#performance-patterns - **TODO**
 - https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path - **TODO**

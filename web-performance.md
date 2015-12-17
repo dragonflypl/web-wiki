@@ -9,7 +9,7 @@
 
 - Materials & links : https://www.udacity.com/wiki/ud884
 - Sample page to optimize: https://github.com/udacity/frontend-nanodegree-mobile-portfolio
-
+- Forum: https://discussions.udacity.com/c/standalone-courses/website-performance-optimization
 
 ### Questions
 - why Paint events happend before last css finishes downloading (for page)

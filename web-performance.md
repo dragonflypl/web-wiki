@@ -23,7 +23,7 @@ DOM and CSSOM is combined into Render Tree. Render Tree has only visible content
 
 Layout step is responsible for setting width/height and position of the elements. Basically Box Model boxes are constructed. It emits Layout events in Timeline - this is another area for improvement.
 
-##### CSS is render blocking!
+##### CSS is render blocking! And CSS is blocking JavaScript execution (!!!!)
 
 Partial CSSOM tree cannot be used to render the page. Browser blocks page rendering untill it receives and processes all CSS!
 
@@ -38,6 +38,7 @@ When browser is fetching CSS & JS resources, next step it to parse CSS and const
 - **Incremental HTML delivery**:  browser constructs DOM incrementally, so this is first tip to speed up rendering of the page. Browser does not have to wait for all HTML to arrive to start processing and building DOM.
 - HTML optimization: minify + compress + cache
 - **Render Blocking CSS**: when would the browser render the page? As sson as the browser has the CSS and builds CSSOM. To optimize CSS, you can split it into more files, each with different media query on ```<link>``` tag. And of course, minimize + compress + cache.
+- **Parser Blocking Scripts**: JavaScript is Parser Blocking. JavaScript can modify DOM & CSSOM. When browser encounters ```<script>``` tag, it pauses DOM construction. As browser waits for JavaScript & executes it, it slows down CRP.
 
 ### Questions
 - why Paint events happend before last css finishes downloading (for page)

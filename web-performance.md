@@ -21,7 +21,7 @@ DOM --------------------> CSSOM -> Render Tree -> Layout -> Paint
 
 DOM and CSSOM is combined into Render Tree. Render Tree has only visible content.
 
-Layout step is responsible for setting width/height and position of the elements. Basically Box Model boxes are constructed.
+Layout step is responsible for setting width/height and position of the elements. Basically Box Model boxes are constructed. It emits Layout events in Timeline - this is another area for improvement.
 
 ##### CSS is render blocking!
 

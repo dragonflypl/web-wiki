@@ -36,6 +36,7 @@ When browser is fetching CSS & JS resources, next step it to parse CSS and const
 ### Tips/Hints/Tricks:
 
 - **Incremental HTML delivery**:  browser constructs DOM incrementally, so this is first tip to speed up rendering of the page. Browser does not have to wait for all HTML to arrive to start processing and building DOM.
+- HTML optimization: minify + compress + cache
 
 ### Questions
 - why Paint events happend before last css finishes downloading (for page)

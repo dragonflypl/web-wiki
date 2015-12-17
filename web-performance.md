@@ -25,7 +25,7 @@ Partial CSSOM tree cannot be used to render the page. Browser blocks page render
 
 ##### Timeline events
 
-- Recalculate Style : converting CSS text response into CSSOM
+- Recalculate Style : converting CSS text response into CSSOM. This is potential place for optimization: check time spend on this event before & after CSS optimization.
 
 ### Tips/Hints/Tricks:
 

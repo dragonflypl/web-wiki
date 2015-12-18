@@ -48,6 +48,8 @@ When browser is fetching CSS & JS resources, next step it to parse CSS and const
 
 > JavaScript blocks DOM construction unless explicitly declared as async.
 
+- Preload Scanner: bloody browser's feature that scans DOM (without parsing) and seeks for resources (js/css) and preloads it, so that when parser gets to the link/script tag, the resource is already there.
+
 ### Questions
 - why Paint events happend before last css finishes downloading (for page)
 - http://chimera.labs.oreilly.com/books/1230000000545 - book High Performance Browser Networking

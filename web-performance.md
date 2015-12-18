@@ -5,9 +5,14 @@
 - https://devcenter.heroku.com/articles/increasing-application-performance-with-http-cache-headers
 
 ## Web Performance Optimization 
+### UDACITY Browser Rendering Optimization Course
+
+- https://www.udacity.com/course/browser-rendering-optimization--ud860 - course itself
+
 ### UDACITY Website Performance Optimization Course
 
 - Materials & links : https://www.udacity.com/wiki/ud884
+- Homework: https://github.com/cameronwp/udportfolio & https://www.udacity.com/course/viewer#!/c-ud884/l-1469569174/m-1566968609 - page to optimize
 - Sample page to optimize: https://github.com/udacity/frontend-nanodegree-mobile-portfolio
 - Forum: https://discussions.udacity.com/c/standalone-courses/website-performance-optimization
 

@@ -13,6 +13,7 @@
 
 - Materials & links : https://www.udacity.com/wiki/ud884
 - Homework: https://github.com/cameronwp/udportfolio & https://www.udacity.com/course/viewer#!/c-ud884/l-1469569174/m-1566968609 - page to optimize
+- Homework 2: https://github.com/udacity/frontend-nanodegree-mobile-portfolio !!
 - Sample page to optimize: https://github.com/udacity/frontend-nanodegree-mobile-portfolio
 - Forum: https://discussions.udacity.com/c/standalone-courses/website-performance-optimization
 

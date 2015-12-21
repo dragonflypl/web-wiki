@@ -37,7 +37,7 @@ When browser is fetching CSS & JS resources, next step it to parse CSS and const
 
 ##### Timeline events
 
-- Recalculate Style : converting CSS text response into CSSOM. This is potential place for optimization: check time spend on this event before & after CSS optimization.
+- Recalculate Style(s) : converting CSS text response into CSSOM. This is potential place for optimization: check time spend on this event before & after CSS optimization. But in another course, author claims that Recalculate Styles result is Render Tree.
 
 ### Tips/Hints/Tricks:
 

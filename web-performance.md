@@ -11,7 +11,21 @@
 
 #### Making single frame
 
+Typical frame: 
+
+```JavaScript (or CSS Animations or Web Animation API) -> Style -> Layout -> Paint -> Composite```. 
+
+Three possible paths are:
+
+1. All steps
+2. JavaScript -> Style -> Composite
+3. JavaScript -> Style -> Paint -> Composite (no geometry changes thus layout is not needed)
+
 **Rasterizer** - step that turns Vector into Raster i.e. turns Layout into pixels. Tools will show this as **Paint** event.
+
+**Composite Layers** - event for a process of handling layers. Finally when layers are done (this whole process is done on CPU) they will be uploaded to GPU and GPU will put them on the display.
+
+**Layout boundaries**: usually changes in layout affect whole document. But it is possible to optimize it, here's some in-depth info: http://wilsonpage.co.uk/introducing-layout-boundaries/ .
 
 ### UDACITY Website Performance Optimization Course
 

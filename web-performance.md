@@ -11,7 +11,7 @@
 
 #### Making single frame
 
-Rasterizer - step that turns Vector into Raster i.e. turns Layout into pixels.
+**Rasterizer** - step that turns Vector into Raster i.e. turns Layout into pixels. Tools will show this as **Paint** event.
 
 ### UDACITY Website Performance Optimization Course
 

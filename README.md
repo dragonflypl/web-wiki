@@ -186,6 +186,37 @@ No dependencies, works with any unit testing framework.
  - http://bootswatch.com/ - Free themes for Bootstrap, some really interesting like Paper (http://bootswatch.com/paper/)
  - http://startbootstrap.com/ - Another free themes (A collection of full, multi-page website themes and templates)
  - http://themeforest.net/item/material-design-admin-template-landing/10713818 - awesome Bootstrap Theme that looks like Material Design + it features plenty of plugins
+
+### Other
+
+- setting up cmd with custom init script: ```C:\Windows\System32\cmd.exe /k "C:\dev\nodevars.bat"``` + bat file:
+```
+@echo off
+
+rem Ensure this Node.js and npm are first in the PATH
+set PATH=%APPDATA%\npm;%~dp0;%PATH%;c:\ubs\dev\npm;C:\Program Files\nodejs
+
+setlocal enabledelayedexpansion
+pushd "%~dp0"
+
+rem Figure out the node version.
+set print_version=node.exe -p -e "process.versions.node + ' (' + process.arch + ')'"
+for /F "usebackq delims=" %%v in (`%print_version%`) do set version=%%v
+
+rem Print message.
+if exist npm.cmd (
+  echo Your environment has been set up for using Node.js !version! and npm.
+) else (
+  echo Your environment has been set up for using Node.js !version!.
+)
+
+popd
+endlocal
+
+rem If we're in the node.js directory, change to the user's home dir.
+if "%CD%\"=="%~dp0" cd /d "%HOMEDRIVE%%HOMEPATH%"
+```
+
 ### FAQ
 - what is meta viewport and how to use it?
  - http://blog.javierusobiaga.com/stop-using-the-viewport-tag-until-you-know-ho

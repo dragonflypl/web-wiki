@@ -9,6 +9,10 @@
 
 - https://www.udacity.com/course/browser-rendering-optimization--ud860 - course itself
 
+#### Making single frame
+
+Rasterizer - step that turns Vector into Raster i.e. turns Layout into pixels.
+
 ### UDACITY Website Performance Optimization Course
 
 - Materials & links : https://www.udacity.com/wiki/ud884

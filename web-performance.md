@@ -37,6 +37,8 @@ Three possible paths are:
 
 #### Resources
 
+**http://jankfree.org/** - blog on improving frame performance (many videos etc)
+
 **http://csstriggers.com** - cheatsheet of css properties what kind of events they trigger (layout/paint/composite)
 
 **Homework** - https://github.com/udacity/news-aggregator : this initial project performs really badly. Our goal is to fix it!

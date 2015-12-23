@@ -27,6 +27,8 @@ Three possible paths are:
 
 **Layout boundaries**: usually changes in layout affect whole document. But it is possible to optimize it, here's some in-depth info: http://wilsonpage.co.uk/introducing-layout-boundaries/ .
 
+#### http://csstriggers.com/ - cheatsheet of css properties what kind of events they trigger (layout/paint/composite)
+
 ### UDACITY Website Performance Optimization Course
 
 - Materials & links : https://www.udacity.com/wiki/ud884

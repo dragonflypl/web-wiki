@@ -29,7 +29,9 @@ Three possible paths are:
 
 #### Application Lifecycle from Rendering perspective
 
-**RAIL** - Response, Animations, Idle, Load
+**RAIL** - Response, Animations, Idle, Load:
+- L : should be preety quick, like 1s in total. After load is done, app is ini idle
+- I : idle blocks are usually 50ms long, but there can multiple idle blocks in one go. This is prefect place to do jobs that were defered during Load phase in order to make it quick (so called post-load idle state). It is crucial to keep post-load performed tasks to 50ms, as user actions can happen during post-load idle state.
 
 #### Resources
 

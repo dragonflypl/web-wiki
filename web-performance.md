@@ -27,6 +27,12 @@ Three possible paths are:
 
 **Layout boundaries**: usually changes in layout affect whole document. But it is possible to optimize it, here's some in-depth info: http://wilsonpage.co.uk/introducing-layout-boundaries/ .
 
+#### Application Lifecycle from Rendering perspective
+
+**RAIL** - Response, Animations, Idle, Load
+
+#### Resources
+
 **http://csstriggers.com** - cheatsheet of css properties what kind of events they trigger (layout/paint/composite)
 
 **Homework** - https://github.com/udacity/news-aggregator : this initial project performs really badly. Our goal is to fix it!

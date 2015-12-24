@@ -123,8 +123,18 @@ Design
 
 ## AngularJS
 * AngularJS & RequireJS
- * https://www.youtube.com/watch?v=4yulGISBF8w - nice presentation
- * https://github.com/ThomasBurleson/angularjs-Quizzler - fully fledged application
+
+---------------------------------------
+- https://www.youtube.com/watch?v=4yulGISBF8w - nice presentation
+- https://github.com/ThomasBurleson/angularjs-Quizzler - fully fledged application
+
+Key points from this presentation are:
+* AngularJS injects Instances whereas RequireJs injects Classes (References)
+* RequireJS manages: Load & Runtime Dependency
+* AngularJS manages: Construction & Module Depenedency
+
+---------------------------------------
+
 * http://yearofmoo-articles.github.io/angularjs-testing-article/app/#!/videos - video collection
 * Styleguides:
  * http://toddmotto.com/opinionated-angular-js-styleguide-for-teams/ - Opinionated AngularJS styleguide for teams

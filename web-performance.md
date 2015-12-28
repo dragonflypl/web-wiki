@@ -5,6 +5,9 @@
 - https://devcenter.heroku.com/articles/increasing-application-performance-with-http-cache-headers
 
 ## Web Performance Optimization 
+
+You can't optimize what you can't measure: https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp?hl=en - Navigation Timing API to the rescue. It has code snippet that does measurement.
+
 ### UDACITY Browser Rendering Optimization Course
 
 - https://www.udacity.com/course/browser-rendering-optimization--ud860 - course itself

@@ -43,6 +43,7 @@ Three possible paths are:
 - Migrate to WebWorkers
 - Use requestAnimationFrame
 - Avoid **Forced Synchronus Layout** - it occurs when you ask the browser to run Layout first inside JavaScript section and then recalculate styles & run Layout again. http://gent.ilcore.com/2011/03/how-not-to-trigger-layout-in-webkit.html
+- minimize repain & reflow: http://www.phpied.com/rendering-repaint-reflowrelayout-restyle/
 
 #### Optimizing CSS
 

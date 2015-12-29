@@ -40,7 +40,11 @@ Three possible paths are:
 
 #### Resources
 
-**http://www.sitepoint.com/bem-smacss-advice-from-developers/ & https://en.bem.info/method/key-concepts/** - **BEM** : Block Element Modifier. Approach to create clean/effective/portable components (with fast css selectors)
+**BEM** : Block Element Modifier. Approach to create clean/effective/portable components (with fast css selectors that are advantageous to performance):
+- http://www.sitepoint.com/bem-smacss-advice-from-developers
+- https://en.bem.info/method/key-concepts
+- http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/
+- http://mathayward.com/modular-css-with-sass-and-bem/
 
 **http://jankfree.org/** - blog on improving frame performance (many videos etc)
 

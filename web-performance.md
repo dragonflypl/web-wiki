@@ -43,6 +43,10 @@ Three possible paths are:
 - Migrate to WebWorkers
 - Use requestAnimationFrame
 - Avoid **Forced Synchronus Layout** - it occurs when you ask the browser to run Layout first inside JavaScript section and then recalculate styles & run Layout again. http://gent.ilcore.com/2011/03/how-not-to-trigger-layout-in-webkit.html
+- Prevent Layout Trashing:
+ - https://blog.idrsolutions.com/2014/08/beware-javascript-layout-thrashing/
+ - http://blog.fogcreek.com/we-spent-a-week-making-trello-boards-load-extremely-fast-heres-how-we-did-it/
+ - http://wilsonpage.co.uk/preventing-layout-thrashing/
 - minimize repain & reflow: http://www.phpied.com/rendering-repaint-reflowrelayout-restyle/
 
 #### Optimizing CSS

@@ -38,6 +38,31 @@ Three possible paths are:
 - Response (100ms): by response we mean that application reacts to users actions (simple change, like toggling a checkbox) within 100ms (study show this is a threshold of good UX)
 - Animate (16ms): if user's action requires animation we need 60fps
 
+#### Optimizing Javascript
+
+- Migrate to WebWorkers
+- Use requestAnimationFrame
+
+#### Optimizing CSS
+
+- use BEM (or other approach for fast CSS selectors)
+- measure selector performance
+
+``` javascript
+  var selectors = [
+    "div.box:not(:empty):last-of-type .title",
+    ".box--last > .title-container > .title",
+    ".box:nth-last-child(-n+1) .title"
+  ];
+
+  selectors.forEach(function(s) {
+    console.time(s);
+    var d = document.querySelector(s);
+    console.timeEnd(s);
+    console.log(d);
+  });
+```
+
 #### Resources
 
 **BEM** : Block Element Modifier. Approach to create clean/effective/portable components (with fast css selectors that are advantageous to performance):

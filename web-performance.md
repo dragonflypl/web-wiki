@@ -40,6 +40,8 @@ Three possible paths are:
 
 #### Resources
 
+**http://www.sitepoint.com/bem-smacss-advice-from-developers/ & https://en.bem.info/method/key-concepts/** - **BEM** : Block Element Modifier. Approach to create clean/effective/portable components (with fast css selectors)
+
 **http://jankfree.org/** - blog on improving frame performance (many videos etc)
 
 **http://csstriggers.com** - cheatsheet of css properties what kind of events they trigger (layout/paint/composite)

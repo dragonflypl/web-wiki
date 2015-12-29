@@ -6,8 +6,11 @@
 
 ## Web Performance Optimization 
 
-You can't optimize what you can't measure: https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp?hl=en - Navigation Timing API to the rescue. It has code snippet that does measurement. Another sample:
+You can't optimize what you can't measure.
 
+Navigation Timing API to the rescue. This link has code snippet that does measurement: https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp?hl=en .
+
+Another sample of User Timing API (http://www.html5rocks.com/en/tutorials/webperformance/usertiming/) :
 ``` javascript
 window.performance.mark("mark_end_resize");
 window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");

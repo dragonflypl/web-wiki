@@ -63,6 +63,9 @@ Three possible paths are:
   });
 ```
 
+- reduce number of affected elements : fewer changes to render tree
+- reduce selector complexity : use fewer tags & class names ti select elements
+
 #### Resources
 
 **BEM** : Block Element Modifier. Approach to create clean/effective/portable components (with fast css selectors that are advantageous to performance):

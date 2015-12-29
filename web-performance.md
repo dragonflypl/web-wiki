@@ -64,7 +64,7 @@ Three possible paths are:
 ```
 
 - reduce number of affected elements : fewer changes to render tree
-- reduce selector complexity : use fewer tags & class names ti select elements
+- reduce selector complexity : use fewer tags & class names to select elements
 
 #### Resources
 

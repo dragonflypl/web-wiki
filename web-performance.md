@@ -84,7 +84,9 @@ Three possible paths are:
 
 **http://csstriggers.com** - cheatsheet of css properties what kind of events they trigger (layout/paint/composite)
 
-**Homework** - https://github.com/udacity/news-aggregator : this initial project performs really badly. Our goal is to fix it!
+**Homework**:
+- https://github.com/udacity/news-aggregator : this initial project performs really badly. Our goal is to fix it!
+- https://github.com/udacity/pizza-perf - task from "Stop FSL" part - get rid of FSL
 
 ### UDACITY Website Performance Optimization Course
 

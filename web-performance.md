@@ -187,10 +187,9 @@ When browser is fetching CSS & JS resources, next step it to parse CSS and const
 - https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path - **TODO**
 - https://developers.google.com/speed/docs/insights/mobile - how to deliver a page that can be rendered in one second or less **TODO**
 
-
-
 ### Resources
 - http://www.html5rocks.com/en/tutorials/speed/scrolling/ (read)
 - https://aerotwist.com/blog/on-translate3d-and-layer-creation-hacks/ (read)
 - https://www.youtube.com/watch?v=mSK70FwUz2A - amazing junk optimization (paint & recalculate styles)
 - https://www.youtube.com/watch?v=NZelrwd_iRs - amazing video (shows benefits of using layers - with a help of translate vs positioning with TLRB). It also shows usage of **Composited render layer borders** flag - it shows every layer that is composited on GPU and draw boxes around it. Basically : Painting is happening on CPU (see paint rectangles), and Paiting is expensive.
+- http://www.html5rocks.com/en/mobile/optimization-and-performance/ (read)

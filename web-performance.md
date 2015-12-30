@@ -102,7 +102,7 @@ Promoting elements to layers can be beneficial for avoiding paint problems, espe
 
 #### Layers in depth
 
-I had some problems with understanding the concept. This one helped me: https://engineering.gosquared.com/optimising-60fps-everywhere-in-javascript - and in particular this quote 
+I had some problems with understanding the concept. This one helped me (awesome article): https://engineering.gosquared.com/optimising-60fps-everywhere-in-javascript - and in particular this quote 
 
 > In this example, the transform forces the browser to place each of the div elements into its own layer on the GPU before compositing them together for displaying on the screen. Now for each frame, the only work is in calculating the new position for each layer, which takes barely any computation power at all. There is no work done in recalculating the box shadows or background gradients – the pixels do not change within their layers, so there are no “Paint” events in the timeline, only “Composite Layers”.
 
@@ -193,3 +193,5 @@ When browser is fetching CSS & JS resources, next step it to parse CSS and const
 - https://www.youtube.com/watch?v=mSK70FwUz2A - amazing junk optimization (paint & recalculate styles)
 - https://www.youtube.com/watch?v=NZelrwd_iRs - amazing video (shows benefits of using layers - with a help of translate vs positioning with TLRB). It also shows usage of **Composited render layer borders** flag - it shows every layer that is composited on GPU and draw boxes around it. Basically : Painting is happening on CPU (see paint rectangles), and Paiting is expensive.
 - http://www.html5rocks.com/en/mobile/optimization-and-performance/ (read)
+- http://www.stubbornella.org/content/2009/03/27/reflows-repaints-css-performance-making-your-javascript-slow (read)
+- http://ariya.ofilabs.com/2013/06/optimizing-css3-for-gpu-compositing.html - article on layers and sample html with demo on how CSS affects performance if painting is needed

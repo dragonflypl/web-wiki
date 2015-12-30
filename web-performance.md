@@ -195,3 +195,4 @@ When browser is fetching CSS & JS resources, next step it to parse CSS and const
 - http://www.html5rocks.com/en/mobile/optimization-and-performance/ (read)
 - http://www.stubbornella.org/content/2009/03/27/reflows-repaints-css-performance-making-your-javascript-slow (read)
 - http://ariya.ofilabs.com/2013/06/optimizing-css3-for-gpu-compositing.html - article on layers and sample html with demo on how CSS affects performance if painting is needed
+- https://www.youtube.com/watch?v=gTHAn-nkQnI - Fluid User Interface with Hardware Acceleration (with cool sample pages that show power of GPU usage)

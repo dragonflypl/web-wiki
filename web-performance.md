@@ -191,3 +191,5 @@ When browser is fetching CSS & JS resources, next step it to parse CSS and const
 
 ### Resources
 - http://www.html5rocks.com/en/tutorials/speed/scrolling/ (read)
+- https://aerotwist.com/blog/on-translate3d-and-layer-creation-hacks/ (read)
+- https://www.youtube.com/watch?v=mSK70FwUz2A - amazing junk optimization (paint & recalculate styles)

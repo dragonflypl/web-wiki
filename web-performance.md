@@ -82,6 +82,28 @@ Three possible paths are:
 - reduce number of affected elements : fewer changes to render tree
 - reduce selector complexity : use fewer tags & class names to select elements
 
+#### Optimizing Layers
+
+There're two events associated with layers: 
+- Upadte Layer Tree - figures out layers for the page. It looks at the styles of the elements and decides the order of layers and how many layers are needed
+- Composite Layer - browser is putting the page together to send to the screen
+
+The more layers on the page, the more time will be spend on layer management & compositing. There's a trafeoff between reducing paint time and increasing layer management time.
+
+Layers are automated process by the browser and nomally nothing has to be done. However, if app is struggling with Paint issue, it's time to consider promoting element to its own layer.
+
+To promote element to its own composited layer use two hacks:
+- will-change: transform (or any other visual property)
+- transform: translateZ(0)
+
+Promoting elements to layers can be beneficial for avoiding paint problems, especially those related to movement or opacity changes. But changing visual property like text color or shadows, this trick won't help. Update layer tree should not be more than 2ms & 2ms for compositing.
+
+#### Layers in depth
+
+I had some problems with understanding the concept. This one helped me: https://engineering.gosquared.com/optimising-60fps-everywhere-in-javascript - and in particular this quote 
+
+> In this example, the transform forces the browser to place each of the div elements into its own layer on the GPU before compositing them together for displaying on the screen. Now for each frame, the only work is in calculating the new position for each layer, which takes barely any computation power at all. There is no work done in recalculating the box shadows or background gradients – the pixels do not change within their layers, so there are no “Paint” events in the timeline, only “Composite Layers”.
+
 #### Optimizing Animations
 - minimize number of Layout/Paint events
 

@@ -186,3 +186,8 @@ When browser is fetching CSS & JS resources, next step it to parse CSS and const
 - https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp#performance-patterns - **TODO**
 - https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path - **TODO**
 - https://developers.google.com/speed/docs/insights/mobile - how to deliver a page that can be rendered in one second or less **TODO**
+
+
+
+### Resources
+- http://www.html5rocks.com/en/tutorials/speed/scrolling/ (read)

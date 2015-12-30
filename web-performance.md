@@ -104,6 +104,8 @@ I had some problems with understanding the concept. This one helped me: https://
 
 > In this example, the transform forces the browser to place each of the div elements into its own layer on the GPU before compositing them together for displaying on the screen. Now for each frame, the only work is in calculating the new position for each layer, which takes barely any computation power at all. There is no work done in recalculating the box shadows or background gradients – the pixels do not change within their layers, so there are no “Paint” events in the timeline, only “Composite Layers”.
 
+> It’s worth noting also that if you’re aiming for smooth animations on mobile devices, you should aim wherever possible to only animate properties like transform and opacity that can be animated entirely using GPU acceleration. Mobile devices’ processors are, as a rule, pretty terrible in comparison to their GPUs. As a result it’s best to avoid animating width or height or other such properties. With a little extra effort it’s usually possible to (for example) animate an element’s transform inside another element with overflow: hidden to achieve the same effect as changing its dimensions.
+
 #### Optimizing Animations
 - minimize number of Layout/Paint events
 

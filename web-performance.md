@@ -59,6 +59,8 @@ Three possible paths are:
  - http://wilsonpage.co.uk/preventing-layout-thrashing/
 - minimize repain & reflow: http://www.phpied.com/rendering-repaint-reflowrelayout-restyle/
 
+> A repaint occurs when changes are made to an elements skin that changes visibility, but do not affect its layout (e.g. background color).
+
 #### Optimizing CSS
 
 - use BEM (or other approach for fast CSS selectors)

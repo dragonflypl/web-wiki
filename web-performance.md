@@ -52,7 +52,7 @@ Three possible paths are:
 
 - Migrate to WebWorkers
 - Use requestAnimationFrame
-- Avoid **Forced Synchronus Layout** - it occurs when you ask the browser to run Layout first inside JavaScript section and then recalculate styles & run Layout again. http://gent.ilcore.com/2011/03/how-not-to-trigger-layout-in-webkit.html
+- Avoid **Forced Synchronus Layout / Additional reflows** - it occurs when you ask the browser to run Layout first inside JavaScript section and then recalculate styles & run Layout again. http://gent.ilcore.com/2011/03/how-not-to-trigger-layout-in-webkit.html
 - Prevent Layout Trashing:
  - https://blog.idrsolutions.com/2014/08/beware-javascript-layout-thrashing/
  - http://blog.fogcreek.com/we-spent-a-week-making-trello-boards-load-extremely-fast-heres-how-we-did-it/
@@ -105,6 +105,11 @@ I had some problems with understanding the concept. This one helped me: https://
 > In this example, the transform forces the browser to place each of the div elements into its own layer on the GPU before compositing them together for displaying on the screen. Now for each frame, the only work is in calculating the new position for each layer, which takes barely any computation power at all. There is no work done in recalculating the box shadows or background gradients – the pixels do not change within their layers, so there are no “Paint” events in the timeline, only “Composite Layers”.
 
 > It’s worth noting also that if you’re aiming for smooth animations on mobile devices, you should aim wherever possible to only animate properties like transform and opacity that can be animated entirely using GPU acceleration. Mobile devices’ processors are, as a rule, pretty terrible in comparison to their GPUs. As a result it’s best to avoid animating width or height or other such properties. With a little extra effort it’s usually possible to (for example) animate an element’s transform inside another element with overflow: hidden to achieve the same effect as changing its dimensions.
+
+> For smooth animation, it’s important to ensure that any re-paints are as efficient as possible. This means avoiding animating any properties that are expensive for the browser to draw, such as box shadows or gradients. It’s also important to avoid animating elements which have these properties, or any that will cause a re-paint of regions heavy with these effects.
+
+On layers:
+- http://blog.atom.io/2014/07/02/moving-atom-to-react.html
 
 #### Optimizing Animations
 - minimize number of Layout/Paint events

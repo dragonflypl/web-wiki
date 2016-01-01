@@ -130,6 +130,8 @@ On layers:
 
 **http://csstriggers.com** - cheatsheet of css properties what kind of events they trigger (layout/paint/composite)
 
+**http://www.chromium.org/developers/design-documents/gpu-accelerated-compositing-in-chrome** - in depth description of GPU Accelerated Compositing in Chrome
+
 **Homework**:
 - https://github.com/udacity/news-aggregator : this initial project performs really badly. Our goal is to fix it!
 - https://github.com/udacity/pizza-perf - task from "Stop FSL" part - get rid of FSL

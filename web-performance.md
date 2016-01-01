@@ -198,3 +198,9 @@ When browser is fetching CSS & JS resources, next step it to parse CSS and const
 - http://www.stubbornella.org/content/2009/03/27/reflows-repaints-css-performance-making-your-javascript-slow (read)
 - http://ariya.ofilabs.com/2013/06/optimizing-css3-for-gpu-compositing.html - article on layers and sample html with demo on how CSS affects performance if painting is needed
 - https://www.youtube.com/watch?v=gTHAn-nkQnI - Fluid User Interface with Hardware Acceleration (with cool sample pages that show power of GPU usage)
+
+#### DevTools
+- DevTools docs: https://developers.google.com/web/tools/chrome-devtools/ 
+- Two Paint events, what's the difference:
+ - http://stackoverflow.com/questions/27392133/in-the-dev-tools-timeline-what-are-the-empty-green-rectangles/27426601
+ - https://developers.google.com/web/tools/chrome-devtools/profile/evaluate-performance/timeline-tool#clear-or-light-gray-frames

@@ -38,6 +38,8 @@ Three possible paths are:
 
 **Composite Layers** - event for a process of handling layers. Finally when layers are done (this whole process is done on CPU) they will be uploaded to GPU and GPU will put them on the display.
 
+> Nowadays, browsers take advantage of the GPU and draw some elements to separate “layers” using the CPU, and use the GPU to composite these layers together to give the final pixels drawn to the screen.
+
 **Layout boundaries**: usually changes in layout affect whole document. But it is possible to optimize it, here's some in-depth info: http://wilsonpage.co.uk/introducing-layout-boundaries/ .
 
 #### Application Lifecycle from Rendering perspective

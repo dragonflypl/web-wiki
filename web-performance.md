@@ -104,6 +104,9 @@ Promoting elements to layers can be beneficial for avoiding paint problems, espe
 
 #### Layers in depth
 
+- Stick to compositor-only properties and manage layer count
+ - hints: https://developers.google.com/web/fundamentals/performance/rendering/stick-to-compositor-only-properties-and-manage-layer-count?hl=en
+
 I had some problems with understanding the concept. This one helped me (awesome article): https://engineering.gosquared.com/optimising-60fps-everywhere-in-javascript - and in particular this quote 
 
 > In this example, the transform forces the browser to place each of the div elements into its own layer on the GPU before compositing them together for displaying on the screen. Now for each frame, the only work is in calculating the new position for each layer, which takes barely any computation power at all. There is no work done in recalculating the box shadows or background gradients – the pixels do not change within their layers, so there are no “Paint” events in the timeline, only “Composite Layers”.

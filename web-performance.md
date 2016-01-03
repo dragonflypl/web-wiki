@@ -156,6 +156,8 @@ On layers:
 
 #### Critical Rendering Path (CRP)
 
+https://developers.google.com/web/fundamentals/performance/critical-rendering-path/
+
 ```
 DOM --------------------> CSSOM -> Render Tree -> Layout -> Paint
  |                           |

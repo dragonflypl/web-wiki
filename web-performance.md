@@ -50,6 +50,9 @@ Three possible paths are:
 - Response (100ms): by response we mean that application reacts to users actions (simple change, like toggling a checkbox) within 100ms (study show this is a threshold of good UX)
 - Animate (16ms): if user's action requires animation we need 60fps
 
+More on RAIL:
+- https://developer.chrome.com/devsummit/speakers - plenty of videos from dev summit
+
 #### Optimizing Javascript
 
 - Migrate to WebWorkers
@@ -123,6 +126,7 @@ On layers:
 #### Optimizing Animations
 - minimize number of Layout/Paint events
 - http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/ - High Performance Animations
+- https://aerotwist.com/blog/flip-your-animations/ - FLIP (First Last Invert Play) - approach to playing animations
 
 #### Resources
 

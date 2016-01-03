@@ -121,6 +121,7 @@ On layers:
 
 #### Optimizing Animations
 - minimize number of Layout/Paint events
+- http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/ - High Performance Animations
 
 #### Resources
 

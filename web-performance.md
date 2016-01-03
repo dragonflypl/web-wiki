@@ -118,6 +118,7 @@ I had some problems with understanding the concept. This one helped me (awesome 
 On layers:
 - http://blog.atom.io/2014/07/02/moving-atom-to-react.html
 - http://www.html5rocks.com/en/tutorials/speed/layers/
+- http://ariya.blogspot.com/2011/07/fluid-animation-with-accelerated.html - fluid animation with accelerated composition
 
 #### Optimizing Animations
 - minimize number of Layout/Paint events

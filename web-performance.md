@@ -204,7 +204,10 @@ When browser is fetching CSS & JS resources, next step it to parse CSS and const
 - https://developers.google.com/speed/docs/insights/mobile - how to deliver a page that can be rendered in one second or less **TODO**
 
 ### Resources
-- debouncint scroll & mouse events for better animations: http://www.html5rocks.com/en/tutorials/speed/animations/
+- amazing demo of how to fix scrolling issues with background-image fixed pages:
+ - https://www.youtube.com/watch?v=QU1JAW5LRKU
+ - http://fourkitchens.com/blog/article/fix-scrolling-performance-css-will-change-property
+- - debouncint scroll & mouse events for better animations: http://www.html5rocks.com/en/tutorials/speed/animations/
 - https://aerotwist.com
  - https://aerotwist.com/blog/pixels-are-expensive/ 
 - http://www.html5rocks.com/en/tutorials/speed/scrolling/ (read)

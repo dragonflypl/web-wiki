@@ -92,7 +92,7 @@ More on RAIL:
 #### Optimizing Layers
 
 There're two events associated with layers: 
-- Upadte Layer Tree - figures out layers for the page. It looks at the styles of the elements and decides the order of layers and how many layers are needed
+- Update Layer Tree - browser's internal engine (on Chrome this is called Blink) figures out what layers a needed for the page. It looks at the styles of the elements and decides the order of layers and how many layers are needed
 - Composite Layer - browser is putting the page together to send to the screen
 
 The more layers on the page, the more time will be spend on layer management & compositing. There's a trafeoff between reducing paint time and increasing layer management time.

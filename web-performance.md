@@ -204,6 +204,7 @@ When browser is fetching CSS & JS resources, next step it to parse CSS and const
 - https://developers.google.com/speed/docs/insights/mobile - how to deliver a page that can be rendered in one second or less **TODO**
 
 ### Resources
+- https://developers.google.com/web/fundamentals/performance/rendering - complete section on rendering performance
 - amazing demo of how to fix scrolling issues with background-image fixed pages:
  - https://www.youtube.com/watch?v=QU1JAW5LRKU
  - http://fourkitchens.com/blog/article/fix-scrolling-performance-css-will-change-property
@@ -218,6 +219,7 @@ When browser is fetching CSS & JS resources, next step it to parse CSS and const
 - http://www.stubbornella.org/content/2009/03/27/reflows-repaints-css-performance-making-your-javascript-slow (read)
 - http://ariya.ofilabs.com/2013/06/optimizing-css3-for-gpu-compositing.html - article on layers and sample html with demo on how CSS affects performance if painting is needed
 - https://www.youtube.com/watch?v=gTHAn-nkQnI - Fluid User Interface with Hardware Acceleration (with cool sample pages that show power of GPU usage)
+- http://www.smashingmagazine.com/2012/11/writing-fast-memory-efficient-javascript/ - TODO!
 
 #### DevTools
 - DevTools docs: https://developers.google.com/web/tools/chrome-devtools/ 

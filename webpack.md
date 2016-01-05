@@ -200,3 +200,36 @@ Install loaders:
 ### Creating separate css bundle
 
 Default approach (previous steps) embeeds css inside javascript file and create style tags as runtime with css.
+
+To create css as separate bundle:
+
+1. Install ```extract-text-webpack-plugin``` plugin from npm.
+2. Update configuration:
+
+	```
+	var ExtractTextPlugin = require('extract-text-webpack-plugin'); // load plugin
+	
+	//enable plugin:
+	plugins: [
+		new ExtractTextPlugin("styles.css")
+	],
+	```
+	
+	and update loaders to use the plugin:
+	
+	```
+	module: {
+		loaders: [
+			{
+				test: /\.css$/,
+				exclude: /node_modules/,
+				loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+			},
+			{
+				test: /\.less$/,
+				exclude: /node_modules/,
+				loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
+			}
+		]
+	},
+	```

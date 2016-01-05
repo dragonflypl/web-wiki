@@ -150,3 +150,26 @@ Loaders are configured in config file under ```module.loaders``` section. For sa
 Install loaders:
 
 > install css-loader style-loader --save-dev
+
+1. Configure loadres:
+
+```
+module: {
+	loaders: [
+		{
+			test: /\.css$/,
+			exclude: /node_modules/,
+			loader: "style-loader!css-loader"
+		}
+	]
+},
+```
+
+2. Require css in js files (e.g. ```app.js```):
+
+```
+console.log('App loaded');
+
+require('../css/bootstrap.css');
+require('../css/app.css');
+```

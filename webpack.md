@@ -196,3 +196,7 @@ Install loaders:
 		]
 	},
 	```
+
+### Creating separate css bundle
+
+Default approach (previous steps) embeeds css inside javascript file and create style tags as runtime with css.

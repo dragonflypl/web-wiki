@@ -144,3 +144,9 @@ Loaders are configured in config file under ```module.loaders``` section. For sa
 		extensions: ['', '.js', '.es6']
 	}	
 ```
+
+## Adding CSS to build
+
+Install loaders:
+
+> install css-loader style-loader --save-dev

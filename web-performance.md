@@ -220,6 +220,14 @@ When browser is fetching CSS & JS resources, next step it to parse CSS and const
 - http://ariya.ofilabs.com/2013/06/optimizing-css3-for-gpu-compositing.html - article on layers and sample html with demo on how CSS affects performance if painting is needed
 - https://www.youtube.com/watch?v=gTHAn-nkQnI - Fluid User Interface with Hardware Acceleration (with cool sample pages that show power of GPU usage)
 - http://www.smashingmagazine.com/2012/11/writing-fast-memory-efficient-javascript/ - TODO!
+- https://medium.com/@luisvieira_gmr/html5-prefetch-1e54f6dda15d#.l6hf7tmn2 - HTML prefetch TODO!
+
+#### Online Tools 
+- http://checkgzipcompression.com/
+- http://loadtestertool.com/
+- http://richpreview.com/
+- http://www.imageoptimizer.net/
+- http://dataurl.net/
 
 #### DevTools
 - DevTools docs: https://developers.google.com/web/tools/chrome-devtools/ 

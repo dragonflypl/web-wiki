@@ -173,3 +173,26 @@ Install loaders:
 	require('../css/bootstrap.css');
 	require('../css/app.css');
 	```
+	
+3. Adding less (or any other css preprocessor support)
+
+	> npm install less-loader
+	
+	Next configure less-loader:
+	
+	```
+	module: {
+		loaders: [
+			{
+				test: /\.css$/,
+				exclude: /node_modules/,
+				loader: "style-loader!css-loader"
+			},
+			{
+				test: /\.less$/,
+				exclude: /node_modules/,
+				loader: "style-loader!css-loader!less-loader"
+			}
+		]
+	},
+	```

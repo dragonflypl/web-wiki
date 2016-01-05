@@ -28,6 +28,12 @@ Options:
 
 > webpack -watch
 
+### Minification & Source map generation
+
+Add ```-d``` for source maps & ```-p``` for minification:
+
+> webpack -d -p
+
 ## Prod vs Dev builds
 
 ```-p``` flag turns on production mode which uglifies js.

@@ -34,6 +34,28 @@ Options:
 
 > webpack -p
 
+### Config files per environment
+
+For instance create ```webpack-production.config.js```:
+
+```
+var WebpackStrip = require('strip-loader'); // additional loader for production build
+var devConfig = require('./webpack.config.js');
+var stripLoader = {
+	test: [/\.js$/, /\.es6$/],
+	exclude: /node_modules/,
+	loader: WebpackStrip.loader('console.log')
+}
+
+devConfig.module.loaders.push(stripLoader);
+
+module.exports = devConfig;
+```
+
+And use this config:
+
+> webpack --config webpack-production.config.js -p
+
 ## Loaders & Preloaders
 
 Loaders/preloader are used to teach webpack new tricks. By default webpack does not know to much - it can process/bundle/minimize files and that's all.

@@ -43,6 +43,36 @@ plugins: [
 devtool: "inline-source-map",
 ```
 
+## Making multiple bundles
+
+1. Make entry an array:
+
+```
+entry: {
+	about: './about_page.js',
+	home: './home_page.js',
+	contact: './contact_page.js'
+},
+```
+
+2. In output, change filename to include ```[name]``` token:
+
+```
+output: {
+	filename: "[name].js"
+},
+```
+
+3. Create common file for webpack code by creating ```CommonsChunkPlugin``` and enabling it:
+
+```
+var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('shared.js');
+
+plugins: [
+	commonsPlugin
+],
+```
+
 ## Prod vs Dev builds
 
 ```-p``` flag turns on production mode which uglifies js.

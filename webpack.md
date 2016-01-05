@@ -30,3 +30,8 @@ Options:
 
 ## Loaders
 
+Loaders are used to teach webpack new tricks. By default webpack does not know to much - it can process/bundle/minimize files and that's all.
+
+### Babel
+
+> npm install babel-core babel-loader --save-dev

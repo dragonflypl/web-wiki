@@ -28,6 +28,12 @@ Options:
 
 > webpack -watch
 
+## Prod vs Dev builds
+
+```-p``` flag turns on production mode which uglifies js.
+
+> webpack -p
+
 ## Loaders & Preloaders
 
 Loaders/preloader are used to teach webpack new tricks. By default webpack does not know to much - it can process/bundle/minimize files and that's all.

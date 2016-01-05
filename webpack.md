@@ -28,10 +28,46 @@ Options:
 
 > webpack -watch
 
-## Loaders
+## Loaders & Preloaders
 
-Loaders are used to teach webpack new tricks. By default webpack does not know to much - it can process/bundle/minimize files and that's all.
+Loaders/preloader are used to teach webpack new tricks. By default webpack does not know to much - it can process/bundle/minimize files and that's all.
+
+Loaders are configured in config file under ```module.loaders``` section. For sample check Babel.
+
+### Linting
+
+> npm install jshint jshint-loader --save-dev
+
+```
+	module: {
+		preLoaders: [
+			{
+				test: /\.js$/,
+				exclude: 'node_modules',
+				loader: 'jshint-loader'
+			}
+		]
+	},
+```
 
 ### Babel
 
 > npm install babel-core babel-loader --save-dev
+
+#### Configuration
+
+```
+	module: {
+		loaders: [
+			{
+				test: /\.es6$/,
+				exclude: /node_modules/,
+				loader: "babel-loader"
+			}
+		]
+	},
+	// additional config entry, not Babel related but required so that webpack resolves *.es6 files
+	resolve: {
+		extensions: ['', '.js', '.es6']
+	}	
+```

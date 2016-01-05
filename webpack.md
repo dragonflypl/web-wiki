@@ -34,6 +34,15 @@ Add ```-d``` for source maps & ```-p``` for minification:
 
 > webpack -d -p
 
+The same thing from config file:
+
+```
+plugins: [
+	new webpack.optimize.UglifyJsPlugin({minimize: true})
+],
+devtool: "inline-source-map",
+```
+
 ## Prod vs Dev builds
 
 ```-p``` flag turns on production mode which uglifies js.

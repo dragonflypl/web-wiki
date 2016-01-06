@@ -233,3 +233,5 @@ To create css as separate bundle:
 		]
 	},
 	```
+
+## Adding images & fonts to build

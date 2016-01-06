@@ -235,3 +235,19 @@ To create css as separate bundle:
 	```
 
 ## Adding images & fonts to build
+
+> npm install url-loader
+
+Then update loaders:
+
+```
+module: {
+	loaders: [
+		{
+			test: /\.(png|jpg)$/, 
+			exclude: /node_modules/,
+			loader: 'url-loader?limit=10000'
+		}
+	]
+},
+```

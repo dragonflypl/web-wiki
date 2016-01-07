@@ -244,7 +244,7 @@ Then update loaders:
 module: {
 	loaders: [
 		{
-			test: /\.(png|jpg)$/, 
+			test: /\.(png|jpg|ttf)$/, 
 			exclude: /node_modules/,
 			loader: 'url-loader?limit=10000'
 		}

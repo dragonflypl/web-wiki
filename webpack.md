@@ -251,3 +251,5 @@ module: {
 	]
 },
 ```
+
+## Connect Middleware

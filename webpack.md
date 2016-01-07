@@ -107,6 +107,39 @@ Loaders/preloader are used to teach webpack new tricks. By default webpack does 
 
 Loaders are configured in config file under ```module.loaders``` section. For sample check Babel.
 
+### Custom Loaders
+
+Create loader:
+
+```
+
+// file: loaders/strip.js
+var stripComments = require('strip-json-comments');
+
+module.exports = function(source) {
+  this.cacheable();
+
+  console.log('source', source);
+  console.log('strippedSource', stripComments(source));
+
+  return stripComments(source);
+}
+```
+
+and configure it:
+
+```
+module: {
+	loaders: [
+		{
+			test: /\.json$/,
+			exclude: /node_modules/,
+			loader: "json-loader!" + path.resolve('loaders/strip')
+		}
+	]
+},
+```
+
 ### Linting
 
 > npm install jshint jshint-loader --save-dev
@@ -253,3 +286,5 @@ module: {
 ```
 
 ## Connect Middleware
+
+Blabla bulshitl

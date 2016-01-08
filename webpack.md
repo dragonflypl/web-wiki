@@ -313,3 +313,7 @@ module: {
 ## Connect Middleware
 
 Blabla bulshitl
+
+## Webpack with Angular
+
+It requires to use ```require``` in order to pass around - and that's it.

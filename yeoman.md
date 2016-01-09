@@ -242,3 +242,17 @@ this.prompt([{
     //store: true - (implicit usage of storage API)
 },
 ```
+
+### Dependencies
+
+Installs can be executed with separate commands ```bower/npmInstall``` or together. ```skip-install``` can be used to configure based on yo argument ```--skip-install```:
+
+```
+install: function(){
+    //this.bowerInstall();
+    //this.npmInstall();
+    this.installDependencies({
+        skipInstall: this.options['skip-install']
+    });
+}
+```

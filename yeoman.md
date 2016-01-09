@@ -76,3 +76,10 @@ install: function(){
 end: function(){
 }
 ```
+
+### File context
+
+- Destination context - place where application is scaffolded (working directory or closest parent directory with .yo-rc.json file)
+- Template context - directory with template files, used for reading (source)
+
+Yeoman uses in-memory file system. Before anything is writen to disk, conflict resolution happens to ensure no accidential overrides.

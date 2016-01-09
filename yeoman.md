@@ -163,3 +163,20 @@ constructor: function(){
     this.appname = _.kebabCase(this.appname); // convert argument's value
 },
 ```
+
+### options
+
+```
+constructor: function(){
+    generators.Base.apply(this, arguments);
+    
+    this.option('includeutils', {
+       desc: 'Optionally includes Angular-UI Utils library.',
+       type: Boolean,
+       default: false 
+    });
+},
+```
+
+```yo yang PawcioApp --includeutils``` - argument & option usage (yang is generator name)
+```yo yang --help``` - prints help with options & arguments info

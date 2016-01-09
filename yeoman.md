@@ -140,3 +140,15 @@ bower: function(){
     this.fs.writeJSON('bower.json', bowerJson);
 },
 ```
+
+## User Interactions
+
+### yosay
+
+> npm install yosay chalk --save
+
+Use it to welcom message etc... :
+
+```
+this.log(yosay('Welcome to ' + chalk.yellow('YANG (Yet Another Angular)') + ' generator!'));
+```

@@ -256,3 +256,23 @@ install: function(){
     });
 }
 ```
+
+### Generator Composition
+
+It can be used to delegate work to other generators (```composeWith```). Sample will use ```generator-common```:
+
+```
+git: function(){
+    //this.copy('gitignore', '.gitignore');
+    this.composeWith('common', {
+       options: {
+           'skip-messages': true,
+           gitignore: true,
+           gitattributes: true,
+           jshintrc: false,
+           editorconfig: false,
+           'test-jshintrc': false
+       } 
+    });
+},
+```

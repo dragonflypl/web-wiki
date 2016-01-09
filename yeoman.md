@@ -83,3 +83,60 @@ end: function(){
 - Template context - directory with template files, used for reading (source)
 
 Yeoman uses in-memory file system. Before anything is writen to disk, conflict resolution happens to ensure no accidential overrides.
+
+## "Writing" API
+
+Here's API used in writing step:
+- copy files & directories
+
+```
+appStaticFiles: function(){
+    this.copy('_favicon.ico', 'src/favicon.ico');
+    this.directory('styles', 'src/styles');
+},
+```
+
+- templating with ```this.fs.copyTpl```
+
+```
+html: function(){
+    this.fs.copyTpl(
+        this.templatePath('_index.html'),
+        this.destinationPath('src/index.html'),
+        {
+            appname: 'My Cool App',
+            ngapp: 'myapp'
+        }
+    );
+}
+```
+
+- simple copy with ```this.fs.copy```
+
+```
+html: function(){
+    this.fs.copy(
+        this.templatePath('app/layout/_shell.html'),
+        this.destinationPath('src/app/layout/shell.html'));
+}
+```
+
+- dynamic files
+
+```
+bower: function(){
+    var bowerJson = {
+        name: 'my-app',
+        license: 'MIT',
+        dependencies: {}  
+    };
+    bowerJson.dependencies['angular'] = '~1.4.6';
+    bowerJson.dependencies['angular-bootstrap'] = '~0.13.4';
+    bowerJson.dependencies['angular-ui-router'] = '~0.2.15';
+    bowerJson.dependencies['bootstrap-css-only'] = '~3.3.5';
+    bowerJson.dependencies['lodash'] = '~3.10.1';
+    bowerJson.dependencies['moment'] = '~2.10.6';
+    bowerJson.dependencies['angular-ui-utils'] = '~3.0.0';
+    this.fs.writeJSON('bower.json', bowerJson);
+},
+```

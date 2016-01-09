@@ -152,3 +152,14 @@ Use it to welcom message etc... :
 ```
 this.log(yosay('Welcome to ' + chalk.yellow('YANG (Yet Another Angular)') + ' generator!'));
 ```
+
+### arguments
+
+```
+constructor: function(){
+    generators.Base.apply(this, arguments);
+    
+    this.argument('appname', { type: String, required: true }); // define argument
+    this.appname = _.kebabCase(this.appname); // convert argument's value
+},
+```

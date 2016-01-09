@@ -53,3 +53,26 @@ module.exports = generators.Base.extend({
     }
 });
 ```
+
+## Running context
+
+Predefined set of methods that are always executed in this order:
+
+```
+initializing: function(){
+},
+prompting: function(){
+},
+configuring: function(){
+},
+default: function(){
+},
+writing: function(){
+},
+conflicts: function(){
+},
+install: function(){
+},
+end: function(){
+}
+```

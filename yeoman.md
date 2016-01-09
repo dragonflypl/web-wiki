@@ -180,3 +180,47 @@ constructor: function(){
 
 ```yo yang PawcioApp --includeutils``` - argument & option usage (yang is generator name)
 ```yo yang --help``` - prints help with options & arguments info
+
+### prompts
+
+```
+var done = this.async(); // waiting for prompts to complete
+
+// define two prompts: 1) string 2) checkbox
+this.prompt([
+    {
+        type: 'input',
+        name: 'ngappname',
+        message: 'Angular App Name (ng-app)',
+        default: 'app'
+    },
+    {
+        type: 'checkbox',
+        name: 'jslibs',
+        message: 'Which JS libraries would you like to include?',
+        choices: [
+            {
+                name: 'lodash',
+                value: 'lodash',
+                checked: true
+            },
+            {
+                name: 'Moment.js',
+                value: 'momentjs',
+                checked: true
+            },
+            {
+                name: 'Angular-UI Utils',
+                value: 'angularuiutils',
+                checked: true
+            }
+        ]
+    }], function (answers) {
+        this.log(answers);
+        this.ngappname = answers.ngappname;
+        this.includeLodash = _.includes(answers.jslibs, 'lodash');
+        this.includeMoment = _.includes(answers.jslibs, 'momentjs');
+        this.includeAngularUIUtils = _.includes(answers.jslibs, 'angularuiutils');
+        done();
+}.bind(this));
+```

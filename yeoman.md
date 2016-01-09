@@ -224,3 +224,21 @@ this.prompt([
         done();
 }.bind(this));
 ```
+
+## Configuration & dependencies
+
+### Storage API with propmts
+
+Storage API enables to save previous answers for prompts (it can be used later when rerunning generator)
+
+```
+this.prompt([{
+    type: 'input',
+    name: 'ngappname',
+    message: 'Angular App Name (ng-app)',
+    //default: 'app' - default without storage API
+    // explicit usage of storage API
+    default: this.config.get('ngappname') || 'app'
+    //store: true - (implicit usage of storage API)
+},
+```

@@ -276,3 +276,44 @@ git: function(){
     });
 },
 ```
+
+## Building a sub-generator
+
+1. Proper folder structure: Create a folder for the sub-generator. Folder's name is the name of the sub-generator.
+2. Create ```index.js``` for the sub-generator. Write sub-generator like regular generator
+3. Call it with ```yo <generator-name>:<sub-generator-name> [params]```
+4. Add ```templates``` subfolder for templates, e.g. put here file template with placeholders:
+    ```
+    (function () {
+        'use strict';
+    
+        angular.module('<%= appName %>').controller('<%= ctrlName %>', <%= ctrlName %>);
+    
+        <%= ctrlName %>.$inject = [];
+    
+        /* @ngInject */
+        function <%= ctrlName %>() {
+            /* jshint validthis: true */
+            var vm = this;
+    
+            activate();
+    
+            ////////////////
+    
+            function activate() {}
+        }
+    })();
+    ```
+5. Adding options:
+```
+    constructor: function () {
+        generators.NamedBase.apply(this, arguments);
+        console.log('inside ngc sub-generator', this.name);
+        
+        this.option('view', {
+            desc: 'Determines if view is created along with controller',
+            type: Boolean,
+            default: false
+        });
+    },
+```

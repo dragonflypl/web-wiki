@@ -1,5 +1,14 @@
 # REST
 
+REST Constraints:
+- Client <-> Server
+- Stateless server: everything what is needed to process the request should be included in the request
+- Caching - let the client know how long data is good so the client does not have to go to the server all the time
+- Uniform Interface for RESTful interface has 4 pieces:
+ - Resources (nouns)
+ - Actions (HTTP verbs - GET/POST/PUT/...)
+ - HATEOAS - in each request we have a set hyperlinks that can be used to navigate with API
+
 ## Status Codes
 - POST: 201/400/500
 - GET/PUT/PATCH: 200/404/400/500
@@ -36,4 +45,80 @@ CORS must be enabled if RESTful API is not hosted with the client.
 
 <hr />
 
-> Written with [StackEdit](https://stackedit.io/).
+## Sample API
+
+### List
+
+- url: http://localhost:8000/api/books
+- demonstrates HATEOAS with links
+
+```
+[
+  {
+    "_id": "569653723dd819338a4016c5",
+    "title": "War and Peace",
+    "genre": "Historical Fiction",
+    "author": "Lev Nikolayevich Tolstoy",
+    "read": false,
+    "links": {
+      "self": "http:\/\/localhost:8000\/api\/books\/569653723dd819338a4016c5"
+    }
+  },
+  {
+    "_id": "569653723dd819338a4016c6",
+    "title": "Les Mis\u00e9rables",
+    "genre": "Historical Fiction",
+    "author": "Victor Hugo",
+    "read": false,
+    "links": {
+      "self": "http:\/\/localhost:8000\/api\/books\/569653723dd819338a4016c6"
+    }
+  }
+]
+```
+
+### GET by id
+
+- url: http://localhost:8000/api/books/569653723dd819338a4016c5
+
+```
+{
+  "_id": "569653723dd819338a4016c5",
+  "title": "War and Peace",
+  "genre": "Historical Fiction",
+  "author": "Lev Nikolayevich Tolstoy",
+  "read": false,
+  "links": {
+    "FilterByThisGenre": "http:\/\/localhost:8000\/api\/books\/?genre=Historical%20Fiction"
+  }
+}
+```
+
+### List with filter
+
+- url: http://localhost:8000/api/books/?genre=Historical%20Fiction
+
+```
+[
+  {
+    "_id": "569653723dd819338a4016c5",
+    "title": "War and Peace",
+    "genre": "Historical Fiction",
+    "author": "Lev Nikolayevich Tolstoy",
+    "read": false,
+    "links": {
+      "self": "http:\/\/localhost:8000\/api\/books\/569653723dd819338a4016c5"
+    }
+  },
+  {
+    "_id": "569653723dd819338a4016c6",
+    "title": "Les Mis\u00e9rables",
+    "genre": "Historical Fiction",
+    "author": "Victor Hugo",
+    "read": false,
+    "links": {
+      "self": "http:\/\/localhost:8000\/api\/books\/569653723dd819338a4016c6"
+    }
+  }
+]
+```

@@ -1,13 +1,19 @@
 # REST
 
-REST Constraints:
-- Client <-> Server
+## REST Constraints:
+
+- Client <-> Server - separation of client & server.
 - Stateless server: everything what is needed to process the request should be included in the request
 - Caching - let the client know how long data is good so the client does not have to go to the server all the time
-- Uniform Interface for RESTful interface has 4 pieces:
+- Uniform Interface (identical communication between all clients & servers) - for RESTful interface has 4 pieces:
  - Resources (nouns)
  - Actions (HTTP verbs - GET/POST/PUT/...)
  - HATEOAS - in each request we have a set hyperlinks that can be used to navigate with API
+- Layered Systems - client must no nothing about server dependencies on other systems
+
+Resources:
+- http://imasters.expert/rest-architecture-model-definition-constraints-benefits/
+- https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
 
 ## Status Codes
 - POST: 201/400/500

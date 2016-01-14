@@ -1,5 +1,13 @@
 # REST
 
+## REST Levels
+
+Depending on how RESTful your API is, there're four levels (Richardson's maturity level):
+- level 0 - wild wild west (no notion of resources, for instance returning html snippets for angular, pure RPC calls)
+- level 1 - adds notions of resources
+- level 2 - utilizes http verbs
+- level 3 - adds HATEOAS
+
 ## REST Constraints:
 
 - Client <-> Server - separation of client & server.

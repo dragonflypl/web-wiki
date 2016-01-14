@@ -11,7 +11,7 @@
  - HATEOAS - in each request we have a set hyperlinks that can be used to navigate with API
 - Layered Systems - client must no nothing about server dependencies on other systems
 
-Resources:
+Links:
 - http://imasters.expert/rest-architecture-model-definition-constraints-benefits/
 - https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
 - http://ruben.verborgh.org/blog/2012/08/24/rest-wheres-my-state/ - why RESTful applications are stateless (TODO!) - (for scaling)
@@ -143,3 +143,8 @@ Mechanism to prevent flooding the server with too many request from single clien
 ## Links
 
 - http://restful-api-design.readthedocs.org/en/latest/methods.html#patch-vs-put - Patch Vs Put
+- 
+## FAQ
+
+- plural vs singular resource names?
+ - According to google udacity course, it's recommended to use PLURAL form for each resource name

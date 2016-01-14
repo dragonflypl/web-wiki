@@ -14,6 +14,7 @@
 Resources:
 - http://imasters.expert/rest-architecture-model-definition-constraints-benefits/
 - https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
+- http://ruben.verborgh.org/blog/2012/08/24/rest-wheres-my-state/ - why RESTful applications are stateless (TODO!) - (for scaling)
 
 ## Status Codes
 - POST: 201/400/500

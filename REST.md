@@ -129,3 +129,7 @@ CORS must be enabled if RESTful API is not hosted with the client.
   }
 ]
 ```
+
+## Links
+
+- http://restful-api-design.readthedocs.org/en/latest/methods.html#patch-vs-put - Patch Vs Put

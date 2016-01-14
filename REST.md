@@ -50,6 +50,16 @@ Resources:
 ## CORS (Cross-Origin resource sharing)
 CORS must be enabled if RESTful API is not hosted with the client.
 
+## Rate Limiting
+
+Mechanism to prevent flooding the server with too many request from single client. 
+
+## Securing API
+
+- user/password with each request
+- user/password with exchange for token , and token used
+- OAuth (Google , FB etc.)
+
 <hr />
 
 ## Sample API

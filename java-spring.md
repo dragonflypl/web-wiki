@@ -1,10 +1,16 @@
-# Spring
+# Spring MVC 4
+
+## Container-less
+
+It means that web app is run without deploying the war file to standalone Tomcat. The application it rather run from inside itself. It means that application is still running in a container, but this container is embedded inside application using Tomcat / Jetty.
 
 ## Getting Started
 
 ### Eclipse STS
 
 Use Spring Starter Project , which is a flavour of Spring Boot. **Make sure to check Web** in the wizard. That's it! 
+
+### IntelliJ
 
 In IntelliJ use Spring Initializr project.
 

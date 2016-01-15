@@ -149,6 +149,13 @@ Mechanism to prevent flooding the server with too many request from single clien
 ]
 ```
 
+## Hypermedia in REST
+
+- HATEOAS
+- HAL is HATEOAS implementation
+- ALPS - applications can expose metadata profile that describes the application semantics using ALPS specification (Aplication Level Profile Semantics). ALPS describes resource attributes, related operations and their semantics
+- JSON Schema
+
 ## Links
 
 - http://restful-api-design.readthedocs.org/en/latest/methods.html#patch-vs-put - Patch Vs Put

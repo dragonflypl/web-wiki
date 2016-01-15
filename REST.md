@@ -42,6 +42,7 @@ Links:
 ## Shaping the data
 - inclusion of fields: simple solution with query string parameter that holds list of fields & ExpandoObject (C#)
 - collections inclusion
+- projections - e.g. in Spring Data REST there're named projections. eg http://api/people/1?projection=lite
 
 ## Caching
 - ETag: identifies version of the resource. Use it with:

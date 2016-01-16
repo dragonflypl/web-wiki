@@ -133,9 +133,11 @@ Configuration file that Maven looks for. pom file can be divided into 4 sections
 ## Folder structure
 
 Maven expects specyfic folder structure e.g. ```src/main/java``` - Maven compiles everything under this directory. Some Maven goals are:
-- mvn clean
-- mvn compile - produces ```target``` directory.
-- mvn package - produces jar file
+- mvn clean - clean target
+- mvn compile - produces ```target``` directory. Additionaly it copies resources like property files.
+- mvn package - runs compile/tests and produces jar file
+- mvn install - it runs package command and then install artifact in local repository
+- mvn deploy - runs install goal and deploys it into corporate repository (it is not used to deploy to app server!)
 
 Test code is put under ```src/test/java```.
 

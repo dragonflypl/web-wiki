@@ -10,6 +10,10 @@ It means that web app is run without deploying the war file to standalone Tomcat
 
 Use Spring Starter Project , which is a flavour of Spring Boot. **Make sure to check Web** in the wizard. That's it! 
 
+Generated project is barebones app - nothing is there (no controllers, views etc). To run it use Run As -> Spring Boot App.
+
+To add some content, create a file under src/main/webapp (like html file).
+
 ### IntelliJ
 
 In IntelliJ use Spring Initializr project.

@@ -106,3 +106,22 @@ In Spring-HATEOAS you can extend your resources from the ResourceSupport class. 
 - http://spring.io/guides/gs/rest-hateoas/ & https://spring.io/guides/gs/rest-service/ - REST samples
 - http://spring.io/guides/gs/maven - maven basics
 - http://spring.io/guides/gs/intellij-idea/ - importing projects into intellij
+- http://projects.spring.io/spring-boot/
+- http://spring.io/guides
+
+# Maven
+
+As a build tool:
+- produces one artifacts (jar/war)
+- help manage dependencies
+
+Also as a project mgmt tool:
+- can handle versioning 
+
+Why use maven:
+- repeatable build for all environments
+- handling transitive dependencies
+
+## Project object model - pom.xml
+
+Configuration file that Maven looks for.

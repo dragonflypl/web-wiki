@@ -66,6 +66,21 @@ By default, containerless app (embeded tomcat) does not server JSP files, so a f
   	}
   }
   ```
+  
+- to serve REST add @RestController:
+
+	```
+	@RestController
+	public class ServiceController {
+	
+		@RequestMapping("/service")
+		public Person getIt()
+		{
+			return new Person();
+		}
+		
+	}
+	```
 
 ### IntelliJ
 

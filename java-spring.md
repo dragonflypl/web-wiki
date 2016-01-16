@@ -137,6 +137,14 @@ Configuration file that Maven looks for. pom file can be divided into 4 sections
 	
 - repositories - where we wanna download artifacts from (e.g. dependencies)
 
+## Repositories
+
+Simply a HTTP location where dependencies are downloaded from.
+
+Default location is : http://repo.maven.apache.org/maven2 . 
+
+For corporate repositories Nexus can be used (default repo is also built on Nexus).
+
 ## Dependencies
 
 ### Versioning & SNAPSHOT
@@ -151,6 +159,25 @@ SNAPSHOT allows to push new code to a repository. With SNAPSHOT version, everyti
 - test - available only for testing
 - system - don't use
 - import - advanced
+
+## Plugins
+
+Plugins is used by Maven to build & package & etc apps.
+
+Goals are actuall plugins congigure in maven install (clean, compile, test, package). This goals are defined in super pom - which is inherited to effective pom.
+
+### Phases
+
+Goals are linked to phases.
+
+- Validation
+- Compile
+- Test
+- Package
+- Integration-Test
+- Verify
+- Install
+- Deploy
 
 ## Folder structure
 

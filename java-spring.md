@@ -127,7 +127,14 @@ Why use maven:
 Configuration file that Maven looks for. pom file can be divided into 4 sections:
 - project information (group id, artifact id, version, packaging)
 - dependencies 
-- build - what plugins we wanna used when building + directory structure (for overriding defaults like target)
+- build - what plugins we wanna used when building + directory structure (for overriding defaults like folder names ```target```):
+
+	```
+	<build>
+		<finalName>foo</finalName>
+	</build>
+	```
+	
 - repositories - where we wanna download artifacts from (e.g. dependencies)
 
 ## Folder structure
@@ -136,7 +143,7 @@ Maven expects specyfic folder structure e.g. ```src/main/java``` - Maven compile
 - mvn clean - clean target
 - mvn compile - produces ```target``` directory. Additionaly it copies resources like property files.
 - mvn package - runs compile/tests and produces jar file
-- mvn install - it runs package command and then install artifact in local repository
+- mvn install - it runs package command and then install artifact in local repository. Local repo is by default in users .m2/repository folder
 - mvn deploy - runs install goal and deploys it into corporate repository (it is not used to deploy to app server!)
 
 Test code is put under ```src/test/java```.

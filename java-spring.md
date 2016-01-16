@@ -125,3 +125,10 @@ Why use maven:
 ## Project object model - pom.xml
 
 Configuration file that Maven looks for.
+
+## Folder structure
+
+Maven expects specyfic folder structure e.g. ```src/main/java``` - Maven compiles everything under this directory. Some Maven goals are:
+- mvn clean
+- mvn compile - produces ```target``` directory
+- mvn package - produces jar file

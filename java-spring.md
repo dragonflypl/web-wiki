@@ -5,6 +5,12 @@
 - @Configuration - annotation to specify class that is used to configure application context
 - @EnableWebMvc - turns on configuration in conjunction with @Configuration annotation . Replaces servlet.config
 
+### Controller Annotations
+
+- @Controller
+- @RestController
+- @RequestMapping
+
 ## Container-less
 
 It means that web app is run without deploying the war file to standalone Tomcat. The application it rather run from inside itself. It means that application is still running in a container, but this container is embedded inside application using Tomcat / Jetty.
@@ -36,7 +42,7 @@ By default, containerless app (embeded tomcat) does not server JSP files, so a f
   spring.mvc.view.suffix: .jsp
   ```
   
-- jsp file (welcome.jsp) inside ```/WEB-INF/jsp/```
+- jsp file (welcome.jsp) inside ```/WEB-INF/jsp/```. Putting JSP files inside WEB-INF is recommended as it forces that the request will go through the application (file won't be served directly)
 
 ```
 <!DOCTYPE html>

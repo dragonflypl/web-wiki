@@ -1,5 +1,10 @@
 # Spring MVC 4
 
+## Annotations
+
+- @Configuration - annotation to specify class that is used to configure application context
+- @EnableWebMvc - turns on configuration in conjunction with @Configuration annotation . Replaces servlet.config
+
 ## Container-less
 
 It means that web app is run without deploying the war file to standalone Tomcat. The application it rather run from inside itself. It means that application is still running in a container, but this container is embedded inside application using Tomcat / Jetty.

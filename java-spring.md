@@ -12,7 +12,49 @@ Use Spring Starter Project , which is a flavour of Spring Boot. **Make sure to c
 
 Generated project is barebones app - nothing is there (no controllers, views etc). To run it use Run As -> Spring Boot App.
 
-To add some content, create a file under src/main/webapp (like html file).
+By default, containerless app (embeded tomcat) does not server JSP files, so a few steps need to be done (working samples can be found here: https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/spring-boot-sample-web-jsp )
+
+- add dependency to jasper & jstl
+
+  ```
+  <dependency>
+  	<groupId>org.apache.tomcat.embed</groupId>
+  	<artifactId>tomcat-embed-jasper</artifactId>
+  	<scope>provided</scope>
+  </dependency>
+  ```
+
+- modify application.properties
+
+  ```
+  spring.mvc.view.prefix: /WEB-INF/jsp/
+  spring.mvc.view.suffix: .jsp
+  ```
+  
+- jsp file (welcome.jsp) inside ```/WEB-INF/jsp/```
+
+```
+<!DOCTYPE html>
+<html>
+<body>
+	Hello World!
+</body>
+</html>
+
+```
+
+- add controller
+
+  ```
+  @Controller
+  public class WelcomeController {
+  
+  	@RequestMapping("/")
+  	public String welcome(Map<String, Object> model) {
+  		return "welcome";
+  	}
+  }
+  ```
 
 ### IntelliJ
 

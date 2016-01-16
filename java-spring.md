@@ -124,11 +124,19 @@ Why use maven:
 
 ## Project object model - pom.xml
 
-Configuration file that Maven looks for.
+Configuration file that Maven looks for. pom file can be divided into 4 sections:
+- project information (group id, artifact id, version, packaging)
+- dependencies 
+- build - what plugins we wanna used when building + directory structure (for overriding defaults like target)
+- repositories - where we wanna download artifacts from (e.g. dependencies)
 
 ## Folder structure
 
 Maven expects specyfic folder structure e.g. ```src/main/java``` - Maven compiles everything under this directory. Some Maven goals are:
 - mvn clean
-- mvn compile - produces ```target``` directory
+- mvn compile - produces ```target``` directory.
 - mvn package - produces jar file
+
+Test code is put under ```src/test/java```.
+
+Target directory is where all gets compiled to. Also content of this directory is packaged into jar/war.

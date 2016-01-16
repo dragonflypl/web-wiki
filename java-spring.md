@@ -137,6 +137,21 @@ Configuration file that Maven looks for. pom file can be divided into 4 sections
 	
 - repositories - where we wanna download artifacts from (e.g. dependencies)
 
+## Dependencies
+
+### Versioning & SNAPSHOT
+
+SNAPSHOT allows to push new code to a repository. With SNAPSHOT version, everytime a compile gole is executed, it is checked if the new code is available. It saves us from rereleasing versions for development. However never deploy to production with a SNAPSHOT.
+
+### Scopes
+
+- compile - default one. dependency will always be there
+- provided - dependency will be there available for compilation, but it won't be packaged
+- runtime - not needed for compilation but needed for execution
+- test - available only for testing
+- system - don't use
+- import - advanced
+
 ## Folder structure
 
 Maven expects specyfic folder structure e.g. ```src/main/java``` - Maven compiles everything under this directory. Some Maven goals are:

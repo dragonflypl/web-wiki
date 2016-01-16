@@ -103,3 +103,6 @@ In Spring-HATEOAS you can extend your resources from the ResourceSupport class. 
 
 # Links
 - http://zeroturnaround.com/rebellabs/beyond-rest-how-to-build-a-hateoas-api-in-java-with-spring-mvc-jersey-jax-rs-and-vraptor/ : comparsion of Spring MVC / Jersey / VRaptor
+- http://spring.io/guides/gs/rest-hateoas/
+- http://spring.io/guides/gs/maven - maven basics
+- http://spring.io/guides/gs/intellij-idea/ - importing projects into intellij

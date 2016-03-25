@@ -1,0 +1,3 @@
+- http://www.webtoolhub.com/tn561397-googlebot-last-access.aspx - find out last crawl time
+- https://www.google.com/webmasters/tools/ - tools
+- cache:www.mawo.olkusz.pl - another way to test what google last saw 

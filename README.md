@@ -99,6 +99,9 @@ Blogs
 
 CSS
 ----
+* rem units
+ * https://css-tricks.com/theres-more-to-the-css-rem-unit-than-font-sizing/ - Sample usage of rem's
+* https://css-tricks.com/the-lengths-of-css/ - Summary of all length units
 * vw & vh Units
  * https://web-design-weekly.com/2014/11/18/viewport-units-vw-vh-vmin-vmax/
  * http://snook.ca/archives/html_and_css/vm-vh-units

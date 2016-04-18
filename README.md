@@ -99,6 +99,8 @@ Blogs
 
 CSS
 ----
+* Typography
+ * http://typecast.com/blog/a-more-modern-scale-for-web-typography - modern scale of font-sizes for different devices
 * rem units
  * https://css-tricks.com/theres-more-to-the-css-rem-unit-than-font-sizing/ - Sample usage of rem's
 * https://css-tricks.com/the-lengths-of-css/ - Summary of all length units

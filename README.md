@@ -99,8 +99,17 @@ Blogs
 
 CSS
 ----
-* Typography
- * http://typecast.com/blog/a-more-modern-scale-for-web-typography - modern scale of font-sizes for different devices
+#### Typography
+
+* http://typecast.com/blog/a-more-modern-scale-for-web-typography - modern scale of font-sizes for different devices
+* https://css-tricks.com/snippets/css/using-font-face/ - Using font-face
+* Font's performance:
+ * "FOUT": Fighting Flash Of Unstyled Text: http://www.paulirish.com/2009/fighting-the-font-face-fout/
+ * Loading libraries:
+   * Web Fonts Loader & https://www.filamentgroup.com/lab/font-events.html & https://github.com/bramstein/fontfaceobserver & https://github.com/typekit/webfontloader & https://github.com/zachleat/fontfaceonload
+
+#### Other
+
 * rem units
  * https://css-tricks.com/theres-more-to-the-css-rem-unit-than-font-sizing/ - Sample usage of rem's
 * https://css-tricks.com/the-lengths-of-css/ - Summary of all length units

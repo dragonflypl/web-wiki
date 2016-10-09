@@ -41,4 +41,4 @@
  # Composition with components
  
  - one approach: components communicate via Bindings. Components are decoubled here
- - second approach: Tight coupled components
+ - second approach: Tight coupled components - via require (just like directives)

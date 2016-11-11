@@ -16,6 +16,12 @@ Usage
 
 # Courses
 
+## Twitter
+
+- https://app.pluralsight.com/library/courses/building-realtime-angular-controls/table-of-contents
+
+Shows how to use pubnub for twitter event stream (just a few lines of code)
+
 ## Socket.io
 
 - https://app.pluralsight.com/library/courses/socket-io-building-real-time-applications/table-of-contents

@@ -26,7 +26,8 @@ Explains:
 - how to write a chat
  - broadcast events to all sockets ```io.emit```
  - broadcast to all except myself ```socket.broadcast.emit```
- - broadcast to particular socket ```socket.broadcast.to```
+ - broadcast to particular socket ```socket.broadcast.to(socketid)```
+ - broadcast to group of sockets (channel) with ```socket.join(channel)``` & ```socket.broadcast.to(channel)```
  - disconnecting works (```disconnect``` event)
 
 

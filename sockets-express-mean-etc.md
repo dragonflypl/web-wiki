@@ -51,10 +51,21 @@ Explains:
 
 - shows how to generate express application
 - how to configure passport middleware
+- to to authenticate
+- how to consume API with tokens 
 
-## passport
+### how it works
 
-```npm install passport --save```
+On google:
+- create google application in google console (configure needed authorizations + url/redirects)
+- use generated ids from google console (authid etc) and use them in express
+- authenticate
+- store returned profile along with access token
+- use access token along with ```OAuth``` package to consume API
+
+### passport
+
+```npm install passport passport-twitter passport-google-auth OAuth --save```
 
 Plugging passport in:
 
@@ -66,11 +77,11 @@ app.use(session({secret: 'my-secret'}));
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.serializeuser(function(user, done) {
+passport.serializeUser(function(user, done) {
   done(null, user);
 });
 
-passport.deserializeuser(function(user, done) {
+passport.deserializeUser(function(user, done) {
   done(null, user);
 });
 

@@ -24,6 +24,11 @@ Usage
 
 # Courses
 
+## Express
+
+- https://app.pluralsight.com/library/courses/nodejs-express-web-applications/table-of-contents
+
+
 ## Twitter
 
 - https://app.pluralsight.com/library/courses/building-realtime-angular-controls/table-of-contents

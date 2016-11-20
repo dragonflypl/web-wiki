@@ -7,7 +7,7 @@
 - development web servers
  - api-mock
  - JSON Server: create fake database using static JSON. Starting JSON server creates web service that operates on JSON files
- - JSON Schema Faker: generates fake data
+ - JSON Schema Faker: generates fake data, uses faker.js / chance.js / randexp.js to create random data.
 
 ## small
 

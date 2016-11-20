@@ -1,5 +1,21 @@
 # Tools 
 
+## Mock HTTP
+
+- Nock: for nodejs, useful in unit tests, it hijackes all requests
+- switching to Static JSON
+- development web servers
+ - api-mock
+ - JSON Server: create fake database using static JSON. Starting JSON server creates web service that operates on JSON files
+ - JSON Schema Faker: generates fake data
+
+## small
+
+- chalk: console.log messages with colours
+- npm-run-all: tool to run scripts with npm scripts , e.g. in parallel
+
+## twitter streams
+
 - https://www.npmjs.com/package/twitter-stream-api
 - https://www.npmjs.com/package/node-tweet-stream
 
@@ -7,7 +23,11 @@
 
 - express / koa / hapi
 
-# express-generator
+## sharing work in progress
+
+- localtunnel , ngrok , now , surge
+
+## express-generator
 
 ```npm install -g express-generator```
 
@@ -15,7 +35,7 @@ Usage:
 
 ```express <nameOfTheProject>```
 
-# nodemon
+## nodemon
 
 Can be used to restart server whenever server side files change.
 
@@ -24,8 +44,6 @@ Can be used to restart server whenever server side files change.
 Usage:
 
 ```nodemon server.js```
-
-Usage
 
 # Courses
 

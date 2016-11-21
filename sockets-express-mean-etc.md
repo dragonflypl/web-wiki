@@ -1,5 +1,10 @@
 # Tools 
 
+## Hosting JavaScript app
+
+- surge (UI - Static files only)
+- heroku (API)
+
 ## Mock HTTP
 
 - Nock: for nodejs, useful in unit tests, it hijackes all requests

@@ -52,6 +52,10 @@ Usage:
 
 # Courses
 
+## Heroku
+
+- https://app.pluralsight.com/library/courses/javascript-development-environment/table-of-contents
+
 ## Express
 
 - https://app.pluralsight.com/library/courses/nodejs-express-web-applications/table-of-contents

@@ -1,6 +1,10 @@
 Web-wiki
 =========
 ## Awesome node / gulp
+#### eslint
+
+- https://github.com/dustinspecker/awesome-eslint
+
 #### gulp-print
 Prints names of files to the console so that you can see what's in the pipe
 #### gulp-bump

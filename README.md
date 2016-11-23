@@ -3,6 +3,7 @@ Web-wiki
 ## Awesome node / gulp
 #### eslint
 
+- https://www.npmjs.com/package/eslint-watch
 - https://github.com/dustinspecker/awesome-eslint
 
 #### gulp-print

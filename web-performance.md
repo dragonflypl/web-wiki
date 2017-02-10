@@ -204,6 +204,9 @@ When browser is fetching CSS & JS resources, next step it to parse CSS and const
 - https://developers.google.com/speed/docs/insights/mobile - how to deliver a page that can be rendered in one second or less **TODO**
 
 ### Resources
+- http://blog.gigaspaces.com/amazon-found-every-100ms-of-latency-cost-them-1-in-sales/
+- https://developers.google.com/web/showcase/
+ - https://developers.google.com/web/showcase/2016/aliexpress
 - https://developers.google.com/web/fundamentals/performance/rendering - complete section on rendering performance
 - amazing demo of how to fix scrolling issues with background-image fixed pages:
  - https://www.youtube.com/watch?v=QU1JAW5LRKU

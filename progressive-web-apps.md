@@ -13,3 +13,8 @@
 
 - WebSQL (obsolete)
 - IndexedDB
+
+### Caching
+
+- Appplication cache (fallback)
+- Cache API & Service Workers

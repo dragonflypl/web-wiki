@@ -18,3 +18,6 @@
 
 - Appplication cache (fallback)
 - Cache API & Service Workers
+
+- https://jakearchibald.com/2014/offline-cookbook/
+- https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/

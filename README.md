@@ -205,6 +205,8 @@ No dependencies, works with any unit testing framework.
 
 ### Online tools/resoures
 - https://stackedit.io - Markdown Editor that uploads to Github
+- http://gethead.info/ - essential guide to what can be found / put in ```head``` tag
+- http://realfavicongenerator.net/ - favicon / head / meta crossplatform generator. Generate it for all devices
 
 #### For Bootstrap
 - http://bootsnipp.com/ - snippets/components/widgets (design elements, playground and code snippets)

@@ -1,3 +1,40 @@
+# Why TypeScript
+
+- superset of JavaScript
+- types adds safety
+- faster development (with TypeScript aware editor give intellisense support & navigation)
+- compiles to ES5 / ES2015
+
+# Installing
+
+    npm install typescript -g
+
+# Syntax
+
+## Creating classes with private/public fields
+
+```
+class HelloWorldPublic {
+    constructor(public name: string) {}
+}
+
+console.log(new HelloWorldPublic("Pawel").name);
+
+class HelloWorldPrivate {
+    constructor(private name: string) {}
+    
+    sayHello() {
+        console.log(this.name);
+    }
+}
+
+console.log(new HelloWorldPrivate("Pawel").sayHello()); 
+```
+
+## 
+
+<hr  />
+
 ## VS Code
 
 ### Task Runner

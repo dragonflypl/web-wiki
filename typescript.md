@@ -31,7 +31,25 @@ class HelloWorldPrivate {
 console.log(new HelloWorldPrivate("Pawel").sayHello()); 
 ```
 
-## 
+## Types
+
+```
+let i:number;
+let s:string;
+let b:boolean;
+let a:any;
+let v:void;
+let arr: number[];
+let arr2: Array<number>;
+enum City { Brugia, Krakow, Olkusz };
+let destination: City = City.Olkusz;
+let implicit = "test";
+// implicit = 1; error
+function returnNumber() : number {
+    return i;
+}
+let tuple: [string, boolean] = ["test", true];
+```
 
 <hr  />
 

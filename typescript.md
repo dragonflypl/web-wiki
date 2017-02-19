@@ -104,7 +104,24 @@ function callWithManyParams(prefix: string, ...arr: string[]) {
 }
 callWithManyParams("-->", "1", "2", "3");
 ```
-- function overloads
+- function overloads: works by specifying multiple signatures of the function, and one implementation:
+
+```
+function overload(name: string) : void;
+function overload(name: string, type: boolean) : void;
+
+function overload(...args) {
+    if (args.length === 1) {
+        console.log("only name");
+    }
+    if (args.length === 2) {
+        console.log("both");
+    }
+}
+
+overload("Name only")
+overload("Name only", true);
+```
 
 <hr  />
 

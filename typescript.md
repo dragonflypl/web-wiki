@@ -45,11 +45,66 @@ enum City { Brugia, Krakow, Olkusz };
 let destination: City = City.Olkusz;
 let implicit = "test";
 // implicit = 1; error
-function returnNumber() : number {
-    return i;
+function returnNumber(test: boolean) {
+    return test ? "1" : 2;
 }
+
+let x = returnNumber(true);
 let tuple: [string, boolean] = ["test", true];
+console.log("Tuple 0 " + tuple[0]);
+console.log("Tuple 1 " + tuple[1]);
 ```
+
+## Functions
+
+Enhancments:
+- specify parameter & return types
+
+- function types
+
+```
+let predicate: (name: string) => boolean;
+predicate = function(name: string) {
+    return name.length > 0;
+}
+
+console.log(predicate("Test"));
+console.log(predicate(""));
+```
+
+- arrow functions
+- parameters
+ - optional parameters: in TypeScript all parameters are required by default. Add '?' to make is optional
+ 
+```
+function twoOrOne(one: string, two? : string) {
+    console.log(one, two);
+}
+// twoOrOne(); error - by default parameter is required
+twoOrOne("one");
+twoOrOne("one", "two");
+```
+
+ - default parameters
+ 
+```
+function withDefault(param: string = "This is default value") {
+    return param;
+}
+console.log(withDefault());
+console.log(withDefault(undefined));
+console.log(withDefault("Some value"));
+```
+
+ - rest operator
+ 
+```
+function callWithManyParams(prefix: string, ...arr: string[]) {
+    console.log(prefix + arr.join(','));
+}
+callWithManyParams("-->", "1", "2", "3");
+```
+- function overloads
 
 <hr  />
 

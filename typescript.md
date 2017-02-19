@@ -123,6 +123,43 @@ overload("Name only")
 overload("Name only", true);
 ```
 
+## Interfaces
+
+Interfaces work in a with "duck typing". As long as object has needed properties/methods, it's considered to implement interface.
+
+Defining interface:
+- interface can have optional fields (?)
+- interface can have fields
+- interface can have methods (syntax slightly different from arrow function)
+
+```
+interface Book {
+    author: string;
+    title: string;
+    rating?: number,
+    friendlyName() : string
+}
+
+class BigBook implements Book {
+    friendlyName(): string {
+        return `${this.title} by ${this.author}`;
+    }
+    constructor(public title: string, public author: string) {}
+}
+
+let book = new BigBook("Hary Porter", "Adam Mickiewicz");
+let bookImplicit : Book = {
+    title: "Dziady",
+    author: "Adam Mickiewicz",
+    friendlyName() {
+        return null;
+    }
+};
+
+console.log(book.friendlyName());
+console.log(bookImplicit.friendlyName());
+```
+
 <hr  />
 
 ## VS Code

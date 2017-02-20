@@ -234,6 +234,34 @@ By default, it's public. Other available are ```private``` & ```protected```.
 
 Access modifiers can be used on methods & properties & getters / setters.
 
+### Inheritance
+
+- is implemented with extends keyword.
+- super refers to parent type. In child constructor, you're required to call super constructor (```super()```). In methods super grants access to parent members (useful when overriding methods):
+
+```
+class Person {
+	constructor(protected val: string) {}
+
+	helloWorld() {
+		console.log(this.val + " Hello world!");
+	}
+}
+
+class SuperPerson extends Person {
+	constructor(val: string) {
+		super(val);
+	}
+
+	helloWorld() {
+		super.helloWorld();
+		console.log(this.val + " Hello world 2!");
+	}	
+}
+ 
+new SuperPerson("Pawel").helloWorld();
+```
+
 <hr  />
 
 ## VS Code

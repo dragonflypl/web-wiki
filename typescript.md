@@ -262,6 +262,43 @@ class SuperPerson extends Person {
 new SuperPerson("Pawel").helloWorld();
 ```
 
+### Abstract classes
+
+Implemented with ```abstract``` keyword on class/methods/getters&setters.
+
+```
+abstract class Person {
+	constructor(protected val: string) {}
+
+	abstract helloWorld() : void;
+
+	abstract get sth(): string;
+}
+
+class SuperPerson extends Person {
+	constructor(val: string) {
+		super(val);
+	}
+
+	helloWorld() {
+		console.log(this.val + " says Hello world!");
+	}	
+
+	get sth(): string {
+		return "sth";
+	}
+}
+
+let p = new SuperPerson("Pawel"); 
+p.helloWorld();
+console.log(p.sth);
+```
+
+### Class expressions
+
+Hmm, I can not find any use case for this feature. Basically whenever class is needed, a class expression can be used.
+
+
 <hr  />
 
 ## VS Code

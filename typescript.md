@@ -388,6 +388,36 @@ function LogAndReturn<T>(val: T) : T {
 console.log(LogAndReturn<number>(11));
 ```
 
+- generic interfaces / classes
+
+Nothing special here, syntax is typical:
+
+```
+interface Logger<T> {
+    log(item: T);
+}
+
+class StringLogger implements Logger<string> {
+    log(item: string) {
+        console.log(item);
+    }
+}
+
+class GenericLogger<T> implements Logger<T> {
+    log(item: T) {
+        console.log(item);
+    }
+}
+
+let genericLogger = new GenericLogger<number>();
+genericLogger.log(3);
+
+let stringLogger = new StringLogger();
+stringLogger.log("3");
+```
+
+
+
 <hr  />
 
 ## VS Code

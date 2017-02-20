@@ -416,7 +416,33 @@ let stringLogger = new StringLogger();
 stringLogger.log("3");
 ```
 
+- generic constraints
 
+Also nothing special, typical syntax:
+
+```
+interface Loggable {
+    name: string;
+}
+
+class LoggageImpl implements Loggable {
+    name: string;
+}
+
+interface Logger<T extends Loggable> {
+    log(item: T);
+}
+
+class GenericLogger<T extends Loggable> implements Logger<T> {
+    log(item: T) {
+        console.log(item);
+    }
+}
+
+let genericLogger = new GenericLogger<LoggageImpl>();
+genericLogger.log({ name: "some name"});
+genericLogger.log({}); // error
+```
 
 <hr  />
 

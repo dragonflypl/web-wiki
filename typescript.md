@@ -160,6 +160,80 @@ console.log(book.friendlyName());
 console.log(bookImplicit.friendlyName());
 ```
 
+### Interfaces for Function Types
+
+This is preety new. It is possible to define interface for a single function:
+
+```
+interface Predicate {
+    (text: string): boolean;
+}
+
+function filter(values: string[], predicate: Predicate) {
+    return values.filter(predicate);
+}
+
+let lengthPredicate: Predicate = x => x.length > 2;
+let copy : (text: string) => boolean = lengthPredicate; // difference between function interface and type function type
+
+console.log(filter(["a", "bb", "ccc"], lengthPredicate));
+console.log(filter(["a", "bb", "ccc"], copy));
+```
+
+### Extending interfaces
+
+Extending interface is done with ```extends``` keyword:
+
+```
+interface A {};
+interface B extends B{};
+```
+
+### Implementing interface
+
+Implementing is done via classes and ```implements``` keyword:
+
+```
+interface A {};
+class B implements A {};
+```
+
+## Classes
+
+Have following constructs:
+- getters/setters
+- (constructor) parameter properties
+- (class) static properties
+
+```
+class Person {
+
+	constructor(private val: string) {}
+
+	get name(): string {
+		return this.val;
+	}
+
+	set name(val): string {
+		this.val = val;
+	}	
+    
+    static friendlyName: string = "Homo sapiens";
+}
+
+let p = new Person("first test");
+console.log(p.name);
+p.name = "second test";
+console.log(p.name);
+console.log(Person.friendlyName);
+```
+
+### Access modifiers
+
+By default, it's public. Other available are ```private``` & ```protected```.
+
+Access modifiers can be used on methods & properties & getters / setters.
+
 <hr  />
 
 ## VS Code

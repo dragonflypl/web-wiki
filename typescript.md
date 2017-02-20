@@ -345,6 +345,19 @@ abstract class SeaCreature {
 export { AlienCreature, SeaCreature as SeaMonster };
 ```
 
+- default exports
+ 
+```
+// SomeClass.ts
+export default class SomeClass {}
+```
+
+and importing it (no need for '''{}```):
+
+```
+import whatEver from './SomeClass'
+```
+
 - imports
 
 ```

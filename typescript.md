@@ -352,7 +352,7 @@ export { AlienCreature, SeaCreature as SeaMonster };
 export default class SomeClass {}
 ```
 
-and importing it (no need for '''{}```):
+and importing it (no need for ```{}```):
 
 ```
 import whatEver from './SomeClass'

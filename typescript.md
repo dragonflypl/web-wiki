@@ -375,6 +375,18 @@ namespace Animals {
 }
 ```
 
+## Generics
+
+- generic functions
+
+```
+function LogAndReturn<T>(val: T) : T {
+	console.log(val);
+	return val;
+}
+
+console.log(LogAndReturn<number>(11));
+```
 
 <hr  />
 

@@ -298,6 +298,29 @@ console.log(p.sth);
 
 Hmm, I can not find any use case for this feature. Basically whenever class is needed, a class expression can be used.
 
+# Modules & Namespaces
+
+## Namespaces
+
+Are a means to organize code in namespace containers, good for small apps. They work in conjunction with ``` /// reference ....``` syntax that provides IDE support and instructs compiler to compile referenced files.
+
+In browser all js files must be included in order unless compiler ```--outFile``` flag is used, then output file will have all compiled code.
+
+```
+namespace Animals {
+
+	abstract class LivingCreature {
+		constructor(public name: string) {}
+	}
+
+	export class Human extends LivingCreature {}
+	export class Animal extends LivingCreature {}
+}
+
+let human = new Animals.Human("Pawel");
+
+console.log(human.name);
+```
 
 <hr  />
 

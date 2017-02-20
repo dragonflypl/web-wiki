@@ -322,6 +322,47 @@ let human = new Animals.Human("Pawel");
 console.log(human.name);
 ```
 
+## Modules
+
+TypeScript uses ES2015 modules syntax, and can compile to all known module formats (CommonJs, AMD, System, ES2015)
+
+- exports
+
+```
+export abstract class LivingCreature {
+	constructor(public name: string) {}
+};
+
+abstract class AlienCreature {
+	constructor(public name: string) {}
+};
+
+abstract class SeaCreature {
+	constructor(public name: string) {}
+};
+
+
+export { AlienCreature, SeaCreature as SeaMonster };
+```
+
+- imports
+
+```
+// change name
+import { LivingCreature as Creature } from './livingcreature';
+// import all
+import * as world from './livingcreature';
+// import with original name
+import { MyConst } from './reimport';
+
+namespace Animals {
+	export class Human extends Creature {}
+	export class Animal extends Creature {}
+	export class Kraken extends world.SeaMonster {}
+}
+```
+
+
 <hr  />
 
 ## VS Code

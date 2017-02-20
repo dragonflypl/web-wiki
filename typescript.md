@@ -9,6 +9,15 @@
 
     npm install typescript -g
 
+# Compiler options
+
+Some commonly used compiler options are:
+- --module
+- --target
+- --watch
+- --outDir
+- --noImplicitAny
+
 # Syntax
 
 ## Creating classes with private/public fields

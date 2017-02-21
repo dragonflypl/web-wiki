@@ -34,6 +34,18 @@ Compiler searches for tsconfig.json in current directory and if does not find on
 }
 ```
 
+# Type Definitions
+
+- design-time & compilation support
+- contain no implementation details
+- ```*.d.ts``` files
+
+Sources:
+- Definately Typed
+- npm packages
+- Typings
+
+
 # Syntax
 
 ## Creating classes with private/public fields

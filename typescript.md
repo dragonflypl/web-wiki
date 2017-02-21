@@ -18,6 +18,22 @@ Some commonly used compiler options are:
 - --outDir
 - --noImplicitAny
 
+## tsconfig.json
+
+Marks root of TypeScript settings.
+
+Compiler searches for tsconfig.json in current directory and if does not find one, looks up in directory tree.
+
+```
+{
+	"compilerOptions": {
+		"target": "es5",
+		"outDir": "js"
+	},
+	"files": []
+}
+```
+
 # Syntax
 
 ## Creating classes with private/public fields

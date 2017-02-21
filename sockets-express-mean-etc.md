@@ -12,7 +12,12 @@
 - development web servers
  - api-mock
  - JSON Server: create fake database using static JSON. Starting JSON server creates web service that operates on JSON files
+ - JSON Placeholder
  - JSON Schema Faker: generates fake data, uses faker.js / chance.js / randexp.js to create random data.
+
+Helpful tools: 
+- https://github.com/localtunnel/localtunnel for exposing local server to the internet. 
+- https://github.com/steve-jansen/json-proxy - proxy server
 
 ## small
 

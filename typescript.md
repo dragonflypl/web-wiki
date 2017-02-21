@@ -41,10 +41,19 @@ Compiler searches for tsconfig.json in current directory and if does not find on
 - ```*.d.ts``` files
 
 Sources:
-- Definately Typed
+- Definately Typed repo (manually download type definitions)
 - npm packages
-- Typings
+- ```typings``` and ```tsd``` (depracated) tools
 
+Use ```npm install typings --global```. It creates typings folder with downloaded type definitions. The only things that needs to be referenced in app is index.d.ts file:
+
+```
+/// <reference path="typings/index.d.ts" /> 
+
+import * as _ from "lodash";
+
+let snake: number = _.snakeCase("test test test"); // error, type invalid
+```
 
 # Syntax
 

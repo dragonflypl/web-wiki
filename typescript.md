@@ -55,6 +55,34 @@ import * as _ from "lodash";
 let snake: number = _.snakeCase("test test test"); // error, type invalid
 ```
 
+## Union types
+
+"Cool" feature? It specifies that variable can be one of N types. Only shared properties/methods of all types can be used:
+
+```
+class A {
+    propA: string;
+    propC: string;
+}
+
+class B {
+    propB: string;
+    propC: string;
+}
+
+let aOrB : A | B = null;
+
+callMe(aOrB);
+callMe(new A());
+callMe(new B());
+
+function callMe(something: A | B) {
+    if (something) {
+        console.log(something.propC); // propA & propB cause compile error
+    }
+}
+```
+
 # Syntax
 
 ## Spread and Rest operators

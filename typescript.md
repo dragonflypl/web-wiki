@@ -55,6 +55,30 @@ import * as _ from "lodash";
 let snake: number = _.snakeCase("test test test"); // error, type invalid
 ```
 
+## String literal types (in conjuctions with union types)
+
+Give a possibility to create a type that can hold only specific values:
+
+```
+let position: 'Junior' | 'Senior' | true | 1;
+
+position = true;
+position = 1;
+position = true;
+position = 'Senior';
+position = null;
+position = 'ups'; // compile error
+```
+
+## Type aliases
+
+Enable creation of new types in conjuction with Union/Intersection/String literal types:
+
+```
+type DummyType = 'Junior' | 'Senior' | true | 1;
+let position: DummyType;
+```
+
 ## Union types
 
 "Cool" feature? It specifies that variable can be one of N types. Only shared properties/methods of all types can be used:

@@ -83,6 +83,34 @@ function callMe(something: A | B) {
 }
 ```
 
+## Intersection types
+
+Similar to union, but type must have all interface from all declared types:
+
+```
+class A {
+    propA: string;
+}
+
+class B {
+    propB: string;
+}
+
+let aOrB : A & B = null;
+
+callMe({
+    propA: "valA",
+    propB: "valB"
+})
+
+function callMe(something: A & B) {
+    if (something) {
+        console.log(something.propA);
+        console.log(something.propB);
+    }
+}
+```
+
 # Syntax
 
 ## Spread and Rest operators

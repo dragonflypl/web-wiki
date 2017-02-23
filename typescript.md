@@ -57,6 +57,22 @@ let snake: number = _.snakeCase("test test test"); // error, type invalid
 
 # Syntax
 
+## Spread and Rest operators
+
+```
+function spread(a,b,c, ...rest) {
+    console.log(a,b,c, rest);
+}
+
+spread(...[1,2,3,4,5,6]);
+```
+
+outputs:
+
+```
+1 2 3 [ 4, 5, 6 ]
+```
+
 ## Destructuring assignment
 
 ### Objects
@@ -78,6 +94,24 @@ outputs:
 
 	first last
 	first last
+
+
+### Objects and parameters
+
+Please note the type of the function parameter. It is a type of object being passed. Types of destructured properties are infered.
+
+```
+class Person {
+    constructor(public firstName: string, public lastName: string) {}
+}
+
+function printFirstAndLast({firstName, lastName}: Person)  {
+    console.log(firstName)
+    console.log(lastName)
+}
+
+printFirstAndLast(new Person("Pawel", "Wu"))
+```
 
 ### Arrays
 

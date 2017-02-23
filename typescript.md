@@ -168,6 +168,29 @@ console.log(c.fnkA());
 console.log(c.fnkB());
 ```
 
+## Polimorphic this
+
+TypeScript has polimorphic this. That means that methods can return ```this``` type, that is different dependendin on the context.
+
+This enables writing cool fluent API:
+
+```
+class A {
+    methodA(): this {
+        return this;
+    }
+}
+
+class B extends A {
+    methodB(): this {
+        return this;
+    }
+}
+
+let objB = new B();
+objB.methodA().methodB();
+```
+
 # Syntax
 
 ## Spread and Rest operators

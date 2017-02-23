@@ -111,6 +111,39 @@ function callMe(something: A & B) {
 }
 ```
 
+### Mixins
+
+What is mixing? It is an implementation of intersection type :D
+
+Mixins are classes whose is added to another class (A & B are mixins):
+
+```
+class A {
+    fnkA(): string {
+        return "A";
+    }
+}
+
+class B {
+    fnkB(): string {
+        return "B";
+    }
+}
+
+class ClassC implements A, B {
+    fnkA: () => string;
+    fnkB: () =>string;
+}
+
+// mixin method would do sth like this:
+ClassC.prototype.fnkA = A.prototype.fnkA;
+ClassC.prototype.fnkB = B.prototype.fnkB;
+
+const c = new ClassC();
+console.log(c.fnkA());
+console.log(c.fnkB());
+```
+
 # Syntax
 
 ## Spread and Rest operators

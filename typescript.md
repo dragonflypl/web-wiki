@@ -57,6 +57,53 @@ let snake: number = _.snakeCase("test test test"); // error, type invalid
 
 # Syntax
 
+## Destructuring assignment
+
+### Objects
+
+```
+let obj = {
+    firstName: "first",
+    lastName: "last"
+}
+
+let { firstName, lastName } = obj;
+let { firstName: customVarName1, lastName: customVarName2 } = obj;
+
+console.log(firstName, lastName);
+console.log(customVarName1, customVarName2);
+```
+
+outputs:
+
+	first last
+	first last
+
+### Arrays
+
+```
+let [first,second] = [0,1];
+console.log(first)
+console.log(second)
+```
+
+### Parameters & arrays
+
+```
+function takeFirstAndRest([first, ...rest]: string[]) {
+	console.log(first);
+	console.log(rest);
+}
+
+takeFirstAndRest([1,2,3,4,5]);
+```
+
+outputs:
+
+	1
+	[ 2, 3, 4 ]
+
+
 ## Creating classes with private/public fields
 
 ```
@@ -85,7 +132,7 @@ let s:string;
 let b:boolean;
 let a:any;
 let v:void;
-let arr: number[];
+let arr: number[];	
 let arr2: Array<number>;
 enum City { Brugia, Krakow, Olkusz };
 let destination: City = City.Olkusz;

@@ -168,6 +168,30 @@ console.log(c.fnkA());
 console.log(c.fnkB());
 ```
 
+## Declaration merging
+
+If typescript sees two declarations of the same type, it compines them (it does not work for classes though). That is one use case.
+
+Second is to augment/extend module. It is useful for 3rd party modules, when you need to, for instance, extend interface.
+
+## Typeguards
+
+Apart from JavaScript type check ```typeof``` and ```instanceof``` operators that can be used with primitive types & classes, we need a means to check custom types that TypeScript can create / check (like interfaces, union types etc). This is where custom typeguards can be used. Special syntax includes ```param is X``` as return type and casting parameter to type we want to check:
+
+```
+interface A {
+    methodA(): this;
+}
+
+function isA(param: any) : param is A {    
+    return (<A>param).methodA !== undefined;
+}
+
+console.log(isA("test"));
+console.log(isA({}));
+console.log(isA({ methodA() { return this;} }));
+```
+
 ## Polimorphic this
 
 TypeScript has polimorphic this. That means that methods can return ```this``` type, that is different dependendin on the context.

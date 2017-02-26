@@ -781,6 +781,46 @@ result.then((result: boolean ) => {
 
 <hr  />
 
+# Async code
+
+TypeScript adds nothing to ES2015, but it supports async/await. Just a reminder how to use it:
+
+```
+async function doAsyncWork() {
+    let firstTask =  fnk1();
+    console.log("first task schedules");
+    let secondTask = fnk2();
+    console.log("second task schedules");
+    let bothDone = await Promise.all([firstTask, secondTask]);
+    console.log("both tasks done!"); 
+    return bothDone;
+
+    function fnk1() {
+        return new Promise(resolve => {
+            console.log("staring 1");
+            setTimeout(() => {
+                console.log("done 1");
+                resolve("done 1");
+            }, 3000);
+        })
+    }
+
+    function fnk2() {
+        return new Promise(resolve => {
+            console.log("staring 2");
+            setTimeout(() => {
+                console.log("done 2");
+                resolve("done 2");
+            }, 2000);
+        })
+    }
+}
+
+let asyncWorkResult = doAsyncWork();
+console.log('Moving on');
+asyncWorkResult.then(result => console.log(result));
+```
+
 ## VS Code
 
 ### Task Runner

@@ -765,6 +765,20 @@ genericLogger.log({ name: "some name"});
 genericLogger.log({}); // error
 ```
 
+### Generic Promise
+
+ES6 Promise has type definition that is generic and enables specifying resolve type:
+
+```
+let result : Promise<boolean> = new Promise((resolve) => {
+    resolve("Hi There");
+})
+
+result.then((result: boolean ) => {
+    console.log(result);
+})
+```
+
 <hr  />
 
 ## VS Code

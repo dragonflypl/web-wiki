@@ -585,6 +585,40 @@ console.log(p.sth);
 
 Hmm, I can not find any use case for this feature. Basically whenever class is needed, a class expression can be used.
 
+# Decorators
+
+Decorators are similar to attributes in c# and annotations in Java. They're a way to declatarively apply code. 
+
+Decorators are implemented as simple JavaScript functions. Depending on what is being decorated, decorator function takes different arguments.
+
+## Decorator factories
+
+In order to pass parameters to decorator, you need to use decorator factory. Decorator factory is just a wrapper around decorator, that takes decorator parameters and returns decorator that closes over decorator parameters.
+
+```
+// pure decorator
+function f(target, propertyKey: string, descriptor: PropertyDescriptor) {
+    console.log("f(): called");
+}
+
+// decorator factory
+function g(...params: any[]) {
+    return function (target, propertyKey: string, descriptor: PropertyDescriptor) {
+        console.log(params);
+    }
+}
+
+class Test {
+    @f
+    @g(1, true, "test")
+    test() {}
+}
+
+new Test().test();
+
+// [ 1, true, 'test' ]
+// f(): called
+```
 # Modules & Namespaces
 
 ## Namespaces

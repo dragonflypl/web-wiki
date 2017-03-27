@@ -30,6 +30,16 @@ angular.element($0).scope().__proto__ == angular.element($0).scope().$parent
 
 prove that we're dealing with prototypal inheritance.
 
+## $apply & $watch
+
+All changes to the model (scope) must be done inside Angular world, i.e. digest cycle must be triggered.
+
+In `$digest` scopes examine all of the `$watch` expressions and compare them with the previous value. It's called `dirty checking`. If current value is different from previous, `$watch` listener is executed.
+
+Let's see how it looks in dev tools:
+
+![image](https://cloud.githubusercontent.com/assets/5444220/24363701/e441ca80-1310-11e7-8a03-e46bce4b8518.png)
+
 TODO: 
 - $broadcast & $emit
 - $watch - observe model mutations

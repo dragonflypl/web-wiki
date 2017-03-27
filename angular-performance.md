@@ -31,6 +31,6 @@ angular.element($0).scope().__proto__ == angular.element($0).scope().$parent
 prove that we're dealing with prototypal inheritance.
 
 TODO: 
-
+- $broadcast & $emit
 - $watch - observe model mutations
 - $apply - propagate model changes if done outside of angular world

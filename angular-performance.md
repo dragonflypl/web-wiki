@@ -18,7 +18,7 @@ Scope inheritance is `prototypal`. It means that when expression is evaluated, i
 
 > git checkout 02-app-controller-inheritance
 
-> Hint: to access currently accessed element, use `$0` variable in console. To retrieve associated scope use `angular.element($0).scope()` or `angular.element($0).isolateScope()`
+> Hint: to access currently accessed element, use `$0` variable in console. To retrieve associated scope use `angular.element($0).scope()` or `angular.element($0).isolateScope()`. Both functions are available only when `debugInfoEnabled()` is true.
 
 `angular.element($0).scope().id` evaluated on child node, returns `AppController`.
 

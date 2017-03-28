@@ -48,7 +48,7 @@ To enter this context, `$apply` method can be used:
 
 `$apply` is just a helper method that calls `$rootScope.$digest` after client's code runs (at the end of $apply). 
 
-It's important to notice, that it calls `$digest` on `$rootScope`. That means that **all watchers will be called**!
+It's important to notice, that it calls `$digest` on `$rootScope`. That means that **all watchers (watchExpressions) will be called on each digest cycle loop iteration**!
 
 Having this in mind remember: **dirty checking function must be efficient and fast**.
 
@@ -78,8 +78,8 @@ This is addition to the `$digest` cycle. In reality, apart from `$watch` list, A
 
 ### $watch strategies
 
-- by reference (good)
-- by value (bad)
+- by reference (good) using `!==`
+- by value (bad) using `angular.copy` (creates deep copy) - can have memory / performance implications
 - watching collection content (ugly, but needed sometimes)
 
 # TODO: 
@@ -88,3 +88,7 @@ This is addition to the `$digest` cycle. In reality, apart from `$watch` list, A
 - $broadcast & $emit
 - $watch - observe model mutations
 - $apply - propagate model changes if done outside of angular world
+- 
+
+# TODO-DONE
+- https://docs.angularjs.org/guide/scope

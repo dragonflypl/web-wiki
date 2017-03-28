@@ -109,13 +109,24 @@ Also there's helper `$watchGroup`.
 
 > git checkout 06-watch-strategies-strict-non-strict
 
+# Hints
+
+- reduce number of watchers :)
+- make manual watchers lightning fast
+- don't use deep watch `$watch`
+- switch from deep watch to `$watchCollection`
+- if deep watch must be used, watch only subset of data (`_.map`)
+
 # TODO: 
 - show example : watching by reference with directive (how & when watchers are called)
 - $digest
 - $broadcast & $emit
 - $watch - observe model mutations
 - $apply - propagate model changes if done outside of angular world
-- 
+- use track by in ngRepeat
+- virtualize ngRepeat
+- use one time binding
+- use ng-if in favour of ng-show/hide
 
 # TODO-DONE
 

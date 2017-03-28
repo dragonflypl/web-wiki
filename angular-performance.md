@@ -118,6 +118,9 @@ Also there's helper `$watchGroup`.
 - 
 
 # TODO-DONE
+
 - https://www.sitepoint.com/understanding-angulars-apply-digest/
 - https://docs.angularjs.org/guide/scope
 - https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$watch
+- https://www.bennadel.com
+  - https://www.bennadel.com/blog/2566-scope-watch-vs-watchcollection-in-angularjs.htm

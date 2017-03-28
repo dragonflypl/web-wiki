@@ -46,11 +46,27 @@ To enter this context, `$apply` method can be used:
 
 > Angular's code: https://github.com/angular/angular.js/blob/master/src/ng/directive/ngEventDirs.js#L3
 
-`$apply` is just a helper method that calls `$rootScope.$digest` after client's code runs (at the end of $apply). 
+`$apply` is just a helper/wrapper method that calls `$rootScope.$digest` after client's code runs (at the end of $apply). A digest cycle starts with `$scope.$digest()` call.
+
+``` javascript 
+function $apply(expr) {
+  try {
+    return $eval(expr);
+  } catch (e) {
+    $exceptionHandler(e);
+  } finally {
+    $root.$digest();
+  }
+}
+```
 
 It's important to notice, that it calls `$digest` on `$rootScope`. That means that **all watchers (watchExpressions) will be called on each digest cycle loop iteration**!
 
+> Angular directives / services automatically call $digest (e.g. ng-click, $timeout)
+
 Having this in mind remember: **dirty checking function must be efficient and fast**.
+
+What if a listener function itself changed a scope model?
 
 In `$digest` scopes examine all of the `$watch` expressions and compare them with the previous value. It's called `dirty checking`. If current value is different from previous, `$watch` listener is executed.
 
@@ -93,5 +109,6 @@ This is addition to the `$digest` cycle. In reality, apart from `$watch` list, A
 - 
 
 # TODO-DONE
+- https://www.sitepoint.com/understanding-angulars-apply-digest/
 - https://docs.angularjs.org/guide/scope
 - https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$watch

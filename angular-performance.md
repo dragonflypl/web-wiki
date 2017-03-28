@@ -78,9 +78,11 @@ This is addition to the `$digest` cycle. In reality, apart from `$watch` list, A
 
 ### $watch strategies
 
-- by reference (good) using `!==`
+- by reference (good) using `!==` (angular's default)
 - by value (bad) using `angular.copy` (creates deep copy) - can have memory / performance implications
 - watching collection content (ugly, but needed sometimes)
+
+> git checkout 06-watch-strategies-strict-non-strict
 
 # TODO: 
 - show example : watching by reference with directive (how & when watchers are called)
@@ -92,3 +94,4 @@ This is addition to the `$digest` cycle. In reality, apart from `$watch` list, A
 
 # TODO-DONE
 - https://docs.angularjs.org/guide/scope
+- https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$watch

@@ -1,3 +1,10 @@
+# Tools
+
+- AngularJS Batarang
+- AngularJS Inspector
+- ng-inspector for AngularJS
+- Angular watchers
+
 # Scopes
 
 Scopes:
@@ -95,8 +102,10 @@ This is addition to the `$digest` cycle. In reality, apart from `$watch` list, A
 ### $watch strategies
 
 - by reference (good) using `!==` (angular's default)
-- by value (bad) using `angular.copy` (creates deep copy) - can have memory / performance implications
-- watching collection content (ugly, but needed sometimes)
+- by value (bad) using `angular.copy` (creates deep copy) - can have memory / performance implications 
+- watching collection content (ugly, but needed sometimes) with `$watchCollection`. Notifies about changes in collection (add/removal/replacement)
+
+Also there's helper `$watchGroup`.
 
 > git checkout 06-watch-strategies-strict-non-strict
 

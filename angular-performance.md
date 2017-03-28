@@ -119,6 +119,7 @@ Also there's helper `$watchGroup`.
 
 # TODO-DONE
 
+- filtering to achieve sorting? how bad is it.
 - https://www.sitepoint.com/understanding-angulars-apply-digest/
 - https://docs.angularjs.org/guide/scope
 - https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$watch

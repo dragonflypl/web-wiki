@@ -1,5 +1,6 @@
 # Tools
 
+- https://github.com/mrdoob/stats.js/
 - AngularJS Batarang
 - AngularJS Inspector
 - ng-inspector for AngularJS

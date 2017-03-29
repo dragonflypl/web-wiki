@@ -4,6 +4,7 @@
 - AngularJS Inspector
 - ng-inspector for AngularJS
 - Angular watchers
+- console.time API along with Chrome Timeline & Profiler!
 
 # Scopes
 
@@ -95,7 +96,9 @@ Let's see how it looks in dev tools:
 
 ### $evalAsync
 
-This is addition to the `$digest` cycle. In reality, apart from `$watch` list, Angular is storing additional queue: `$evalAsync` queue. This is useful when we need to execute some code asynchronously i.e. at the beginning of next digest cycle. Putting something into this queue will enforce additional digest iteration.
+This is addition to the `$digest` cycle. In reality, apart from `$watch` list, Angular is storing additional queue: `$evalAsync` queue. This is useful when we need to execute some code asynchronously i.e. at the beginning of next digest cycle loop. Putting something into this queue will enforce additional digest iteration.
+
+Also use `$applyAsync` to queue async code that will be run before next `$digest` cycle.
 
 > git checkout 05-eval-async
 
@@ -111,28 +114,99 @@ Also there's helper `$watchGroup`.
 
 # Hints
 
+Watches are set on:
+
+- $scope.$watch
+- {{ }} type bindings
+- Most directives (i.e. ng-show)
+- Scope variables scope: { bar: '='}
+- Filters {{ value | myFilter }}
+- ng-repeat
+
+Watchers (digest cycle) run on:
+
+- User action (ng-click etc). Most built in directives will call $scope.apply upon completion which triggers the digest cycle.
+- ng-change
+- ng-model
+- $http events (so all ajax calls)
+- $q promises resolved
+- $timeout
+- $interval
+- Manual call to $scope.apply and $scope.digest
+
+How to improve performance:
+
+- disable ngAnimate globally / enable is explicitly with `$animateProvider.classNameFilter`: https://www.bennadel.com/blog/2935-enable-animations-explicitly-for-a-performance-boost-in-angularjs.htm
+- use classList
+- use angular components and one way binding (read about it and explain)
+- defered interpolation (my favourite): (https://www.bennadel.com/blog/2704-deferring-attribute-interpolation-in-angularjs-for-better-performance.htm)
+- use event delegation
+- delayed transclusion: ng-if / switch are cool as they delay linking of a DOM elements (as a result, delay watchers creation)
+- useCache factory
+- use WeakMap / WeakSet
+- More DOM manipulation in Directives (swich classes in onclick event, without watchers) link function
+- clean after yourself in $destroy ($watach,$on,$timeout)
+- throttle / debounce mouse events
+- use digest instead of apply
+- make sure onetime binding is "stable"
+- use applyAsync (group many async operations into one digest)
+- unbind watchers
+- do not use angulars directives for mouse events
+- avoid using filters if at all possible. They are run twice per digest cycle, once when anything changes, and another time to collect further changes
+- disable debug data! (debugInfoEnabled)
+- debounce ng-model
+- use one time binding (::)
+- use track by (by default is uses `$watchCollection` and reference identity) in ngRepeat
+- don't use filters for sorting!
 - reduce number of watchers :)
 - make manual watchers lightning fast
 - don't use deep watch `$watch`
 - switch from deep watch to `$watchCollection`
 - if deep watch must be used, watch only subset of data (`_.map`)
+- use ng-if in favour of ng-show/hide
+- virtualize ngRepeat
+- use native JavaScript & lodash
+
 
 # TODO: 
+
+- amazing example of using profiler ! https://www.bennadel.com/blog/2635-looking-at-how-scope-evalasync-affects-performance-in-angularjs-directives.htm
+- use empty ng-repeat, show that it creates watchers
+- https://docs.google.com/document/d/1K-mKOqiUiSjgZTEscBLjtjd6E67oiK8H2ztOiq5tigk/pub
+- do filters affect number of watchers ? how one time binding works with filters ? 
+- httpprovider useApplyAsync
 - show example : watching by reference with directive (how & when watchers are called)
 - $digest
 - $broadcast & $emit
 - $watch - observe model mutations
 - $apply - propagate model changes if done outside of angular world
-- use track by in ngRepeat
-- virtualize ngRepeat
-- use one time binding
-- use ng-if in favour of ng-show/hide
+- CRUCIAL: https://github.com/bahmutov/code-snippets
+
+
+measure idle digets cycle loop time:
+``` javascript
+angular.element(document.querySelector('[ng-app]')).injector().invoke(function($rootScope) { 
+  var a = performance.now(); 
+  $rootScope.$apply(); 
+  console.log(performance.now()-a); 
+})
+```
 
 # TODO-DONE
 
+
+- https://www.binpress.com/tutorial/speeding-up-angular-js-with-simple-optimizations/135
+- https://www.qualtrics.com/eng/tuning-angularjs-performance/
+- https://www.airpair.com/angularjs/posts/angularjs-performance-large-applications
+- https://www.stackchief.com/blog/Understanding%20Watchers%20in%20AngularJS
+- https://www.alexkras.com/11-tips-to-improve-angularjs-performance/
+- http://www.codelord.net/2014/06/17/angular-performance-101-slides/
 - filtering to achieve sorting? how bad is it.
 - https://www.sitepoint.com/understanding-angulars-apply-digest/
 - https://docs.angularjs.org/guide/scope
 - https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$watch
 - https://www.bennadel.com
   - https://www.bennadel.com/blog/2566-scope-watch-vs-watchcollection-in-angularjs.htm
+  - https://www.bennadel.com/blog/2557-defer-dom-tree-binding-in-angularjs-with-delayed-transclusion.htm - useless
+  - https://www.bennadel.com/blog/2751-scope-applyasync-vs-scope-evalasync-in-angularjs-1-3.htm
+  - https://www.bennadel.com/blog/2605-scope-evalasync-vs-timeout-in-angularjs.htm

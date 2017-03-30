@@ -279,6 +279,24 @@ Faster alternative:
 
 **app.js:24 $rootScope.$digest 514 ms.** back to normal time. We already proved that simple expressions are blazing fast, so even though we evaluate `show(item, 'email')` twice, there's basically no difference in time.
 
+### ng-repeat filter
+
+Let's add ng-repeat filter and see how it behaves.
+
+> git checkout 13-ng-repeat-filter
+
+Note that all model changes are disabled. Once again we see that filter is evaluated for each row each. So we filtering array even though nothing is changing.
+
+Alternative: use `$watchCollection` for filter object & source data:
+
+> git checkout 14-ng-repeat-manual
+
+But let's check what is happening when we type change filters : many digest cycles after each keyup event.
+
+We can fix it with `ng-model-options="{ debounce: 500 }"`.
+
+**Bottom Line: don't use filters for filtering in ng-repeat**
+
 # TODO: 
 
 - amazing example of using profiler ! https://www.bennadel.com/blog/2635-looking-at-how-scope-evalasync-affects-performance-in-angularjs-directives.htm

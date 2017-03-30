@@ -168,6 +168,10 @@ How to improve performance:
 - virtualize ngRepeat
 - use native JavaScript & lodash
 
+# Hands on performance
+
+> git checkout 10-performance-data-seed
+
 
 # TODO: 
 

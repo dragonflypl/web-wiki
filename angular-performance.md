@@ -185,17 +185,70 @@ How to improve performance:
 - FPS good
 - short freeze when binding the data
 
-
-
-Let's measure the time of single digest:
+Let's trigger full digest every 3 seconds:
 
 ``` javascript
     setInterval(function triggerDigest() {
-     console.time("$scope.$apply()");
      $scope.$root.$apply();
-     console.timeEnd("$scope.$apply()");
     }, 3000);  
 ```
+
+![image](https://cloud.githubusercontent.com/assets/5444220/24495234/d1a7f824-1534-11e7-8b1f-b1666fd8f6e6.png)
+
+Conclusion: JavaScript / watchers execution is blazing fast: 27004 executed on 0.2 second.
+
+Let's add more statistics:
+
+```
+    var properties = {};
+    
+    $scope.show = function(item, property) {    	
+        properties[property] = (properties[property] || 0) + 1;
+    	return item[property];
+    }   
+    
+    setInterval(function triggerDigest() {
+        properties = {};
+        $scope.$apply();
+        for(let property in properties) {
+            console.log(property + ' called ' + properties[property] + " times");
+        }    
+    }, 3000);    
+```
+
+We get to know how many times watch callbacks are called per digest cycle. Initially it is 3000 times when no model changes. Let's change a model:
+
+> git checkout 11-model-change
+
+Quiz: how many times watchers will be called ?
+
+![image](https://cloud.githubusercontent.com/assets/5444220/24496687/33e9290a-1539-11e7-8dde-fe20022b1c82.png)
+
+But what will happend if we modify last item in the table:
+
+![image](https://cloud.githubusercontent.com/assets/5444220/24496726/5c5caac4-1539-11e7-9144-d3b4261ee203.png)
+
+What about item it the middle:
+
+![image](https://cloud.githubusercontent.com/assets/5444220/24496812/9ec9a7ea-1539-11e7-8ec4-9bffe609d570.png)
+
+Conclusion: Wow! Angular optimizes digest loop (just like JIT), so it's not as dummy. So sometimes, you will not know why something is happening or not happening.
+
+Ok, let's measure how modification of the model affects digest loop times:
+
+> git checkout 11-model-change-measure
+
+Times are doubled. 
+
+![image](https://cloud.githubusercontent.com/assets/5444220/24499142/ff4c3892-1540-11e7-96f4-6753fb508815.png)
+
+Let's modify all id properties. Time increased a bit due to DOM updates. Let's update more stuff in model (balance). Now we get 500ms digest cycle (but this is only JavaScript!) + a great deal of repaint:
+
+![image](https://cloud.githubusercontent.com/assets/5444220/24499318/8f2dd97a-1541-11e7-9906-412560c3ef5b.png)
+
+Now, everything takes more than 1 second (1.2sec) that can already cause flickering. But this is still not bad (but not something to be proud of), provided we don't cause digest cycles to often.
+
+Conclusion: both JavaScript & Rendering are responsible for user experience & amount of work browser has to perform.
 
 # TODO: 
 

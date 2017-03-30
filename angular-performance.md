@@ -232,7 +232,7 @@ What about item it the middle:
 
 ![image](https://cloud.githubusercontent.com/assets/5444220/24496812/9ec9a7ea-1539-11e7-8ec4-9bffe609d570.png)
 
-Conclusion: Wow! Angular optimizes digest loop (just like JIT), so it's not as dummy. So sometimes, you will not know why something is happening or not happening.
+**Conclusion: Wow! Angular optimizes digest loop (just like JIT), so it's not as dummy. So sometimes, you will not know why something is happening or not happening.**
 
 Ok, let's measure how modification of the model affects digest loop times:
 
@@ -242,13 +242,42 @@ Times are doubled.
 
 ![image](https://cloud.githubusercontent.com/assets/5444220/24499142/ff4c3892-1540-11e7-96f4-6753fb508815.png)
 
-Let's modify all id properties. Time increased a bit due to DOM updates. Let's update more stuff in model (balance). Now we get 500ms digest cycle (but this is only JavaScript!) + a great deal of repaint:
+Let's modify all id properties. Time increased a bit due to DOM updates. Let's update more stuff in model (balance).
+
+> git checkout 12-more-model-changes
+
+Now we get 500ms digest cycle (but this is only JavaScript!) + a great deal of repaint:
 
 ![image](https://cloud.githubusercontent.com/assets/5444220/24499318/8f2dd97a-1541-11e7-9906-412560c3ef5b.png)
 
 Now, everything takes more than 1 second (1.2sec) that can already cause flickering. But this is still not bad (but not something to be proud of), provided we don't cause digest cycles to often.
 
-Conclusion: both JavaScript & Rendering are responsible for user experience & amount of work browser has to perform.
+**Conclusion: both JavaScript & Rendering are responsible for user experience & amount of work browser has to perform.**
+
+## Filters
+
+Filters are commonly used in presentation layer to format data. Let's see them in action and generate links for emails using built-in filter `<td ng-bind-html="show(item, 'email') | linky"></td>`.
+
+Before: `$rootScope.$digest 448 ms.`
+**After: `$rootScope.$digest 1479 ms.`** 
+
+> **Keep in mind that number of watchers did not change**
+
+Adding one, seemingly straightfowrard, filter increased digest time by 1sec. We did not change emails so, seemingly, angular should ignore the filter. However, filters are not assumed to be `pure functions` - they could return different value for the same input. What is more, let's check how many times filters are called (we'll implement custom filter).
+
+> git checkout 12-filter-measure
+
+Indeed, filters are called as many times as other watcher. So whole expression (with filter) is evaluated.
+
+Faster alternative:
+
+```
+<td>
+	<a href="mailto:{{show(item, 'email')}}">{{show(item, 'email')}}</a>
+</td> 
+```
+
+**app.js:24 $rootScope.$digest 514 ms.** back to normal time. We already proved that simple expressions are blazing fast, so even though we evaluate `show(item, 'email')` twice, there's basically no difference in time.
 
 # TODO: 
 

@@ -172,6 +172,30 @@ How to improve performance:
 
 > git checkout 10-performance-data-seed
 
+- we have two sets of data and table with 3000 rows
+- 27004 initially set (`window.watchers`)
+- we have instrumented `$rootScope.$digest` to get feedback when full digest runs & how much time it takes
+- stats.js enabled to see memory usage / FPS
+- progress bar enabled to spot UI freezes
+
+## Initial impression
+
+- page is working
+- watchers are waiting
+- FPS good
+- short freeze when binding the data
+
+
+
+Let's measure the time of single digest:
+
+``` javascript
+    setInterval(function triggerDigest() {
+     console.time("$scope.$apply()");
+     $scope.$root.$apply();
+     console.timeEnd("$scope.$apply()");
+    }, 3000);  
+```
 
 # TODO: 
 

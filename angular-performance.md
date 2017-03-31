@@ -140,7 +140,8 @@ How to improve performance:
 - use classList
 - use track by (by default is uses `$watchCollection` and reference identity) in ngRepeat
 - debounce ng-model with ng-model-options
-- use one time binding (::)
+- use one time binding (::) 
+- make sure onetime binding is "stable"
 
 How to improve performance (to prove):
 
@@ -155,7 +156,6 @@ How to improve performance (to prove):
 - clean after yourself in $destroy ($watach,$on,$timeout)
 - throttle / debounce mouse events
 - use digest instead of apply
-- make sure onetime binding is "stable"
 - use applyAsync (group many async operations into one digest)
 - unbind watchers
 - do not use angulars directives for mouse events
@@ -334,6 +334,35 @@ By default, ng-repeat is using identity comparsion (reference) to spot if data h
 Each data reload freezes UI, even though nothing has changed in the model.
 
 Now, let's add `track by item.id`. No rendering & no additional scripting (except regular digest cycle watch execution).
+
+## ng-if vs ng-show
+
+> git checkout 19-ng-if-or-show
+
+`ngShow` uses CSS to show hide elements: as a result they still exist in DOM and all directives are executed (thus watchers).
+
+`ngIf` removes / adds to DOM, thus compilation/linking is triggered.  However no watchers are set when element is not visible.
+
+DOM operations are slower so make right call - if elements are often toggled then `ngShow` would be better (no compilation/linking each time element is toggled). Otherwise `ngIf` would be preferred. 
+
+Another usage could be with email col. Let's assume we want to show email when cell is clicked:
+
+```
+<td class="email-col" ng-click="showEmail = true">				
+	<a ng-show="showEmail" href="mailto:{{show(item, 'email')}}">{{show(item, 'email')}}</a>
+</td> 
+```
+
+With `ngShow` we have additional watchers, and `a` is in the DOM anyway, just `display: none`.
+
+Changing to `ngIf` defers anchor creation to the moment when this is actually needed:
+
+> git checkout 20-ng-if-makes-sense
+
+What else can be improved? Use oneTime binding on showEmail and no ngInit. Once cell is clicked, we save one watcher :)
+
+But, there're more improvements that can be made...
+
 
 # TODO: 
 

@@ -297,6 +297,14 @@ We can fix it with `ng-model-options="{ debounce: 500 }"`.
 
 **Bottom Line: don't use filters for filtering in ng-repeat**
 
+## styling
+
+> git checkout ng-class 15-ng-class-many
+
+We have 15k additional watchers + rendering time doubled (1100ms). Let's do some extreme optimization that include manual dirty checking & low level classList API (reduced number of watchers to only additional 3k + only +100ms additional digest time instead of +500ms).
+
+> git checkout ng-class 16-ng-class-many-optimized
+
 # TODO: 
 
 - amazing example of using profiler ! https://www.bennadel.com/blog/2635-looking-at-how-scope-evalasync-affects-performance-in-angularjs-directives.htm

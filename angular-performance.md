@@ -137,8 +137,10 @@ Watchers (digest cycle) run on:
 
 How to improve performance:
 
-- **use classList**
-- **use track by**
+- use classList
+- use track by (by default is uses `$watchCollection` and reference identity) in ngRepeat
+- debounce ng-model with ng-model-options
+- use one time binding (::)
 
 How to improve performance (to prove):
 
@@ -159,9 +161,7 @@ How to improve performance (to prove):
 - do not use angulars directives for mouse events
 - avoid using filters if at all possible. They are run twice per digest cycle, once when anything changes, and another time to collect further changes
 - disable debug data! (debugInfoEnabled)
-- debounce ng-model
-- use one time binding (::)
-- use track by (by default is uses `$watchCollection` and reference identity) in ngRepeat
+
 - don't use filters for sorting!
 - reduce number of watchers :)
 - make manual watchers lightning fast
@@ -308,6 +308,22 @@ We can fix it with `ng-model-options="{ debounce: 500 }"`.
 We have 15k additional watchers + rendering time doubled (1100ms). Let's do some extreme optimization that include manual dirty checking & low level classList API (reduced number of watchers to only additional 3k + only +100ms additional digest time instead of +500ms).
 
 > git checkout ng-class 16-ng-class-many-optimized
+
+## one-time binding
+
+For watchers, that're not interested in expression value changes or value never changes, use one-time binding `::`. Let's assume that balance does not change.
+
+> git checkout 18-one-time-enabled
+
+Note, that Batarang has a bug that prevents one-time binding from working, so for the purpose of this exercise disable it.
+
+But... Number of watchers should decrease by number of rows, but it did not. This is because of "Value stabilization algorithm" implementation (https://docs.angularjs.org/guide/expression) . 
+
+To fix it (provided we're sure that balance will never change) we need to cheat and stabilize the expressions value:
+
+```
+<td ng-bind="::(show(item, 'balance') || '')"></td>
+```
 
 ## track by
 

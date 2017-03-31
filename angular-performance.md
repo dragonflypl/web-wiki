@@ -137,6 +137,9 @@ Watchers (digest cycle) run on:
 
 How to improve performance:
 
+- use digest instead of apply
+- More DOM manipulation in Directives (e.g. swich classes in onclick event, without watchers) link function
+- use ng-if in favour of ng-show/hide
 - use classList
 - use track by (by default is uses `$watchCollection` and reference identity) in ngRepeat
 - debounce ng-model with ng-model-options
@@ -148,14 +151,11 @@ How to improve performance (to prove):
 - disable ngAnimate globally / enable is explicitly with `$animateProvider.classNameFilter`: https://www.bennadel.com/blog/2935-enable-animations-explicitly-for-a-performance-boost-in-angularjs.htm
 - use angular components and one way binding (read about it and explain)
 - defered interpolation (my favourite): (https://www.bennadel.com/blog/2704-deferring-attribute-interpolation-in-angularjs-for-better-performance.htm)
-- use event delegation
 - delayed transclusion: ng-if / switch are cool as they delay linking of a DOM elements (as a result, delay watchers creation)
 - useCache factory
 - use WeakMap / WeakSet
-- More DOM manipulation in Directives (swich classes in onclick event, without watchers) link function
 - clean after yourself in $destroy ($watach,$on,$timeout)
 - throttle / debounce mouse events
-- use digest instead of apply
 - use applyAsync (group many async operations into one digest)
 - unbind watchers
 - do not use angulars directives for mouse events
@@ -168,7 +168,6 @@ How to improve performance (to prove):
 - don't use deep watch `$watch`
 - switch from deep watch to `$watchCollection`
 - if deep watch must be used, watch only subset of data (`_.map`)
-- use ng-if in favour of ng-show/hide
 - virtualize ngRepeat
 - use native JavaScript & lodash
 
@@ -363,6 +362,33 @@ What else can be improved? Use oneTime binding on showEmail and no ngInit. Once 
 
 But, there're more improvements that can be made...
 
+## More DOM manipulation in Directives
+
+Make Directives, not war! Current example has following things that could be improved:
+
+- ngClick handler is not detached
+- we trigger full digest with ngClick even though nothing changes in the model (apart from helper variable)
+- email cell is still compiled & linked (ngIf directive) once at page load to figure out that is should remove itself from the DOM
+
+Let's refactor it:
+
+> git checkout 21-directive-beauty
+
+Few things to notice:
+
+- usage digest instead of apply (we do not trigger full $digest for all watchers, only for row scope)
+- we unbind event handlers (`one`)
+- we have no single watcher added
+
+## Event delegation
+
+Let's check how many event handlers do we have registered on the page:
+
+> git checkout  22-event-delegation
+
+(this may seem not needed, but will make more sense when we add e.g. virtual scroll)
+
+> git checkout  23-event-delegation-implemented
 
 # TODO: 
 

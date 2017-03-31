@@ -137,8 +137,12 @@ Watchers (digest cycle) run on:
 
 How to improve performance:
 
+- **use classList**
+- **use track by**
+
+How to improve performance (to prove):
+
 - disable ngAnimate globally / enable is explicitly with `$animateProvider.classNameFilter`: https://www.bennadel.com/blog/2935-enable-animations-explicitly-for-a-performance-boost-in-angularjs.htm
-- use classList
 - use angular components and one way binding (read about it and explain)
 - defered interpolation (my favourite): (https://www.bennadel.com/blog/2704-deferring-attribute-interpolation-in-angularjs-for-better-performance.htm)
 - use event delegation
@@ -304,6 +308,16 @@ We can fix it with `ng-model-options="{ debounce: 500 }"`.
 We have 15k additional watchers + rendering time doubled (1100ms). Let's do some extreme optimization that include manual dirty checking & low level classList API (reduced number of watchers to only additional 3k + only +100ms additional digest time instead of +500ms).
 
 > git checkout ng-class 16-ng-class-many-optimized
+
+## track by
+
+By default, ng-repeat is using identity comparsion (reference) to spot if data has changed and DOM should be updated. Let's reload the data & see UI experience & have a look at profiler (rendering & scripting times).
+
+> git checkout 17-no-track-by
+
+Each data reload freezes UI, even though nothing has changed in the model.
+
+Now, let's add `track by item.id`. No rendering & no additional scripting (except regular digest cycle watch execution).
 
 # TODO: 
 

@@ -57,7 +57,7 @@ Why one way binding:
  -- second argument allows to manually inject dependencies
  -- third argument allows to provide bindings (eases up the testing vs compared to directives)
 
- # Composition with components
+ # Composition with components / Communication between components
  
  - one approach: components communicate via Bindings. Components are decoubled here
  - second approach: Tight coupled components - via require (just like directives)

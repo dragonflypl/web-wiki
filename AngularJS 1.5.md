@@ -26,10 +26,11 @@ Some convention:
  
  http://blog.thoughtram.io/angularjs/2016/03/29/exploring-angular-1.5-lifecycle-hooks.html
  
-- $onInit: mimics an initialization function (to model initialization). Called after controller instance is created. Awesome for testing.
-- $onDestroy - called when e.g. navigating to new route / 
-- $onChanges - called when input bindings change
-- $postLink - low level work against DOM - rarely used with components. As for DOM stuff rather regular attribute directives are used
+- `$onInit`: mimics an initialization function (to model initialization). Called after controller instance is created and when all bindings are initialized. Awesome for testing.
+- `$onDestroy` - called when assiciated scope is destroyed e.g. navigating to new route / DOM node removed
+- `$onChanges(changesObj)` - called when **input (one-way)** bindings change. Use this callback clone the bound value to prevent accidental mutation of the outer value
+- `$doCheck` - called on each digest cycle iteration. Provides opportunity to do any kind of checks, especially these that do not trigger `$onChanges` , e.g. properties of input binding has changed / deep comparsion
+- `$postLink` - low level work against DOM - rarely used with components. As for DOM stuff rather regular attribute directives are used. Any DOM related manipulations can be done using `$element` via DI.
 
  ## Old controller vs component?
  
@@ -60,4 +61,29 @@ Why one way binding:
  # Composition with components / Communication between components
  
  - one approach: components communicate via Bindings. Components are decoubled here
- - second approach: Tight coupled components - via require (just like directives)
+ - second approach: Tight coupled components - via require (just like directives) . Components that work together. Required components (their controllers) are easily accessible via controller's properties. E.g.:
+
+```
+require: {
+  "parent": "^accordion"
+}
+...
+controller: function() {
+  this.parent...
+}
+```
+
+### One-way binding
+
+One way binding works of object identity. That means, if binding is on object, then assigning new value to an object won't be reflected in the parent. However, modification of object's properties, will be propagated to the parent (as the same object reference is used)
+
+Caveats: one-way binding set's up a watch on object's identity. That means that watches are fired only when reference to the value has changed in the parent.
+
+## Components characteristics
+
+- components always use isolated scope
+- component should never modify data & DOM outside of their scope
+- never modify / change one-way bound item inside the component
+- bindings are required by default. To make it optional use `?` , e.g. `<?`
+- define inputs via `<`, outputs `&`
+

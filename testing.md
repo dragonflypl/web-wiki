@@ -10,19 +10,17 @@ AngularJS is written with testability in mind - it things are done **the right w
 Tools:
 
 - Karma: test runner
-- Jasmine: BDD framework with assertions support & Spies
-- grouping code / tests
- - `beforeEach`, `afterEach`, `it`, `xit`, `describe`
- - `beforeAll`, `afterAll` & shareadInjector
-- ngMock: Angular's module that set up testing environment (e.g. mock services)
+- Jasmine: BDD framework with assertions support & spies
+ - grouping code / tests
+ -- `beforeEach`, `afterEach`, `it`, `xit`, `describe`
+ -- `beforeAll`, `afterAll` & `shareadInjector` (add state to test - wrong)
+- `ngMock`: Angular's module that set up testing environment (e.g. mock services)
 
 # Using ngMock
 
-- ngMock gives access to `angular.mock` object
+- `ngMock` gives access to `angular.mock` object
 - `angular.mock` functions are available globally (like `inject`, `module`, `dump`)
 - decorates / adds new services https://docs.angularjs.org/api/ngMock
-
-## 
 
 ## Registering modules
 
@@ -51,7 +49,9 @@ angular.mock.module({
 })
 ```
 
-Jasmine / ngMock clears environment for each test (new injector, new service instances). Thus, module loading has to be done before each test (`beforeEach`):
+> Hint: split app code into many Angular modules. This will make testing easier (prevent unnecessary code from running). 
+
+`Jasmine` / `ngMock` clears environment for each test (new injector, new service instances). Thus, module loading has to be done before each test (`beforeEach`):
 
 ```
   beforeEach(module('app'));
@@ -62,7 +62,7 @@ Jasmine / ngMock clears environment for each test (new injector, new service ins
 
 ## `$http` & `$httpBackend`
 
-$httpBackend has two methods to set up $http: when & expect (difference between both is that expect is strict and used to make assertions about the calls eg. and order of calls is important and call must be done):
+`$httpBackend` has two methods to set up `$http`: `when` & `expect` (difference between both is that `expect` is strict and used to make assertions about the calls e.g. and order of calls is important and call must be done. `when` is just to satisfy `$httpBackend` that requests XHR might occur):
 
 ``` javascript
 // also whenXXX exist, where XXX is method name eg. whenGET
@@ -81,17 +81,16 @@ Instead of string URL , a method can be used that returns boolean if url matches
 
 ```$httpBackend.flush``` must be called in order to execute all pending http requests. It is a good practice to use it as (in order to avoid errors when programmer wants to flush something, but there's nothing to flush):
 
+> `$httpBackend.flush` is like `$rootScope.$digest` for watchers & promises
+
 ```
 expect($httpBackend.flush).not.toThrow();
 ```
 
-## `$controller` service
-
-```$controller(controllerNameOrFactoryFnk, locals, bindings)``` enables controller creation. It can be created based on name or by function. 2nd argument is list of locals used with DI and 3rd argument is object with controller bindings (used with controllerAs approach)
-
 ## `$timeout` & `$interval`
 
 ngMock decorators. Two important methods are:
+
 - ```$interval/$timeout.flush([delay])```
 - ```$timeout.verifyNoPendingTasks()```
 
@@ -151,15 +150,19 @@ Directives / components can be tested on two levels:
 
 Tests run **outside Angular world**. Thus `$rootScope` is essential. It's needed to fire watchers.
 
-### Caveat : templateUrl
+## `$controller` / `$componentController` services
+
+```$controller/componentController(controllerNameOrFactoryFnk, locals, bindings)``` enables controller creation. It can be created based on name or by function. 2nd argument is list of locals used with DI and 3rd argument is object with controller bindings (used with controllerAs approach)
+
+## Caveat : templateUrl
 
 - often components / directive use `templateUrl`
 - testing environment does not allow **completely** to issue requests (**$httpBackend**) 
 
 Solutions:
 
-- copy/paste template, put it inside cache
-- build html into js & put is inside cache
+- copy/paste template, put it inside cache (bad)
+- build html into js module & put is inside cache (e.g. gulp libraries)
 - use  karma-ng-html2js-preprocessor
 
 ## Testing promises
@@ -193,3 +196,16 @@ Solution: disable the service by creating mock that is just a sink for method ca
             };
         });
 ```
+
+## Spies
+
+Enable:
+
+- recording of information about test execution (track calls, return values, arguments) that can be asserted
+- change the behavior (change return values `returnValue` / replace implementations `callFake`)
+
+## Async support
+
+If test depends on asynchronous operation, Jasmine should wait until it is done.
+
+`it` can take `done` argument (function). If passed, Jamine will wait until this function is called.

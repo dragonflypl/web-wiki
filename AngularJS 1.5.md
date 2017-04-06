@@ -79,6 +79,8 @@ One way binding works of object identity. That means, if binding is on object, t
 
 Caveats: one-way binding set's up a watch on object's identity. That means that watches are fired only when reference to the value has changed in the parent.
 
+**By default: always use one-way inding!**
+
 ## Components characteristics
 
 - components always use isolated scope

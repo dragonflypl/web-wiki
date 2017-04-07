@@ -1,5 +1,31 @@
 # Performance
+
 ## HTTP Caching
+
+- every browser ships with HTTP cache
+- provide correct HTTP headers
+
+### ETag
+
+- validation token
+- the server uses the ETag HTTP header to communicate a validation token
+- The validation token enables efficient resource update checks: no data is transferred if the resource has not changed. 
+- used after cache has expired
+
+![image](https://cloud.githubusercontent.com/assets/5444220/24800161/4729c1e8-1b9f-11e7-948c-a237a7dbd726.png)
+
+### Cache-control
+
+- Each resource can define its caching policy via the Cache-Control HTTP header.
+- Cache-Control directives control who can cache the response, under which conditions, and for how long.
+
+> Don't use Pragma
+
+### Invalidation
+
+Cache is used until it expires. How to force invalidation? No way...
+
+Solution: embedding a file content fingerprint in the URL enables you to force the client to update to a new version of the response.
 
 - https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching
 - https://devcenter.heroku.com/articles/increasing-application-performance-with-http-cache-headers
@@ -8,15 +34,27 @@
 
 You can't optimize what you can't measure.
 
-Navigation Timing API to the rescue. This link has code snippet that does measurement: https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp?hl=en .
+- navigation Timing API to the rescue: captures browser events timestamps. This link has code snippet that does measurement of critical rendering path: 
 
-Another sample of User Timing API (http://www.html5rocks.com/en/tutorials/webperformance/usertiming/) :
+https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp?hl=en .
+
+- another sample of User Timing API http://www.html5rocks.com/en/tutorials/webperformance/usertiming:
+
 ``` javascript
-window.performance.mark("mark_end_resize");
-window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
-var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
-console.log("Time to resize pizzas: " + timeToResize[0].duration + "ms");
+var myTime = window.performance.now();
 ```
+
+- mark/measure/getEntriesByType/getEntriesByName API
+
+``` javascript
+window.performance.mark("mark_start_resize");
+window.performance.mark("mark_end_resize");
+window.performance.measure("measure_resize", "mark_start_resize", "mark_end_resize");
+var timeToResize = window.performance.getEntriesByName("measure_resize");
+console.log("Time to pizzas: " + timeToResize[0].duration + "ms");
+```
+
+- auditing Web Apps With Lighthouse
 
 ### UDACITY Browser Rendering Optimization Course
 
@@ -26,13 +64,32 @@ console.log("Time to resize pizzas: " + timeToResize[0].duration + "ms");
 
 Typical frame: 
 
-```JavaScript (or CSS Animations or Web Animation API) -> Style -> Layout -> Paint -> Composite```. 
+```JavaScript (or CSS Animations or Web Animation API) -> Style -> Layout/Reflow -> Paint -> Composite```. 
 
 Three possible paths are:
 
 1. All steps
 2. JavaScript -> Style -> Composite
 3. JavaScript -> Style -> Paint -> Composite (no geometry changes thus layout is not needed)
+
+**Layout** - process of constructing render tree (visible part of the DOM) from a DOM tree - the more complex the DOM, the more expensive opetration may be
+
+![image](https://cloud.githubusercontent.com/assets/5444220/24801792/ecaa91dc-1ba5-11e7-854d-dddfd6009aa5.png)
+
+```
+var bstyle = document.body.style; // cache
+
+bstyle.padding = "20px"; // reflow, repaint
+bstyle.border = "10px solid red"; // another reflow and a repaint
+ 
+bstyle.color = "blue"; // repaint only, no dimensions changed
+bstyle.backgroundColor = "#fad"; // repaint
+ 
+bstyle.fontSize = "2em"; // reflow, repaint
+ 
+// new DOM element - reflow, repaint
+document.body.appendChild(document.createTextNode('dude!'));
+```
 
 **Rasterizer** - step that turns Vector into Raster i.e. turns Layout into pixels. Tools will show this as **Paint** event.
 
@@ -41,6 +98,52 @@ Three possible paths are:
 > Nowadays, browsers take advantage of the GPU and draw some elements to separate “layers” using the CPU, and use the GPU to composite these layers together to give the final pixels drawn to the screen.
 
 **Layout boundaries**: usually changes in layout affect whole document. But it is possible to optimize it, here's some in-depth info: http://wilsonpage.co.uk/introducing-layout-boundaries/ .
+
+#### Browsers are smart
+
+Browser can queue reflow But JavaScript script can prevent browser from optimizing reflows and cause flusing reflow:
+
+```
+offsetTop, offsetLeft, offsetWidth, offsetHeight
+scrollTop/Left/Width/Height
+clientTop/Left/Width/Height
+getComputedStyle(), or currentStyle in IE
+```
+
+```
+// bad
+var left = 10,
+    top = 10;
+el.style.left = left + "px";
+el.style.top  = top  + "px";
+ 
+// better 
+el.className += " theclassname";
+ 
+// or when top and left are calculated dynamically...
+ 
+// better
+el.style.cssText += "; left: " + left + "px; top: " + top + "px;";
+```
+
+```
+// no-no!
+for(big; loop; here) {
+    el.style.left = el.offsetLeft + 10 + "px";
+    el.style.top  = el.offsetTop  + 10 + "px";
+}
+ 
+// better
+var left = el.offsetLeft,
+    top  = el.offsetTop
+    esty = el.style;
+for(big; loop; here) {
+    left += 10;
+    top  += 10;
+    esty.left = left + "px";
+    esty.top  = top  + "px";
+}
+```
 
 #### Application Lifecycle from Rendering perspective
 
@@ -57,14 +160,20 @@ More on RAIL:
 
 - Migrate to WebWorkers
 - Use requestAnimationFrame
-- Avoid **Forced Synchronus Layout / Additional reflows** - it occurs when you ask the browser to run Layout first inside JavaScript section and then recalculate styles & run Layout again. http://gent.ilcore.com/2011/03/how-not-to-trigger-layout-in-webkit.html
+- Avoid **Forced Synchronus Layout / Additional reflows** - it occurs when you ask the browser to run Layout first inside JavaScript section and then recalculate styles & run Layout again (what triggers layout http://gent.ilcore.com/2011/03/how-not-to-trigger-layout-in-webkit.html)
 - Prevent Layout Trashing:
+ - Layout Thrashing occurs when JavaScript violently writes, then reads, from the DOM, multiple times causing document reflows 
+ - detect it with DevTools red markers
  - https://blog.idrsolutions.com/2014/08/beware-javascript-layout-thrashing/
  - http://blog.fogcreek.com/we-spent-a-week-making-trello-boards-load-extremely-fast-heres-how-we-did-it/
  - http://wilsonpage.co.uk/preventing-layout-thrashing/
 - minimize repain & reflow: http://www.phpied.com/rendering-repaint-reflowrelayout-restyle/
 
 > A repaint occurs when changes are made to an elements skin that changes visibility, but do not affect its layout (e.g. background color).
+
+#### Optimization in general
+
+- disable heavy styles (borders, shadows, and gradients can really slow down a browser)
 
 #### Optimizing CSS
 
@@ -97,9 +206,10 @@ There're two events associated with layers:
 
 The more layers on the page, the more time will be spend on layer management & compositing. There's a trafeoff between reducing paint time and increasing layer management time.
 
-Layers are automated process by the browser and nomally nothing has to be done. However, if app is struggling with Paint issue, it's time to consider promoting element to its own layer.
+Layers are automated process by the browser and normally nothing has to be done. However, if app is struggling with Paint issue, it's time to consider promoting element to its own layer.
 
 To promote element to its own composited layer use two hacks:
+
 - will-change: transform (or any other visual property)
 - transform: translateZ(0)
 

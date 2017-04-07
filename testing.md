@@ -9,6 +9,7 @@ AngularJS is written with testability in mind - it things are done **the right w
 
 Tools:
 
+- Protractor - E2E Tests
 - Karma: test runner
 - Jasmine: BDD framework with assertions support & spies
  - grouping code / tests
@@ -16,7 +17,11 @@ Tools:
  -- `beforeAll`, `afterAll` & `shareadInjector` (add state to test - wrong)
 - `ngMock`: Angular's module that set up testing environment (e.g. mock services)
 
-# Using ngMock
+> Power hint: fit / fdescribe - focus on particular tests
+
+# Karma / Jasmine
+
+## Using ngMock
 
 - `ngMock` gives access to `angular.mock` object
 - `angular.mock` functions are available globally (like `inject`, `module`, `dump`)
@@ -115,27 +120,6 @@ $log.reset(); // clears all arrays
 $log.assertEmpty() // throws error if any of log levels has value
 ```
 
-## ngMockE2E $httpBackend 
-
-This version of ```$httpBackend``` allows to set up fake backend useful for e2e testing or **backendless development**. The difference between ```ngMock``` and ```ngMockE2E``` versions of ```$httpBackend``` is that later enables a mixture of real and fake HTTP calls with ```passThrough()```:
-
-``` javascript
-module.run(function ($httpBackend) {    
-    var data = ['tt0076759', 'tt0080684', 'tt0086190'];
-    var headers = {
-      headers: {'Content-Type': 'application/json'}
-    };
-
-    // return the Popular Movie Ids
-    $httpBackend.whenGET(function(s) {
-      return (s.indexOf('popular') !== -1);
-    }).respond(200, data, headers);
-
-    //allow all other requests to run
-    $httpBackend.whenGET(/.*/).passThrough();
-});
-```
-
 ## Testing directives / components
 
 Directives / components can be tested on two levels:
@@ -209,3 +193,134 @@ Enable:
 If test depends on asynchronous operation, Jasmine should wait until it is done.
 
 `it` can take `done` argument (function). If passed, Jamine will wait until this function is called.
+
+## Trigger events
+
+`triggerHandler` is jqLite method to use
+
+
+# Protractor
+
+Protractor is a wrapper around WebDriverJS that is aware of Angular.
+
+https://github.com/SeleniumHQ/selenium/wiki/WebDriverJs
+
+## Karma - runtime different
+
+- Karma / Jasmine: browser
+- Protractor: Node.js, communication with browser via WebDriver commands
+
+Consequences: harder to debug
+
+> use gom-gulp's `gom-protractor` script
+
+## ngMockE2E $httpBackend 
+
+This version of ```$httpBackend``` allows to set up fake backend useful for e2e testing or **backendless development**. The difference between ```ngMock``` and ```ngMockE2E``` versions of ```$httpBackend``` is that later enables a mixture of real and fake HTTP calls with ```passThrough()```:
+
+``` javascript
+module.run(function ($httpBackend) {    
+    var data = ['tt0076759', 'tt0080684', 'tt0086190'];
+    var headers = {
+      headers: {'Content-Type': 'application/json'}
+    };
+
+    // return the Popular Movie Ids
+    $httpBackend.whenGET(function(s) {
+      return (s.indexOf('popular') !== -1);
+    }).respond(200, data, headers);
+
+    //allow all other requests to run
+    $httpBackend.whenGET(/.*/).passThrough();
+});
+```
+
+## WebDriver
+
+## Protractor's API
+
+### browser
+
+Interaction with the browser
+
+### Locator
+
+- describes how to find elements
+- passed down to `element` or `element.all`
+
+### ElementFinder
+
+- object that enables interaction with DOM elements
+  - `click`, `getText`, `sendKeys`
+- returned via `element` or `element.all` function
+
+## Async
+
+All Protractor actions are asynchronous: 
+
+- executed immediately in Nods.js program
+- all actions are asynchronous, all action methods return a promise
+- promise manager: enables writing code as it was synchronous and Protractor API was blocking
+- locators execution is lazy (e.g. runs when ElementFinder action like sendKeys is executed)
+- WebDriverJS maintains a queue of pending promises (control flow) to keep execution organized
+- Protractor and Jasmine: 
+ - modified specs: Jasmine waits until control flow queue is empty before executing next test
+ - modified expectations: work with promises
+
+```
+var el = element(locator);
+
+// Click on the element.
+el.click();
+
+// Send keys to the element (usually an input).
+el.sendKeys('my text');
+
+// Clear the text in an element (usually an input).
+el.clear();
+
+// Get the value of an attribute, for example, get the value of an input.
+el.getAttribute('value');
+
+el.getText().then(function(text) {
+  console.log(text);
+});
+
+expect(name.getText()).toEqual('Jane Doe');
+```
+
+## Debugging
+
+Inserting `debugger;` somewhere in the test
+
+- will pause program execution even before page is loaded
+- use `then(function() { debugger }) `
+- use async/await (provided Node.js versions supports it)
+- use `browser.pause()` and open DevTools when execution is paused (**close DevTools when done**)
+
+## Mocking strategies
+
+- do not mock at all
+- enable special modules during tests (`browser` API)
+- mock backend with `$httpBackend`
+- mock backend with proxy / fake backend
+- do not mock at all
+
+## Organizing test code 
+
+- Page objects: design pattern (wrap pages / directives / dialogs / common elements)
+ - reusable
+ - decouping of test logic from from page implementation 
+- use modules (CommonJS)
+ - `module.exports` / `require`
+ -  Node.js is runtime environment
+
+## Protractor & Angular
+
+- Protractor knows about Angular
+- Hooks into Angular's async tasks and waits until they are settled
+
+# Links
+
+- https://github.com/angular/protractor/blob/master/docs/tutorial.md
+- https://github.com/angular/protractor/blob/master/docs/locators.md

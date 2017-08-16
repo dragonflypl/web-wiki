@@ -36,3 +36,5 @@ Every style we write should go to one of the categories.
   
  - `module-name` + `module-name--submodule` + `module-name__sub-component`
  - `moduleName` + `moduleName-subModule` + `moduleName--subComponent`
+ 
+ ## Decoupling CSS from HTML

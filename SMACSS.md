@@ -75,5 +75,14 @@ So:
 - use fewer selectors (possibly one)
 - use child selectors to limit depth
 
+## State-based design
+
+How state can be expressed / queries:
+
+- classes `.is-active` etc.
+- pseudo:classes
+- attribute selectors
+- media queries - keep them with modules / components , not in completely separate file
+
 
 

@@ -4,7 +4,7 @@
 - Layout: sidebar, header, footer, main content + grid system
 - Module: contain content, are majority of the site, each module is interface to learn (e.g. button, navbar list)
   - Module variations (sub-modules): displayed in slightly different ways e.g. buttons in navbar / in table / in sidebar
-  - Module child elements (Sub-components) e.g. modal header / footer / content
+  - Module child elements (Sub-components) e.g. modal header / footer / content. And this componenst can concain other modules (check example).
 - State: hovered / visited / default / active / disabled
 - Theme
 
@@ -53,3 +53,25 @@ So:
 
 - use fewer selectors (possibly one)
 - use child selectors to limit depth
+
+
+### Modules separation example
+
+- given we have a `megadropdown` module
+
+```html
+<div class="megadropdown">...</div>
+```
+
+- given we have a `nav` module
+
+```html
+<ul class="nav">
+...
+    <div class="nav_dropdown"> <!-- This is how we define subcomponent -->
+      <div class="megadropdown">...</div> <!-- this is how we embed module. We have nice separation! --> 
+    </div>
+...
+</ul>
+```
+

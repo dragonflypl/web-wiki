@@ -37,23 +37,6 @@ Every style we write should go to one of the categories.
  - `module-name` + `module-name--submodule` + `module-name__sub-component`
  - `moduleName` + `moduleName-subModule` + `moduleName--subComponent`
  
- ## Decoupling CSS from HTML
- 
- ### What is base? 
- 
- Ask yourself a question whenever you write a general rule with tag name only. Think about it wisely, because some day web site might change and something that was true for all elements (e.g. buttons) might change. So do not add fancy styles with `button` selector, instead create a module `.my-buton`.
- 
- ### Depth of aplicability
-
-Don't nest too deep in selectors (max 2-3 long selectors). Also use child selectors e.g. `#someId a` might hide the relationship between element with id an anchor (they might be many many other elements/modules in between)
-
-If nesting is deeper, maybe modules are to complex.
-
-So:
-
-- use fewer selectors (possibly one)
-- use child selectors to limit depth
-
 
 ### Modules separation example
 
@@ -74,4 +57,23 @@ So:
 ...
 </ul>
 ```
+
+## Decoupling CSS from HTML
+ 
+### What is base? 
+ 
+ Ask yourself a question whenever you write a general rule with tag name only. Think about it wisely, because some day web site might change and something that was true for all elements (e.g. buttons) might change. So do not add fancy styles with `button` selector, instead create a module `.my-buton`.
+ 
+### Depth of aplicability
+
+Don't nest too deep in selectors (max 2-3 long selectors). Also use child selectors e.g. `#someId a` might hide the relationship between element with id an anchor (they might be many many other elements/modules in between)
+
+If nesting is deeper, maybe modules are to complex.
+
+So:
+
+- use fewer selectors (possibly one)
+- use child selectors to limit depth
+
+
 

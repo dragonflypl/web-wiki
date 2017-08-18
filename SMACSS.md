@@ -85,4 +85,22 @@ How state can be expressed / queries:
 - media queries - keep them with modules / components , not in completely separate file
 
 
+## Preprocessors is SMACSS
 
+... Preprocessors make it easy to do heavy nesting - don't use this power!
+
+## Summary
+
+Best practices:
+
+- use different files for different modukes
+- avoid show/hide from jquery (basially everything that toggles inline styles). Use state classes ('is-active` etc.)
+- give css code reviews
+
+## Tools
+
+Analyze performance / good practices:
+
+- https://github.com/macbre/analyze-css
+- csscss
+- parker

@@ -1,3 +1,7 @@
+> What is monad
+
+A monad is a type with a bind function and a toMonad function. The bind function goes mechanically from monad to monad without explicitly unveiling a monad's pertinent value.
+
 > What is functional programming
 
 https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0

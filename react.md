@@ -86,7 +86,7 @@ React compiles JSX into JavaScript with `React.createElement` etc. (JavaScript r
 
 ### Loops
 
-In JSX we can use JavaScript, so rendering component for each element in array is as simple as mapping to React Component:
+In JSX we can use JavaScript, so rendering component for each element in array is as simple as mapping to React Component. Also react supporst object spread operator that passess all object properties to component:
 
 ```
 const Item = (props) => {

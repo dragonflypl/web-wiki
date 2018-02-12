@@ -1,3 +1,6 @@
+## React app
+
+First decision to make is to decide on components structure. 
 ## React Components
 
 Component needs to be mount in to the browser. `ReactDOM.render(component, placeToMountTheComponent)`.
@@ -84,3 +87,7 @@ React uses this concept to render and HTML tree virtually first (in-memory). Whe
 
 - https://jscomplete.com/repl/ : playground
 - react-devtools
+
+# FAQ
+
+- what is presentational component

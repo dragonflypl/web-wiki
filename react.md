@@ -38,6 +38,8 @@ and `ReactDOM.render(<Button label="Go" />, mountNode)`
 
 ### Class Component
 
+> Use them only when you have a state to manage or personalized event handlers
+
 Apart from props, it can have private internal state. State can be changed, props not! Class component can change only its internal state.
 
 State is available via `this.state`. State is available only to component it belongs, it is private.

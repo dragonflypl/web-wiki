@@ -1,6 +1,7 @@
 ## React app
 
 First decision to make is to decide on components structure. 
+
 ## React Components
 
 Component needs to be mount in to the browser. `ReactDOM.render(component, placeToMountTheComponent)`.
@@ -73,9 +74,41 @@ class Button extends React.Component {
 ReactDOM.render(<Button label="Counter: " />, mountNode)
 ```
 
+### Styling components
+
+Inline styles can be used: `style={{ display: 'inline-block'}}` as well as classes (`className` attribute) e.g.
+
+`<button className="btn" style={{color: 'blue'}} onClick={this.handleClick}>{this.props.label} {this.state.counter}</button>`
+
 ## JSX
 
 React compiles JSX into JavaScript with `React.createElement` etc. (JavaScript representation of the DOM). Both syntax can be used, yet JSX is simpler.
+
+### Loops
+
+In JSX we can use JavaScript, so rendering component for each element in array is as simple as mapping to React Component:
+
+```
+const Item = (props) => {
+	return (
+  	<div>{props.data}</div>
+  )
+}
+
+const array = [
+	{ data: 'One' },
+  { data: 'Two' },
+  { data: 'Three' }
+]
+
+const Items = (props) => {
+	return (
+  	<div>{props.data.map(x => <Item {...x} />)}</div>
+  )
+}
+
+ReactDOM.render(<Items data={array} />, mountNode)
+```
 
 ## Virtual DOM
 

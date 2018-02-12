@@ -4,6 +4,9 @@ Component needs to be mount in to the browser. `ReactDOM.render(component, place
 
 Naming convention is to use title case for naming the components e.g. `Button`.
 
+React component returns a description of user interface in the form of React element (`render` method or component function). 
+Rendering of this React elements is done via `ReactDOM` library. 
+
 ### Function Component
 
 Simplest form of component: function that takes inputs (properties, props) and returns JSX.

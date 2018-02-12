@@ -80,6 +80,25 @@ Inline styles can be used: `style={{ display: 'inline-block'}}` as well as class
 
 `<button className="btn" style={{color: 'blue'}} onClick={this.handleClick}>{this.props.label} {this.state.counter}</button>`
 
+### Access to the DOM elements
+
+In order to get access to element in JSX, use `ref` attribute: `<input ref={(input) => this.someInput = input} />`. This `ref` function will execute when element is mounted.
+
+```
+const Item = (props) => {
+	return (
+  	<div ref={(el) => console.log('Logged output', el.innerHTML)}>{props.data}</div>
+  )
+}
+```
+
+### Events
+
+- `onSubmit` on form
+- `onClick` on any
+
+Any event handler receives `event` argument that is wrapper around native even object.
+
 ## JSX
 
 React compiles JSX into JavaScript with `React.createElement` etc. (JavaScript representation of the DOM). Both syntax can be used, yet JSX is simpler.
@@ -95,19 +114,28 @@ const Item = (props) => {
   )
 }
 
-const array = [
-	{ data: 'One' },
-  { data: 'Two' },
-  { data: 'Three' }
-]
-
 const Items = (props) => {
 	return (
   	<div>{props.data.map(x => <Item {...x} />)}</div>
   )
 }
 
-ReactDOM.render(<Items data={array} />, mountNode)
+class App extends React.Component {
+
+	state = { data: [
+    { data: 'One' },
+    { data: 'Two' },
+    { data: 'Three' }
+  ] }
+
+	render() {
+  	return (
+    	 <Items data={this.state.data} />
+    )
+  }
+}
+
+ReactDOM.render(<App />, mountNode)
 ```
 
 ## Virtual DOM

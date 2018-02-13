@@ -182,6 +182,10 @@ Use case is simple. Just call `setState` in callback and react will update.
 - https://github.com/axios/axios
 - https://github.com/facebook/create-react-app : create react app
 
+# Resources
+
+- https://app.pluralsight.com/library/courses/react-js-getting-started/table-of-contents
+
 # FAQ
 
 - what is presentational component

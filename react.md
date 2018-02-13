@@ -178,6 +178,7 @@ Use case is simple. Just call `setState` in callback and react will update.
 - https://jscomplete.com/repl/ : playground
 - react-devtools
 - https://github.com/axios/axios
+- https://github.com/facebook/create-react-app : create react app
 
 # FAQ
 

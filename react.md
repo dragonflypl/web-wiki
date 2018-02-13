@@ -1,3 +1,4 @@
+
 ## React app
 
 First decision to make is to decide on components structure. 
@@ -62,7 +63,8 @@ class Button extends React.Component {
 	handleClick = () => {
   	//this.setState({ counter: this.state.counter + 1 });
     
-    // or safer method: use it if you access previous state value
+    // or safer method - updater function: use it if you access previous state value
+    // The output of the updater is shallowly merged with prevState.
     this.setState((prevState) => ({ 
     	counter: prevState.counter + 1
     }));

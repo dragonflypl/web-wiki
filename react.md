@@ -11,6 +11,10 @@ Naming convention is to use title case for naming the components e.g. `Button`.
 React component returns a description of user interface in the form of React element (`render` method or component function). 
 Rendering of this React elements is done via `ReactDOM` library. 
 
+### Component keys
+
+If components are rendered from arrays, add `key` property to component. React will use it to identify components and optimize rendering: `<SomeComponent key={data.id} />`.
+
 ### Function Component
 
 Simplest form of component: function that takes inputs (properties, props) and returns JSX.
@@ -92,9 +96,28 @@ const Item = (props) => {
 }
 ```
 
+Alternative to `ref` is controlled components:
+
+- use `value="this.state.field"` to bind state to input
+- use `onChange="this.setState({ field: event.target.value })" to update the value
+
+```
+class Form extends React.Component {
+	state = { inputValue: 'Default' };
+	render() {
+  	return (
+    	<div>
+        <input value={this.state.inputValue} onChange={(event) => this.setState({ inputValue: event.target.value })}  />      
+        {this.state.inputValue}
+      </div>
+    )
+  }
+}
+```
+
 ### Events
 
-- `onSubmit` on form
+- `onSubmit` on form, remember to call `event.prefentDefault()`
 - `onClick` on any
 
 Any event handler receives `event` argument that is wrapper around native even object.
@@ -146,10 +169,15 @@ React uses this concept to render and HTML tree virtually first (in-memory). Whe
 
 - What is tree reconciliation: it is a process of comparing old tree with new tree and updating only the difference in the DOM
 
+## Ajax
+
+Use case is simple. Just call `setState` in callback and react will update. 
+
 # Tools
 
 - https://jscomplete.com/repl/ : playground
 - react-devtools
+- https://github.com/axios/axios
 
 # FAQ
 

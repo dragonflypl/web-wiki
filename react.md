@@ -1,4 +1,5 @@
 
+
 ## React app
 
 First decision to make is to decide on components structure. 
@@ -175,15 +176,37 @@ React uses this concept to render and HTML tree virtually first (in-memory). Whe
 
 Use case is simple. Just call `setState` in callback and react will update. 
 
+## Server side rendering
+
+Use: `import ReactDOMServer from 'react-dom/server'`
+
+## Testing
+
+### Snapshot testing
+
+Renderer can be used to do it;
+
+```
+import renderer from 'react-test-renderer'
+const tree = renderer.create(<div>Hello</div>).toJSON()
+expect(tree).toMatchSnapshot();
+```
+
 # Tools
 
+- `jest`
 - https://jscomplete.com/repl/ : playground
 - react-devtools
 - https://github.com/axios/axios
 - https://github.com/facebook/create-react-app : create react app
+- `eslint`, `eslint-plugin-react`, `babel-eslint` along with <https://github.com/samerbuna/.files/blob/master/.eslintrc.js>
+- `nodemon` with script `nodemon start {filename} --watch --interpreter babel-node`
+- `babel-cli` along with presets: `react`, `env`, `stage-2` (`babel-preset-react`, `babel-preset-env`, `babel-preset-stage-2`)
 
 # Resources
 
+
+- http://sandny.com/2017/10/30/babel-express-js-node-js-nodemon-to-build-a-node-js-server-with-hot-reloading/ - babel with nodemon and react
 - slack.jscomplete.com - slack of author of React courses
 - https://app.pluralsight.com/library/courses/react-js-getting-started/table-of-contents
 - https://app.pluralsight.com/library/courses/reactjs-advanced/table-of-contents 
@@ -191,4 +214,5 @@ Use case is simple. Just call `setState` in callback and react will update.
 
 # FAQ
 
-- what is presentational component
+- what is componentDidMount
+- what is smart / presentational component

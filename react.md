@@ -193,6 +193,8 @@ Context API enables sharing global stuff, without passing them as props down & d
 
 Just define `getChildContext` & `childContextTypes` in parent + `contextTypes` in child, and second argument of components constructor will be context.
 
+Using Context API is tricky, and at least makes testing harder (global dependency). To address some of the issues while testing, use Enzyme that does shalow rendering (react-test-renderer is tree renderer).
+
 ## Type checking 
 
 It's possible to guard against invalid properties passed to components with `PropTypes`:
@@ -210,6 +212,17 @@ Article.propTypes = {
 Another solution is to use `Flow` - typechecker: <https://flow.org/>
 
 ## Testing
+
+### Enzyme & shallow rendering
+
+Enzyme enables component creation and nice syntax for querying component's content etc... Also it enables shalow rendering (only component being created is rendered, child components not), this is perfect for unit testing.
+
+Instead of `renderer.create`, use:
+
+```
+import { shallow } from 'enzyme';
+const wrapper = shallow(<ArticleList {...testProps} />);
+```
 
 ### Snapshot testing
 

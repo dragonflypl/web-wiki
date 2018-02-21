@@ -187,6 +187,11 @@ It:
 
 When doing server side rendering with initial data, render this data to the client as well (e.g. by rendering it to `index.html` and make it a global variable), so that initial client side rendering renders exactly the same content (so it does not rerender the application).
 
+## Context API
+
+Context API enables sharing global stuff, without passing them as props down & down & down to child components.
+
+Just define `getChildContext` & `childContextTypes` in parent + `contextTypes` in child, and second argument of components constructor will be context.
 
 ## Type checking 
 

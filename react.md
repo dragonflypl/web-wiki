@@ -188,6 +188,22 @@ It:
 When doing server side rendering with initial data, render this data to the client as well (e.g. by rendering it to `index.html` and make it a global variable), so that initial client side rendering renders exactly the same content (so it does not rerender the application).
 
 
+## Type checking 
+
+It's possible to guard against invalid properties passed to components with `PropTypes`:
+
+```
+Article.propTypes = {
+  article: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+  })
+};
+```
+
+Another solution is to use `Flow` - typechecker: <https://flow.org/>
+
 ## Testing
 
 ### Snapshot testing

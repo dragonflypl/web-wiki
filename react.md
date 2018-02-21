@@ -185,6 +185,9 @@ It:
 - enables SEO, whole application in rendered on server.
 - faster rendering on clients that are slow
 
+When doing server side rendering with initial data, render this data to the client as well (e.g. by rendering it to `index.html` and make it a global variable), so that initial client side rendering renders exactly the same content (so it does not rerender the application).
+
+
 ## Testing
 
 ### Snapshot testing

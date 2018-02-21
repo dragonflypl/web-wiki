@@ -180,6 +180,11 @@ Use case is simple. Just call `setState` in callback and react will update.
 
 Use: `import ReactDOMServer from 'react-dom/server'`
 
+It:
+
+- enables SEO, whole application in rendered on server.
+- faster rendering on clients that are slow
+
 ## Testing
 
 ### Snapshot testing

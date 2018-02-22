@@ -34,7 +34,7 @@ This is a generic function that generates a container components:
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const storeProvider = (Component) => {
+const storeProvider = (extraProps) => (Component) => {
   return class extends React.Component {
     static displayName = `${Component.name}Container`;
     static contextTypes = {
@@ -42,13 +42,27 @@ const storeProvider = (Component) => {
     };
 
     render() {
-      return <Component {...this.props} store={this.context.store} />;
+      return <Component
+        {...this.props}
+        {...extraProps(this.context.store, this.props)}
+        store={this.context.store} />;
     }
   };
 };
 
 export default storeProvider;
+```
 
+And usage:
+
+```
+function extraProps(store, originalProps) {
+  return {
+    author: store.lookupAuthor(originalProps.article.authorId),
+  };
+}
+
+export default storeProvider(extraProps)(Article);
 ```
 
 

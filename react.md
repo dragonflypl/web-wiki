@@ -1,6 +1,7 @@
 
 
 
+
 ## React app
 
 First decision to make is to decide on components structure. 
@@ -76,7 +77,7 @@ export default storeProvider(extraProps)(Article);
 
 If components are rendered from arrays, add `key` property to component. React will use it to identify components and optimize rendering: `<SomeComponent key={data.id} />`.
 
-### Function Component
+### (stateless) Function Component
 
 Simplest form of component: function that takes inputs (properties, props) and returns JSX.
 
@@ -104,7 +105,7 @@ and `ReactDOM.render(<Button label="Go" />, mountNode)`
 
 ### Class Component
 
-> Use them only when you have a state to manage or personalized event handlers
+> Use them only when you have a state to manage or personalized event handlers or need lifecyclehooks or access to DOM is needed or may child functions (for performance reasons, so that they're on prototype. In function components child functions would be created for each component thus bloating the memory)
 
 Apart from props, it can have private internal state. State can be changed, props not! Class component can change only its internal state.
 
@@ -316,8 +317,16 @@ expect(tree).toMatchSnapshot();
 # FAQ
 
 - what is componentDidMount
-- what is smart / presentational component
+- what is:
+  - smart
+  - dumb / presentational / stateless component: only handles UI, does not deal with state. State should be handled by higher level container components. They don't have access to local state.
 
 # TODO
 
 - do last two modules: https://app.pluralsight.com/library/courses/reactjs-advanced/table-of-contents
+- https://app.pluralsight.com/library/courses/react-redux-react-router-es6/table-of-contents
+  - do second module: Env Setup
+
+# Redux
+
+

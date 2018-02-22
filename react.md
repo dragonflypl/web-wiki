@@ -1,5 +1,6 @@
 
 
+
 ## React app
 
 First decision to make is to decide on components structure. 
@@ -12,6 +13,44 @@ Naming convention is to use title case for naming the components e.g. `Button`.
 
 React component returns a description of user interface in the form of React element (`render` method or component function). 
 Rendering of this React elements is done via `ReactDOM` library. 
+
+### Container components
+
+A components that does anything beside presenting UI is known as a container component `ArticleContainer`:
+
+```
+const ArticleContainer = (props, { store }) => {
+  return <Article {...props} store={store} />;
+};
+```
+
+It is commonly used to access e.g. context and pass it down to presentational component (`Article`) as props.
+
+### Higher order component (function)
+
+This is a generic function that generates a container components:
+
+```
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const storeProvider = (Component) => {
+  return class extends React.Component {
+    static displayName = `${Component.name}Container`;
+    static contextTypes = {
+      store: PropTypes.object,
+    };
+
+    render() {
+      return <Component {...this.props} store={this.context.store} />;
+    }
+  };
+};
+
+export default storeProvider;
+
+```
+
 
 ### Component keys
 

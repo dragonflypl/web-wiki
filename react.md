@@ -26,6 +26,12 @@ const ArticleContainer = (props, { store }) => {
 
 It is commonly used to access e.g. context and pass it down to presentational component (`Article`) as props.
 
+### Pure components
+
+`React.PureComponent` will rerender only if shallow comparison of props & state detect changes.
+
+To force updates, call `forceUpdate` method.
+
 ### Higher order component (function)
 
 This is a generic function that generates a container components:
@@ -311,3 +317,7 @@ expect(tree).toMatchSnapshot();
 
 - what is componentDidMount
 - what is smart / presentational component
+
+# TODO
+
+- do last two modules: https://app.pluralsight.com/library/courses/reactjs-advanced/table-of-contents

@@ -1,7 +1,4 @@
 
-
-
-
 ## React app
 
 First decision to make is to decide on components structure. 
@@ -26,6 +23,20 @@ const ArticleContainer = (props, { store }) => {
 ```
 
 It is commonly used to access e.g. context and pass it down to presentational component (`Article`) as props.
+
+- It is aware of Redux.
+- Focus on how things work.
+- subscribe to redux state
+- dispatch redux actions
+- generate by react-redux
+
+### Presentational components
+
+- Focus on how things look
+- unaware of redux
+- read data from props
+- invoke callbacks on props
+- written by hand, often only render function
 
 ### Pure components
 
@@ -329,4 +340,91 @@ expect(tree).toMatchSnapshot();
 
 # Redux
 
+## Redux & React - how to connect
 
+react-redux connects React container components with Redux store. 
+
+- `connect` function creates container components and 
+
+```
+export default connect(mapStateToProps, mapDispatchToProps)(SomeComponent);
+```
+
+mapStateToProps defines what parts of store should be exposed to component.
+
+mapDispatchToProps exposes actions that component can execute. There's three ways to define actions, most common is to use `bindActionCreators`:
+
+`function mapDispatchToProps(dispatch) { return { actions: bindActionsCreators(actions, dispatch) } }`
+
+and in component use `this.props.actions.loadCourses()`
+
+- `Provider` components attaches application to Redux store. It provides redux store to all components automatically (via react context)
+
+### Reselect library
+
+Use is in mapStateToProps for caching, as reselect enables memoization: https://github.com/reactjs/reselect
+
+## Folder structure
+
+- store actions in `actions` folder. For each logical part, create separate actions file e.g. `courseActions.js`
+
+This is action creator, type property is mandatory:
+
+`export function createCourse(course) { return { type:' CREATE_COURSE', course }}`
+
+- store reducers in `reducers` folder. 
+
+This is a reducer (e.g. `courseReducer.js`) :
+
+`export default function courseReducer(state = [], action) { switch(action.type) ... }`
+
+Create a root reducer in `index.js`:
+
+```
+import {combineReducers} from 'redux'
+import courses from './courseReducer'; // some reducer
+
+const rootReducer = combineReducers({courses})
+
+export default rootReducer;
+```
+
+
+## Three principles
+
+- one immutable store
+- actions trigger changes
+- reducers update store
+
+### Enforcing immutability
+
+Use `redux-immutable-state-invariant`. Use is only in development.
+
+or 
+
+Use `Immutable.js`.
+
+## Reducers
+
+Functions that take current state and actions and return new state.
+
+Each reducer is responsible for its slice of the state.
+
+Reducers are pure functions!
+
+A single action can be handled by all, some or none of reducers.
+
+## Actions & Action creators
+
+Action creators are functions that create actions, e.g.
+
+```
+rateCourse(rating) { return { type: 'RATE_COURSE', rating } }
+```
+
+## Store API
+
+- store.dispatch(action)
+- store.subscribe(listener)
+- store.getState()
+- replaceReducer(nextReducer)

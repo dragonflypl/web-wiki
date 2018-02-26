@@ -27,7 +27,7 @@ Immutability is a central concept of functional programming because without it, 
 
 A pure function is a function which:
 - Given the same input, will always return the same output.
-- Produces no side effects (which means that it can’t alter any external state)
+- Produces no side effects (which means that it can’t alter any external state, does not alter arguments - like arrays, objects etc)
 
 With impure functions, it’s impossible to fully understand what a function does unless you know the entire history of every variable that the function uses or affects.
 

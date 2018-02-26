@@ -1,4 +1,5 @@
 
+
 ## React app
 
 First decision to make is to decide on components structure. 
@@ -389,12 +390,13 @@ const rootReducer = combineReducers({courses})
 export default rootReducer;
 ```
 
+Use `combineReducers`  for reducers composition.
 
 ## Three principles
 
-- one immutable store
-- actions trigger changes
-- reducers update store
+- one immutable store / state tree (it stores data & ui state)
+- actions trigger changes. Action is minimal representation of change to data. Structure must have `type` property. Components just dispatch actions and their work is done.
+- reducers update store: state mutations are described by pure functions (reducers) & action
 
 ### Enforcing immutability
 
@@ -402,7 +404,11 @@ Use `redux-immutable-state-invariant`. Use is only in development.
 
 or 
 
-Use `Immutable.js`.
+Use `Immutable.js`
+
+or 
+
+`deep-freeze`.
 
 ## Reducers
 
@@ -413,6 +419,16 @@ Each reducer is responsible for its slice of the state.
 Reducers are pure functions!
 
 A single action can be handled by all, some or none of reducers.
+
+Reducer should initialize state if previous one is undefined:
+
+```
+const counter = (state = 0, action) => {
+	case...
+	default:
+		return state;
+}
+```
 
 ## Actions & Action creators
 

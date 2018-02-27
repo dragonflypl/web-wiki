@@ -197,6 +197,14 @@ class Form extends React.Component {
 
 Any event handler receives `event` argument that is wrapper around native even object.
 
+### Default properties
+
+In order to provide default values for component properties, use `static defaultProps = { ... }` inside component.
+
+### Rendering children
+
+Component props have `children` property that has access to child components.  This is similar to transpilation in Angular.
+
 ## JSX
 
 React compiles JSX into JavaScript with `React.createElement` etc. (JavaScript representation of the DOM). Both syntax can be used, yet JSX is simpler.
@@ -351,13 +359,17 @@ react-redux connects React container components with Redux store.
 export default connect(mapStateToProps, mapDispatchToProps)(SomeComponent);
 ```
 
-mapStateToProps defines what parts of store should be exposed to component.
+mapStateToProps defines what parts of store should be exposed to component. It's first argument is `store`, and second is `ownProps` (properties passed to generated container components):
 
-mapDispatchToProps exposes actions that component can execute. There's three ways to define actions, most common is to use `bindActionCreators`:
+`mapStateToProps = (state, ownProps) => { return { something: ownProps.sth === state.sth } }`
 
-`function mapDispatchToProps(dispatch) { return { actions: bindActionsCreators(actions, dispatch) } }`
+`mapDispatchToProps` exposes actions that component can execute. There's three ways to define actions, most common is to use `bindActionCreators`:
+
+`function mapDispatchToProps(dispatch, ownProps) { return { actions: bindActionsCreators(actions, dispatch) } }`
 
 and in component use `this.props.actions.loadCourses()`
+
+Container component will make state & dispatch to props + it will add 
 
 - `Provider` components attaches application to Redux store. It provides redux store to all components automatically (via react context)
 

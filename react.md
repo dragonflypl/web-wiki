@@ -343,6 +343,7 @@ expect(tree).toMatchSnapshot();
 
 # TODO
 
+- read https://cdb.reacttraining.com/react-inline-functions-and-performance-bdff784f5578
 - do last two modules: https://app.pluralsight.com/library/courses/reactjs-advanced/table-of-contents
 - https://app.pluralsight.com/library/courses/react-redux-react-router-es6/table-of-contents
   - do second module: Env Setup

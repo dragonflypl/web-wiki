@@ -1,5 +1,6 @@
 
 
+
 ## React app
 
 First decision to make is to decide on components structure. 
@@ -457,3 +458,33 @@ rateCourse(rating) { return { type: 'RATE_COURSE', rating } }
 - store.subscribe(listener)
 - store.getState()
 - replaceReducer(nextReducer)
+
+# Creating reusable components
+
+## Environment
+
+### General boilerplate
+
+- create-react-app : application oriented
+
+```
+npm i -g create-react-app
+# will create app in current directory
+create-react-app ./
+# for ejecting
+npm run eject
+```
+
+- nwb : single component oriented
+- list of other boilerplates: https://www.javascriptstuff.com/react-starter-projects/
+
+### Documentation tool
+
+- react storybook
+- react styleguide
+- react-styleguide-generator
+- bluekit
+
+### Custom documentation app
+
+With `react-docgen`.

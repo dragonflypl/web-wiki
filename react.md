@@ -461,6 +461,28 @@ rateCourse(rating) { return { type: 'RATE_COURSE', rating } }
 
 # Creating reusable components
 
+## Styling
+
+### React Inline styles
+
+You can write styles as javascript objects. However, even though it has some benefis (styles can be dynamic, deterministic), it does not support more advances features (autoprefixing, animations, media queries, pseudoclasses etc...)
+
+### Naming Scheme (e.g. BEM)
+
+Use BEM for creating class names that won't collide with / leak out from comonents.
+
+### CSS Modules
+
+Use CSS Modules - they work like BEM out of the box. Just enable modules in `css-loader`
+
+Now you can do really short class names and be safe that no collision will happen.
+
+If you enable modules, you need to use it in whole application.
+
+### CSS in JS
+
+I'm not interested in it. If my mind changes check `styled-components`.
+
 ## Architecture
 
 Atoms -> Molecules -> Ogranisms

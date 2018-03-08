@@ -480,6 +480,14 @@ Hints:
 - use spread operator (with desctucturing `{ name, ...rest}` ) to pass props `{...props}` when possible
 - create formatting components! (`<Cash>6</Cash>` -> `$6`)
 
+### Organisms
+
+Make them dumb, do not create mini apps.
+
+Organisms still should not make any API calls. They still should receive data via props.
+
+Otherwise they can lead to overfetching and displaying out of sync data and other problems.
+
 ## Environment
 
 ### General boilerplate

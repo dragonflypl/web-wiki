@@ -461,6 +461,25 @@ rateCourse(rating) { return { type: 'RATE_COURSE', rating } }
 
 # Creating reusable components
 
+## Architecture
+
+Atoms -> Molecules -> Ogranisms
+
+### Atom
+
+Button, Label etc. - this is basic building block.
+
+Each component code (js/styles/tests) in it's folder inside `components` folder (this is used by almost all component libraries) e.g.:
+
+`https://github.com/react-toolbox/react-toolbox/tree/dev/components/dropdown`
+
+Hints:
+
+- when wrapping elements, honor native API (make props have the same names as native DOM elements like className, value, maxLength)
+- for arrays, use plurals (users), not suffixes (userList)
+- use spread operator (with desctucturing `{ name, ...rest}` ) to pass props `{...props}` when possible
+- create formatting components! (`<Cash>6</Cash>` -> `$6`)
+
 ## Environment
 
 ### General boilerplate

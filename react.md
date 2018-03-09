@@ -160,6 +160,10 @@ Inline styles can be used: `style={{ display: 'inline-block'}}` as well as class
 
 `<button className="btn" style={{color: 'blue'}} onClick={this.handleClick}>{this.props.label} {this.state.counter}</button>`
 
+#### Theming
+
+react-toolbox is great example of how theming can be done with css modules.
+
 ### Access to the DOM elements
 
 In order to get access to element in JSX, use `ref` attribute: `<input ref={(input) => this.someInput = input} />`. This `ref` function will execute when element is mounted.
@@ -294,6 +298,18 @@ Another solution is to use `Flow` - typechecker: <https://flow.org/>
 
 ## Testing
 
+### Tools
+- `react-test-renderer` - for snapshots
+- `enzyme` - for interaction. `shallow` does not render children. To test lifecycle methods and children interaction, use `mount`. 
+- `react-addons-test-utils` - used by enzyme
+
+### Types of testing
+
+- Unit testing - enzyme's shallow can be useful
+- Interaction testing - use enzyme (e.g. clicking etc)
+- Structural testing - possible with snapshots, usually this is what stateless functional components need
+- Style testing (like PhantomCSS)
+
 ### Enzyme & shallow rendering
 
 Enzyme enables component creation and nice syntax for querying component's content etc... Also it enables shalow rendering (only component being created is rendered, child components not), this is perfect for unit testing.
@@ -303,6 +319,8 @@ Instead of `renderer.create`, use:
 ```
 import { shallow } from 'enzyme';
 const wrapper = shallow(<ArticleList {...testProps} />);
+wrapper.find('a').simulate('click'); // uses JSDOM under the hood
+wrapper.instance(); // to access instance,methods etc...
 ```
 
 ### Snapshot testing
@@ -314,6 +332,8 @@ import renderer from 'react-test-renderer'
 const tree = renderer.create(<div>Hello</div>).toJSON()
 expect(tree).toMatchSnapshot();
 ```
+
+You can use enzyme with this rendered to test shapshots of only parts of components.
 
 # Tools
 
@@ -481,7 +501,7 @@ If you enable modules, you need to use it in whole application.
 
 ### CSS in JS
 
-I'm not interested in it. If my mind changes check `styled-components`.
+I'm interested in it. If my mind changes check `styled-components`.
 
 ## Architecture
 

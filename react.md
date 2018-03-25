@@ -46,9 +46,19 @@ It is commonly used to access e.g. context and pass it down to presentational co
 
 To force updates, call `forceUpdate` method.
 
-### Higher order component (function)
+### Higher-order component (function)
 
-This is a generic function that generates a container components:
+HoC is a function that takes a components and returns new one.
+
+It is a technique from FP (higher-order functions). Just as the higher-order function creates a new function, the HoC creates a new component.
+
+HoC is a  **function**  that  **accepts**  **a component**  and  **returns a new component that renders the passed one**.  This new component is enhanced with an additional functionality.
+
+> const HoC = BaseComponent => EnhancedComponent
+
+`recompose` is a library that enables HoC composition and provides dozens of generic HoC.
+
+ (usually this is a generic function that generates a container components from presntational components):
 
 ```
 import React from 'react';

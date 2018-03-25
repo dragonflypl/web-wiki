@@ -48,6 +48,8 @@ To force updates, call `forceUpdate` method.
 
 ### Higher-order component (function)
 
+> Check out this ultimate guide: <https://medium.freecodecamp.org/higher-order-components-the-ultimate-guide-b453a68bb851>
+
 HoC is a function that takes a components and returns new one.
 
 It is a technique from FP (higher-order functions). Just as the higher-order function creates a new function, the HoC creates a new component.

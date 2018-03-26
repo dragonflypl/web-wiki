@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {
-  store
-} from './redux';
+import { store } from './redux';
 
 import TodoList from './components/TodoList';
-import FilterLink from './components/FilterLink';
 import AddTodo from './components/AddTodo';
+import Footer from './components/Footer';
 
 let id = 1;
 
@@ -34,10 +32,6 @@ class App extends Component {
     })
   }
 
-  setFilter = (filter) => {
-    store.dispatch({ type: 'SET_VISIBILITY_FILTER', filter });
-  }
-
   render() {
 
     return (
@@ -49,12 +43,7 @@ class App extends Component {
           </header>
           <AddTodo onAddTodo={this.addTodo} />
           <TodoList onClick={id => this.toggle(id)} list={this.visibleTodos} />
-          <p>
-            <FilterLink onClick={this.setFilter} filter='SHOW_ALL'>Show All</FilterLink>
-            <FilterLink onClick={this.setFilter} filter='SHOW_COMPLETED'>Done</FilterLink>
-            <FilterLink onClick={this.setFilter} filter='SHOW_PENDING'>Pending</FilterLink>
-          </p>
-
+          <Footer />
         </div>
       </div >
     );

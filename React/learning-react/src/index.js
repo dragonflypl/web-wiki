@@ -13,7 +13,7 @@ function render() {
   const state = store.getState()
   ReactDOM.render(<App {...state} />, document.getElementById('root'));
 }
-
 render();
-
 registerServiceWorker();
+
+

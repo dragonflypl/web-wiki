@@ -1,6 +1,4 @@
 
-
-
 ## React app
 
 First decision to make is to decide on components structure. 
@@ -18,7 +16,7 @@ Rendering of this React elements is done via `ReactDOM` library.
 
 A components that does anything beside presenting UI is known as a container component `ArticleContainer`:
 
-```
+```javascript
 const ArticleContainer = (props, { store }) => {
   return <Article {...props} store={store} />;
 };
@@ -62,7 +60,7 @@ HoC is a  **function**  that  **accepts**  **a component**  and  **returns a new
 
  (usually this is a generic function that generates a container components from presntational components):
 
-```
+```javascript
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -87,7 +85,7 @@ export default storeProvider;
 
 And usage:
 
-```
+```javascript
 function extraProps(store, originalProps) {
   return {
     author: store.lookupAuthor(originalProps.article.authorId),
@@ -97,7 +95,6 @@ function extraProps(store, originalProps) {
 export default storeProvider(extraProps)(Article);
 ```
 
-
 ### Component keys
 
 If components are rendered from arrays, add `key` property to component. React will use it to identify components and optimize rendering: `<SomeComponent key={data.id} />`.
@@ -106,7 +103,7 @@ If components are rendered from arrays, add `key` property to component. React w
 
 Simplest form of component: function that takes inputs (properties, props) and returns JSX.
 
-```
+```javascript
 const Button = () => {
   return (
     <button>Go</button>
@@ -118,7 +115,7 @@ To mount this component: `ReactDOM.render(<Button />, mountNode)`.
 
 To use props, add argument and use props in JSX using `{}`
 
-```
+```javascript
 const Button = (props) => {
   return (
     <button>{props.label}</button>
@@ -136,9 +133,9 @@ Apart from props, it can have private internal state. State can be changed, prop
 
 State is available via `this.state`. State is available only to component it belongs, it is private.
 
-```
+```javascript
 class Button extends React.Component {
-	
+
   // not mandatory
   constructor(props) {
   	super(props);
@@ -193,7 +190,7 @@ Alternative to `ref` is controlled components:
 - use `value="this.state.field"` to bind state to input
 - use `onChange="this.setState({ field: event.target.value })" to update the value
 
-```
+```javascript
 class Form extends React.Component {
 	state = { inputValue: 'Default' };
 	render() {
@@ -230,7 +227,7 @@ React compiles JSX into JavaScript with `React.createElement` etc. (JavaScript r
 
 In JSX we can use JavaScript, so rendering component for each element in array is as simple as mapping to React Component. Also react supporst object spread operator that passess all object properties to component:
 
-```
+```javascript
 const Item = (props) => {
 	return (
   	<div>{props.data}</div>
@@ -288,15 +285,21 @@ When doing server side rendering with initial data, render this data to the clie
 
 Context API enables sharing global stuff, without passing them as props down & down & down to child components.
 
-Just define `getChildContext` & `childContextTypes` in parent + `contextTypes` in child, and second argument of components constructor will be context.
+Just define `getChildContext` & `childContextTypes` in parent + `contextTypes` in child, and second argument of components constructor will be context (for functional components) or `this.context` (for class components):
 
-Using Context API is tricky, and at least makes testing harder (global dependency). To address some of the issues while testing, use Enzyme that does shalow rendering (react-test-renderer is tree renderer).
+```javascript
+function SomeComponent(props, context) {}
+```
 
-## Type checking 
+Using Context API explicitly is tricky, and at least makes testing harder (global dependency). To address some of the issues while testing, use Enzyme that does shalow rendering (react-test-renderer is tree renderer).
+
+Don't use it, unless you're using some kind of provider component along with HoC that binds context with base component's props.
+
+## Type checking
 
 It's possible to guard against invalid properties passed to components with `PropTypes`:
 
-```
+```javascript
 Article.propTypes = {
   article: PropTypes.shape({
     title: PropTypes.string.isRequired,
@@ -310,7 +313,6 @@ Another solution is to use `Flow` - typechecker: <https://flow.org/>
 
 ## Testing
 
-### Tools
 - `react-test-renderer` - for snapshots
 - `enzyme` - for interaction. `shallow` does not render children. To test lifecycle methods and children interaction, use `mount`. 
 - `react-addons-test-utils` - used by enzyme
@@ -328,7 +330,7 @@ Enzyme enables component creation and nice syntax for querying component's conte
 
 Instead of `renderer.create`, use:
 
-```
+```javascript
 import { shallow } from 'enzyme';
 const wrapper = shallow(<ArticleList {...testProps} />);
 wrapper.find('a').simulate('click'); // uses JSDOM under the hood
@@ -339,7 +341,7 @@ wrapper.instance(); // to access instance,methods etc...
 
 Renderer can be used to do it;
 
-```
+```javascript
 import renderer from 'react-test-renderer'
 const tree = renderer.create(<div>Hello</div>).toJSON()
 expect(tree).toMatchSnapshot();

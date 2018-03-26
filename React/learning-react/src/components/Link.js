@@ -4,5 +4,5 @@ export default function Link({ active, onClick, children }) {
   if (active) {
     return children;
   }
-  return <a href="#" onClick={onClick}>{children}</a>
+  return <button type="button" onClick={onClick}>{children}</button>
 }

@@ -2,17 +2,33 @@
 
 ## Redux & React - how to connect
 
-react-redux connects React container components with Redux store. 
+`react-redux` connects React container components with Redux store. It is not longer required to pass store explicitly via props. Without it, every container component would have to have a store passed to it explicitly via props to get the state or dispatch actions or via Context API (`getChildContext`).
 
-- `connect` function creates container components and 
+### Provider component
 
-```
+`Provider` components attaches Redux store to application. It provides redux store to all components automatically (via react context).
+
+### connect
+
+`react-redux`'s `connect` function creates container components and maps state / dispatch actions to props.
+
+```javascript
 export default connect(mapStateToProps, mapDispatchToProps)(SomeComponent);
 ```
 
-mapStateToProps defines what parts of store should be exposed to component. It's first argument is `store`, and second is `ownProps` (properties passed to generated container components):
+`connect` uses context provider by `Provider` component.
+
+### mapStateToProps
+
+`mapStateToProps` defines what parts of store should be exposed to component and mapped to props.
+
+It's first argument is `store`, and second is `ownProps` (properties passed to generated container components):
 
 `mapStateToProps = (state, ownProps) => { return { something: ownProps.sth === state.sth } }`
+
+Now, connected component will have `something` as property.
+
+### mapDispatchToProps
 
 `mapDispatchToProps` exposes actions that component can execute. There's three ways to define actions, most common is to use `bindActionCreators`:
 
@@ -20,13 +36,24 @@ mapStateToProps defines what parts of store should be exposed to component. It's
 
 and in component use `this.props.actions.loadCourses()`
 
-Container component will make state & dispatch to props + it will add 
+Container component will make state & dispatch to props + it will add
 
-- `Provider` components attaches application to Redux store. It provides redux store to all components automatically (via react context)
+When there're no args to `connect` function, then only `dispatch` will be added to props:
+
+```javascript
+import React from 'react';
+import { connect } from 'react-redux';
+
+function AddTodo({ dispatch }) {
+  return <button onClick={() => dispatch({ type: 'ADD_TODO' })}>Add todo</button>;
+}
+
+export default connect()(AddTodo);
+```
 
 ### Reselect library
 
-Use is in mapStateToProps for caching, as reselect enables memoization: https://github.com/reactjs/reselect
+Use is in mapStateToProps for caching, as reselect enables memoization: <https://github.com/reactjs/reselect>
 
 ## Folder structure
 
@@ -36,7 +63,7 @@ This is action creator, type property is mandatory:
 
 `export function createCourse(course) { return { type:' CREATE_COURSE', course }}`
 
-- store reducers in `reducers` folder. 
+- store reducers in `reducers` folder.
 
 This is a reducer (e.g. `courseReducer.js`) :
 
@@ -44,7 +71,7 @@ This is a reducer (e.g. `courseReducer.js`) :
 
 Create a root reducer in `index.js`:
 
-```
+```javascript
 import {combineReducers} from 'redux'
 import courses from './courseReducer'; // some reducer
 
@@ -65,11 +92,11 @@ Use `combineReducers`  for reducers composition.
 
 Use `redux-immutable-state-invariant`. Use is only in development.
 
-or 
+or
 
 Use `Immutable.js`
 
-or 
+or
 
 `deep-freeze`.
 
@@ -97,7 +124,7 @@ const counter = (state = 0, action) => {
 
 Action creators are functions that create actions, e.g.
 
-```
+```javascript
 rateCourse(rating) { return { type: 'RATE_COURSE', rating } }
 ```
 
@@ -105,7 +132,7 @@ rateCourse(rating) { return { type: 'RATE_COURSE', rating } }
 
 - createStore
 
-```
+```javascript
 const store = createStore(rootReducer);
 ```
 

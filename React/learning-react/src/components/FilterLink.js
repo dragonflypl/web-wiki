@@ -1,11 +1,16 @@
-import React from 'react';
-import { store } from './../redux';
+import { connect } from 'react-redux'
 import Link from './Link';
 
-export default function FilterLink({ filter, children }) {
-  return <Link
-    active={store.getState().visibilityFilter === filter}
-    onClick={() => store.dispatch({ type: 'SET_VISIBILITY_FILTER', filter })}>
-    {children}
-  </Link>
+const mapStateToProps = (state, { filter }) => {
+  return {
+    active: state.visibilityFilter === filter
+  }
 }
+
+const mapDispatchToProps = (dispatch, { filter }) => {
+  return {
+    onClick: () => dispatch({ type: 'SET_VISIBILITY_FILTER', filter })
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Link);

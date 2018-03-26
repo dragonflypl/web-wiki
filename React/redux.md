@@ -85,7 +85,7 @@ A single action can be handled by all, some or none of reducers.
 
 Reducer should initialize state if previous one is undefined:
 
-```
+```javascript
 const counter = (state = 0, action) => {
 	case...
 	default:
@@ -113,3 +113,29 @@ const store = createStore(rootReducer);
 - store.subscribe(listener)
 - store.getState()
 - replaceReducer(nextReducer)
+
+## Combining reducers
+
+Redux provides utility function `combineReducers` that combines reducers into single reducer.
+
+```javascript
+import {
+  createStore,
+  combineReducers
+} from 'redux';
+
+function todos(state = [{ text: 'Learn react', id: 0 }], action) {
+  return state;
+}
+
+function visibilityFilter(state = {}, action) {
+  return state;
+}
+
+const demoApp = combineReducers({
+  todos,
+  visibilityFilter
+})
+
+export const store = createStore(demoApp);
+```

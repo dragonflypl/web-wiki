@@ -8,8 +8,7 @@ import { store } from './redux';
 store.subscribe(render)
 
 function render() {
-  const state = store.getState()
-  ReactDOM.render(<App {...state} />, document.getElementById('root'));
+  ReactDOM.render(<App />, document.getElementById('root'));
 }
 render();
 registerServiceWorker();

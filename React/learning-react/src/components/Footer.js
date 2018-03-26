@@ -3,8 +3,9 @@ import FilterLink from './FilterLink';
 
 export default function Footer() {
   return (<p>
-    <FilterLink filter='SHOW_ALL'>Show All</FilterLink> ,&nbsp;
-    <FilterLink filter='SHOW_COMPLETED'>Done</FilterLink> ,&nbsp;
-    <FilterLink filter='SHOW_PENDING'>Pending</FilterLink>
+    Show:&nbsp;
+    <FilterLink filter='SHOW_ALL'>All</FilterLink>,&nbsp;
+    <FilterLink filter='SHOW_COMPLETED'>Completed</FilterLink>,&nbsp;
+    <FilterLink filter='SHOW_ACTIVE'>Active</FilterLink>
   </p>)
 }

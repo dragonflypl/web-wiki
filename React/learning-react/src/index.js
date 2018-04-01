@@ -1,26 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import demoApp from './reducers';
-import { createStore } from 'redux'
-import { Provider } from 'react-redux';
-import { v4 } from 'node-uuid';
-import { devToolsEnhancer } from 'redux-devtools-extension';
+import configureStore from './configureStore';
+import Root from './components/Root';
 
-const initialState = {
-  todos: [
-    { id: v4(), text: 'Buy fruits' },
-    { id: v4(), text: 'Buy wegetables', completed: true }
-  ]
-}
-const store = createStore(
-  demoApp,
-  initialState,
-  devToolsEnhancer());
+const store = configureStore();
 
-ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+ReactDOM.render(<Root store={store} />, document.getElementById('root'));
 
 registerServiceWorker();
 

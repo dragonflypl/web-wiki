@@ -125,7 +125,55 @@ const counter = (state = 0, action) => {
 Action creators are functions that create actions, e.g.
 
 ```javascript
-rateCourse(rating) { return { type: 'RATE_COURSE', rating } }
+export function rateCourse(rating) {
+  return { type: 'RATE_COURSE', rating }
+}
+
+export function toggleTodo(id) {
+  return { type: 'TOGGLE_TODO', id }
+}
+
+export function setVisibilityFilter(filter) {
+  return { type: 'SET_VISIBILITY_FILTER', filter };
+}
+```
+
+These actions, are then dispatched to the store:
+
+```javascript
+const mapDispatchToProps = (dispatch, { filter }) => {
+  return {
+    onClick: () => dispatch(setVisibilityFilter(filter))
+  }
+}
+```
+
+or:
+
+```javascript
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onTodoClick: (id) => dispatch(toggleTodo(id))
+  }
+}
+```
+
+or (`dispatch` is injected to props thanks to `connect` call):
+
+```javascript
+import React from 'react';
+import { connect } from 'react-redux';
+import { addTodo } from '../actions';
+
+function AddTodo({ dispatch }) {
+  let input;
+  return (<div>
+    <input ref={ref => input = ref} />
+    <button onClick={() => dispatch(addTodo(input.value))}>Add todo</button>
+  </div>);
+}
+
+export default connect()(AddTodo);
 ```
 
 ## Store API

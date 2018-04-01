@@ -360,29 +360,6 @@ You can use enzyme with this rendered to test shapshots of only parts of compone
 - `nodemon` with script `nodemon start {filename} --watch --interpreter babel-node`
 - `babel-cli` along with presets: `react`, `env`, `stage-2` (`babel-preset-react`, `babel-preset-env`, `babel-preset-stage-2`)
 
-# Resources
-
-
-- http://sandny.com/2017/10/30/babel-express-js-node-js-nodemon-to-build-a-node-js-server-with-hot-reloading/ - babel with nodemon and react
-- slack.jscomplete.com - slack of author of React courses
-- https://app.pluralsight.com/library/courses/react-js-getting-started/table-of-contents
-- https://app.pluralsight.com/library/courses/reactjs-advanced/table-of-contents 
-  - https://github.com/jscomplete/advanced-react
-
-# FAQ
-
-- what is componentDidMount
-- what is:
-  - smart
-  - dumb / presentational / stateless component: only handles UI, does not deal with state. State should be handled by higher level container components. They don't have access to local state.
-
-# TODO
-
-- read https://cdb.reacttraining.com/react-inline-functions-and-performance-bdff784f5578
-- do last two modules: https://app.pluralsight.com/library/courses/reactjs-advanced/table-of-contents
-- https://app.pluralsight.com/library/courses/react-redux-react-router-es6/table-of-contents
-  - do second module: Env Setup
-  
 # Creating reusable components
 
 ## Styling
@@ -461,3 +438,26 @@ npm run eject
 ### Custom documentation app
 
 With `react-docgen`.
+
+# Resources
+
+- <https://github.com/ReactTraining> : interesting repos
+- http://sandny.com/2017/10/30/babel-express-js-node-js-nodemon-to-build-a-node-js-server-with-hot-reloading/ - babel with nodemon and react
+- slack.jscomplete.com - slack of author of React courses
+- https://app.pluralsight.com/library/courses/react-js-getting-started/table-of-contents
+- https://app.pluralsight.com/library/courses/reactjs-advanced/table-of-contents 
+  - https://github.com/jscomplete/advanced-react
+
+# FAQ
+
+- what is componentDidMount
+- what is:
+  - smart
+  - dumb / presentational / stateless component: only handles UI, does not deal with state. State should be handled by higher level container components. They don't have access to local state.
+
+# TODO
+
+- read https://cdb.reacttraining.com/react-inline-functions-and-performance-bdff784f5578
+- do last two modules: https://app.pluralsight.com/library/courses/reactjs-advanced/table-of-contents
+- https://app.pluralsight.com/library/courses/react-redux-react-router-es6/table-of-contents
+  - do second module: Env Setup

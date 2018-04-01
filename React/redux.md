@@ -57,11 +57,18 @@ Use is in mapStateToProps for caching, as reselect enables memoization: <https:/
 
 ## Folder structure
 
-- store actions in `actions` folder. For each logical part, create separate actions file e.g. `courseActions.js`
+- store actions in `actions` folder. For each logical part (not necessarily the same structure like in reducers), create separate actions file e.g. `courseActions.js`
 
 This is action creator, type property is mandatory:
 
 `export function createCourse(course) { return { type:' CREATE_COURSE', course }}`
+
+Then reexport actions with `index.js`:
+
+```javascript
+export * from './visibilityFilter';
+export * from './todos';
+```
 
 - store reducers in `reducers` folder.
 
@@ -69,15 +76,15 @@ This is a reducer (e.g. `courseReducer.js`) :
 
 `export default function courseReducer(state = [], action) { switch(action.type) ... }`
 
-Create a root reducer in `index.js`:
+Later combine reducers, and create root reducer in `index.js`:
 
 ```javascript
-import {combineReducers} from 'redux'
-import courses from './courseReducer'; // some reducer
+import { combineReducers } from 'redux';
 
-const rootReducer = combineReducers({courses})
+import todos from './todos';
+import visibilityFilter from './visibilityFilter';
 
-export default rootReducer;
+export default combineReducers({ todos, visibilityFilter });
 ```
 
 Use `combineReducers`  for reducers composition.
@@ -182,6 +189,18 @@ export default connect()(AddTodo);
 
 ```javascript
 const store = createStore(rootReducer);
+```
+
+It is possible to initialize store with persisted data (e.g. server side rendering), with second argument (keys correspond to reducer names):
+
+```javascript
+const initialState = {
+  todos: [
+    { id: 1, text: 'Buy fruits' },
+    { id: 2, text: 'Buy wegetables', completed: true }
+  ]
+}
+const store = createStore(demoApp, initialState);
 ```
 
 - store.dispatch(action)

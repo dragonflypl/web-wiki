@@ -1,6 +1,5 @@
-import { combineReducers } from 'redux';
 
-function todos(state = [], action) {
+export default function todos(state = [], action) {
   switch (action.type) {
     case ('TOGGLE_TODO'):
       return state.map(x => {
@@ -21,14 +20,3 @@ function todos(state = [], action) {
       return state;
   }
 }
-
-function visibilityFilter(state = 'SHOW_ALL', action) {
-  switch (action.type) {
-    case ('SET_VISIBILITY_FILTER'):
-      return action.filter;
-    default:
-      return state;
-  }
-}
-
-export default combineReducers({ todos, visibilityFilter });

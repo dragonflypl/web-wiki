@@ -233,3 +233,15 @@ const demoApp = combineReducers({
 
 export const store = createStore(demoApp);
 ```
+
+# FAQ
+
+## How can I debug redux
+
+<https://github.com/zalmoxisus/redux-devtools-extension>
+
+and use `import { devToolsEnhancer } from 'redux-devtools-extension';` (in simplest approach)
+
+## I need to generate unique id
+
+`npm i node-uuid` and `import { v4 } from 'node-uuid`

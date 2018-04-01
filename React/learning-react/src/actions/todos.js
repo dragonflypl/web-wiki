@@ -1,11 +1,11 @@
-let id = 1;
+import { v4 } from 'node-uuid';
 
 /**
  * Action creator: creates object that will be dispatched to the store
  * @param {*} text
  */
 export function addTodo(text) {
-  return { type: 'ADD_TODO', text, id: id++ }
+  return { type: 'ADD_TODO', text, id: v4() }
 }
 
 

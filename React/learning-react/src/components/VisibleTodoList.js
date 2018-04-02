@@ -14,10 +14,8 @@ const mapStateToProps = ({ todos }, { match }) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onTodoClick: (id) => dispatch(toggleTodo(id))
-  }
+const mapDispatchToProps = {
+  onTodoClick: toggleTodo
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TodoList));

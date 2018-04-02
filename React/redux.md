@@ -30,13 +30,42 @@ Now, connected component will have `something` as property.
 
 ### mapDispatchToProps
 
-`mapDispatchToProps` exposes actions that component can execute. There's three ways to define actions, most common is to use `bindActionCreators`:
+There're three ways to define mapDispatchToProps (`toggleTodo` is action creator):
+
+- function. `mapDispatchToProps` is a function that accepts `dispatch` and returns object that exposes actions that component can execute. Each action (e.g. `onTodoClick`) is a function that will be passed to component.
+
+```javascript
+import { toggleTodo } from '../actions';
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onTodoClick: (id) => dispatch(toggleTodo(id))
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
+```
+
+- object definition shorthand notation
+
+If props callback (`onTodoClick`) and action creator (`toggleTodo`) signatures are the same, `mapDispatchToProps` can we written as an object (not function):
+
+```javascript
+import { toggleTodo } from '../actions';
+
+const mapDispatchToProps = {
+  onTodoClick: toggleTodo
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TodoList));
+```
+
+- `bindActionCreators`:
 
 `function mapDispatchToProps(dispatch, ownProps) { return { actions: bindActionsCreators(actions, dispatch) } }`
 
 and in component use `this.props.actions.loadCourses()`
 
-Container component will make state & dispatch to props + it will add
+### No connect args
 
 When there're no args to `connect` function, then only `dispatch` will be added to props:
 

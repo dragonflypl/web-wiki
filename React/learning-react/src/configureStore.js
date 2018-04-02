@@ -4,11 +4,15 @@ import todoApp from './reducers';
 import { createStore } from 'redux'
 
 export default function configureStore() {
+  const idOne = v4();
+  const idTwo = v4();
   const initialState = {
-    todos: [
-      { id: v4(), text: 'Buy fruits' },
-      { id: v4(), text: 'Buy wegetables', completed: true }
-    ]
+    todos: {
+      byId: {
+        [idOne]: { id: idOne, text: 'Buy fruits' },
+        [idTwo]: { id: idTwo, text: 'Buy wegetables', completed: true }
+      }
+    }
   }
   const store = createStore(
     todoApp,

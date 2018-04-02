@@ -212,6 +212,79 @@ function AddTodo({ dispatch }) {
 export default connect()(AddTodo);
 ```
 
+## Selectors
+
+Selector is a function that has a state as an argument, with additional parameters, and it returns silce of the state.
+
+Simple selectors operate on the state from the reducer they are defined for.
+
+For instance, this is reducer & selector from `todos.js` reducer file.
+
+State parameter for reducer & selectors have the same shape.
+
+```javascript
+/**
+ * Default export is the reducer
+ * @param {*} state
+ * @param {*} action
+ */
+export default function todos(state = [], action) {
+  switch (action.type) {
+    case ('TOGGLE_TODO'): ...
+    case ('ADD_TODO'): ...
+    default:
+      return state;
+  }
+}
+
+/**
+ * Selector for visible todos. State corresponds to reducers state.
+ * @param {*} state
+ * @param {*} filter
+ */
+export function getVisibleTodos(state, filter) {
+  const visibilityFilter = filter || 'all';
+  return state.filter(todo => {
+    return (visibilityFilter === 'all') ||
+      (visibilityFilter === 'completed' && todo.completed) ||
+      (visibilityFilter === 'active' && !todo.completed);
+  })
+}
+```
+
+### Reexporting selectors from root reducer
+
+Reducer specific selectors (`todosSelectors`) can later be reused and reexported from root reducer as root selector. Once again, state parameter for root reducer and root selectors has the same shape:
+
+```javascript
+import { combineReducers } from 'redux';
+
+import todos, * as todosSelectors from './todos';
+
+export default combineReducers({ todos });
+
+/**
+ * Selector that hides state internal structure and delegates to todos selectors
+ * @param {*} state
+ * @param {*} filter
+ */
+export function getVisibleTodos(state, filter) {
+  return todosSelectors.getVisibleTodos(state.todos, filter);
+}
+```
+
+At the end, you simply import selector from root reducer:
+
+```javascript
+import { getVisibleTodos } from '../reducers';
+
+const mapStateToProps = (state, { match }) => ({
+  todos: getVisibleTodos(state, match.params.filter)
+})
+```
+
+Pay attention, that each time selector is called, it simply receives `state` as argument (no internal structure os state is infered by client code).
+
 ## Store API
 
 - createStore

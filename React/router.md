@@ -22,6 +22,22 @@ Each routed component (e.g. `App`) receives `match` property from the router:
 
 `<VisibleTodoList visibilityFilter={this.props.match.params.filter} />`
 
+Another way to access route params is HoC `import { withRouter } from 'react-router'`. This HoC will inject `match` as the property to wrapped component:
+
+```javascript
+// now ownProps contains match property
+const mapStateToProps = ({ todos }, { match }) => {
+  const visibilityFilter = match.params.filter || 'all';
+  return {
+    todos: todos.filter(x => {
+      return (visibilityFilter === 'all') ||
+        (visibilityFilter === 'completed' && x.completed) ||
+        (visibilityFilter === 'active' && !x.completed);
+    })
+  }
+}
+```
+
 ### Params
 
 `:paramName` is the syntax for specifing route parameters.

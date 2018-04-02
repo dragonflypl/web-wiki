@@ -18,7 +18,7 @@ class App extends Component {
           </header>
           <hr />
           <AddTodo />
-          <VisibleTodoList />
+          <VisibleTodoList visibilityFilter={this.props.match.params.filter} />
           <Footer />
         </div>
       </div >

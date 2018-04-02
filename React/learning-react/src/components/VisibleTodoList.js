@@ -2,12 +2,12 @@ import TodoList from './TodoList';
 import { connect } from 'react-redux';
 import { toggleTodo } from '../actions';
 
-const mapStateToProps = ({ visibilityFilter, todos }) => {
+const mapStateToProps = ({ todos }, { visibilityFilter }) => {
   return {
     todos: todos.filter(x => {
-      return visibilityFilter === 'SHOW_ALL' ||
-        (visibilityFilter === 'SHOW_COMPLETED' && x.completed) ||
-        (visibilityFilter === 'SHOW_ACTIVE' && !x.completed);
+      return (visibilityFilter === 'all' || !visibilityFilter) ||
+        (visibilityFilter === 'completed' && x.completed) ||
+        (visibilityFilter === 'active' && !x.completed);
     })
   }
 }

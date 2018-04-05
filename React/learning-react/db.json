@@ -1,0 +1,14 @@
+{
+  "todos": [
+    {
+      "id": "72a0b44c-6008-454a-8e7c-7f39697186a3",
+      "title": "Buy tomatoes",
+      "completed": true
+    },
+    {
+      "id": "674de2e1-91cb-478c-a3d3-1da52091d986",
+      "title": "Buy flowers",
+      "completed": false
+    }
+  ]
+}

@@ -439,6 +439,16 @@ npm run eject
 
 With `react-docgen`.
 
+## Fake backend
+
+Use tools like `concurrently`, `json-server`, `proxy` setting (`"proxy": "http://localhost:3001/",`) & npm scripts in `package.json` to wire up API:
+
+```bash
+    "start": "concurrently --kill-others-on-fail \"npm run client\" \"npm run server\"",
+    "server": "json-server --port 3001 --watch db.json",
+    "client": "node scripts/start.js",
+```
+
 # Resources
 
 - <https://github.com/ReactTraining> : interesting repos

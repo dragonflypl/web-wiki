@@ -16,3 +16,7 @@ export function toggleTodo(id) {
 export function receiveTodos(filter, todos) {
   return { type: 'RECEIVE_TODOS', filter, todos };
 }
+
+export function requestTodos() {
+  return { type: 'REQUEST_TODOS' };
+}

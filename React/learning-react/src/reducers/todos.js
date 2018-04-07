@@ -18,7 +18,18 @@ function byId(state = {}, { type, ...payload }) {
   }
 }
 
-export default combineReducers({ byId })
+function isFetching(state = false, action) {
+  switch (action.type) {
+    case ('REQUEST_TODOS'):
+      return true;
+    case ('RECEIVE_TODOS'):
+      return false;
+    default:
+      return state;
+  }
+}
+
+export default combineReducers({ byId, isFetching })
 
 /**
  * Selector for visible todos. State corresponds to reducers state.
@@ -31,4 +42,12 @@ export function getVisibleTodos(state, filter = 'all') {
       (filter === 'completed' && todo.completed) ||
       (filter === 'active' && !todo.completed);
   })
+}
+
+/**
+ * Selector that exposes info about data fetching
+ * @param {*} state
+ */
+export function getIsFetching(state) {
+  return state.isFetching;
 }

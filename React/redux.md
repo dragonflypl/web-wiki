@@ -336,14 +336,46 @@ const demoApp = combineReducers({
 export const store = createStore(demoApp);
 ```
 
-# FAQ
+## Async stuff
 
-## How can I debug redux
+By default redux allows dispatching plain objects, promises are not supported.
+
+First approach: you can first initiate AJAX call (`fetchTodos`) & then dispatch an action (`receiveTodos` is simple action creator):
+
+```javascript
+  getTodos() {
+    const { filter, receiveTodos } = this.props;
+
+    fetchTodos(filter).then(response => {
+      receiveTodos(filter, response);
+    })
+  }
+
+  ...
+
+  const mapDispatchToProps = { receiveTodos }
+```
+
+where:
+
+```javascript
+export function receiveTodos(filter, todos) {
+  return { type: 'RECEIVE_TODOS', filter, todos };
+}
+```
+
+Second approach is to use promise middleware.
+
+## FAQ
+
+### How can I debug redux
 
 <https://github.com/zalmoxisus/redux-devtools-extension>
 
 and use `import { devToolsEnhancer } from 'redux-devtools-extension';` (in simplest approach)
 
-## I need to generate unique id
+Also you can use `import createLogger from 'redux-logger';` which is a middleware.
+
+### I need to generate unique id
 
 `npm i node-uuid` and `import { v4 } from 'node-uuid`

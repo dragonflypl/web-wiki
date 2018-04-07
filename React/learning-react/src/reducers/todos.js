@@ -4,31 +4,21 @@ import { combineReducers } from 'redux'
  * @param {*} state
  * @param {*} action
  */
-function byId(state = {}, { type, id, text }) {
+function byId(state = {}, { type, ...payload }) {
   switch (type) {
-    case ('TOGGLE_TODO'):
-      return {
-        ...state,
-        [id]: { ...state[id], completed: !state[id].completed }
-      }
-    case ('ADD_TODO'):
-      return {
-        ...state,
-        [id]: { text, id }
-      }
+    case 'RECEIVE_TODOS': {
+      const nextState = { ...state };
+      payload.todos.forEach(todo => {
+        nextState[todo.id] = todo;
+      })
+      return nextState;
+    }
     default:
       return state;
   }
 }
 
-function allIds(state = [], action) {
-  if (action.type === 'ADD_TODO') {
-    return [...state, action.id];
-  }
-  return state;
-}
-
-export default combineReducers({ byId, allIds })
+export default combineReducers({ byId })
 
 /**
  * Selector for visible todos. State corresponds to reducers state.

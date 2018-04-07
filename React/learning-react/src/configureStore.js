@@ -1,15 +1,16 @@
-import { devToolsEnhancer } from 'redux-devtools-extension';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import todoApp from './reducers';
-import { createStore } from 'redux'
-import fetchTodos from './api'
+import { createStore, applyMiddleware } from 'redux'
+import createLogger from 'redux-logger';
 
 export default function configureStore() {
 
-  fetchTodos()
+  const middlewares = [createLogger]
 
   const store = createStore(
     todoApp,
-    devToolsEnhancer());
+    composeWithDevTools(applyMiddleware(...middlewares))
+  );
 
   return store;
 }

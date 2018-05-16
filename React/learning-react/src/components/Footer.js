@@ -10,6 +10,6 @@ export default function Footer() {
     <FilterLink filter='SHOW_ALL'>All</FilterLink>,&nbsp;
     <FilterLink filter='SHOW_COMPLETED'>Completed</FilterLink>,&nbsp;
     <FilterLink filter='SHOW_ACTIVE'>Active</FilterLink>
-    {randomInRange.generate()}
+    <h2>This is random number: {randomInRange.generate()}</h2>
   </p>)
 }

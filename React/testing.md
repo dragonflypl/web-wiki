@@ -16,17 +16,274 @@ import TestRenderer from 'react-test-renderer';
 - Structural testing - possible with snapshots, usually this is what stateless functional components need
 - Style testing (like PhantomCSS)
 
-### Enzyme & shallow rendering
+### Enzyme
 
-Enzyme enables component creation and nice syntax for querying component's content etc... Also it enables shalow rendering (only component being created is rendered, child components not), this is perfect for unit testing.
+Enzyme enables component creation and nice syntax for querying component's content.
 
-Instead of `renderer.create`, use:
+No matter which enzyme renderer you use, you will get similar wrapper API for quering / simulate user interaction.
+
+#### Enzyme & static rendering
+
+``` javascript
+import { render } from 'enzyme';
+it('should render with render', () => {
+  const wrapper = render(<TodoList todos={todos} />)
+  expect(wrapper).toMatchSnapshot();
+});
+```
+
+<https://github.com/airbnb/enzyme/blob/master/docs/api/render.md>
+
+Output is very similar to `mount` and `react-test-renderer`, however it only contains HTML markup (no extra information) e.g.
+
+``` html
+<ul>
+  <li
+    style="text-decoration:none"
+  >
+    Learn enzyme
+  </li>
+  <li
+    style="text-decoration:line-through"
+  >
+    Learn react-test-renderer
+  </li>
+</ul>
+```
+
+#### Enzyme & full dom rendering with mount
+
+``` javascript
+import { mount } from 'enzyme';
+it('should render with mount', () => {
+  const wrapper = mount(<TodoList todos={todos} />)
+  expect(wrapper).toMatchSnapshot();
+});
+```
+
+Output is similar to `react-test-renderer` (it additionally renders tags for React components)
+
+``` html
+<TodoList
+  todos={
+    Array [
+      Object {
+        "id": 1,
+        "text": "Learn enzyme",
+      },
+      Object {
+        "completed": true,
+        "id": 2,
+        "text": "Learn react-test-renderer",
+      },
+    ]
+  }
+>
+  <ul>
+    <Todo
+      id={1}
+      key="1"
+      onClick={[Function]}
+      text="Learn enzyme"
+    >
+      <li
+        onClick={[Function]}
+        style={
+          Object {
+            "textDecoration": "none",
+          }
+        }
+      >
+        Learn enzyme
+      </li>
+    </Todo>
+    <Todo
+      completed={true}
+      id={2}
+      key="2"
+      onClick={[Function]}
+      text="Learn react-test-renderer"
+    >
+      <li
+        onClick={[Function]}
+        style={
+          Object {
+            "textDecoration": "line-through",
+          }
+        }
+      >
+        Learn react-test-renderer
+      </li>
+    </Todo>
+  </ul>
+</TodoList>
+```
+
+Also a browser environment like `jsdom` is needed.
+
+This approach is used when:
+
+- components interact with DOM API
+- components are wrapped in HOC
+- running lifecycle hooks is required
+
+<https://github.com/airbnb/enzyme/blob/master/docs/api/mount.md>
+
+#### Enzyme & shallow rendering
+
+``` javascript
+import { shallow } from 'enzyme';
+it('should render with shallow', () => {
+  const wrapper = shallow(<TodoList todos={todos} />)
+  expect(wrapper).toMatchSnapshot();
+});
+```
+
+Output is minimal: it contains rendered main component and children (but the output is not output from children's render function, it is only children passed to main component):
+
+``` html
+<ul>
+  <Todo
+    id={1}
+    key="1"
+    onClick={[Function]}
+    text="Learn enzyme"
+  />
+  <Todo
+    completed={true}
+    id={2}
+    key="2"
+    onClick={[Function]}
+    text="Learn react-test-renderer"
+  />
+</ul>
+```
+
+With shallow rendering you can query rendered component and interact with events.
 
 ```javascript
 import { shallow } from 'enzyme';
 const wrapper = shallow(<ArticleList {...testProps} />);
 wrapper.find('a').simulate('click'); // uses JSDOM under the hood
 wrapper.instance(); // to access instance,methods etc...
+```
+
+<https://github.com/airbnb/enzyme/blob/master/docs/api/shallow.md> has API.
+
+**shallow rendering does not need jsdom**.
+
+#### Comparsion to shallow `react-test-renderer`
+
+<https://reactjs.org/docs/shallow-renderer.html>
+
+``` javascript
+import ShallowRenderer from 'react-test-renderer/shallow';
+it('should render with renderer shallow', () => {
+  const renderer = new ShallowRenderer();
+  renderer.render(<TodoList todos={todos} />) ;
+  expect(renderer.getRenderOutput()).toMatchSnapshot();
+});
+```
+
+Will generate almost identical output to enzyme's shallow:
+
+``` html
+<ul>
+  <Todo
+    id={1}
+    onClick={[Function]}
+    text="Learn enzyme"
+  />
+  <Todo
+    completed={true}
+    id={2}
+    onClick={[Function]}
+    text="Learn react-test-renderer"
+  />
+</ul>
+```
+
+#### Comparsion to full `react-test-renderer`
+
+<https://reactjs.org/docs/test-renderer.html>
+
+``` javascript
+import TestRenderer from 'react-test-renderer';
+it('should render with renderer', () => {
+  const component = TestRenderer.create(<TodoList todos={todos} />) ;
+  expect(component.toJSON()).toMatchSnapshot();
+});
+```
+
+Will generate similar output to mount, however without React tags:
+
+``` html
+<ul>
+  <li
+    onClick={[Function]}
+    style={
+      Object {
+        "textDecoration": "none",
+      }
+    }
+  >
+    Learn enzyme
+  </li>
+  <li
+    onClick={[Function]}
+    style={
+      Object {
+        "textDecoration": "line-through",
+      }
+    }
+  >
+    Learn react-test-renderer
+  </li>
+</ul>
+```
+
+
+#### How redux etc. affect testing strategies
+
+If tested component has children that have dependencies (e.g. Redux store) then all non-shallow strategies will fail (unless dependency is fulfilled)
+
+``` javascript
+jest.mock('../services/RandomNumber');
+
+import React from 'react';
+import Footer from './Footer';
+import { shallow, mount, render } from 'enzyme';
+import TestRenderer from 'react-test-renderer';
+import ShallowRenderer from 'react-test-renderer/shallow';
+
+it('should render with shallow', () => {
+  const wrapper = shallow(<Footer />)
+  expect(wrapper).toMatchSnapshot();
+});
+
+// would fail as child is connected component
+it.skip('should render with mount', () => {
+  const wrapper = mount(<Footer />)
+  expect(wrapper).toMatchSnapshot();
+});
+
+// would fail as child is connected component
+it.skip('should render with render', () => {
+  const wrapper = render(<Footer />)
+  expect(wrapper).toMatchSnapshot();
+});
+
+// would fail as child is connected component
+it.skip('should render with TestRenderer', () => {
+  const component = TestRenderer.create(<Footer />) ;
+  expect(component.toJSON()).toMatchSnapshot();
+});
+
+it('should render with ShallowRenderer', () => {
+  const renderer = new ShallowRenderer();
+  renderer.render(<Footer />) ;
+  expect(renderer.getRenderOutput()).toMatchSnapshot();
+});
 ```
 
 ### Component testing
@@ -98,6 +355,30 @@ Const:
 ## Jest
 
 Jest is like Jasmine/Mocha (BDD test runner with assertion library) with additional features like snapshot testing & module mocking & spies.
+
+Matcher are documented here: <https://facebook.github.io/jest/docs/en/expect.html>
+
+### Configuring test environment
+
+If you wish to configure environment for test (like enable globals), just extend `setupTests.js` file:
+
+
+``` javascript
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import 'jest-enzyme';
+
+configure({ adapter: new Adapter() });
+
+const { mount, render, shallow } = require('enzyme');
+global.shallow = shallow;
+global.mount = mount;
+global.render = render;
+global.React = require('react');
+```
+
+With this setup in place, it's not longer required to import shallow, mount, render, React in test files.
+
 
 ### Jest API
 
@@ -186,3 +467,48 @@ jest.mock('../pathTo/RandomNumber');
 It is also possible to mock `node_modules`. 
 
 In order to do so, create mocks folder next to `node_modules` and create folders with the same name as npm package.
+
+## Enzyme
+
+This applies to latest Enzyme and React 16+.
+
+### Installation
+
+> npm i --save-dev enzyme enzyme-adapter-react-16
+
+and put:
+
+``` javascript
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+Enzyme.configure({ adapter: new Adapter() });
+```
+
+in Jest configuration file (e.g. `"setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.js",`)
+
+To use custom matchers & assertions from enzyme, install:
+
+> npm install jest-enzyme --save-dev
+
+and do the import in Jest's config file `import 'jest-enzyme';`.
+
+Benefits are:
+
+- when doing snapshot testing, snapshot are written nicely with HTML structure
+- it adds additional assertions e.g. `toContainReact`.
+
+``` javascript
+const wrapper = shallow(<Footer />)    
+expect(wrapper).toContainReact(<h2>This is random number: 10</h2>);
+```
+
+ Full list of matchers is here: <https://github.com/FormidableLabs/enzyme-matchers>
+
+
+## Comparsion
+
+| Feature | Enzyme shallow | Enzyme mount | Enzyme static | Full react-test-renderer | 
+| ------------- |:-------------:| -----:|
+| jsdom needed | NO | YES | NO | NO |
+| running lifecycle hooks | NO | YES | ? | ? |

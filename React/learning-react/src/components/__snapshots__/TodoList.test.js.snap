@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render with ShallowRenderer 1`] = `
+<ul>
+  <Todo
+    id={1}
+    onClick={[Function]}
+    text="Learn enzyme"
+  />
+  <Todo
+    completed={true}
+    id={2}
+    onClick={[Function]}
+    text="Learn react-test-renderer"
+  />
+</ul>
+`;
+
+exports[`should render with TestRenderer 1`] = `
+<ul>
+  <li
+    onClick={[Function]}
+    style={
+      Object {
+        "textDecoration": "none",
+      }
+    }
+  >
+    Learn enzyme
+  </li>
+  <li
+    onClick={[Function]}
+    style={
+      Object {
+        "textDecoration": "line-through",
+      }
+    }
+  >
+    Learn react-test-renderer
+  </li>
+</ul>
+`;
+
+exports[`should render with mount 1`] = `
+<TodoList
+  todos={
+    Array [
+      Object {
+        "id": 1,
+        "text": "Learn enzyme",
+      },
+      Object {
+        "completed": true,
+        "id": 2,
+        "text": "Learn react-test-renderer",
+      },
+    ]
+  }
+>
+  <ul>
+    <Todo
+      id={1}
+      key="1"
+      onClick={[Function]}
+      text="Learn enzyme"
+    >
+      <li
+        onClick={[Function]}
+        style={
+          Object {
+            "textDecoration": "none",
+          }
+        }
+      >
+        Learn enzyme
+      </li>
+    </Todo>
+    <Todo
+      completed={true}
+      id={2}
+      key="2"
+      onClick={[Function]}
+      text="Learn react-test-renderer"
+    >
+      <li
+        onClick={[Function]}
+        style={
+          Object {
+            "textDecoration": "line-through",
+          }
+        }
+      >
+        Learn react-test-renderer
+      </li>
+    </Todo>
+  </ul>
+</TodoList>
+`;
+
+exports[`should render with render 1`] = `
+<ul>
+  <li
+    style="text-decoration:none"
+  >
+    Learn enzyme
+  </li>
+  <li
+    style="text-decoration:line-through"
+  >
+    Learn react-test-renderer
+  </li>
+</ul>
+`;
+
+exports[`should render with shallow 1`] = `
+<ul>
+  <Todo
+    id={1}
+    key="1"
+    onClick={[Function]}
+    text="Learn enzyme"
+  />
+  <Todo
+    completed={true}
+    id={2}
+    key="2"
+    onClick={[Function]}
+    text="Learn react-test-renderer"
+  />
+</ul>
+`;

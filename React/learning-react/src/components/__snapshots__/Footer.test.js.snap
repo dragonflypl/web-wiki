@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render with ShallowRenderer 1`] = `
+exports[`Footer should render with ShallowRenderer 1`] = `
 <p>
   Show: 
   <Connect(Link)
@@ -27,7 +27,7 @@ exports[`should render with ShallowRenderer 1`] = `
 </p>
 `;
 
-exports[`should render with shallow 1`] = `
+exports[`Footer should render with shallow 1`] = `
 <p>
   Show: 
   <Connect(Link)

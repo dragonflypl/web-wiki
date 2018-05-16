@@ -10,28 +10,30 @@ const todos = [
   { id: 2, text: 'Learn react-test-renderer', completed: true }
 ];
 
-it('should render with shallow', () => {
-  const wrapper = shallow(<TodoList todos={todos} />)
-  expect(wrapper).toMatchSnapshot();
-});
+describe('TodoList', () => {
+  it('should render with shallow', () => {
+    const wrapper = shallow(<TodoList todos={todos} />)
+    expect(wrapper).toMatchSnapshot();
+  });
 
-it('should render with mount', () => {
-  const wrapper = mount(<TodoList todos={todos} />)
-  expect(wrapper).toMatchSnapshot();
-});
+  it('should render with mount', () => {
+    const wrapper = mount(<TodoList todos={todos} />)
+    expect(wrapper).toMatchSnapshot();
+  });
 
-it('should render with render', () => {
-  const wrapper = render(<TodoList todos={todos} />)
-  expect(wrapper).toMatchSnapshot();
-});
+  it('should render with render', () => {
+    const wrapper = render(<TodoList todos={todos} />)
+    expect(wrapper).toMatchSnapshot();
+  });
 
-it('should render with TestRenderer', () => {
-  const component = TestRenderer.create(<TodoList todos={todos} />) ;
-  expect(component.toJSON()).toMatchSnapshot();
-});
+  it('should render with TestRenderer', () => {
+    const component = TestRenderer.create(<TodoList todos={todos} />) ;
+    expect(component.toJSON()).toMatchSnapshot();
+  });
 
-it('should render with ShallowRenderer', () => {
-  const renderer = new ShallowRenderer();
-  renderer.render(<TodoList todos={todos} />) ;
-  expect(renderer.getRenderOutput()).toMatchSnapshot();
-});
+  it('should render with ShallowRenderer', () => {
+    const renderer = new ShallowRenderer();
+    renderer.render(<TodoList todos={todos} />) ;
+    expect(renderer.getRenderOutput()).toMatchSnapshot();
+  });
+})

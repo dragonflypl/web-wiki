@@ -379,10 +379,9 @@ global.React = require('react');
 
 With this setup in place, it's not longer required to import shallow, mount, render, React in test files.
 
-
 ### Jest API
 
-- `it.only` is used to isolate test (run only this one test) and `it.skip` to skip test
+- `it.only` (`fit`) is used to isolate test (run only this one test) and `it.skip`(`xit`) to skip test
 - to handle async use `done` callback or return a promise from test or pass `async` function to `it`
 - `jest.fn` creates a spy
 - `before/afterAll` - before is good place to set up mocks e.g.
@@ -512,3 +511,10 @@ expect(wrapper).toContainReact(<h2>This is random number: 10</h2>);
 | ------------- |:-------------:| -----:|
 | jsdom needed | NO | YES | NO | NO |
 | running lifecycle hooks | NO | YES | ? | ? |
+
+## VSCode integration 
+
+Install:
+
+- snapshot tools
+- Jest extension

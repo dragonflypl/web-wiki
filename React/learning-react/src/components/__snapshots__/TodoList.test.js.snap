@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render with ShallowRenderer 1`] = `
+exports[`TodoList should render with ShallowRenderer 1`] = `
 <ul>
   <Todo
     id={1}
@@ -16,7 +16,7 @@ exports[`should render with ShallowRenderer 1`] = `
 </ul>
 `;
 
-exports[`should render with TestRenderer 1`] = `
+exports[`TodoList should render with TestRenderer 1`] = `
 <ul>
   <li
     onClick={[Function]}
@@ -41,7 +41,7 @@ exports[`should render with TestRenderer 1`] = `
 </ul>
 `;
 
-exports[`should render with mount 1`] = `
+exports[`TodoList should render with mount 1`] = `
 <TodoList
   todos={
     Array [
@@ -97,7 +97,7 @@ exports[`should render with mount 1`] = `
 </TodoList>
 `;
 
-exports[`should render with render 1`] = `
+exports[`TodoList should render with render 1`] = `
 <ul>
   <li
     style="text-decoration:none"
@@ -112,7 +112,7 @@ exports[`should render with render 1`] = `
 </ul>
 `;
 
-exports[`should render with shallow 1`] = `
+exports[`TodoList should render with shallow 1`] = `
 <ul>
   <Todo
     id={1}

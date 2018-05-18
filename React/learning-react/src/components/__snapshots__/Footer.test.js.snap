@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render with ShallowRenderer 1`] = `
+<p>
+  Show: 
+  <Connect(Link)
+    filter="SHOW_ALL"
+  >
+    All
+  </Connect(Link)>
+  , 
+  <Connect(Link)
+    filter="SHOW_COMPLETED"
+  >
+    Completed
+  </Connect(Link)>
+  , 
+  <Connect(Link)
+    filter="SHOW_ACTIVE"
+  >
+    Active
+  </Connect(Link)>
+  <h2>
+    This is random number: 
+    10
+  </h2>
+</p>
+`;
+
+exports[`should render with shallow 1`] = `
+<p>
+  Show: 
+  <Connect(Link)
+    filter="SHOW_ALL"
+  >
+    All
+  </Connect(Link)>
+  , 
+  <Connect(Link)
+    filter="SHOW_COMPLETED"
+  >
+    Completed
+  </Connect(Link)>
+  , 
+  <Connect(Link)
+    filter="SHOW_ACTIVE"
+  >
+    Active
+  </Connect(Link)>
+  <h2>
+    This is random number: 
+    10
+  </h2>
+</p>
+`;

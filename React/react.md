@@ -311,44 +311,6 @@ Article.propTypes = {
 
 Another solution is to use `Flow` - typechecker: <https://flow.org/>
 
-## Testing
-
-- `react-test-renderer` - for snapshots
-- `enzyme` - for interaction. `shallow` does not render children. To test lifecycle methods and children interaction, use `mount`. 
-- `react-addons-test-utils` - used by enzyme
-
-### Types of testing
-
-- Unit testing - enzyme's shallow can be useful
-- Interaction testing - use enzyme (e.g. clicking etc)
-- Structural testing - possible with snapshots, usually this is what stateless functional components need
-- Style testing (like PhantomCSS)
-
-### Enzyme & shallow rendering
-
-Enzyme enables component creation and nice syntax for querying component's content etc... Also it enables shalow rendering (only component being created is rendered, child components not), this is perfect for unit testing.
-
-Instead of `renderer.create`, use:
-
-```javascript
-import { shallow } from 'enzyme';
-const wrapper = shallow(<ArticleList {...testProps} />);
-wrapper.find('a').simulate('click'); // uses JSDOM under the hood
-wrapper.instance(); // to access instance,methods etc...
-```
-
-### Snapshot testing
-
-Renderer can be used to do it;
-
-```javascript
-import renderer from 'react-test-renderer'
-const tree = renderer.create(<div>Hello</div>).toJSON()
-expect(tree).toMatchSnapshot();
-```
-
-You can use enzyme with this rendered to test shapshots of only parts of components.
-
 # Tools
 
 - `jest`

@@ -364,7 +364,64 @@ export function receiveTodos(filter, todos) {
 }
 ```
 
-Second approach is to use promise middleware.
+Second approach is to use promise or thunk middleware. Let's look at this complex scenario:
+
+```javascript
+  getTodos() {
+    const { filter, receiveTodos, requestTodos, isFetching } = this.props;
+    if (isFetching) {
+      return;
+    }
+    // dispatch first sync action - we're starting AJAX request
+    requestTodos();
+    // start AJAX request
+    fetchTodos(filter).then(response => {
+      // when done, dispatch another action
+      receiveTodos(filter, response);
+    })
+  }
+```
+
+Because `requestTodos` is always used with `fetchTodos`, it could be in one action method that dispatches multiple actions and also works with promises. Things to do:
+
+- install `redux-thunk` middleware & enable it `const middlewares = [thunk, createLogger]`
+- create one action creator that will dispatch multiple actions. It should have a `tunk` signature i.e. it should return a funtion that receives `dispatch` and `getState` functions. `getState` enables access to whole state, while `dispatch` enables dispatching multiple actions.
+
+```javascript
+
+import * as api from '../api';
+import { getIsFetching } from '../reducers';
+
+export const fetchTodos = (filter) => (dispatch, getState) => {
+  // getIsFetching is a selector
+  if (getIsFetching(getState())) {
+    console.log('Fetching already in progress');
+    return;
+  }
+  // First action dispatched
+  dispatch(requestTodos());
+  // AJAX request
+  return api.fetchTodos(filter).then(response => {
+    // Second action dispatched
+    dispatch(receiveTodos(filter, response));
+  })
+}
+```
+
+- inside component, simply use `fetchTodos`
+
+```javascript
+import { fetchTodos } from '../actions';
+
+  ...
+  getTodos() {
+    const { filter, fetchTodos } = this.props;
+    fetchTodos(filter)
+  }
+  ...
+
+const mapDispatchToProps = { fetchTodos }
+```
 
 ## FAQ
 

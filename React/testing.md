@@ -20,7 +20,44 @@ import TestRenderer from 'react-test-renderer';
 
 Enzyme enables component creation and nice syntax for querying component's content.
 
+It is high level abstraction over React test utils (officially recommended by React team).
+
 No matter which enzyme renderer you use, you will get similar wrapper API for quering / simulate user interaction.
+
+#### Installation
+
+This applies to latest Enzyme and React 16+.
+
+> npm i --save-dev enzyme enzyme-adapter-react-16
+
+and put:
+
+``` javascript
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+Enzyme.configure({ adapter: new Adapter() });
+```
+
+in Jest configuration file (e.g. `"setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.js",`)
+
+To use custom matchers & assertions from enzyme, install:
+
+> npm install jest-enzyme --save-dev
+
+and do the import in Jest's config file `import 'jest-enzyme';`.
+
+Benefits are:
+
+- when doing snapshot testing, snapshot are written nicely with HTML structure
+- it adds additional assertions e.g. `toContainReact`.
+
+``` javascript
+const wrapper = shallow(<Footer />)    
+expect(wrapper).toContainReact(<h2>This is random number: 10</h2>);
+```
+
+ Full list of matchers is here: <https://github.com/FormidableLabs/enzyme-matchers>
 
 #### Enzyme & static rendering
 
@@ -352,11 +389,24 @@ Const:
 - protect only against regression
 - easy to ignore
 
+#### Snapshot serializers
+
+`expect.addSnapshotSerializer` and that's it: you can have a custom representation in snapshots.
+
+This is how other stuff is serialized (renderers, mount / shallow wrappers).
+
 ## Jest
 
 Jest is like Jasmine/Mocha (BDD test runner with assertion library) with additional features like snapshot testing & module mocking & spies.
 
 Matcher are documented here: <https://facebook.github.io/jest/docs/en/expect.html>
+
+### Basic configuration
+
+Some important keys:
+
+- `setupTestFrameworkScriptFile` points to jest config file (e.g. configure enzyme adapter or globals)
+- `moduleNameMapper` to specify how certain module imports (like images, less, css etc) shoule be handled by Jest, although it can be done with `transform` as well (check create-react-app)
 
 ### Configuring test environment
 
@@ -467,44 +517,6 @@ It is also possible to mock `node_modules`.
 
 In order to do so, create mocks folder next to `node_modules` and create folders with the same name as npm package.
 
-## Enzyme
-
-This applies to latest Enzyme and React 16+.
-
-### Installation
-
-> npm i --save-dev enzyme enzyme-adapter-react-16
-
-and put:
-
-``` javascript
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-
-Enzyme.configure({ adapter: new Adapter() });
-```
-
-in Jest configuration file (e.g. `"setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.js",`)
-
-To use custom matchers & assertions from enzyme, install:
-
-> npm install jest-enzyme --save-dev
-
-and do the import in Jest's config file `import 'jest-enzyme';`.
-
-Benefits are:
-
-- when doing snapshot testing, snapshot are written nicely with HTML structure
-- it adds additional assertions e.g. `toContainReact`.
-
-``` javascript
-const wrapper = shallow(<Footer />)    
-expect(wrapper).toContainReact(<h2>This is random number: 10</h2>);
-```
-
- Full list of matchers is here: <https://github.com/FormidableLabs/enzyme-matchers>
-
-
 ## Comparsion
 
 | Feature | Enzyme shallow | Enzyme mount | Enzyme static | Full react-test-renderer | 
@@ -512,9 +524,63 @@ expect(wrapper).toContainReact(<h2>This is random number: 10</h2>);
 | jsdom needed | NO | YES | NO | NO |
 | running lifecycle hooks | NO | YES | ? | ? |
 
-## VSCode integration 
+## Tools
+
+### Migration
+
+It's possible to migrate from many other test frameworks to Jest with `jest-codemods`
+
+### VSCode integration 
 
 Install:
 
 - snapshot tools
 - Jest extension
+
+
+## Thoughs on tests
+
+What makes a good test:
+
+- run fast (affects CI, test your patience)
+- easy to read/understand (nobody will fix test if it is hard to understand)
+- catch bugs (try to break something in you code and expect test to fail)
+- don't break often (e.g. refactoring is done, app is working but all test go red)
+- good coverage to effort ratio 
+
+Principles:
+
+- testing UI is hard
+- try to mock as less a possible
+- try not to isolate to much (more isolation -> less bugs caught)
+
+General solution according to principles:
+
+- make the test to be UI
+  - if component is dispatching and action, make the test to dispatch an actions
+  - if component is reading from the store, make the test read from the store
+
+So test structure could be:
+
+- setup initial state
+- dispatch an action
+- expect data to change
+
+Disadvanatages:
+
+- initial state is hard to setup
+
+How to make tests clean:
+
+- write TEST UTILITIES!
+  - never but JSON test data in your tests. 99% of cases it could be reused!
+
+Areas of testing:
+
+- UI components
+  - test what is dynamic, functionality of component (conditions, loops, event handlers, rendered content)
+  - Enzyme recommends a natural / user-like flow in tests (e.g. don't set state manually, instead simulate clicks etc.)
+  - for typical UI rendered content testing, use snapshots (there's no need to write selectors, count elements etc.)
+- Data mutation
+- Routing
+- Remember: simulate you did a mistake and see if test caught it

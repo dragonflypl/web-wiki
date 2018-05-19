@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './../logo.svg';
 import './App.css';
 
-import VisibleTodoList from './components/VisibleTodoList';
-import AddTodo from './components/AddTodo';
-import Footer from './components/Footer';
+import VisibleTodoList from './VisibleTodoList';
+import AddTodo from './AddTodo';
+import Footer from './Footer';
 
 class App extends Component {
 

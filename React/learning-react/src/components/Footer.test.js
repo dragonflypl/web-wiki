@@ -1,5 +1,7 @@
 jest.mock('../services/RandomNumber');
 
+import RandomNumber from '../services/RandomNumber'
+
 // React, mount, shallow, render is available on globals thanks to setupTests.js
 
 import Footer from './Footer';
@@ -29,6 +31,8 @@ describe('Footer', () => {
   });
 
   it('should render with ShallowRenderer', () => {
+    // this would override generate's implementation with mocked one
+    // RandomNumber.prototype.generate.mockImplementation(() => 20)
     const renderer = new ShallowRenderer();
     renderer.render(<Footer />) ;
     expect(renderer.getRenderOutput()).toMatchSnapshot();

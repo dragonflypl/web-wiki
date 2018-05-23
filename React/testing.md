@@ -389,6 +389,8 @@ Const:
 - protect only against regression
 - easy to ignore
 
+Use snapshot testing not only to assert UI changes. Use it for any serializable values that can change and manual checking of their content would require a great deal of code.
+
 #### Snapshot serializers
 
 `expect.addSnapshotSerializer` and that's it: you can have a custom representation in snapshots.
@@ -400,6 +402,17 @@ This is how other stuff is serialized (renderers, mount / shallow wrappers).
 Jest is like Jasmine/Mocha (BDD test runner with assertion library) with additional features like snapshot testing & module mocking & spies.
 
 Matcher are documented here: <https://facebook.github.io/jest/docs/en/expect.html>
+
+## Installation
+
+What is needed:
+
+- `jest`
+- for babel integration: `babel-jest` & create babel configuration with proper presets(`.babelrc` or in `package.json`)
+
+Jest automatically sets NODE_ENV to `test` when running tests. So if you need a specific preset / plugins etc for test environment, use babel's `env` key.
+
+<https://facebook.github.io/jest/docs/en/getting-started.html> covers it all.
 
 ### Basic configuration
 
@@ -432,24 +445,39 @@ With this setup in place, it's not longer required to import shallow, mount, ren
 ### Jest API
 
 - `it.only` (`fit`) is used to isolate test (run only this one test) and `it.skip`(`xit`) to skip test
-- to handle async use `done` callback or return a promise from test or pass `async` function to `it`
-- `jest.fn` creates a spy
+- to handle async use `done` callback or return a promise from test or pass `async` function to `it` and use `await`. Also to ensure correct number assertions to be called (to avoid false positives/negatives) call `expect.assertions` to speficy how many assertions are expected to run during the test. There's also `resolves` and `rejects` matcher that operates on promise (they unwrap the promise). Examples are here: <https://github.com/facebook/jest/tree/master/examples/async>. For timers, use `jest.useFakeTimers/runAllTimers();` etc. More is here <https://facebook.github.io/jest/docs/en/timer-mocks.html>
 - `before/afterAll` - before is good place to set up mocks e.g.
-
-``` javascript
-// mocking 
-jest.mock('./../services/notificationService');
-
-// importing mock in order to configure it
-const notificationService = require('./../services/notificationService').default;
-
-// configure the mock
-beforeAll(() => { notificationService._setValue(25) });
-```
 
 ### Mocking with Jest
 
-Jest enables mocking with `jest.mock`. Jest mocks whole ES6 modules exported from files (genMockFromModule). It replaces all functions with mocks. This is automatic mocking.
+#### jest.fn
+
+`jest.fn` creates a mock / spy.
+
+Created mock has a `mock` property that exposes information about what happened to mock (how many times it was called etc).
+
+To provide custom implementation of a mock use `mockImplementation` or `mockImplementationOnce` or `jest.fn` argument.
+
+Mock assertions can be done manually with matchers like `toBeCalled` or via snapshots: `expect(mockFunc).toMatchSnapshot();`
+
+Worth to remember: if you're reusing a mock then call `mockClear` in `beforeEach`.
+
+``` javascript
+import SoundPlayer from './sound-player';
+import SoundPlayerConsumer from './sound-player-consumer';
+jest.mock('./sound-player'); // SoundPlayer is now a mock constructor
+
+beforeEach(() => {
+  // Clear all instances and calls to constructor and all methods:
+  SoundPlayer.mockClear();
+});
+```
+
+#### jest.mock
+
+Jest enables mocking with `jest.mock`. 
+
+Jest mocks whole ES6 modules exported from files (genMockFromModule). It replaces all functions with mocks. This is automatic mocking.
 
 Jest will automatically hoist `jest.mock` calls to the top of the module (before any imports).
 
@@ -467,7 +495,7 @@ So in order to mock a module:
 
 - create mocks folder next to mocked module
 - put a file with the same name as the name of mocked module in mocks folder
-- create a mock (e.g. via `jest.genMockFromModule` and customizing automatic mock, or via `require.requireActual` and customizing actual implementation)
+- create a mock (e.g. via `jest.genMockFromModule` and customizing automatic mock, or via `require.requireActual` and customizing actual implementation). If you don't need mock features, mock can be a stub or whatever object you like.
 - use the mock inside test by telling Jest to mock it with with `jest.mock('nameOfTheModule')`
 
 More here:
@@ -475,7 +503,20 @@ More here:
 - <https://facebook.github.io/jest/docs/en/jest-object.html#jestgenmockfrommodulemodulename>
 - <https://facebook.github.io/jest/docs/en/jest-object.html#jestmockmodulename-factory-options>
 
-Example:
+Example 1:
+
+``` javascript
+// mocking 
+jest.mock('./../services/notificationService');
+
+// importing mock in order to configure it
+const notificationService = require('./../services/notificationService').default;
+
+// configure the mock
+beforeAll(() => { notificationService._setValue(25) });
+```
+
+Example 2:
 
 ``` javascript
 // RandomNumber.js
@@ -500,14 +541,11 @@ export default RandomNumber;
 // or via full mock
 
 const RandomNumberMock = jest.genMockFromModule('../RandomNumber').default;
-RandomNumberMock.mockImplementation(function() {
-  return {
-    generate: () => 10
-  }
-});
-
+RandomNumberMock.prototype.generate.mockReturnValue(10);
 export default RandomNumberMock;
 
+// or just dummy implementation
+export default class { .... }
 
 // somewhere in tests
 jest.mock('../pathTo/RandomNumber');
@@ -516,6 +554,27 @@ jest.mock('../pathTo/RandomNumber');
 It is also possible to mock `node_modules`. 
 
 In order to do so, create mocks folder next to `node_modules` and create folders with the same name as npm package.
+
+### jest.mock with the module factory parameter
+
+This technique allows for providing a factory function that will create a mock (e.g. used when mocking React components)
+
+### Replacing mock with another mock
+
+If you already have a manual mock, and for whatever reason you want to replace with another mock (for single test or whole suite), then use: `mockImplementation` or `mockImplementationOnce`:
+
+
+``` javascript
+jest.mock('../services/RandomNumber'); // manual mock will be used
+import RandomNumber from '../services/RandomNumber' // importing module which will be a manual mock
+
+it('should render with ShallowRenderer', () => {
+  RandomNumber.prototype.generate.mockImplementation(() => 20)
+  const renderer = new ShallowRenderer();
+  renderer.render(<Footer />) ;
+  expect(renderer.getRenderOutput()).toMatchSnapshot();
+});
+```
 
 ## Comparsion
 
@@ -584,3 +643,14 @@ Areas of testing:
 - Data mutation
 - Routing
 - Remember: simulate you did a mistake and see if test caught it
+
+## WebPack integration
+
+Webpack handles everything. Jest does not use webpack, so some features have to me mocked, e.g.:
+
+- handle imports of resources that are no JS (e.g. css / jpg / fonts etc). To do so, use `moduleNameMapper` of `transform`.
+
+
+## TODO:
+
+- https://benmccormick.org/2016/09/19/testing-with-jest-snapshots-first-impressions/ : when to do snapshot testing

@@ -3,23 +3,23 @@
 exports[`Footer should render with ShallowRenderer 1`] = `
 <p>
   Show: 
-  <Connect(Link)
-    filter="SHOW_ALL"
+  <FilterLink
+    filter="all"
   >
     All
-  </Connect(Link)>
+  </FilterLink>
   , 
-  <Connect(Link)
-    filter="SHOW_COMPLETED"
+  <FilterLink
+    filter="completed"
   >
     Completed
-  </Connect(Link)>
+  </FilterLink>
   , 
-  <Connect(Link)
-    filter="SHOW_ACTIVE"
+  <FilterLink
+    filter="active"
   >
     Active
-  </Connect(Link)>
+  </FilterLink>
   <h2>
     This is random number: 
     10
@@ -30,23 +30,23 @@ exports[`Footer should render with ShallowRenderer 1`] = `
 exports[`Footer should render with shallow 1`] = `
 <p>
   Show: 
-  <Connect(Link)
-    filter="SHOW_ALL"
+  <FilterLink
+    filter="all"
   >
     All
-  </Connect(Link)>
+  </FilterLink>
   , 
-  <Connect(Link)
-    filter="SHOW_COMPLETED"
+  <FilterLink
+    filter="completed"
   >
     Completed
-  </Connect(Link)>
+  </FilterLink>
   , 
-  <Connect(Link)
-    filter="SHOW_ACTIVE"
+  <FilterLink
+    filter="active"
   >
     Active
-  </Connect(Link)>
+  </FilterLink>
   <h2>
     This is random number: 
     10

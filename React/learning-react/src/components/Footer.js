@@ -7,9 +7,9 @@ const randomInRange = new RandomNumber(10,20);
 export default function Footer() {
   return (<p>
     Show:&nbsp;
-    <FilterLink filter='SHOW_ALL'>All</FilterLink>,&nbsp;
-    <FilterLink filter='SHOW_COMPLETED'>Completed</FilterLink>,&nbsp;
-    <FilterLink filter='SHOW_ACTIVE'>Active</FilterLink>
+    <FilterLink filter='all'>All</FilterLink>,&nbsp;
+    <FilterLink filter='completed'>Completed</FilterLink>,&nbsp;
+    <FilterLink filter='active'>Active</FilterLink>
     <h2>This is random number: {randomInRange.generate()}</h2>
   </p>)
 }

@@ -1,11 +1,9 @@
 import React from 'react';
 import Todo from './Todo';
 
-export default ({ todos, onTodoClick }) => {
+export default function TodoList({ todos, onTodoClick }) {
   return <ul>
-    {todos.map(todo =>
-      <Todo {...todo}
-        key={todo.id}
-        onClick={() => onTodoClick(todo)} />)}
+    {todos.map(x =>
+      <Todo {...x} key={x.id} onClick={() => onTodoClick(x)} />)}
   </ul>
 }

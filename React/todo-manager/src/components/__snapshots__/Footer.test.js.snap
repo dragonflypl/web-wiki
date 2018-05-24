@@ -2,19 +2,20 @@
 
 exports[`Footer should render with ShallowRenderer 1`] = `
 <p>
-  Show: 
+  Show: 
+   
   <FilterLink
     filter="all"
   >
     All
   </FilterLink>
-  , 
+   
   <FilterLink
     filter="completed"
   >
     Completed
   </FilterLink>
-  , 
+   
   <FilterLink
     filter="active"
   >
@@ -29,19 +30,20 @@ exports[`Footer should render with ShallowRenderer 1`] = `
 
 exports[`Footer should render with shallow 1`] = `
 <p>
-  Show: 
+  Show: 
+   
   <FilterLink
     filter="all"
   >
     All
   </FilterLink>
-  , 
+   
   <FilterLink
     filter="completed"
   >
     Completed
   </FilterLink>
-  , 
+   
   <FilterLink
     filter="active"
   >

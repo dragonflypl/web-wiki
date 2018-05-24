@@ -41,7 +41,9 @@ const mapStateToProps = (state, { match }) => ({
   todos: getVisibleTodos(state, match.params.filter)
 })
 
-export default withRouter(connect(
-  mapStateToProps,
-  { onTodoClick: toggleTodo, fetchTodos }
-)(VisibleTodoList));
+const mapDispatchToProps = {
+  onTodoClick: toggleTodo,
+  fetchTodos
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(VisibleTodoList));

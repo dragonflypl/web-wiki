@@ -1,13 +1,17 @@
 import { combineReducers } from 'redux';
-import todos, * as fromTodos from './todos';
+
+import todos, * as todosSelectors from './todos';
 
 export default combineReducers({ todos });
 
+/**
+ * Selectors that hides state internal structure and delegates to todos selectors
+ */
 export const getErrorMessage = (state) =>
-  fromTodos.getErrorMessage(state.todos);
+  todosSelectors.getErrorMessage(state.todos);
 
 export const getIsFetching = (state) =>
-  fromTodos.getIsFetching(state.todos);
+  todosSelectors.getIsFetching(state.todos);
 
 export const getVisibleTodos = (state, filter) =>
-  fromTodos.getVisibleTodos(state.todos, filter)
+  todosSelectors.getVisibleTodos(state.todos, filter)

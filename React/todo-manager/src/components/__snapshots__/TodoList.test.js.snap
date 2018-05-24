@@ -22,6 +22,7 @@ exports[`TodoList should render with TestRenderer 1`] = `
     onClick={[Function]}
     style={
       Object {
+        "cursor": "pointer",
         "textDecoration": "none",
       }
     }
@@ -32,6 +33,7 @@ exports[`TodoList should render with TestRenderer 1`] = `
     onClick={[Function]}
     style={
       Object {
+        "cursor": "pointer",
         "textDecoration": "line-through",
       }
     }
@@ -68,6 +70,7 @@ exports[`TodoList should render with mount 1`] = `
         onClick={[Function]}
         style={
           Object {
+            "cursor": "pointer",
             "textDecoration": "none",
           }
         }
@@ -86,6 +89,7 @@ exports[`TodoList should render with mount 1`] = `
         onClick={[Function]}
         style={
           Object {
+            "cursor": "pointer",
             "textDecoration": "line-through",
           }
         }
@@ -100,12 +104,12 @@ exports[`TodoList should render with mount 1`] = `
 exports[`TodoList should render with render 1`] = `
 <ul>
   <li
-    style="text-decoration:none"
+    style="cursor:pointer;text-decoration:none"
   >
     Learn enzyme
   </li>
   <li
-    style="text-decoration:line-through"
+    style="cursor:pointer;text-decoration:line-through"
   >
     Learn react-test-renderer
   </li>

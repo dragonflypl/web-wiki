@@ -1,10 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-export default ({ filter, children }) => (
-  <Link
-    to={filter === 'all' ? '' : filter}
-    activeStyle={{ textDecoration: 'none' }}>
-    {children}
-  </Link>
-)
+export default function FilterLink({ filter, ...rest }) {
+  return <NavLink
+    activeStyle={{ textDecoration: 'none' }}
+    to={'/' + filter} {...rest} />
+}

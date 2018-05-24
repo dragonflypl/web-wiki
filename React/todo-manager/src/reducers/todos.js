@@ -1,10 +1,4 @@
-const defaultState = [
-  { id: 1, text: 'one' },
-  { id: 2, text: 'two' },
-  { id: 3, text: 'three', completed: true }
-];
-
-export const todos = (state = defaultState, action) => {
+export const todos = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
       return [

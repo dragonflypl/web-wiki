@@ -5,7 +5,7 @@ import VisibleTodoList from './components/VisibleTodoList';
 import AddTodo from './components/AddTodo'
 import Footer from './components/Footer'
 
-export default () => {
+export default ({ match }) => {
   return (
     <div className="App">
       <header className="App-header">

@@ -1,4 +1,4 @@
-export const todos = (state = [], action) => {
+export default (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
       return [
@@ -22,4 +22,12 @@ export const todos = (state = [], action) => {
     default:
       return state;
   }
+}
+
+export function getVisibleTodos(state, filter) {
+  return state.filter(todo => {
+    return !filter ||
+      (filter === 'completed' && todo.completed) ||
+      (filter === 'active' && !todo.completed)
+  })
 }

@@ -1,16 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import { addTodo } from './../actions'
 
-export default connect()(({ dispatch }) => {
+const AddTodo = ({ onClick }) => {
   return (<div>
     <input ref={node => this.input = node} />
     <button onClick={() => {
-      dispatch({
-        type: 'ADD_TODO',
-        id: Date.now(),
-        text: this.input.value
-      })
-      this.input.value = ''
+      if (this.input.value) {
+        onClick(this.input.value);
+        this.input.value = '';
+      }
     }}>Add Todo</button>
   </div>)
-})
+};
+
+export default connect(null, {
+  onClick: addTodo
+})(AddTodo)

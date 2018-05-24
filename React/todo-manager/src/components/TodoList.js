@@ -4,6 +4,8 @@ import Todo from './Todo';
 export default ({ todos, onTodoClick }) => {
   return <ul>
     {todos.map(todo =>
-      <Todo {...todo} key={todo.id} onClick={() => onTodoClick(todo.id)} />)}
+      <Todo {...todo}
+        key={todo.id}
+        onClick={() => onTodoClick(todo)} />)}
   </ul>
 }

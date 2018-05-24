@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Root from './Root'
 import registerServiceWorker from './registerServiceWorker';
-import store from './configureStore';
+import configureStore from './configureStore';
 
 ReactDOM.render(
-  <Root store={store} />,
+  <Root store={configureStore()} />,
   document.getElementById('root'));
 
 registerServiceWorker();

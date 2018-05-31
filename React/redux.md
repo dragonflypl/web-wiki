@@ -32,20 +32,20 @@ Now, connected component will have `something` as property.
 
 There're three ways to define mapDispatchToProps (`toggleTodo` is action creator):
 
-- function. `mapDispatchToProps` is a function that accepts `dispatch` and returns object that exposes actions that component can execute. Each action (e.g. `onTodoClick`) is a function that will be passed to component.
+* function. `mapDispatchToProps` is a function that accepts `dispatch` and returns object that exposes actions that component can execute. Each action (e.g. `onTodoClick`) is a function that will be passed to component.
 
 ```javascript
 import { toggleTodo } from '../actions';
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    onTodoClick: (id) => dispatch(toggleTodo(id))
-  }
-}
+    onTodoClick: id => dispatch(toggleTodo(id))
+  };
+};
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
 ```
 
-- object definition shorthand notation
+* object definition shorthand notation
 
 If props callback (`onTodoClick`) and action creator (`toggleTodo`) signatures are the same, `mapDispatchToProps` can we written as an object (not function):
 
@@ -54,12 +54,14 @@ import { toggleTodo } from '../actions';
 
 const mapDispatchToProps = {
   onTodoClick: toggleTodo
-}
+};
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TodoList));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(TodoList)
+);
 ```
 
-- `bindActionCreators`:
+* `bindActionCreators`:
 
 `function mapDispatchToProps(dispatch, ownProps) { return { actions: bindActionsCreators(actions, dispatch) } }`
 
@@ -74,7 +76,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 function AddTodo({ dispatch }) {
-  return <button onClick={() => dispatch({ type: 'ADD_TODO' })}>Add todo</button>;
+  return (
+    <button onClick={() => dispatch({ type: 'ADD_TODO' })}>Add todo</button>
+  );
 }
 
 export default connect()(AddTodo);
@@ -86,7 +90,7 @@ Use is in mapStateToProps for caching, as reselect enables memoization: <https:/
 
 ## Folder structure
 
-- store actions in `actions` folder. For each logical part (not necessarily the same structure like in reducers), create separate actions file e.g. `courseActions.js`
+* store actions in `actions` folder. For each logical part (not necessarily the same structure like in reducers), create separate actions file e.g. `courseActions.js`
 
 This is action creator, type property is mandatory:
 
@@ -99,7 +103,7 @@ export * from './visibilityFilter';
 export * from './todos';
 ```
 
-- store reducers in `reducers` folder.
+* store reducers in `reducers` folder.
 
 This is a reducer (e.g. `courseReducer.js`) :
 
@@ -116,13 +120,13 @@ import visibilityFilter from './visibilityFilter';
 export default combineReducers({ todos, visibilityFilter });
 ```
 
-Use `combineReducers`  for reducers composition.
+Use `combineReducers` for reducers composition.
 
 ## Three principles
 
-- single immutable state tree (object) / store (it stores data & ui state) contains everything in the application that can change (data & UI state)
-- state tree is readonly. actions trigger changes. Action is minimal representation of change to data. Structure must have `type` property. Components just dispatch actions and their work is done.
-- reducers update store: state mutations are described by pure functions (reducers) & action
+* single immutable state tree (object) / store (it stores data & ui state) contains everything in the application that can change (data & UI state)
+* state tree is readonly. actions trigger changes. Action is minimal representation of change to data. Structure must have `type` property. Components just dispatch actions and their work is done.
+* reducers update store: state mutations are described by pure functions (reducers) & action
 
 ### Enforcing immutability
 
@@ -162,11 +166,11 @@ Action creators are functions that create actions, e.g.
 
 ```javascript
 export function rateCourse(rating) {
-  return { type: 'RATE_COURSE', rating }
+  return { type: 'RATE_COURSE', rating };
 }
 
 export function toggleTodo(id) {
-  return { type: 'TOGGLE_TODO', id }
+  return { type: 'TOGGLE_TODO', id };
 }
 
 export function setVisibilityFilter(filter) {
@@ -180,18 +184,18 @@ These actions, are then dispatched to the store:
 const mapDispatchToProps = (dispatch, { filter }) => {
   return {
     onClick: () => dispatch(setVisibilityFilter(filter))
-  }
-}
+  };
+};
 ```
 
 or:
 
 ```javascript
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
-    onTodoClick: (id) => dispatch(toggleTodo(id))
-  }
-}
+    onTodoClick: id => dispatch(toggleTodo(id))
+  };
+};
 ```
 
 or (`dispatch` is injected to props thanks to `connect` call):
@@ -203,10 +207,12 @@ import { addTodo } from '../actions';
 
 function AddTodo({ dispatch }) {
   let input;
-  return (<div>
-    <input ref={ref => input = ref} />
-    <button onClick={() => dispatch(addTodo(input.value))}>Add todo</button>
-  </div>);
+  return (
+    <div>
+      <input ref={ref => (input = ref)} />
+      <button onClick={() => dispatch(addTodo(input.value))}>Add todo</button>
+    </div>
+  );
 }
 
 export default connect()(AddTodo);
@@ -280,14 +286,14 @@ import { getVisibleTodos } from '../reducers';
 
 const mapStateToProps = (state, { match }) => ({
   todos: getVisibleTodos(state, match.params.filter)
-})
+});
 ```
 
 Pay attention, that each time selector is called, it simply receives `state` as argument (no internal structure os state is infered by client code).
 
 ## Store API
 
-- createStore
+* createStore
 
 ```javascript
 const store = createStore(rootReducer);
@@ -301,24 +307,21 @@ const initialState = {
     { id: 1, text: 'Buy fruits' },
     { id: 2, text: 'Buy wegetables', completed: true }
   ]
-}
+};
 const store = createStore(demoApp, initialState);
 ```
 
-- store.dispatch(action)
-- store.subscribe(listener)
-- store.getState()
-- replaceReducer(nextReducer)
+* store.dispatch(action)
+* store.subscribe(listener)
+* store.getState()
+* replaceReducer(nextReducer)
 
 ## Combining reducers
 
 Redux provides utility function `combineReducers` that combines reducers into single reducer.
 
 ```javascript
-import {
-  createStore,
-  combineReducers
-} from 'redux';
+import { createStore, combineReducers } from 'redux';
 
 function todos(state = [{ text: 'Learn react', id: 0 }], action) {
   return state;
@@ -331,7 +334,7 @@ function visibilityFilter(state = {}, action) {
 const demoApp = combineReducers({
   todos,
   visibilityFilter
-})
+});
 
 export const store = createStore(demoApp);
 ```
@@ -384,15 +387,14 @@ Second approach is to use promise or thunk middleware. Let's look at this comple
 
 Because `requestTodos` is always used with `fetchTodos`, it could be in one action method that dispatches multiple actions and also works with promises. Things to do:
 
-- install `redux-thunk` middleware & enable it `const middlewares = [thunk, createLogger]`
-- create one action creator that will dispatch multiple actions. It should have a `tunk` signature i.e. it should return a funtion that receives `dispatch` and `getState` functions. `getState` enables access to whole state, while `dispatch` enables dispatching multiple actions.
+* install `redux-thunk` middleware & enable it `const middlewares = [thunk, createLogger]`
+* create one action creator that will dispatch multiple actions. It should have a `tunk` signature i.e. it should return a funtion that receives `dispatch` and `getState` functions. `getState` enables access to whole state, while `dispatch` enables dispatching multiple actions.
 
 ```javascript
-
 import * as api from '../api';
 import { getIsFetching } from '../reducers';
 
-export const fetchTodos = (filter) => (dispatch, getState) => {
+export const fetchTodos = filter => (dispatch, getState) => {
   // getIsFetching is a selector
   if (getIsFetching(getState())) {
     console.log('Fetching already in progress');
@@ -404,11 +406,11 @@ export const fetchTodos = (filter) => (dispatch, getState) => {
   return api.fetchTodos(filter).then(response => {
     // Second action dispatched
     dispatch(receiveTodos(filter, response));
-  })
-}
+  });
+};
 ```
 
-- inside component, simply use `fetchTodos`
+* inside component, simply use `fetchTodos`
 
 ```javascript
 import { fetchTodos } from '../actions';

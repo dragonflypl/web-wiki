@@ -27,7 +27,7 @@ By default, containerless app (embeded tomcat) does not server JSP files, so a f
 
 - add dependency to jasper & jstl
 
-  ```
+  ```xml
   <dependency>
   	<groupId>org.apache.tomcat.embed</groupId>
   	<artifactId>tomcat-embed-jasper</artifactId>
@@ -44,19 +44,18 @@ By default, containerless app (embeded tomcat) does not server JSP files, so a f
   
 - jsp file (welcome.jsp) inside ```/WEB-INF/jsp/```. Putting JSP files inside WEB-INF is recommended as it forces that the request will go through the application (file won't be served directly)
 
-```
+```html
 <!DOCTYPE html>
 <html>
 <body>
 	Hello World!
 </body>
 </html>
-
 ```
 
 - add controller
 
-  ```
+  ```java
   @Controller
   public class WelcomeController {
   
@@ -69,18 +68,18 @@ By default, containerless app (embeded tomcat) does not server JSP files, so a f
   
 - to serve REST add @RestController:
 
-	```
-	@RestController
-	public class ServiceController {
-	
-		@RequestMapping("/service")
-		public Person getIt()
-		{
-			return new Person();
-		}
-		
+```java
+@RestController
+public class ServiceController {
+
+	@RequestMapping("/service")
+	public Person getIt()
+	{
+		return new Person();
 	}
-	```
+	
+}
+```
 
 ### IntelliJ
 

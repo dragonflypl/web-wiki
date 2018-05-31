@@ -1,7 +1,6 @@
-
 ## React app
 
-First decision to make is to decide on components structure. 
+First decision to make is to decide on components structure.
 
 ## React Components
 
@@ -9,8 +8,8 @@ Component needs to be mount in to the browser. `ReactDOM.render(component, place
 
 Naming convention is to use title case for naming the components e.g. `Button`.
 
-React component returns a description of user interface in the form of React element (`render` method or component function). 
-Rendering of this React elements is done via `ReactDOM` library. 
+React component returns a description of user interface in the form of React element (`render` method or component function).
+Rendering of this React elements is done via `ReactDOM` library.
 
 ### Container components
 
@@ -24,19 +23,19 @@ const ArticleContainer = (props, { store }) => {
 
 It is commonly used to access e.g. context and pass it down to presentational component (`Article`) as props.
 
-- It is aware of Redux.
-- Focus on how things work.
-- subscribe to redux state
-- dispatch redux actions
-- generate by react-redux
+* It is aware of Redux.
+* Focus on how things work.
+* subscribe to redux state
+* dispatch redux actions
+* generate by react-redux
 
 ### Presentational components
 
-- Focus on how things look
-- unaware of redux
-- read data from props
-- invoke callbacks on props
-- written by hand, often only render function
+* Focus on how things look
+* unaware of redux
+* read data from props
+* invoke callbacks on props
+* written by hand, often only render function
 
 ### Pure components
 
@@ -52,30 +51,33 @@ HoC is a function that takes a components and returns new one.
 
 It is a technique from FP (higher-order functions). Just as the higher-order function creates a new function, the HoC creates a new component.
 
-HoC is a  **function**  that  **accepts**  **a component**  and  **returns a new component that renders the passed one**.  This new component is enhanced with an additional functionality.
+HoC is a **function** that **accepts** **a component** and **returns a new component that renders the passed one**. This new component is enhanced with an additional functionality.
 
 > const HoC = BaseComponent => EnhancedComponent
 
 `recompose` is a library that enables HoC composition and provides dozens of generic HoC.
 
- (usually this is a generic function that generates a container components from presntational components):
+(usually this is a generic function that generates a container components from presntational components):
 
 ```javascript
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const storeProvider = (extraProps) => (Component) => {
+const storeProvider = extraProps => Component => {
   return class extends React.Component {
     static displayName = `${Component.name}Container`;
     static contextTypes = {
-      store: PropTypes.object,
+      store: PropTypes.object
     };
 
     render() {
-      return <Component
-        {...this.props}
-        {...extraProps(this.context.store, this.props)}
-        store={this.context.store} />;
+      return (
+        <Component
+          {...this.props}
+          {...extraProps(this.context.store, this.props)}
+          store={this.context.store}
+        />
+      );
     }
   };
 };
@@ -88,7 +90,7 @@ And usage:
 ```javascript
 function extraProps(store, originalProps) {
   return {
-    author: store.lookupAuthor(originalProps.article.authorId),
+    author: store.lookupAuthor(originalProps.article.authorId)
   };
 }
 
@@ -105,10 +107,8 @@ Simplest form of component: function that takes inputs (properties, props) and r
 
 ```javascript
 const Button = () => {
-  return (
-    <button>Go</button>
-  )
-}
+  return <button>Go</button>;
+};
 ```
 
 To mount this component: `ReactDOM.render(<Button />, mountNode)`.
@@ -116,11 +116,9 @@ To mount this component: `ReactDOM.render(<Button />, mountNode)`.
 To use props, add argument and use props in JSX using `{}`
 
 ```javascript
-const Button = (props) => {
-  return (
-    <button>{props.label}</button>
-  )
-}
+const Button = props => {
+  return <button>{props.label}</button>;
+};
 ```
 
 and `ReactDOM.render(<Button label="Go" />, mountNode)`
@@ -135,32 +133,33 @@ State is available via `this.state`. State is available only to component it bel
 
 ```javascript
 class Button extends React.Component {
-
   // not mandatory
   constructor(props) {
-  	super(props);
+    super(props);
   }
-  
+
   state = { counter: 0 };
 
-	handleClick = () => {
-  	//this.setState({ counter: this.state.counter + 1 });
-    
+  handleClick = () => {
+    //this.setState({ counter: this.state.counter + 1 });
+
     // or safer method - updater function: use it if you access previous state value
     // The output of the updater is shallowly merged with prevState.
-    this.setState((prevState) => ({ 
-    	counter: prevState.counter + 1
+    this.setState(prevState => ({
+      counter: prevState.counter + 1
     }));
-  }
-  
-	render() {
-  	return (
-    	<button onClick={this.handleClick}>{this.props.label} {this.state.counter}</button>
-    )
+  };
+
+  render() {
+    return (
+      <button onClick={this.handleClick}>
+        {this.props.label} {this.state.counter}
+      </button>
+    );
   }
 }
 
-ReactDOM.render(<Button label="Counter: " />, mountNode)
+ReactDOM.render(<Button label="Counter: " />, mountNode);
 ```
 
 ### Styling components
@@ -187,27 +186,30 @@ const Item = (props) => {
 
 Alternative to `ref` is controlled components:
 
-- use `value="this.state.field"` to bind state to input
-- use `onChange="this.setState({ field: event.target.value })" to update the value
+* use `value="this.state.field"` to bind state to input
+* use `onChange="this.setState({ field: event.target.value })" to update the value
 
 ```javascript
 class Form extends React.Component {
-	state = { inputValue: 'Default' };
-	render() {
-  	return (
-    	<div>
-        <input value={this.state.inputValue} onChange={(event) => this.setState({ inputValue: event.target.value })}  />      
+  state = { inputValue: 'Default' };
+  render() {
+    return (
+      <div>
+        <input
+          value={this.state.inputValue}
+          onChange={event => this.setState({ inputValue: event.target.value })}
+        />
         {this.state.inputValue}
       </div>
-    )
+    );
   }
 }
 ```
 
 ### Events
 
-- `onSubmit` on form, remember to call `event.prefentDefault()`
-- `onClick` on any
+* `onSubmit` on form, remember to call `event.prefentDefault()`
+* `onClick` on any
 
 Any event handler receives `event` argument that is wrapper around native even object.
 
@@ -217,7 +219,7 @@ In order to provide default values for component properties, use `static default
 
 ### Rendering children
 
-Component props have `children` property that has access to child components.  This is similar to transpilation in Angular.
+Component props have `children` property that has access to child components. This is similar to transpilation in Angular.
 
 ## JSX
 
@@ -228,34 +230,25 @@ React compiles JSX into JavaScript with `React.createElement` etc. (JavaScript r
 In JSX we can use JavaScript, so rendering component for each element in array is as simple as mapping to React Component. Also react supporst object spread operator that passess all object properties to component:
 
 ```javascript
-const Item = (props) => {
-	return (
-  	<div>{props.data}</div>
-  )
-}
+const Item = props => {
+  return <div>{props.data}</div>;
+};
 
-const Items = (props) => {
-	return (
-  	<div>{props.data.map(x => <Item {...x} />)}</div>
-  )
-}
+const Items = props => {
+  return <div>{props.data.map(x => <Item {...x} />)}</div>;
+};
 
 class App extends React.Component {
+  state = {
+    data: [{ data: 'One' }, { data: 'Two' }, { data: 'Three' }]
+  };
 
-	state = { data: [
-    { data: 'One' },
-    { data: 'Two' },
-    { data: 'Three' }
-  ] }
-
-	render() {
-  	return (
-    	 <Items data={this.state.data} />
-    )
+  render() {
+    return <Items data={this.state.data} />;
   }
 }
 
-ReactDOM.render(<App />, mountNode)
+ReactDOM.render(<App />, mountNode);
 ```
 
 ## Virtual DOM
@@ -264,11 +257,11 @@ Using JavaScript to render HTML allows React to have a virtual representation of
 
 React uses this concept to render and HTML tree virtually first (in-memory). When state changes and new tree is created, instead of writing whole tree, React renders only difference. This is called tree reconciliation
 
-- What is tree reconciliation: it is a process of comparing old tree with new tree and updating only the difference in the DOM
+* What is tree reconciliation: it is a process of comparing old tree with new tree and updating only the difference in the DOM
 
 ## Ajax
 
-Use case is simple. Just call `setState` in callback and react will update. 
+Use case is simple. Just call `setState` in callback and react will update.
 
 ## Server side rendering
 
@@ -276,8 +269,8 @@ Use: `import ReactDOMServer from 'react-dom/server'`
 
 It:
 
-- enables SEO, whole application in rendered on server.
-- faster rendering on clients that are slow
+* enables SEO, whole application in rendered on server.
+* faster rendering on clients that are slow
 
 When doing server side rendering with initial data, render this data to the client as well (e.g. by rendering it to `index.html` and make it a global variable), so that initial client side rendering renders exactly the same content (so it does not rerender the application).
 
@@ -304,7 +297,7 @@ Article.propTypes = {
   article: PropTypes.shape({
     title: PropTypes.string.isRequired,
     body: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired
   })
 };
 ```
@@ -313,14 +306,14 @@ Another solution is to use `Flow` - typechecker: <https://flow.org/>
 
 # Tools
 
-- `jest`
-- https://jscomplete.com/repl/ : playground
-- react-devtools
-- https://github.com/axios/axios
-- https://github.com/facebook/create-react-app : create react app
-- `eslint`, `eslint-plugin-react`, `babel-eslint` along with <https://github.com/samerbuna/.files/blob/master/.eslintrc.js>
-- `nodemon` with script `nodemon start {filename} --watch --interpreter babel-node`
-- `babel-cli` along with presets: `react`, `env`, `stage-2` (`babel-preset-react`, `babel-preset-env`, `babel-preset-stage-2`)
+* `jest`
+* https://jscomplete.com/repl/ : playground
+* react-devtools
+* https://github.com/axios/axios
+* https://github.com/facebook/create-react-app : create react app
+* `eslint`, `eslint-plugin-react`, `babel-eslint` along with <https://github.com/samerbuna/.files/blob/master/.eslintrc.js>
+* `nodemon` with script `nodemon start {filename} --watch --interpreter babel-node`
+* `babel-cli` along with presets: `react`, `env`, `stage-2` (`babel-preset-react`, `babel-preset-env`, `babel-preset-stage-2`)
 
 # Creating reusable components
 
@@ -360,10 +353,10 @@ Each component code (js/styles/tests) in it's folder inside `components` folder 
 
 Hints:
 
-- when wrapping elements, honor native API (make props have the same names as native DOM elements like className, value, maxLength)
-- for arrays, use plurals (users), not suffixes (userList)
-- use spread operator (with desctucturing `{ name, ...rest}` ) to pass props `{...props}` when possible
-- create formatting components! (`<Cash>6</Cash>` -> `$6`)
+* when wrapping elements, honor native API (make props have the same names as native DOM elements like className, value, maxLength)
+* for arrays, use plurals (users), not suffixes (userList)
+* use spread operator (with desctucturing `{ name, ...rest}` ) to pass props `{...props}` when possible
+* create formatting components! (`<Cash>6</Cash>` -> `$6`)
 
 ### Organisms
 
@@ -377,7 +370,7 @@ Otherwise they can lead to overfetching and displaying out of sync data and othe
 
 ### General boilerplate
 
-- create-react-app : application oriented
+* create-react-app : application oriented
 
 ```
 npm i -g create-react-app
@@ -387,15 +380,15 @@ create-react-app ./
 npm run eject
 ```
 
-- nwb : single component oriented
-- list of other boilerplates: https://www.javascriptstuff.com/react-starter-projects/
+* nwb : single component oriented
+* list of other boilerplates: https://www.javascriptstuff.com/react-starter-projects/
 
 ### Documentation tool
 
-- react storybook
-- react styleguide
-- react-styleguide-generator
-- bluekit
+* react storybook
+* react styleguide
+* react-styleguide-generator
+* bluekit
 
 ### Custom documentation app
 
@@ -413,23 +406,23 @@ Use tools like `concurrently`, `json-server`, `proxy` setting (`"proxy": "http:/
 
 # Resources
 
-- <https://github.com/ReactTraining> : interesting repos
-- http://sandny.com/2017/10/30/babel-express-js-node-js-nodemon-to-build-a-node-js-server-with-hot-reloading/ - babel with nodemon and react
-- slack.jscomplete.com - slack of author of React courses
-- https://app.pluralsight.com/library/courses/react-js-getting-started/table-of-contents
-- https://app.pluralsight.com/library/courses/reactjs-advanced/table-of-contents 
-  - https://github.com/jscomplete/advanced-react
+* <https://github.com/ReactTraining> : interesting repos
+* http://sandny.com/2017/10/30/babel-express-js-node-js-nodemon-to-build-a-node-js-server-with-hot-reloading/ - babel with nodemon and react
+* slack.jscomplete.com - slack of author of React courses
+* https://app.pluralsight.com/library/courses/react-js-getting-started/table-of-contents
+* https://app.pluralsight.com/library/courses/reactjs-advanced/table-of-contents
+  * https://github.com/jscomplete/advanced-react
 
 # FAQ
 
-- what is componentDidMount
-- what is:
-  - smart
-  - dumb / presentational / stateless component: only handles UI, does not deal with state. State should be handled by higher level container components. They don't have access to local state.
+* what is componentDidMount
+* what is:
+  * smart
+  * dumb / presentational / stateless component: only handles UI, does not deal with state. State should be handled by higher level container components. They don't have access to local state.
 
 # TODO
 
-- read https://cdb.reacttraining.com/react-inline-functions-and-performance-bdff784f5578
-- do last two modules: https://app.pluralsight.com/library/courses/reactjs-advanced/table-of-contents
-- https://app.pluralsight.com/library/courses/react-redux-react-router-es6/table-of-contents
-  - do second module: Env Setup
+* read https://cdb.reacttraining.com/react-inline-functions-and-performance-bdff784f5578
+* do last two modules: https://app.pluralsight.com/library/courses/reactjs-advanced/table-of-contents
+* https://app.pluralsight.com/library/courses/react-redux-react-router-es6/table-of-contents
+  * do second module: Env Setup

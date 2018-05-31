@@ -1,12 +1,12 @@
 ## What is Redux Saga
 
-- It a process (saga) manager - it starts/stops sagas
-- Redux middleware for managing side-effects (async communication: db, timers, api calls) i.e. anything that does not fit into reducers / selectors
-- More sophisticated than `redux-thunk`
-- it is black box that consumes and emits actions or side-effects
-- effective for **apps with async operations**
-- maintains continously running processes called *sagas*
-- it uses effects and plain actions to coordinate sagas
+* It a process (saga) manager - it starts/stops sagas
+* Redux middleware for managing side-effects (async communication: db, timers, api calls) i.e. anything that does not fit into reducers / selectors
+* More sophisticated than `redux-thunk`
+* it is black box that consumes and emits actions or side-effects
+* effective for **apps with async operations**
+* maintains continously running processes called _sagas_
+* it uses effects and plain actions to coordinate sagas
 
 ## What is a Saga
 
@@ -14,10 +14,10 @@ Saga is a long running "thread" / function.
 
 Saga is ES6 Generator function that yields effects.
 
-- Listens for actions and dispatches actions (using effects)
-- It is long running background process
-- Creates application's side effects
-- Redux-saga is process manager, that sagas can communicate with
+* Listens for actions and dispatches actions (using effects)
+* It is long running background process
+* Creates application's side effects
+* Redux-saga is process manager, that sagas can communicate with
 
 Redux-saga works with generator functions and yield keyword & Promises.
 
@@ -105,7 +105,7 @@ Event channels convert some event into actions that can work with `take` and oth
 
 Establishes communication between two channels.
 
-## Testing 
+## Testing
 
 There're two ways of testing:
 
@@ -137,7 +137,6 @@ They play nicely: library is automatically waiting for the promise to resolve be
 
 ## Resources
 
-- Sample app:
-   - https://github.com/danielstern/redux-saga-cart
-   - https://github.com/danielstern/redux-saga-shopping-cart-server
-
+* Sample app:
+  * https://github.com/danielstern/redux-saga-cart
+  * https://github.com/danielstern/redux-saga-shopping-cart-server

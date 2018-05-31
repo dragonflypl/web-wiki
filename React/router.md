@@ -3,15 +3,17 @@
 `npm i react-router-dom`
 
 ```javascript
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 export default ({ store }) => {
-  return (<Provider store={store}>
-    <Router>
-      <Route path='/:filter?' component={App} />
-    </Router>
-  </Provider>);
-}
+  return (
+    <Provider store={store}>
+      <Router>
+        <Route path="/:filter?" component={App} />
+      </Router>
+    </Provider>
+  );
+};
 ```
 
 ## Route params
@@ -30,12 +32,14 @@ const mapStateToProps = ({ todos }, { match }) => {
   const visibilityFilter = match.params.filter || 'all';
   return {
     todos: todos.filter(x => {
-      return (visibilityFilter === 'all') ||
+      return (
+        visibilityFilter === 'all' ||
         (visibilityFilter === 'completed' && x.completed) ||
-        (visibilityFilter === 'active' && !x.completed);
+        (visibilityFilter === 'active' && !x.completed)
+      );
     })
-  }
-}
+  };
+};
 ```
 
 ### Params
@@ -55,9 +59,15 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 export default function FilterLink({ filter, ...rest }) {
-  return <NavLink activeStyle={{
-    textDecoration: 'none',
-    color: 'black'
-  }} to={'/' + filter} {...rest} />
+  return (
+    <NavLink
+      activeStyle={{
+        textDecoration: 'none',
+        color: 'black'
+      }}
+      to={'/' + filter}
+      {...rest}
+    />
+  );
 }
 ```

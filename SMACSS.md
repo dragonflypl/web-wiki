@@ -50,7 +50,7 @@ Every style we write should go to one of the categories.
 
 ```html
 <ul class="nav">
-...
+... 
     <div class="nav_dropdown"> <!-- This is how we define subcomponent -->
       <div class="megadropdown">...</div> <!-- this is how we embed module. We have nice separation! --> 
     </div>

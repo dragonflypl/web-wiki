@@ -288,6 +288,8 @@ Using Context API explicitly is tricky, and at least makes testing harder (globa
 
 Don't use it, unless you're using some kind of provider component along with HoC that binds context with base component's props.
 
+> IMPORTANT NOTE: This API is obsolete and will be removed!!!! https://reactjs.org/docs/legacy-context.html. Use this one instead: https://reactjs.org/docs/context.html
+
 ## Type checking
 
 It's possible to guard against invalid properties passed to components with `PropTypes`:
@@ -306,11 +308,13 @@ Another solution is to use `Flow` - typechecker: <https://flow.org/>
 
 # Tools
 
+* <https://egghead.io/courses/advanced-react-component-patterns>
+* <https://github.com/kitze/custom-react-scripts> project that enables react scripts customization without ejecting
 * `jest`
-* https://jscomplete.com/repl/ : playground
+* <https://jscomplete.com/repl/> : playground
 * react-devtools
-* https://github.com/axios/axios
-* https://github.com/facebook/create-react-app : create react app
+* <https://github.com/axios/axios>
+* <https://github.com/facebook/create-react-app> : create react app
 * `eslint`, `eslint-plugin-react`, `babel-eslint` along with <https://github.com/samerbuna/.files/blob/master/.eslintrc.js>
 * `nodemon` with script `nodemon start {filename} --watch --interpreter babel-node`
 * `babel-cli` along with presets: `react`, `env`, `stage-2` (`babel-preset-react`, `babel-preset-env`, `babel-preset-stage-2`)
@@ -409,6 +413,7 @@ Use tools like `concurrently`, `json-server`, `proxy` setting (`"proxy": "http:/
 * <https://github.com/ReactTraining> : interesting repos
 * http://sandny.com/2017/10/30/babel-express-js-node-js-nodemon-to-build-a-node-js-server-with-hot-reloading/ - babel with nodemon and react
 * slack.jscomplete.com - slack of author of React courses
+* https://app.pluralsight.com/library/courses/react-practical-start/table-of-contents
 * https://app.pluralsight.com/library/courses/react-js-getting-started/table-of-contents
 * https://app.pluralsight.com/library/courses/reactjs-advanced/table-of-contents
   * https://github.com/jscomplete/advanced-react

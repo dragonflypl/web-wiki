@@ -6,9 +6,10 @@ A monad is a type with a bind function and a toMonad function. The bind function
 
 https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0
 
-Functional programming (often abbreviated FP) is the process of building software by composing pure functions, avoiding shared state, mutable data, and side-effects. Functional programming is declarative rather than imperative, and application state flows through pure functions. 
+Functional programming (often abbreviated FP) is the process of building software by composing pure functions, avoiding shared state, mutable data, and side-effects. Functional programming is declarative rather than imperative, and application state flows through pure functions.
 
 Functional programming favors:
+
 - Pure functions instead of shared state & side effects
 - Immutability over mutable data
 - Function composition over imperative flow control
@@ -21,11 +22,12 @@ Functional programming favors:
 
 An immutable object is an object that can’t be modified after it’s created. Conversely, a mutable object is any object which can be modified after it’s created.
 
-Immutability is a central concept of functional programming because without it, the data flow in your program is lossy. 
+Immutability is a central concept of functional programming because without it, the data flow in your program is lossy.
 
 > What is a pure function
 
 A pure function is a function which:
+
 - Given the same input, will always return the same output.
 - Produces no side effects (which means that it can’t alter any external state, does not alter arguments - like arrays, objects etc)
 
@@ -46,9 +48,9 @@ A side effect is any application state change that is observable outside the cal
 A higher order function is a function that takes a function as an argument, or returns a function. Higher order function is in contrast to first order functions, which don’t take a function as an argument or return a function as output.
 
 https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99
- 
- Example: array.map
- 
+
+Example: array.map
+
 > What is a closure
 
 A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function’s scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.
@@ -57,8 +59,8 @@ A closure is the combination of a function bundled together (enclosed) with refe
 
 - Data privacy
 - Partial application & curring
-  - Currying and partial application are two ways of transforming a function into another function with a generally smaller arity. 
-  - Currying means breaking a function with many arguments into a series of functions that each take one argument and ultimately produce the same result as the original function. 
+  - Currying and partial application are two ways of transforming a function into another function with a generally smaller arity.
+  - Currying means breaking a function with many arguments into a series of functions that each take one argument and ultimately produce the same result as the original function.
 
 > What is function composition
 
@@ -90,3 +92,40 @@ const toSlug = pipe(
 
 console.log(toSlug('Hello World')); // 'hello-world'
 ```
+
+## Curring
+
+Technique where we can separate the arity from the function, so that we can write functions that take a lot of arguments, but give them only one argument at a time.
+
+Separate arity from function: this is what curring does.
+
+If function is curried, you can create completely new function that has some of the arguments already baked in:
+
+```javascript
+import { curryRight, get, split } from 'lodash'
+const getProp = curryRight(get, 'some.nested.prop', 2);
+const obj = { ... }
+getProp(obj); // this will translate to call get(obj, 'some.nested.prop')
+
+const words = curryRight(split, ' ', 2);
+words('a b c'); // this returns [a, b, c] , just like split('a b c', ' ')
+```
+
+A curried function always returns another function with an arity of 1 until all of the arguments have been applied.
+
+```javascript
+const array = [1, 2, 3, 4];
+const op = x => x * 2;
+
+// curried style
+const double = require('lodash/fp/map')(op);
+console.log(double(array));
+
+// not curried
+const map = require('lodash/map');
+console.log(map(array, op));
+```
+
+## Resources
+
+- <https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8> : curry vs partial application

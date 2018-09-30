@@ -157,6 +157,8 @@ Before going further let's set up env: `npm i cross-env rimraf -D` and update np
 
 and put this into webpack config file: `const devMode = process.env.NODE_ENV !== 'production';`
 
+Additionally set `devtool: devMode ? 'eval-source-map' : undefined` in webpack config for better debugging.
+
 ## Setting up CSS
 
 - Install loaders: `npm i css-loader style-loader -D` and add to webpack rules (this is configuration for css modules):
@@ -234,7 +236,13 @@ body {
 
 and import it inside `index.js`: `import './index.scss';`
 
+- to optimize css `npm i optimize-css-assets-webpack-plugin -D` and add default plugin configuration `new OptimizeCssAssetsPlugin()`.
+
 # Resources
 
 - https://www.valentinog.com/blog/react-webpack-babel/
 - https://medium.freecodecamp.org/part-1-react-app-from-scratch-using-webpack-4-562b1d231e75
+- https://medium.freecodecamp.org/how-to-conquer-webpack-4-and-build-a-sweet-react-app-236d721e6745 - it also has info on `webpack-merge`
+- https://medium.com/webpack/webpack-4-mode-and-optimization-5423a6bc597a & https://webpack.js.org/concepts/mode/ - more on what is enabled/disabled in webpack modes
+
+# FAQ

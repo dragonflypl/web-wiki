@@ -1,9 +1,10 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
+  devtool: devMode ? 'eval-source-map' : undefined,
   module: {
     rules: [
       {
@@ -41,6 +42,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: devMode ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: devMode ? '[id].css' : '[id].[contenthash].css'
-    })
+    }),
+    new OptimizeCssAssetsPlugin()
   ]
 };

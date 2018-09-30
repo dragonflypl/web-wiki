@@ -145,6 +145,18 @@ module.exports = {
 
 Run `npm start` and enjoy React app in the browser.
 
+## Setting up environments
+
+Before going further let's set up env: `npm i cross-env rimraf -D` and update npm scripts:
+
+```
+    "clean": "rimraf dist",
+    "build:dev": "npm run clean && cross-env NODE_ENV=development webpack --mode development",
+    "build": "npm run clean && cross-env NODE_ENV=production webpack --mode production",
+```
+
+and put this into webpack config file: `const devMode = process.env.NODE_ENV !== 'production';`
+
 ## Setting up CSS
 
 - Install loaders: `npm i css-loader style-loader -D` and add to webpack rules (this is configuration for css modules):
@@ -194,6 +206,33 @@ const App = () => {
 
 export default App;
 ```
+
+- add `SASS` support: `npm i sass-loader node-sass -D`
+
+  - change test rule to `test: /\.(sa|sc|c)ss$/,`
+  - change first loader to `loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader`
+
+- extract `CSS` to separate files `npm i mini-css-extract-plugin -D`. Add pluging coniguration:
+
+```js
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+new MiniCssExtractPlugin({
+  filename: devMode ? '[name].css' : '[name].[contenthash].css',
+  chunkFilename: devMode ? '[id].css' : '[id].[contenthash].css'
+});
+```
+
+- add `index.scss` file with some content:
+
+```scss
+body {
+  background-color: lightblue;
+  font-size: 16px;
+}
+```
+
+and import it inside `index.js`: `import './index.scss';`
 
 # Resources
 

@@ -1,5 +1,7 @@
 # Step by step
 
+## Basic React app
+
 - Install webpack
 
 > npm i webpack webpack-cli -D
@@ -143,6 +145,57 @@ module.exports = {
 
 Run `npm start` and enjoy React app in the browser.
 
+## Setting up CSS
+
+- Install loaders: `npm i css-loader style-loader -D` and add to webpack rules (this is configuration for css modules):
+
+```js
+{
+  test: /\.css$/,
+  use: [
+    {
+      loader: "style-loader"
+    },
+    {
+      loader: "css-loader",
+      options: {
+        modules: true,
+        importLoaders: 1,
+        localIdentName: "[name]_[local]_[hash:base64]",
+        sourceMap: true,
+        minimize: true
+      }
+    }
+  ]
+}
+```
+
+Add some css to `App.css`:
+
+```css
+.name {
+  font-weight: bold;
+}
+```
+
+And import it into `App.js`:
+
+```js
+import React from 'react';
+import style from './App.css';
+
+const App = () => {
+  return (
+    <div>
+      Hello <span className={style.name}>React!</span>
+    </div>
+  );
+};
+
+export default App;
+```
+
 # Resources
 
 - https://www.valentinog.com/blog/react-webpack-babel/
+- https://medium.freecodecamp.org/part-1-react-app-from-scratch-using-webpack-4-562b1d231e75

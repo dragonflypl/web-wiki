@@ -31,6 +31,14 @@ module.exports = function(api) {
 };
 ```
 
+- Add `.browserslistrc` with old browsers (change it to project needs, low values are to demonstrate how code for legacy browsers is generated e.g. with postcss)
+
+```
+Explorer >= 9
+Chrome >= 10
+Firefox >= 15
+```
+
 - Configure Webpack to use babel
 
 ```javascript
@@ -254,13 +262,45 @@ $primary-color: #333;
 body {
   font: 100% $font-stack;
   color: $primary-color;
-  background-color: lightblue;
+  background: linear-gradient(to bottom, #eeeeee 0%, #7db9e8 100%);
+  height: 100vh;
 }
 ```
 
 and import it inside `index.js`: `import './index.scss';`
 
 - to optimize css `npm i optimize-css-assets-webpack-plugin -D` and add default plugin configuration `new OptimizeCssAssetsPlugin()`.
+
+### Adding post css processor
+
+- install it: `npm i postcss-loader postcss-preset-env -D`
+- change `importLoaders: 2,` on `css-loader`
+- add loader with configuration (before sass loader).
+
+```js
+const postcssPresetEnv = require('postcss-preset-env');
+
+{
+  loader: 'postcss-loader',
+  options: {
+    ident: 'postcss',
+    plugins: () => [postcssPresetEnv(/* pluginOptions */)]
+  }
+},
+```
+
+Preset does a few things automatically e.g. autoprefixing based on browserslist file, for instance it will add vendor prefixes to gradient styles if needed. Sample output for legacy browsers will be:
+
+```css
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+  background: -webkit-linear-gradient(top, #eee, #7db9e8);
+  background: -moz-linear-gradient(top, #eee 0, #7db9e8 100%);
+  background: linear-gradient(180deg, #eee 0, #7db9e8);
+  height: 100vh;
+}
+```
 
 ## Setting up tests
 

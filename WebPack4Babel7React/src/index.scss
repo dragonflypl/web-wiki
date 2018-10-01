@@ -4,5 +4,6 @@ $primary-color: #333;
 body {
   font: 100% $font-stack;
   color: $primary-color;
-  background-color: lightblue;
+  background: linear-gradient(to bottom, #eeeeee 0%, #7db9e8 100%);
+  height: 100vh;
 }

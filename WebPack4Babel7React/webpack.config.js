@@ -1,6 +1,7 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const postcssPresetEnv = require('postcss-preset-env');
 const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
@@ -20,10 +21,17 @@ module.exports = {
             loader: 'css-loader',
             options: {
               modules: true,
-              importLoaders: 1,
+              importLoaders: 2,
               localIdentName: '[name]_[local]_[hash:base64]',
               sourceMap: true,
               minimize: true
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: () => [postcssPresetEnv(/* pluginOptions */)]
             }
           },
           {

@@ -226,6 +226,14 @@ export default App;
   - change test rule to `test: /\.(sa|sc|c)ss$/,`
   - change first loader to `loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader`
 
+- add sass loader (first loader)
+
+```js
+{
+  loader: 'sass-loader';
+}
+```
+
 - extract `CSS` to separate files `npm i mini-css-extract-plugin -D`. Add pluging coniguration:
 
 ```js
@@ -240,9 +248,13 @@ new MiniCssExtractPlugin({
 - add `index.scss` file with some content:
 
 ```scss
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+
 body {
+  font: 100% $font-stack;
+  color: $primary-color;
   background-color: lightblue;
-  font-size: 16px;
 }
 ```
 

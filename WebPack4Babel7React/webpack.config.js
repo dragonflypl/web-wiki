@@ -25,6 +25,9 @@ module.exports = {
               sourceMap: true,
               minimize: true
             }
+          },
+          {
+            loader: 'sass-loader'
           }
         ]
       },

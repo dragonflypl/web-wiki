@@ -157,7 +157,15 @@ Before going further let's set up env: `npm i cross-env rimraf -D` and update np
 
 and put this into webpack config file: `const devMode = process.env.NODE_ENV !== 'production';`
 
-Additionally set `devtool: devMode ? 'eval-source-map' : undefined` in webpack config for better debugging.
+Additionally set `devtool: devMode ? 'eval-source-map' : 'nosources-source-map',` in webpack config for better debugging.
+
+And output format:
+
+```js
+  output: {
+    filename: devMode ? '[name].js' : '[name].[contenthash].js'
+  },
+```
 
 ## Setting up CSS
 

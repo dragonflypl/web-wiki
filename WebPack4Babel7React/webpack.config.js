@@ -4,7 +4,10 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-  devtool: devMode ? 'eval-source-map' : undefined,
+  output: {
+    filename: devMode ? '[name].js' : '[name].[contenthash].js'
+  },
+  devtool: devMode ? 'eval-source-map' : 'nosources-source-map',
   module: {
     rules: [
       {

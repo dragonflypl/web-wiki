@@ -275,6 +275,28 @@ describe('App', () => {
 
 and run it with `npm test`.
 
+### Adding Enzyme
+
+- `npm i enzyme enzyme-adapter-react-16 -D`
+
+- make it work with Jest by adding `setup.js`: `setupTestFrameworkScriptFile: '<rootDir>/test/setup.js'`, with this content:
+
+```js
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+Enzyme.configure({ adapter: new Adapter() });
+```
+
+- add first enzyme test:
+
+```js
+it('should render .name', () => {
+  const wrapper = shallow(<App />);
+  expect(wrapper.find('.name').length).toBe(1);
+});
+```
+
 # Resources
 
 - https://www.valentinog.com/blog/react-webpack-babel/
@@ -284,5 +306,6 @@ and run it with `npm test`.
 - configuring jest
   - https://jestjs.io/docs/en/getting-started
   - https://jestjs.io/docs/en/webpack
+  - http://airbnb.io/enzyme/
 
 # FAQ

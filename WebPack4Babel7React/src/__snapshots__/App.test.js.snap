@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should run 1`] = `
+<div>
+  Hello 
+  <span
+    className="name"
+  >
+    React!
+  </span>
+</div>
+`;

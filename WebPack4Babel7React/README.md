@@ -238,11 +238,51 @@ and import it inside `index.js`: `import './index.scss';`
 
 - to optimize css `npm i optimize-css-assets-webpack-plugin -D` and add default plugin configuration `new OptimizeCssAssetsPlugin()`.
 
+## Setting up tests
+
+- Install basic tools:
+
+> `npm i jest identity-obj-proxy babel-core@^7.0.0-bridge.0 react-test-renderer regenerator-runtime -D` (`babel-jest` is not explicitly needed)
+
+- Add test script: `"test": "jest"`
+- Create jest configuration file `jest --init`
+- Update mappings so that webpack assets are properly mocked:
+
+```
+  moduleNameMapper: {
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+      '<rootDir>/__mocks__/fileMock.js',
+    '\\.(css|less|scss)$': 'identity-obj-proxy'
+  }
+```
+
+and create `__mocks__/fileMock.js` file with this content: `module.exports = 'test-file-stub';`. Without it, Jest won't know what to do with non JavaScript assets like `import './styles.css`.
+
+- Create first test (`App.test.js`):
+
+```js
+import React from 'react';
+import TestRenderer from 'react-test-renderer';
+import App from './App';
+
+describe('App', () => {
+  it('should run', () => {
+    const component = TestRenderer.create(<App />);
+    expect(component).toMatchSnapshot();
+  });
+});
+```
+
+and run it with `npm test`.
+
 # Resources
 
 - https://www.valentinog.com/blog/react-webpack-babel/
 - https://medium.freecodecamp.org/part-1-react-app-from-scratch-using-webpack-4-562b1d231e75
 - https://medium.freecodecamp.org/how-to-conquer-webpack-4-and-build-a-sweet-react-app-236d721e6745 - it also has info on `webpack-merge`
 - https://medium.com/webpack/webpack-4-mode-and-optimization-5423a6bc597a & https://webpack.js.org/concepts/mode/ - more on what is enabled/disabled in webpack modes
+- configuring jest
+  - https://jestjs.io/docs/en/getting-started
+  - https://jestjs.io/docs/en/webpack
 
 # FAQ

@@ -17,14 +17,18 @@
 
 - Install Babel (required to transpile JSX and JavaScript)
 
-> npm i @babel/core babel-loader @babel/preset-env @babel/preset-react -D
+> npm i @babel/core babel-loader @babel/preset-env @babel/preset-react @babel/plugin-proposal-class-properties -D
 
-- Create Babel configuration in `.babelrc`
+- Create Babel configuration in `babel.config.js`
 
-```json
-{
-  "presets": ["@babel/preset-env", "@babel/preset-react"]
-}
+```js
+module.exports = function(api) {
+  api.cache.forever();
+  return {
+    presets: ['@babel/preset-env', '@babel/preset-react'],
+    plugins: ['@babel/plugin-proposal-class-properties']
+  };
+};
 ```
 
 - Configure Webpack to use babel

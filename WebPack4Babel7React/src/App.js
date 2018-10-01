@@ -1,12 +1,14 @@
 import React from 'react';
 import style from './App.css';
 
+const Hello = () => (
+  <div>
+    Hello <span className={style.name}>React!</span>
+  </div>
+);
+
 const App = () => {
-  return (
-    <div>
-      Hello <span className={style.name}>React!</span>
-    </div>
-  );
+  return <Hello />;
 };
 
 export default App;

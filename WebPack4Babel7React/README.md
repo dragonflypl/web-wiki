@@ -277,9 +277,11 @@ and run it with `npm test`.
 
 ### Adding Enzyme
 
-- `npm i enzyme enzyme-adapter-react-16 -D`
+- `npm i enzyme enzyme-adapter-react-16 enzyme-to-json -D`
 
-- make it work with Jest by adding `setup.js`: `setupTestFrameworkScriptFile: '<rootDir>/test/setup.js'`, with this content:
+- make it work with Jest by adding to `setup.js`:
+  - `snapshotSerializers: ['enzyme-to-json/serializer']`
+  - `setupTestFrameworkScriptFile: '<rootDir>/test/setup.js'`, with this content
 
 ```js
 import Enzyme from 'enzyme';
@@ -288,12 +290,17 @@ import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 ```
 
-- add first enzyme test:
+- add first enzyme tests:
 
 ```js
 it('should render .name', () => {
   const wrapper = shallow(<App />);
   expect(wrapper.find('.name').length).toBe(1);
+});
+
+it('should shallow render', () => {
+  const wrapper = shallow(<App />);
+  expect(wrapper).toMatchSnapshot();
 });
 ```
 

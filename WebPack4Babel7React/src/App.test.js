@@ -9,8 +9,13 @@ describe('App', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('should render .name', () => {
+  it('should render Hello', () => {
     const wrapper = shallow(<App />);
-    expect(wrapper.find('.name').length).toBe(1);
+    expect(wrapper.find('Hello').length).toBe(1);
+  });
+
+  it('should shallow render', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper).toMatchSnapshot();
   });
 });

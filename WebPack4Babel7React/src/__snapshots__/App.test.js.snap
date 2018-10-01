@@ -10,3 +10,5 @@ exports[`App should render 1`] = `
   </span>
 </div>
 `;
+
+exports[`App should shallow render 1`] = `<Hello />`;

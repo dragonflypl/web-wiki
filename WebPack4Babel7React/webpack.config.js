@@ -47,5 +47,11 @@ module.exports = {
       chunkFilename: devMode ? '[id].css' : '[id].[contenthash].css'
     }),
     new OptimizeCssAssetsPlugin()
-  ]
+  ],
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    },
+    runtimeChunk: true
+  }
 };

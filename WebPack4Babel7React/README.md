@@ -312,6 +312,21 @@ it('should shallow render', () => {
 });
 ```
 
+## Optimizations
+
+### Chunks
+
+Use this config for basic optimization (vendor / main chunk)
+
+```js
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    },
+    runtimeChunk: true
+  }
+```
+
 # Resources
 
 - https://www.valentinog.com/blog/react-webpack-babel/

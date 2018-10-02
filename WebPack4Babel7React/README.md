@@ -15,9 +15,10 @@
 
 > npm i react react-dom -S
 
-- Install Babel (required to transpile JSX and JavaScript)
+- Install Babel (required to transpile JSX and JavaScript and polyfill browser features)
 
 > npm i @babel/core babel-loader @babel/preset-env @babel/preset-react @babel/plugin-proposal-class-properties -D
+> npm i @babel/polyfill
 
 - Create Babel configuration in `babel.config.js`
 
@@ -25,7 +26,15 @@
 module.exports = function(api) {
   api.cache.forever();
   return {
-    presets: ['@babel/preset-env', '@babel/preset-react'],
+    presets: [
+      [
+        '@babel/preset-env',
+        {
+          useBuiltIns: 'usage'
+        }
+      ],
+      '@babel/preset-react'
+    ],
     plugins: ['@babel/plugin-proposal-class-properties']
   };
 };
@@ -34,9 +43,7 @@ module.exports = function(api) {
 - Add `.browserslistrc` with old browsers (change it to project needs, low values are to demonstrate how code for legacy browsers is generated e.g. with postcss)
 
 ```
-Explorer >= 9
 Chrome >= 10
-Firefox >= 15
 ```
 
 - Configure Webpack to use babel
@@ -218,12 +225,18 @@ And import it into `App.js`:
 import React from 'react';
 import style from './App.css';
 
+class Hello extends React.Component {
+  render() {
+    return (
+      <div>
+        Hello <span className={style.name}>React!</span>
+      </div>
+    );
+  }
+}
+
 const App = () => {
-  return (
-    <div>
-      Hello <span className={style.name}>React!</span>
-    </div>
-  );
+  return <Hello />;
 };
 
 export default App;
@@ -395,3 +408,10 @@ Use this config for basic optimization (vendor / main chunk)
   - http://airbnb.io/enzyme/
 
 # FAQ
+
+- is browserslist taken into account when css is generated:
+  - yes (e.g. change to `Chrome >= 10` and see that `linear-gradient` is transpiled. Change it to `Chrome >= 66` and see that `linear-gradient` is not transpiled)
+- is browserslist taken into account when babel transpilation is happening:
+  - yes (e.g. change to `Chrome >= 10` and see that `class/extends` are transpiled. Change it to `Chrome >= 66` and see that `class/extends` are not transpiled)
+- how polyfills are applied:
+  - https://babeljs.io/docs/en/babel-preset-env#usebuiltins - polyfils are automatically included based on usage and browserslist (`useBuiltIns: 'usage'`)

@@ -229,16 +229,16 @@ const App = () => {
 export default App;
 ```
 
-- add `SASS` support: `npm i sass-loader node-sass -D`
+- add `LESS` support: `npm i less-loader less -D`
 
-  - change test rule to `test: /\.(sa|sc|c)ss$/,`
+  - change test rule to `test: /\.(less|css)$/,`
   - change first loader to `loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader`
 
-- add sass loader (first loader)
+- add less loader (first loader)
 
 ```js
 {
-  loader: 'sass-loader';
+  loader: 'less-loader';
 }
 ```
 
@@ -253,15 +253,15 @@ new MiniCssExtractPlugin({
 });
 ```
 
-- add `index.scss` file with some content:
+- add `index.less` file with some content:
 
-```scss
-$font-stack: Helvetica, sans-serif;
-$primary-color: #333;
+```less
+@font-stack: Helvetica, sans-serif;
+@primary-color: #333;
 
 body {
-  font: 100% $font-stack;
-  color: $primary-color;
+  font: 100% @font-stack;
+  color: @primary-color;
   background: linear-gradient(to bottom, #eeeeee 0%, #7db9e8 100%);
   height: 100vh;
 }
@@ -275,7 +275,7 @@ and import it inside `index.js`: `import './index.scss';`
 
 - install it: `npm i postcss-loader postcss-preset-env -D`
 - change `importLoaders: 2,` on `css-loader`
-- add loader with configuration (before sass loader).
+- add loader with configuration (before less loader).
 
 ```js
 const postcssPresetEnv = require('postcss-preset-env');
@@ -316,7 +316,7 @@ body {
   moduleNameMapper: {
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
       '<rootDir>/__mocks__/fileMock.js',
-    '\\.(css|less|scss)$': 'identity-obj-proxy'
+    '\\.(css|less)$': 'identity-obj-proxy'
   }
 ```
 

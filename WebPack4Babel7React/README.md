@@ -396,6 +396,10 @@ Use this config for basic optimization (vendor / main chunk)
   }
 ```
 
+### `lodash-es`
+
+`lodash-es` supports pure modules / treeshaking. Import lodash utilities only from `lodash-es`.
+
 ## Linting
 
 Linting is done with `create-react-app` setup along with `eslint-loader` to enable build / browser console logging.

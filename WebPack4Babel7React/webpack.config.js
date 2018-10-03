@@ -79,7 +79,7 @@ module.exports = {
       chunkFilename: devMode ? '[id].css' : '[id].[contenthash].css',
     }),
     new OptimizeCssAssetsPlugin(),
-    /* new BundleAnalyzerPlugin(), */
+    // new BundleAnalyzerPlugin(),
   ],
   optimization: {
     splitChunks: {

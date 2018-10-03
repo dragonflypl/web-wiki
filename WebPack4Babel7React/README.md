@@ -383,6 +383,10 @@ it('should shallow render', () => {
 
 ## Optimizations
 
+### BundleAnalyzerPlugin
+
+To analyze bundle size uncomment `new BundleAnalyzerPlugin()` in plugins section and run `npm run build`.
+
 ### Chunks
 
 Use this config for basic optimization (vendor / main chunk)
@@ -395,6 +399,10 @@ Use this config for basic optimization (vendor / main chunk)
     runtimeChunk: true
   }
 ```
+
+### `rxjs`
+
+RxJS by default is treeshakable with WebPack 4.
 
 ### `lodash-es`
 

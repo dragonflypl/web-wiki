@@ -30,12 +30,12 @@ module.exports = function(api) {
       [
         '@babel/preset-env',
         {
-          useBuiltIns: 'usage'
-        }
+          useBuiltIns: 'usage',
+        },
       ],
-      '@babel/preset-react'
+      '@babel/preset-react',
     ],
-    plugins: ['@babel/plugin-proposal-class-properties']
+    plugins: ['@babel/plugin-proposal-class-properties'],
   };
 };
 ```
@@ -56,11 +56,11 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
-        }
-      }
-    ]
-  }
+          loader: 'babel-loader',
+        },
+      },
+    ],
+  },
 };
 ```
 
@@ -142,17 +142,17 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
-        }
-      }
-    ]
+          loader: 'babel-loader',
+        },
+      },
+    ],
   },
   plugins: [
     new HtmlWebPackPlugin({
       template: './src/index.html',
-      filename: './index.html'
-    })
-  ]
+      filename: './index.html',
+    }),
+  ],
 };
 ```
 
@@ -262,7 +262,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 new MiniCssExtractPlugin({
   filename: devMode ? '[name].css' : '[name].[contenthash].css',
-  chunkFilename: devMode ? '[id].css' : '[id].[contenthash].css'
+  chunkFilename: devMode ? '[id].css' : '[id].[contenthash].css',
 });
 ```
 
@@ -395,6 +395,10 @@ Use this config for basic optimization (vendor / main chunk)
     runtimeChunk: true
   }
 ```
+
+## Linting
+
+Linting is done with `create-react-app` setup along with `eslint-loader` to enable build / browser console logging.
 
 # Resources
 

@@ -6,7 +6,7 @@ const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   output: {
-    filename: devMode ? '[name].js' : '[name].[contenthash].js'
+    filename: devMode ? '[name].js' : '[name].[contenthash].js',
   },
   devtool: devMode ? 'eval-source-map' : 'nosources-source-map',
   module: {
@@ -15,7 +15,7 @@ module.exports = {
         test: /\.(less|css)$/,
         use: [
           {
-            loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader
+            loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           },
           {
             loader: 'css-loader',
@@ -24,45 +24,59 @@ module.exports = {
               importLoaders: 2,
               localIdentName: '[name]_[local]_[hash:base64]',
               sourceMap: true,
-              minimize: true
-            }
+              minimize: true,
+            },
           },
           {
             loader: 'postcss-loader',
             options: {
               ident: 'postcss',
-              plugins: () => [postcssPresetEnv(/* pluginOptions */)]
-            }
+              plugins: () => [postcssPresetEnv(/* pluginOptions */)],
+            },
           },
           {
-            loader: 'less-loader'
-          }
-        ]
+            loader: 'less-loader',
+          },
+        ],
+      },
+      // First, run the linter.
+      // It's important to do this before Babel processes the JS.
+      {
+        test: /\.(js|jsx)$/,
+        enforce: 'pre',
+        exclude: /node_modules/,
+        use: [
+          {
+            options: {
+              formatter: require.resolve('react-dev-utils/eslintFormatter'),
+              eslintPath: require.resolve('eslint'),
+            },
+            loader: require.resolve('eslint-loader'),
+          },
+        ],
       },
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        }
-      }
-    ]
+        use: ['babel-loader'],
+      },
+    ],
   },
   plugins: [
     new HtmlWebPackPlugin({
       template: './src/index.html',
-      filename: './index.html'
+      filename: './index.html',
     }),
     new MiniCssExtractPlugin({
       filename: devMode ? '[name].css' : '[name].[contenthash].css',
-      chunkFilename: devMode ? '[id].css' : '[id].[contenthash].css'
+      chunkFilename: devMode ? '[id].css' : '[id].[contenthash].css',
     }),
-    new OptimizeCssAssetsPlugin()
+    new OptimizeCssAssetsPlugin(),
   ],
   optimization: {
     splitChunks: {
-      chunks: 'all'
+      chunks: 'all',
     },
-    runtimeChunk: true
-  }
+    runtimeChunk: true,
+  },
 };

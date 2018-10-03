@@ -1,11 +1,14 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
+
 const postcssPresetEnv = require('postcss-preset-env');
 const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   output: {
+    publicPath: '/',
     filename: devMode ? '[name].js' : '[name].[contenthash].js',
   },
   devtool: devMode ? 'eval-source-map' : 'nosources-source-map',
@@ -67,6 +70,9 @@ module.exports = {
       template: './src/index.html',
       filename: './index.html',
     }),
+    // Inlines the webpack runtime script. This script is too small to warrant
+    // a network request.
+    new InlineChunkHtmlPlugin(HtmlWebPackPlugin, [/runtime~.+[.]js/]),
     new MiniCssExtractPlugin({
       filename: devMode ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: devMode ? '[id].css' : '[id].[contenthash].css',

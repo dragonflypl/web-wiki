@@ -408,6 +408,16 @@ RxJS by default is treeshakable with WebPack 4.
 
 `lodash` + `babel-plugin-lodash` + `lodash-webpack-plugin` transformation that produce minimal `lodash` imports.
 
+### `moment`
+
+`moment` has huge bundle (all locales included by default).
+
+Optimization is done with: `new IgnorePlugin(/^\.\/locale$/, /moment$/)`.
+
+If you need additional locale (default english is included), import it explicitly e.g.
+
+> import 'moment/locale/de';
+
 ## Linting
 
 Linting is done with `create-react-app` setup along with `eslint-loader` to enable build / browser console logging.
@@ -415,9 +425,13 @@ Linting is done with `create-react-app` setup along with `eslint-loader` to enab
 # Resources
 
 - WebPack Optimization:
+  - https://remarkablemark.org/blog/2017/02/25/webpack-ignore-module/ - dead code elimination and ignoring modules
+  - https://webpack.js.org/plugins/ignore-plugin/ (e.g. how to optimize moment)
   - https://www.contentful.com/blog/2017/10/10/put-your-webpack-on-a-diet-part-1/
   - https://www.contentful.com/blog/2017/10/19/put-your-webpack-bundle-on-a-diet-part-2/
-  -
+  - https://www.contentful.com/blog/2017/10/27/put-your-webpack-bundle-on-a-diet-part-3/
+    - using `ContextReplacementPlugin` and `IgnorePlugin`
+    - extreme `lodash` optimization with aliases
 - https://medium.com/@martin_hotell/tree-shake-lodash-with-webpack-jest-and-typescript-2734fa13b5cd - optimize lodash
 - https://www.valentinog.com/blog/react-webpack-babel/
 - https://medium.freecodecamp.org/part-1-react-app-from-scratch-using-webpack-4-562b1d231e75
@@ -427,6 +441,7 @@ Linting is done with `create-react-app` setup along with `eslint-loader` to enab
   - https://jestjs.io/docs/en/getting-started
   - https://jestjs.io/docs/en/webpack
   - http://airbnb.io/enzyme/
+- https://browserl.ist/ - browser list tester
 
 # FAQ
 

@@ -1,3 +1,4 @@
+const IgnorePlugin = require('webpack').IgnorePlugin;
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -8,6 +9,7 @@ const postcssPresetEnv = require('postcss-preset-env');
 const devMode = process.env.NODE_ENV !== 'production';
 
 const plugins = [
+  new IgnorePlugin(/^\.\/locale$/, /moment$/),
   new LodashModuleReplacementPlugin(),
   new HtmlWebPackPlugin({
     template: './src/index.html',

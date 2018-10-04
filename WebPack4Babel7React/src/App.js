@@ -2,6 +2,7 @@ import React from 'react';
 import style from './App.css';
 import { get } from 'lodash';
 import { timer } from 'rxjs';
+import moment from 'moment-timezone';
 
 class Hello extends React.Component {
   state = {};
@@ -14,10 +15,20 @@ class Hello extends React.Component {
   render() {
     // just demonstrate lodash usage
     const name = get(style, 'name');
+
     return (
-      <div>
-        {this.state.goodbye ? 'Bye' : 'Hello'} <span className={name}>React!</span>
-      </div>
+      <>
+        <div>
+          {this.state.goodbye ? 'Bye' : 'Hello'} <span className={name}>React!</span>
+        </div>
+        <div>Default: {moment().format('LLLL z')}</div>
+        <div>
+          Asia/Tokyo:{' '}
+          {moment()
+            .tz('Asia/Tokyo')
+            .format('LLLL z')}
+        </div>
+      </>
     );
   }
 }

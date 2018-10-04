@@ -425,6 +425,9 @@ Linting is done with `create-react-app` setup along with `eslint-loader` to enab
 # Resources
 
 - WebPack Optimization:
+  - wanna understand splitchunks? Read it
+    - https://hackernoon.com/the-100-correct-way-to-split-your-chunks-with-webpack-f8a9df5b7758
+    - https://medium.com/dailyjs/webpack-4-splitchunks-plugin-d9fbbe091fd0
   - https://remarkablemark.org/blog/2017/02/25/webpack-ignore-module/ - dead code elimination and ignoring modules
   - https://webpack.js.org/plugins/ignore-plugin/ (e.g. how to optimize moment)
   - https://www.contentful.com/blog/2017/10/10/put-your-webpack-on-a-diet-part-1/

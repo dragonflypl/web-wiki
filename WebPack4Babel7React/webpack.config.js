@@ -95,6 +95,17 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks: 'all',
+      // additional optimization: put heavy libs into separate chunk
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name(module) {
+            const heavyLibs = ['moment', 'moment-timezone'];
+            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+            return heavyLibs.includes(packageName) ? 'vendor-big' : 'vendor';
+          },
+        },
+      },
     },
     runtimeChunk: true,
   },

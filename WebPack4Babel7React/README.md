@@ -385,7 +385,7 @@ it('should shallow render', () => {
 
 ### BundleAnalyzerPlugin
 
-To analyze bundle size uncomment `new BundleAnalyzerPlugin()` in plugins section and run `npm run build`.
+To analyze bundle size uncomment `new (require('webpack-bundle-analyzer')).BundleAnalyzerPlugin()` in plugins section and run `npm run build`.
 
 ### Chunks
 

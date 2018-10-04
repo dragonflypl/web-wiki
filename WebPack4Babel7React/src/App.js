@@ -15,19 +15,15 @@ class Hello extends React.Component {
   render() {
     // just demonstrate lodash usage
     const name = get(style, 'name');
-
+    const currentZoneTime = moment();
+    const asiaZoneTime = moment().tz('Asia/Tokyo');
     return (
       <>
-        <div>
+        <p>
           {this.state.goodbye ? 'Bye' : 'Hello'} <span className={name}>React!</span>
-        </div>
-        <div>Default: {moment().format('LLLL z')}</div>
-        <div>
-          Asia/Tokyo:{' '}
-          {moment()
-            .tz('Asia/Tokyo')
-            .format('LLLL z')}
-        </div>
+        </p>
+        <p>{currentZoneTime.format('LLLL z')}</p>
+        <p>{asiaZoneTime.format('LLLL z')}</p>
       </>
     );
   }

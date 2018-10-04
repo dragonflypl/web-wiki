@@ -414,6 +414,11 @@ Linting is done with `create-react-app` setup along with `eslint-loader` to enab
 
 # Resources
 
+- WebPack Optimization:
+  - https://www.contentful.com/blog/2017/10/10/put-your-webpack-on-a-diet-part-1/
+  - https://www.contentful.com/blog/2017/10/19/put-your-webpack-bundle-on-a-diet-part-2/
+  -
+- https://medium.com/@martin_hotell/tree-shake-lodash-with-webpack-jest-and-typescript-2734fa13b5cd - optimize lodash
 - https://www.valentinog.com/blog/react-webpack-babel/
 - https://medium.freecodecamp.org/part-1-react-app-from-scratch-using-webpack-4-562b1d231e75
 - https://medium.freecodecamp.org/how-to-conquer-webpack-4-and-build-a-sweet-react-app-236d721e6745 - it also has info on `webpack-merge`

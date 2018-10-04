@@ -7,6 +7,29 @@ const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const postcssPresetEnv = require('postcss-preset-env');
 const devMode = process.env.NODE_ENV !== 'production';
 
+const plugins = [
+  new LodashModuleReplacementPlugin(),
+  new HtmlWebPackPlugin({
+    template: './src/index.html',
+    filename: './index.html',
+  }),
+  // Inlines the webpack runtime script. This script is too small to warrant
+  // a network request.
+  new InlineChunkHtmlPlugin(HtmlWebPackPlugin, [/runtime~.+[.]js/]),
+  new MiniCssExtractPlugin({
+    filename: devMode ? '[name].css' : '[name].[contenthash].css',
+    chunkFilename: devMode ? '[id].css' : '[id].[contenthash].css',
+  }),
+  new OptimizeCssAssetsPlugin(),
+];
+
+process.env.WEBPACK_PROFILE &&
+  plugins.push(
+    new (require('webpack-bundle-analyzer')).BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+    })
+  );
+
 module.exports = {
   output: {
     publicPath: '/',
@@ -66,22 +89,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new LodashModuleReplacementPlugin(),
-    new HtmlWebPackPlugin({
-      template: './src/index.html',
-      filename: './index.html',
-    }),
-    // Inlines the webpack runtime script. This script is too small to warrant
-    // a network request.
-    new InlineChunkHtmlPlugin(HtmlWebPackPlugin, [/runtime~.+[.]js/]),
-    new MiniCssExtractPlugin({
-      filename: devMode ? '[name].css' : '[name].[contenthash].css',
-      chunkFilename: devMode ? '[id].css' : '[id].[contenthash].css',
-    }),
-    new OptimizeCssAssetsPlugin(),
-    // new (require('webpack-bundle-analyzer')).BundleAnalyzerPlugin(),
-  ],
+  plugins,
   optimization: {
     splitChunks: {
       chunks: 'all',

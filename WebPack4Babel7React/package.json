@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
     "clean": "rimraf dist",
+    "build:profile": "cross-env WEBPACK_PROFILE=true npm run build",
     "build:dev": "npm run clean && cross-env NODE_ENV=development webpack --mode development",
     "build": "npm run clean && cross-env NODE_ENV=production webpack --mode production",
     "test": "jest"

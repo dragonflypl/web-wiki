@@ -15,8 +15,8 @@ class Hello extends React.Component {
   render() {
     // just demonstrate lodash usage
     const name = get(style, 'name');
-    const currentZoneTime = moment();
-    const asiaZoneTime = moment().tz('Asia/Tokyo');
+    const currentZoneTime = moment('1995-12-25');
+    const asiaZoneTime = moment('1995-12-25').tz('Asia/Tokyo');
     return (
       <>
         <p>

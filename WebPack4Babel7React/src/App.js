@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './App.css';
-import { get } from 'lodash-es';
+import { get } from 'lodash';
 import { timer } from 'rxjs';
 
 class Hello extends React.Component {
@@ -12,7 +12,7 @@ class Hello extends React.Component {
   }
 
   render() {
-    // just demonstrate lodash-es usage
+    // just demonstrate lodash usage
     const name = get(style, 'name');
     return (
       <div>

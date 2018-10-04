@@ -5,11 +5,11 @@ module.exports = function(api) {
       [
         '@babel/preset-env',
         {
-          useBuiltIns: 'usage'
-        }
+          useBuiltIns: 'usage',
+        },
       ],
-      '@babel/preset-react'
+      '@babel/preset-react',
     ],
-    plugins: ['@babel/plugin-proposal-class-properties']
+    plugins: ['@babel/plugin-proposal-class-properties', 'lodash'],
   };
 };

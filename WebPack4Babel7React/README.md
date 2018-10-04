@@ -404,9 +404,9 @@ Use this config for basic optimization (vendor / main chunk)
 
 RxJS by default is treeshakable with WebPack 4.
 
-### `lodash-es`
+### `lodash`
 
-`lodash-es` supports pure modules / treeshaking. Import lodash utilities only from `lodash-es`.
+`lodash` + `babel-plugin-lodash` + `lodash-webpack-plugin` transformation that produce minimal `lodash` imports.
 
 ## Linting
 

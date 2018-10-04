@@ -2,6 +2,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const postcssPresetEnv = require('postcss-preset-env');
@@ -67,6 +68,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new LodashModuleReplacementPlugin(),
     new HtmlWebPackPlugin({
       template: './src/index.html',
       filename: './index.html',

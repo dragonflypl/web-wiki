@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './App.css';
+import style from './App.less';
 import { get } from 'lodash';
 import { timer } from 'rxjs';
 import moment from 'moment-timezone';

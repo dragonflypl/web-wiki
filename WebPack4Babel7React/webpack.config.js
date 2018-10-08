@@ -37,6 +37,9 @@ module.exports = {
     publicPath: '/',
     filename: devMode ? '[name].js' : '[name].[contenthash].js',
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   devtool: devMode ? 'eval-source-map' : 'nosources-source-map',
   module: {
     rules: [

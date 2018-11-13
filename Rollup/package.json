@@ -5,11 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "roll": "rollup --config rollup.config.js"
+    "roll": "rollup -c rollup.config.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "rollup": "^0.67.1"
+    "@babel/core": "^7.1.5",
+    "@babel/preset-env": "^7.1.5",
+    "rollup": "^0.67.1",
+    "rollup-plugin-babel": "^4.0.3"
   }
 }

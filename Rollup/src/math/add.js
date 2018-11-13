@@ -1,4 +1,6 @@
+import { debug } from './util';
+
 export const add = (a, b) => {
-  console.log(`Adding ${a} and ${b}`);
+  debug(`Adding ${a} and ${b}`);
   return a + b;
 };

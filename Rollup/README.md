@@ -23,7 +23,9 @@ and use `npm` script:
 
 By default it does only modules transformation : no javascript transpilation is done, only treeshaking.
 
-## Transpilation with babel
+## Plugins
+
+### Transpilation with babel
 
 > npm i -D rollup-plugin-babel @babel/core @babel/preset-env
 
@@ -50,6 +52,37 @@ and configure babel with `.babelrc`:
     ]
   ]
 }
+```
+
+### Linting
+
+> npm i -D rollup-plugin-eslint
+
+and enable the plugin - that's it.
+
+### 3rd party libraries
+
+Rollup by default does not include `node_modules` in result bundle. To do it install:
+
+> npm i -D rollup-plugin-node-resolve
+
+Moreover, usually modules are exposed via `cjs`, so they need to be converted to `es`
+
+> npm i -D rollup-plugin-commonjs
+
+And enable these plugins:
+
+```js
+plugins: [
+  resolve({
+    browser: true // if there's a browser version of library, then use it
+  }),
+  commonjs(),
+  eslint(),
+  babel({
+    exclude: 'node_modules/**' // only transpile our source code
+  })
+];
 ```
 
 ## Resources

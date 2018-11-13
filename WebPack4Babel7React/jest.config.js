@@ -72,9 +72,8 @@ module.exports = {
 
   // A map from regular expressions to module names that allow to stub out resources with a single module
   moduleNameMapper: {
-    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
-      '<rootDir>/__mocks__/fileMock.js',
-    '\\.(css|less)$': 'identity-obj-proxy'
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': '<rootDir>/__mocks__/fileMock.js',
+    '\\.(css|less)$': 'identity-obj-proxy',
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
@@ -125,7 +124,7 @@ module.exports = {
   setupTestFrameworkScriptFile: '<rootDir>/test/setup.js',
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
-  snapshotSerializers: ['enzyme-to-json/serializer']
+  snapshotSerializers: ['enzyme-to-json/serializer'],
 
   // The test environment that will be used for testing
   // testEnvironment: "jest-environment-jsdom",

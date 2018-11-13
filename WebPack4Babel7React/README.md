@@ -422,6 +422,10 @@ If you need additional locale (default english is included), import it explicitl
 
 Linting is done with `create-react-app` setup along with `eslint-loader` to enable build / browser console logging.
 
+## Routing
+
+> npm i react-router-dom
+
 # Resources
 
 - WebPack Optimization:

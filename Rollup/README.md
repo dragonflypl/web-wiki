@@ -85,6 +85,12 @@ plugins: [
 ];
 ```
 
+## Hints
+
+- Use `"module": "dist/my-library.es.js"` <https://github.com/rollup/rollup/wiki/pkg.module>
+
 ## Resources
 
 - <https://www.youtube.com/watch?v=EU9j0IB-crA> really basic
+- <https://www.youtube.com/watch?v=ICYLOZuFMz> plugins configuration, good
+- <https://medium.com/webpack/webpack-and-rollup-the-same-but-different-a41ad427058c> why rollup

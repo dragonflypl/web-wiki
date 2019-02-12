@@ -1,3 +1,16 @@
+# Puppeteer
+
+- not a testing framework. Can be used with testing frameworks to automate browsers
+- can be used to E2E testing
+- only Chrome is supported. This is API to control Chrome! Puppeteer is Chrome.
+- works with Jest/Mocha/Jasmine etc.
+- test are not brittle!
+- access to everything in devtools (console output/network/profile etc... everything!) e.g. write assertion to query console and check if there are no errors / warnings
+- enables intercepting requests
+- visual regression tests
+- there's a puppeteer recorder Chrome extension
+
+
 # AngularJS - with testability in mind
 
 AngularJS is written with testability in mind - it things are done **the right way**:

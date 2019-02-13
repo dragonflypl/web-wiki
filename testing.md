@@ -21,7 +21,7 @@
   - https://www.youtube.com/watch?v=lhZOFUY1weo browser automation with puppeteer
   - https://www.youtube.com/watch?v=xwiWqEkrtyQ e2e testing basics
   - https://www.youtube.com/watch?v=U_z9x6ZtDow ways to measure performance
-  - https://www.youtube.com/watch?v=ARt3zDHSsd4 some API examples
+  - https://www.youtube.com/watch?v=ARt3zDHSsd4 + http://carmalou.com/intro-to-puppeteer/#1 some API examples & slides
   
   - Code snippets
  

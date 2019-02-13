@@ -1,5 +1,6 @@
 # Puppeteer
 
+- use together with faker to simulate data
 - not a testing framework. Can be used with testing frameworks to automate browsers
 - can be used to E2E testing
 - only Chrome is supported. This is API to control Chrome! Puppeteer is Chrome.

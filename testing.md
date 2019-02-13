@@ -5,6 +5,7 @@
 - only Chrome is supported. This is API to control Chrome! Puppeteer is Chrome.
 - works with Jest/Mocha/Jasmine etc.
 - test are not brittle!
+- async/await support
 - access to everything in devtools (console output/network/profile etc... everything!) e.g. write assertion to query console and check if there are no errors / warnings
 - enables intercepting requests
 - visual regression tests
@@ -20,6 +21,7 @@
   - https://www.youtube.com/watch?v=lhZOFUY1weo browser automation with puppeteer
   - https://www.youtube.com/watch?v=xwiWqEkrtyQ e2e testing basics
   - https://www.youtube.com/watch?v=U_z9x6ZtDow ways to measure performance
+  - https://www.youtube.com/watch?v=ARt3zDHSsd4 some API examples
   
   - Code snippets
  
@@ -37,6 +39,18 @@
   page.goto(url, {waitUntil: 'networkidle0'});
   page.content();
   ```
+### How to run script in page context
+
+```
+page.evaluate
+```
+
+### How to type
+
+```
+page.focus(selector);
+page.keyboard.type(text);
+```
 
 # AngularJS - with testability in mind
 

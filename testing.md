@@ -22,12 +22,14 @@
   - https://www.youtube.com/watch?v=xwiWqEkrtyQ e2e testing basics
   - https://www.youtube.com/watch?v=U_z9x6ZtDow ways to measure performance
   - https://www.youtube.com/watch?v=ARt3zDHSsd4 + http://carmalou.com/intro-to-puppeteer/#1 some API examples & slides
+  - https://www.youtube.com/watch?v=7-XnEMrQnn4 devtools new stuff + pupeter intro
   
   - Code snippets
  
  ### How to intercept requests
  
  ```
+ page.setRequestInterceptionEnabled(true)
  page.on('request', req => {
   if (sth) req.abort() else req.continue();
  }
@@ -45,11 +47,29 @@
 page.evaluate
 ```
 
+### How to click
+
+```
+page.click(selector);
+```
+
+### How to wait for elements
+
+```
+page.waitForSelector(selector);
+```
+
 ### How to type
 
 ```
 page.focus(selector);
 page.keyboard.type(text);
+```
+
+or 
+
+```
+page.type(selector, text)
 ```
 
 # AngularJS - with testability in mind

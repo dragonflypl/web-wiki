@@ -8,8 +8,35 @@
 - access to everything in devtools (console output/network/profile etc... everything!) e.g. write assertion to query console and check if there are no errors / warnings
 - enables intercepting requests
 - visual regression tests
-- there's a puppeteer recorder Chrome extension
-
+- there's a puppeteer recorder Chrome extension: https://github.com/checkly/puppeteer-recorder
+- zero config: just pass path to chrome executable
+- Cool stuff that can be made
+  - server side rendering (even if framework does not support it)
+  - code coverage API + puppeteer-to-istanbul
+  - crawl SPA
+  - service worker valication
+- Resources:
+  - https://github.com/GoogleChromeLabs/puppeteer-examples
+  - https://www.youtube.com/watch?v=lhZOFUY1weo browser automation with puppeteer
+  - https://www.youtube.com/watch?v=xwiWqEkrtyQ e2e testing basics
+  - https://www.youtube.com/watch?v=U_z9x6ZtDow ways to measure performance
+  
+  - Code snippets
+ 
+ ### How to intercept requests
+ 
+ ```
+ page.on('request', req => {
+  if (sth) req.abort() else req.continue();
+ }
+ ```
+ 
+ ### How to wait for idle network
+ 
+  ```
+  page.goto(url, {waitUntil: 'networkidle0'});
+  page.content();
+  ```
 
 # AngularJS - with testability in mind
 

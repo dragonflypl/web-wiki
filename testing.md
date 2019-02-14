@@ -24,13 +24,18 @@
   - https://www.youtube.com/watch?v=U_z9x6ZtDow ways to measure performance
   - https://www.youtube.com/watch?v=ARt3zDHSsd4 + http://carmalou.com/intro-to-puppeteer/#1 some API examples & slides
   - https://www.youtube.com/watch?v=7-XnEMrQnn4 devtools new stuff + pupeter intro
+  - https://egghead.io/courses/end-to-end-testing-with-google-s-puppeteer-and-jest
   
   - Code snippets
+ 
+ ### Ability to watch console & errors
+ 
+ Just subscribe to events `page.on('console', () => {})` and `page.on('pageerror')`.
  
  ### How to intercept requests
  
  ```
- page.setRequestInterceptionEnabled(true)
+ page.setRequestInterception(true)
  page.on('request', req => {
   if (sth) req.abort() else req.continue();
  }

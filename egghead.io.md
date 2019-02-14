@@ -14,3 +14,4 @@
 - https://egghead.io/courses/build-react-components-from-streams-with-rxjs-and-recompose
 - https://egghead.io/courses/simplify-react-apps-with-react-hooks
 - https://egghead.io/courses/reusable-state-and-effects-with-react-hooks
+- https://egghead.io/courses/use-higher-order-observables-in-rxjs-effectively

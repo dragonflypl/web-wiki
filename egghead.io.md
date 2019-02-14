@@ -15,3 +15,4 @@
 - https://egghead.io/courses/simplify-react-apps-with-react-hooks
 - https://egghead.io/courses/reusable-state-and-effects-with-react-hooks
 - https://egghead.io/courses/use-higher-order-observables-in-rxjs-effectively
+- https://egghead.io/courses/introduction-to-reactive-programming

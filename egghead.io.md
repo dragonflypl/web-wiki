@@ -10,12 +10,12 @@
   - nice examples of using different types of hooks
 - https://egghead.io/courses/leverage-new-features-of-react-16
   - new features including refs, fragments, new lifecycle methods etc.
+- https://egghead.io/courses/simplify-react-apps-with-react-hooks
+  - refactoring of real life class components to react hooks with explanation of common issues (like testing, accessing previous values etc)
   
 ## TODO
 
-
 - https://egghead.io/courses/advanced-react-component-patterns
 - https://egghead.io/courses/build-react-components-from-streams-with-rxjs-and-recompose
-- https://egghead.io/courses/simplify-react-apps-with-react-hooks
 - https://egghead.io/courses/use-higher-order-observables-in-rxjs-effectively
 - https://egghead.io/courses/introduction-to-reactive-programming

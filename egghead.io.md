@@ -14,10 +14,12 @@
   - refactoring of real life class components to react hooks with explanation of common issues (like testing, accessing previous values etc)
 - https://egghead.io/playlists/react-hooks-and-suspense-650307f2
   - cool examples of new react features including hooks in various ways + suspense (+ promise trick) + `react-cache`
+- https://egghead.io/courses/advanced-react-component-patterns
+  - code samples: https://codesandbox.io/s/github/kentcdodds/advanced-react-patterns-v2/tree/egghead/?from-embed
+  - very cool examples like: compound components, controlled components, render props approach, provider pattern using react context API, HoC with features like ref forwarding and display name 
   
 ## TODO
-
-- https://egghead.io/courses/advanced-react-component-patterns
+ 
 - https://egghead.io/courses/build-react-components-from-streams-with-rxjs-and-recompose
 - https://egghead.io/courses/use-higher-order-observables-in-rxjs-effectively
 - https://egghead.io/courses/introduction-to-reactive-programming

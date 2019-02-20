@@ -12,6 +12,8 @@
   - new features including refs, fragments, new lifecycle methods etc.
 - https://egghead.io/courses/simplify-react-apps-with-react-hooks
   - refactoring of real life class components to react hooks with explanation of common issues (like testing, accessing previous values etc)
+- https://egghead.io/playlists/react-hooks-and-suspense-650307f2
+  - cool examples of new react features including hooks in various ways + suspense
   
 ## TODO
 

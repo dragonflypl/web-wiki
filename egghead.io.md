@@ -2,6 +2,7 @@
 
 - https://egghead.io/courses/how-to-use-npm-scripts-as-your-build-tool
   - npm stuff, have a look on inspiration on how to orginize scripts (e.g. coverage)
+  - sample repo: https://github.com/elijahmanor/react-file-size/
 - https://egghead.io/courses/how-to-write-an-open-source-javascript-library
   - old course, but things are valid 
 - https://egghead.io/courses/up-and-running-with-redux-observable - great refresher and common scenarios. Use in presentation. 

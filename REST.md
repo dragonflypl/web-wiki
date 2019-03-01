@@ -14,9 +14,11 @@ Depending on how RESTful your API is, there're four levels (Richardson's maturit
 - Stateless server: everything what is needed to process the request should be included in the request
 - Caching - let the client know how long data is good so the client does not have to go to the server all the time
 - Uniform Interface (identical communication between all clients & servers) - for RESTful interface has 4 pieces:
- - Resources (nouns)
- - Actions (HTTP verbs - GET/POST/PUT/...)
- - HATEOAS - in each request we have a set hyperlinks that can be used to navigate with API
+  - Resource (nouns)
+  - Resource identifier
+  - Resource metadata
+  - Representation
+  - Hypermedia: HATEOAS - in each request we have a set hyperlinks that can be used to navigate with API
 - Layered Systems - client must no nothing about server dependencies on other systems
 
 Links:

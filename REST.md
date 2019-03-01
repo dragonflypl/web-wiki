@@ -158,9 +158,10 @@ Mechanism to prevent flooding the server with too many request from single clien
 
 ## Links
 
+- <https://www.youtube.com/watch?time_continue=20&v=kTmqc7Cnqlw> - cool video on REST and how it comes from SOA and Data oriented design
 - http://restful-api-design.readthedocs.org/en/latest/methods.html#patch-vs-put - Patch Vs Put
-- 
+
 ## FAQ
 
 - plural vs singular resource names?
- - According to google udacity course, it's recommended to use PLURAL form for each resource name
+  - According to google udacity course, it's recommended to use PLURAL form for each resource name

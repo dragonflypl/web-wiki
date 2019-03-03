@@ -27,6 +27,7 @@ Links:
 - http://ruben.verborgh.org/blog/2012/08/24/rest-wheres-my-state/ - why RESTful applications are stateless (TODO!) - (for scaling)
 
 ## Status Codes
+
 - POST: 201/400/500
 - GET/PUT/PATCH: 200/404/400/500
 - DELETE: 204/404/400/500
@@ -36,22 +37,27 @@ Links:
  - 405 (method not allowed)
 
 ## Filtering / Sorting
+
 - simple solution with query string params that specify order & where clause
 
 ## Pagination
+
 - simple solution with query string (page/page size) + adding links to prev/next in headers
 
 ## Shaping the data
+
 - inclusion of fields: simple solution with query string parameter that holds list of fields & ExpandoObject (C#)
 - collections inclusion
 - projections - e.g. in Spring Data REST there're named projections. eg http://api/people/1?projection=lite
 
 ## Caching
+
 - ETag: identifies version of the resource. Use it with:
  - ```If-None-Match ETag```: client sends it to server along with ETag, for instance with GET
  - ```If-Match ETag```: for updates. In case when client is working with outdated version, 412 should be returned
 
 ## Versioning
+
 - through URI
  - http://domain/api/resource
  - http://domain/api/v2/resource
@@ -59,6 +65,7 @@ Links:
 - custom request header: custom version header added to request, containing version number
 
 ## CORS (Cross-Origin resource sharing)
+
 CORS must be enabled if RESTful API is not hosted with the client.
 
 ## Rate Limiting
@@ -162,6 +169,7 @@ Mechanism to prevent flooding the server with too many request from single clien
 
 - <https://www.youtube.com/watch?time_continue=20&v=kTmqc7Cnqlw> - cool video on REST and how it comes from SOA and Data oriented design
 - http://restful-api-design.readthedocs.org/en/latest/methods.html#patch-vs-put - Patch Vs Put
+- <https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api> - super cool guidelines on API best practives with HTTP examples of implementation (like caching, filtering, sorting, searching, relationships, basically everything)
 
 ## FAQ
 

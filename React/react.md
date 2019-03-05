@@ -2,6 +2,21 @@
 
 First decision to make is to decide on components structure.
 
+## React fiber and reconsiliation
+
+Basics:
+
+- <https://reactjs.org/docs/lists-and-keys.html>
+- <https://reactjs.org/docs/reconciliation.html>
+- <https://medium.com/@gethylgeorge/how-virtual-dom-and-diffing-works-in-react-6fc805f9f84e>
+- <https://css-tricks.com/how-react-reconciliation-works/>
+
+Advanced:
+
+- https://medium.com/react-in-depth/inside-fiber-in-depth-overview-of-the-new-reconciliation-algorithm-in-react-e1c04700ef6e
+- https://medium.com/react-in-depth/in-depth-explanation-of-state-and-props-update-in-react-51ab94563311 - Przeczytaj
+- https://medium.com/react-in-depth/the-how-and-why-on-reacts-usage-of-linked-list-in-fiber-67f1014d0eb7 
+
 ## React Components
 
 Component needs to be mount in to the browser. `ReactDOM.render(component, placeToMountTheComponent)`.

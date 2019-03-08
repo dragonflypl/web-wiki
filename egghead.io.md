@@ -1,5 +1,9 @@
 ## Done
 
+- https://egghead.io/courses/json-web-token-jwt-authentication-with-node-js-and-auth0
+  - nice intro to Auth0 and JWT
+- https://egghead.io/lessons/gatsby-deploy-a-gatsby-site-with-netlify
+  - great intro to Gatsby
 - https://egghead.io/courses/how-to-use-npm-scripts-as-your-build-tool
   - npm stuff, have a look on inspiration on how to orginize scripts (e.g. coverage)
   - sample repo: https://github.com/elijahmanor/react-file-size/
@@ -28,3 +32,4 @@
 - https://egghead.io/courses/build-react-components-from-streams-with-rxjs-and-recompose
 - https://egghead.io/courses/use-higher-order-observables-in-rxjs-effectively
 - https://egghead.io/courses/introduction-to-reactive-programming
+- https://egghead.io/courses/modern-javascript-tooling-with-react watch this course and update React started project

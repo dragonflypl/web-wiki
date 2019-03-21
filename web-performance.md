@@ -17,7 +17,9 @@ Why performance is important ? <https://wpostats.com/> : Case studies and experi
 
 ## Responsive images
 
+- <https://www.youtube.com/watch?v=dJDoPFbcJR4>
 - `srcset` and `sizes` explained: <https://builtvisible.com/responsive-images-for-busy-people-a-quick-primer/>
+- <https://www.responsivebreakpoints.com/> - tool for computing responsive images sets / breakpoints
 
 ## HTTP Caching
 

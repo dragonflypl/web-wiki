@@ -244,3 +244,4 @@ Have some audit trails with critical entries (like anti-automation tool like rec
 - <https://app.pluralsight.com/library/courses/play-by-play-modern-web-security-patterns/table-of-contents>
 - <https://app.pluralsight.com/library/courses/play-by-play-https-what-you-need-know-about-today>
 - <https://app.pluralsight.com/library/courses/play-by-play-owasp-top-ten-2017>
+- <https://www.smashingmagazine.com/2017/04/secure-web-app-http-headers/> useful security headers

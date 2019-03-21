@@ -1,5 +1,13 @@
 # Performance
 
+> ## You cannot optimize what you cannot measure
+
+Why performance is important ? <https://wpostats.com/> : Case studies and experiments demonstrating the impact of web performance optimization (WPO) on user experience and business metrics.
+
+## Course
+
+- https://learning.oreilly.com/videos/tl-dr-web-performance/9781492029915/9781492029915-video316955
+
 ## Books
 
 - High Performance Images

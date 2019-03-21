@@ -15,6 +15,10 @@ Why performance is important ? <https://wpostats.com/> : Case studies and experi
 - Responsive & Fast
 - Browser Networking
 
+## Responsive images
+
+- `srcset` and `sizes` explained: <https://builtvisible.com/responsive-images-for-busy-people-a-quick-primer/>
+
 ## HTTP Caching
 
 - every browser ships with HTTP cache

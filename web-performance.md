@@ -1,5 +1,12 @@
 # Performance
 
+## Books
+
+- High Performance Images
+- High Performance Web Sites
+- Responsive & Fast
+- Browser Networking
+
 ## HTTP Caching
 
 - every browser ships with HTTP cache

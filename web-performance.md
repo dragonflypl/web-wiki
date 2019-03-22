@@ -1,5 +1,10 @@
 # Performance
 
+## TODO
+
+- Akamai Advanced caching concepts Part 2
+- Basically google for Akamai on youtube
+
 > ## You cannot optimize what you cannot measure
 
 Why performance is important ? <https://wpostats.com/> : Case studies and experiments demonstrating the impact of web performance optimization (WPO) on user experience and business metrics.
@@ -32,6 +37,10 @@ More info : <https://www.keycdn.com/blog/resource-hints>
 - <https://www.youtube.com/watch?v=dJDoPFbcJR4> - srcset, sizes, picture explained along with breakpoint practices
 - `srcset` and `sizes` explained: <https://builtvisible.com/responsive-images-for-busy-people-a-quick-primer/>
 - <https://www.responsivebreakpoints.com/> - tool for computing responsive images sets / breakpoints
+
+## Compression
+
+**Brotli** - new compression algorithm, it requires HTTPS (Wthe technical reason for brotli being HTTPS only is that otherwise, there’s a very high chance that brotli content would break over certain networks). For static content use Brotli (because it is slower), but for dynamic content still use gzip (slightly bigger output, but blazing fast).
 
 ## HTTP Caching
 
@@ -378,6 +387,8 @@ When browser is fetching CSS & JS resources, next step it to parse CSS and const
 - http://richpreview.com/
 - http://www.imageoptimizer.net/
 - http://dataurl.net/
+- https://www.webpagetest.org
+- https://developers.google.com/speed/pagespeed/insights
 
 #### DevTools
 

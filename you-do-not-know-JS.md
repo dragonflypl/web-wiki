@@ -10,11 +10,11 @@
     - <https://www.html5rocks.com/en/tutorials/speed/static-mem-pools/> + <https://www.youtube.com/watch?v=RWmzxyMf2cE> - Static Memory Javascript with Object Pools
     - <https://www.youtube.com/watch?v=3WgVHE5Augc> - new considered harmful
   - [The Two Pillars of JavaScript — Pt 2: Functional Programming](https://medium.com/javascript-scene/the-two-pillars-of-javascript-pt-2-functional-programming-a63aa53a41a4)
-  - [A General Theory of Reactivity](https://github.com/kriskowal/gtor) + [Video](https://www.youtube.com/watch?v=2p51PE1MZ8U)
-  - [Learn RxJS](http://reactivex.io/learnrx/) - interactive learning of Reactive Extensions because the key to learning Rx is training yourself to use functional programming to manipulate collections
-  - RxJs, http://highlandjs.org/ , Bacon.js - some Rx libraries
-  - Laziness - means that streams / collections are processed one by one from the stream and functions start to execute only once somebody is interested in result (like subscription to an observable)
-  - [RxJs and FP at Netflix](https://www.youtube.com/watch?v=gawmdhCNy-A)
+    - [A General Theory of Reactivity](https://github.com/kriskowal/gtor) + [Video](https://www.youtube.com/watch?v=2p51PE1MZ8U)
+    - [Learn RxJS](http://reactivex.io/learnrx/) - interactive learning of Reactive Extensions because the key to learning Rx is training yourself to use functional programming to manipulate collections
+    - RxJs, http://highlandjs.org/ , Bacon.js - some Rx libraries
+    - Laziness - means that streams / collections are processed one by one from the stream and functions start to execute only once somebody is interested in result (like subscription to an observable)
+    - [RxJs and FP at Netflix](https://www.youtube.com/watch?v=gawmdhCNy-A)
   
   
   

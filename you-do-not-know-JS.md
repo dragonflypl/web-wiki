@@ -1,5 +1,15 @@
 # You don't know JS
 
+```javascript
+const curry = (
+  f, arr = []
+) => (...args) => (
+  a => a.length === f.length ?
+    f(...a) :
+    curry(f, a)
+)([...arr, ...args]);
+```
+
 > The true constant is change. Mutation hides change. Hidden change manifests chaos. Therefore, the wise embrace history.
 
 > Program to an interface, not an implementation.
@@ -25,6 +35,14 @@
   - **The essence of software development is composition.**
   - [Composing Software by Eric Elliott](https://medium.com/javascript-scene/composing-software-the-book-f31c77fc3ddc)
     - Promote Function Composition and Object Composition (Favor object composition over class inheritance)
+    - [Functors & Categories](https://medium.com/javascript-scene/functors-categories-61e031bac53f)
+    - [Abstraction & Composition](https://medium.com/javascript-scene/abstraction-composition-cb2849d5bdd6)
+    - [Curry and Function Composition](https://medium.com/javascript-scene/curry-and-function-composition-2c208d774983)
+      - Use Data last functions i.e. specialized arguments should be first in function signature, and data should be last argument e.g. `map(fn, data)` and not `map(data, fn)`.
+      - [How point-free composition will make you a better functional programmer](https://medium.freecodecamp.org/how-point-free-composition-will-make-you-a-better-functional-programmer-33dcb910303a)
+      - Point-free style: Point-free style is a style of programming where function definitions do not make reference to the function’s arguments. A point-free function by definition doesn’t use the function keyword or the => symbol.
+    - [Higher Order Functions (Composing Software)](https://medium.com/javascript-scene/higher-order-functions-composing-software-5365cf2cbe99)
+    - [A Functional Programmer’s Introduction to JavaScript (Composing Software)](https://medium.com/javascript-scene/a-functional-programmers-introduction-to-javascript-composing-software-d670d14ede30) - don't read, too easy
     - [Master the JavaScript Interview: What is a Pure Function?](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-pure-function-d1c076bec976)
     - [Master the JavaScript Interview: What is Function Composition?
 Go to the profile of Eric Elliott](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-function-composition-20dfb109a1a0)
@@ -39,8 +57,8 @@ Go to the profile of Eric Elliott](https://medium.com/javascript-scene/master-th
       - Immutable data structures: In many functional programming languages, there are special immutable data structures called trie data structures. Tries use structural sharing to share reference memory locations for all the parts of the object which are unchanged after an object has been copied by an operator, which uses less memory, and enables significant performance improvements for some kinds of operations.
     - [Master the JavaScript Interview: What’s the Difference Between Class & Prototypal Inheritance?](https://medium.com/javascript-scene/master-the-javascript-interview-what-s-the-difference-between-class-prototypal-inheritance-e4cd0a7562e9)
     - [Master the JavaScript Interview: What is a Closure?](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36)
+      - A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In JavaScript, closures are created every time a function is created, at function creation time.
       - Closures are frequently used in JavaScript for object data privacy, in event handlers and callback functions, and in partial applications, currying, and other functional programming patterns. Closures can also be used to create stateful functions .
-    - 
   
   
  ## TODO

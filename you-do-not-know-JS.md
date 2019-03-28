@@ -1,8 +1,14 @@
 # You don't know JS
 
+> The true constant is change. Mutation hides change. Hidden change manifests chaos. Therefore, the wise embrace history.
+
+> Program to an interface, not an implementation.
+
+> Favor object composition over **class** inheritance.
+
 ## [10 Interview Questions Every JavaScript Developer Should Know](https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95)
 
-- (1) Can you name two programming paradigms important for JavaScript app developers?: OOP and FB
+- (1) Can you name two programming paradigms important for JavaScript app developers?: OOP and FP
   - Worth to remember: “new considered harmful,” “inheritance considered harmful,” and “super is a code smell.”
   - [The Two Pillars of JavaScript Part 1 — Prototypal OO](https://medium.com/javascript-scene/the-two-pillars-of-javascript-ee6f3281e7f3) article (about new considered harmful, factories, drawbacks of classical inheritance, benefits of prototypal inheritance)
     - [Classical Inheritance is Obsolete - How to Think in Prototypal OO](https://vimeo.com/69255635) video
@@ -15,7 +21,26 @@
     - RxJs, http://highlandjs.org/ , Bacon.js - some Rx libraries
     - Laziness - means that streams / collections are processed one by one from the stream and functions start to execute only once somebody is interested in result (like subscription to an observable)
     - [RxJs and FP at Netflix](https://www.youtube.com/watch?v=gawmdhCNy-A)
-  
+- (2) What is functional programming?
+  - **The essence of software development is composition.**
+  - [Composing Software by Eric Elliott](https://medium.com/javascript-scene/composing-software-the-book-f31c77fc3ddc)
+    - Promote Function Composition and Object Composition (Favor object composition over class inheritance)
+    - [Master the JavaScript Interview: What is a Pure Function?](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-pure-function-d1c076bec976)
+    - [Master the JavaScript Interview: What is Function Composition?
+Go to the profile of Eric Elliott](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-function-composition-20dfb109a1a0)
+      - Use `flow` / `compose` from `lodash` and use **points-free style**
+    - [Master the JavaScript Interview: Soft Skills](https://medium.com/javascript-scene/master-the-javascript-interview-soft-skills-a8a5fb02c466)
+    - [Master the JavaScript Interview: What is a Promise?](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261)
+      - Amazing Promise spec in a nutshell
+    - [Master the JavaScript Interview: What is Functional Programming?](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0)
+      - Imperative vs Declarative: imperative is about statements and flow control (if, for, while), while declarative is about expressions and data flow and it abstracts away flow control
+      - A higher order function is any function which takes a function as an argument, returns a function, or both
+      - Side Effects: is an application state change that is visible outside of the called function, other then return value. For side effects, use **monads**
+      - Immutable data structures: In many functional programming languages, there are special immutable data structures called trie data structures. Tries use structural sharing to share reference memory locations for all the parts of the object which are unchanged after an object has been copied by an operator, which uses less memory, and enables significant performance improvements for some kinds of operations.
+    - [Master the JavaScript Interview: What’s the Difference Between Class & Prototypal Inheritance?](https://medium.com/javascript-scene/master-the-javascript-interview-what-s-the-difference-between-class-prototypal-inheritance-e4cd0a7562e9)
+    - [Master the JavaScript Interview: What is a Closure?](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36)
+      - Closures are frequently used in JavaScript for object data privacy, in event handlers and callback functions, and in partial applications, currying, and other functional programming patterns. Closures can also be used to create stateful functions .
+    - 
   
   
  ## TODO

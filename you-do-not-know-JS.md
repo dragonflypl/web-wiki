@@ -10,11 +10,37 @@ const curry = (
 )([...arr, ...args]);
 ```
 
+or
+
+```javascript
+const compose = (...fns) => x => fns.reduceRight((y, f) => f(y), x);
+const map = f => step =>
+  (a, c) => step(a, f(c));
+const filter = predicate => step =>
+  (a, c) => predicate(c) ? step(a, c) : a;
+const isEven = n => n % 2 === 0;
+const double = n => n * 2;
+const doubleEvens = compose(
+  filter(isEven),
+  map(double)
+);
+const arrayConcat = (a, c) => a.concat([c]);
+const xform = doubleEvens(arrayConcat);
+const result = [1,2,3,4,5,6].reduce(xform, []); // [4, 8, 12]
+console.log(result);
+```
+
+> You should optimize code for maintenance and flexibility in the first place, not micro-optimize (e.g. using classes and prototype chain)
+
+> Export a factory instead of a class.
+
 > The true constant is change. Mutation hides change. Hidden change manifests chaos. Therefore, the wise embrace history.
 
 > Program to an interface, not an implementation.
 
 > Favor object composition over **class** inheritance.
+
+> There are two important parts of abstraction: generalization and specialization. There are lots of ways to accomplish generalization and specialization in code. Some good alternatives to class inheritance include simple functions, higher order functions, and object composition.
 
 ## [10 Interview Questions Every JavaScript Developer Should Know](https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95)
 
@@ -34,7 +60,25 @@ const curry = (
 - (2) What is functional programming?
   - **The essence of software development is composition.**
   - [Composing Software by Eric Elliott](https://medium.com/javascript-scene/composing-software-the-book-f31c77fc3ddc)
-    - Promote Function Composition and Object Composition (Favor object composition over class inheritance)
+    - Promote Function Composition and Object Composition (Favor object composition over class inheritance)    
+    - [Composable Datatypes with Functions](https://medium.com/javascript-scene/composable-datatypes-with-functions-aec72db3b093)
+      - magic stuff : how to create compose functions that hold value
+    - [Mocking is a Code Smell](https://medium.com/javascript-scene/mocking-is-a-code-smell-944a70c90a6a)
+    - [Elements of JavaScript Style](https://medium.com/javascript-scene/elements-of-javascript-style-caa8821cb99f)
+      - experienced developers learn to eliminate variables that don’t need to exist.
+    - [Transducers: Efficient Data Processing Pipelines in JavaScript](https://medium.com/javascript-scene/transducers-efficient-data-processing-pipelines-in-javascript-7985330fe73d)
+      - A transducer is a composable higher-order reducer. It takes a reducer as input, and returns another reducer.
+      - Transducers are composable higher order reducers which can reduce over any underlying data type.
+    - [Lenses allow you to abstract state shape behind getters and setters](https://medium.com/javascript-scene/lenses-b85976cb0534)
+    - [Why Composition is Harder with Classes](https://medium.com/javascript-scene/why-composition-is-harder-with-classes-c3e627dcd0aa)
+      - **explains why `instanceof` should not be used!**. The best way to deal with instanceof in JavaScript is to break the delegate prototype link if it’s not required, and let instanceof fail hard for every call. That way you won’t get a false sense of reliability. Don’t listen to instanceof, and it will never lie to you.
+    - [Functional Mixins](https://medium.com/javascript-scene/functional-mixins-composing-software-ffb66d5e731c)    
+    - [JavaScript Factory Functions with ES6+](https://medium.com/javascript-scene/javascript-factory-functions-with-es6-4d224591a8b1)
+    - [The Hidden Treasures of Object Composition](https://medium.com/javascript-scene/the-hidden-treasures-of-object-composition-60cd89480381)
+      - There are lots of ways to accomplish generalization and specialization in code. Some good alternatives to class inheritance include simple functions, higher order functions, and object composition.
+    - [The Forgotten History of OOP](https://medium.com/javascript-scene/the-forgotten-history-of-oop-88d71b9b2d9f)
+      - In other words, according to Alan Kay, the essential ingredients of OOP are: Message passing, Encapsulation, Dynamic binding. Notably, inheritance and subclass polymorphism were NOT considered essential ingredients of OOP by Alan Kay, the man who coined the term and brought OOP to the masses.
+    - [JavaScript Monads Made Simple](https://medium.com/javascript-scene/javascript-monads-made-simple-7856be57bfe8) WTF!?
     - [Functors & Categories](https://medium.com/javascript-scene/functors-categories-61e031bac53f)
     - [Abstraction & Composition](https://medium.com/javascript-scene/abstraction-composition-cb2849d5bdd6)
     - [Curry and Function Composition](https://medium.com/javascript-scene/curry-and-function-composition-2c208d774983)
@@ -63,6 +107,9 @@ Go to the profile of Eric Elliott](https://medium.com/javascript-scene/master-th
   
  ## TODO
  
+ - <https://egghead.io/courses/functional-programming-in-javascript-with-ramda-js> Ramda course
+ - <https://medium.com/front-end-weekly/rxjs-transducers-vs-method-chaining-performance-87561cf4ce65> - RxJS and transducers
+ - <https://github.com/ramda/ramda/wiki/Type-Signatures> - how to read Ramda docs
  - <https://davidwalsh.name/javascript-objects> - another artile that criticizes classical inheritance
  - [Video](https://www.youtube.com/watch?v=2p51PE1MZ8U) - A General Theory of Reactivity , watch again
  - [Learn RxJS](http://reactivex.io/learnrx/) - interactive learning of Reactive Extensions because the key to learning Rx is training yourself to use functional programming to manipulate collections

@@ -30,6 +30,8 @@ const result = [1,2,3,4,5,6].reduce(xform, []); // [4, 8, 12]
 console.log(result);
 ```
 
+> In other words, mutation isn’t always faster, and it is often orders of magnitude slower because it takes a micro-optimization at the expense of macro-optimizations.
+
 > You should optimize code for maintenance and flexibility in the first place, not micro-optimize (e.g. using classes and prototype chain)
 
 > Export a factory instead of a class.
@@ -61,9 +63,16 @@ console.log(result);
   - **The essence of software development is composition.**
   - [Composing Software by Eric Elliott](https://medium.com/javascript-scene/composing-software-the-book-f31c77fc3ddc)
     - Promote Function Composition and Object Composition (Favor object composition over class inheritance)    
+    - [Mocking is a Code Smell](https://medium.com/javascript-scene/mocking-is-a-code-smell-944a70c90a6a)
+      - Mocking is great for integration tests
+      - It’s perfectly OK to mock and fake for integration tests. Mocking in Unit Tests is a code smell.
+      - Mocking is required when our decomposition strategy has failed.
+      - It’s impossible to achieve 100% case coverage without integration tests. Don’t skip them even if you manage to achieve 100% unit test coverage. Sometimes 100% is not 100%.
+      - <https://github.com/visionmedia/supertest> use for HTTP mocking
+      - The cost of a bug that makes it into production is many times larger than the cost of a bug caught by an automated test suite. In other words, TDD has an overwhelmingly positive ROI.
+      - Mocking is required when the units used to break the large problem down into smaller parts depend on each other. Put another way, mocking is required when our supposed atomic units of composition are not really atomic, and our decomposition strategy has failed to decompose the larger problem into smaller, independent problems.
     - [Composable Datatypes with Functions](https://medium.com/javascript-scene/composable-datatypes-with-functions-aec72db3b093)
       - magic stuff : how to create compose functions that hold value
-    - [Mocking is a Code Smell](https://medium.com/javascript-scene/mocking-is-a-code-smell-944a70c90a6a)
     - [Elements of JavaScript Style](https://medium.com/javascript-scene/elements-of-javascript-style-caa8821cb99f)
       - experienced developers learn to eliminate variables that don’t need to exist.
     - [Transducers: Efficient Data Processing Pipelines in JavaScript](https://medium.com/javascript-scene/transducers-efficient-data-processing-pipelines-in-javascript-7985330fe73d)

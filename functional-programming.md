@@ -1,3 +1,37 @@
+## FP API
+
+- `R.__` - placeholder LOL
+- `R.where` - to create if statements with multiple conditions, used with `equals/lt/gt`
+- `R.equals/lt/gt` - for copmarsion of arguments
+- `R.T` - returns true
+- `R.ifElse/when/unless/cond` - executes functions based on first function (predicate) return value
+- `R.propEq` - returns predicate that checks for prop equality, used commonly with `ifElse/when/unless`
+- `R.propOr` - get property value from object or return default value - this is a getter. Version without default value is `R.prop`
+- `R.assoc` - set prop on object (of course return new instance by cloning) - this is a setter
+- `R.lensProp` - creates lens with getter and setter (`prop` and `assoc`) for a prop created automatically
+- `R.lens` - create a lest (getter/setter created manually). `R.view\set` is used to use lens
+- `R.over` - apply function on item via lens
+- `R.compose` - compose functions, passing params right to left. `R.pipe` goes left to right
+- `R.converge` - pass multiple params into first function from array of transformation functions
+- `R.identity` - returns what was passed to it
+- `R.tail` - removes 1st element from collection and returns rest
+- `R.split` - splits by character
+- `R.fromPairs` - creates an object from list of tuples (array with two elements) where first item is key and second is value
+- `R.pick` - picks properties from object. `R.pickBy/pickAll` are variants. `R.omit` is opposite.
+- `R.pluck` - picks single named prop from functor items (similar to `pick`)
+- `R.project`- map + pick 
+- `R.filter/reject/partition` - for filtering based on predicate. `partition` creates two groups for `false` and `true`.
+- `R.curry/curryN/uncurry/uncurryN` - for curring and uncurring
+- `R.evolve` - perform a transformation of the object. Each transformation is defined via `prop:fn` 
+- `R.tryCatch` - as name suggests
+- `R.always` - always returns the same value, used e.g. with `R.tryCatch`
+- `R.unfold` - builds a list from a seed value
+- `R.zip` - merges two collections by matching index. Commonly used with `fromPairs`
+- `R.zipObj` - is equal to `pipe(zip, fromPairs)`
+
+
+## Other
+
 > What is monad
 
 A monad is a type with a bind function and a toMonad function. The bind function goes mechanically from monad to monad without explicitly unveiling a monad's pertinent value.

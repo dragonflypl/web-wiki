@@ -1,5 +1,7 @@
 ## Done
 
+- https://egghead.io/courses/functional-programming-in-javascript-with-ramda-js
+  - great Ramda stuff
 - https://egghead.io/courses/json-web-token-jwt-authentication-with-node-js-and-auth0
   - nice intro to Auth0 and JWT
 - https://egghead.io/lessons/gatsby-deploy-a-gatsby-site-with-netlify

@@ -1,6 +1,17 @@
 ## FP API
 
+> https://egghead.io/courses/functional-programming-in-javascript-with-ramda-js is great
+
 - `R.__` - placeholder LOL
+- `R.tap` - for debugging etc.
+- `R.ascend/descend` - create comparer for object's property
+- `R.sort/sortWith/sortBy` - different sorting options. Work nicely with `R.ascend/descend`
+- `R.invoker` - invokes method on an object
+- `R.uniq` - returns unique items from collection. Similar are `R.uniqBy` and `R.uniqWith`
+- `R.constructN/construct` - wraps constructor function inside curried function
+- `R.allPass` - accepts multiple predicates that all must be satisfied to return true. `R.anyPass` is similar (only one predicate must return true)
+- `R.chain` - this is `flatMap` - it maps over the collection and calls the function and then concats the result
+- `R.propSatisfies` - can be used to create declarative conditions that prop must satisfy
 - `R.where` - to create if statements with multiple conditions, used with `equals/lt/gt`
 - `R.equals/lt/gt` - for copmarsion of arguments
 - `R.T` - returns true
@@ -13,13 +24,14 @@
 - `R.over` - apply function on item via lens
 - `R.compose` - compose functions, passing params right to left. `R.pipe` goes left to right
 - `R.converge` - pass multiple params into first function from array of transformation functions
+- `R.useWith` - similar to `R.converge`. It passed arguments down to array of transformation functions.
 - `R.identity` - returns what was passed to it
 - `R.tail` - removes 1st element from collection and returns rest
 - `R.split` - splits by character
-- `R.fromPairs` - creates an object from list of tuples (array with two elements) where first item is key and second is value
+- `R.fromPairs` - creates an object from list of tuples (array with two elements) where first item is key and second is value. Opposite is `R.toPairs`
 - `R.pick` - picks properties from object. `R.pickBy/pickAll` are variants. `R.omit` is opposite.
-- `R.pluck` - picks single named prop from functor items (similar to `pick`)
 - `R.project`- map + pick 
+- `R.pluck` - picks single named prop from functor items (similar to `pick`). This is equal to `map` + `prop`
 - `R.filter/reject/partition` - for filtering based on predicate. `partition` creates two groups for `false` and `true`.
 - `R.curry/curryN/uncurry/uncurryN` - for curring and uncurring
 - `R.evolve` - perform a transformation of the object. Each transformation is defined via `prop:fn` 

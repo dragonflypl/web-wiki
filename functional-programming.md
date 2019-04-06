@@ -1,8 +1,14 @@
+## Articles
+
+- [Functional Redux Reducers with Ramda](https://alligator.io/redux/functional-redux-reducers-with-ramda/) - fantastic example of using Ramda to create redux reducers.
+
 ## FP API
 
 > https://egghead.io/courses/functional-programming-in-javascript-with-ramda-js is great
 
 - `R.__` - placeholder LOL
+- `R.indexBy` - creates an lookup from objects collection by a property
+- `R.flip` - wraps the function and reverses order of params. Useful with e.g. merge and inside redux reducers.
 - `R.tap` - for debugging etc.
 - `R.ascend/descend` - create comparer for object's property
 - `R.sort/sortWith/sortBy` - different sorting options. Work nicely with `R.ascend/descend`
@@ -39,6 +45,7 @@
 - `R.always` - always returns the same value, used e.g. with `R.tryCatch`
 - `R.unfold` - builds a list from a seed value
 - `R.zip` - merges two collections by matching index. Commonly used with `fromPairs`
+- `R.merge` - just like Object.assign / `...` operator. Merges two objects.
 - `R.zipObj` - is equal to `pipe(zip, fromPairs)`
 
 

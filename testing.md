@@ -1,4 +1,13 @@
-# Puppeteer
+## Articles
+
+- [Static vs Unit vs Integration vs E2E Testing for Frontend Apps](https://kentcdodds.com/blog/unit-vs-integration-vs-e2e-tests)
+- [Why I Never Use Shallow Rendering](https://kentcdodds.com/blog/why-i-never-use-shallow-rendering) + [Migrating from shallow rendering react components to explicit component mocks](https://www.youtube.com/watch?v=LHUdxkThTM0&list=PLV5CVI1eNcJgCrPH_e6d57KRUTiDZgs0u)
+- [Effective Snapshot Testing](https://kentcdodds.com/blog/effective-snapshot-testing)
+- [Write tests. Not too many. Mostly integration.](https://kentcdodds.com/blog/write-tests) with [Video](https://www.youtube.com/watch?list=PLV5CVI1eNcJgNqzNwcs4UKrlJdhfDjshf&v=Fha2bVoC8SE)
+  - Don't test implementation details (something that client code would never do, and refactor should not break tests)
+  - Price \ Speed \ Confidence : three dimentions of tests
+
+## Puppeteer
 
 - use together with faker to simulate data
 - not a testing framework. Can be used with testing frameworks to automate browsers

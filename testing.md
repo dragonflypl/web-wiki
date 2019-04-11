@@ -1,5 +1,6 @@
 ## Articles
 
+- [Testing Practices and Principles Workshop (Assert.js Conf)](https://www.youtube.com/watch?v=VQZx1Z3sW0E&list=PLV5CVI1eNcJgNqzNwcs4UKrlJdhfDjshf) with [Testing Workshop Repository](https://github.com/kentcdodds/testing-workshop)
 - [Static vs Unit vs Integration vs E2E Testing for Frontend Apps](https://kentcdodds.com/blog/unit-vs-integration-vs-e2e-tests)
 - [Why I Never Use Shallow Rendering](https://kentcdodds.com/blog/why-i-never-use-shallow-rendering) + [Migrating from shallow rendering react components to explicit component mocks](https://www.youtube.com/watch?v=LHUdxkThTM0&list=PLV5CVI1eNcJgCrPH_e6d57KRUTiDZgs0u)
   - [Confidently Ship Production React](https://egghead.io/lessons/react-confidently-ship-production-react-apps)

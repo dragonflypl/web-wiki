@@ -1,3 +1,11 @@
+# React
+
+- [React as a UI Runtime, February 2, 2019](https://overreacted.io/react-as-a-ui-runtime/) - amazing coverage of... React internals and philosophy
+
+## React hooks
+
+- [A Complete Guide to useEffect March 9, 2019](https://overreacted.io/a-complete-guide-to-useeffect/)
+
 ## React app
 
 First decision to make is to decide on components structure.

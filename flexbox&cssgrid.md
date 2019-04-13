@@ -1,5 +1,7 @@
 ## Flexbox spec
 
+With the ability to reorder children, wrap elements and divide up space on a collection of dynamic children, Flexbox is an essential layout tool for responsive applications and websites.
+
 Flexbox works in two directions : X or Y asix.
 
 Flexbox has `container` and `children` . Some props are applied to container, other to children
@@ -7,7 +9,7 @@ Flexbox has `container` and `children` . Some props are applied to container, ot
 ### Container props
 
 - `display: flex` or `display: flex-inline` creates flex container
-- `flex-wrap: wrap`: creates grid like behaviour: if there's not enough space, it will wrap the content (e.g. list of items). Used together with `align-content` (`align-content` works only with multiline content, don't confuse with `justify-content` or `align-items`)
+- `flex-wrap: wrap`: creates grid like behaviour: if there's not enough space, it will wrap the content (e.g. list of items). Used together with `align-content` (`align-content` works only with multiline content, don't confuse with `justify-content` or `align-items`). Powerful, you don't need media queries e.g. to wrap content in lists when size of viewport changes.
 - `flex-direction: <row>|<column>` specify layout direction (there are `reversed` options as well). Combined with media queries this can be powerful and change e.g. from row direction on wide screen to column direction on mobile e.g.
 
 ```css
@@ -81,6 +83,7 @@ h1 {
 
 ## Links
 
+- [Flexbox Fundamentals on egghead.io](https://egghead.io/lessons/flexbox-using-flexbox-in-websites-and-applications)
 - https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties
 - http://bl.ocks.org/jfsiii/5380802 - full screen layout
 - https://philipwalton.github.io/solved-by-flexbox/ - some challanges fixed by flexbox (sticky footer & full page layout)

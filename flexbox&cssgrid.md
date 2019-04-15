@@ -45,6 +45,7 @@ or
 ### Container props
 
 - `display:grid` - created block grid, other grids are `inline-grid` and `subgrid`
+- `grid-auto-rows` / `grid-auto-columns` Defines the size of grid rows/cols that were created implicitly: it means that grid-auto-rows/columns targets the rows that were not defined with grid-template-rows/columns or grid-template-areas. (if there are more rows/cols then specified in `grid-template-rows` / `grid-template-columns`). E.g. `grid-auto-rows: 1fr` - each extra row will have `1fr`
 - `grid-auto-flow` - by default, grid places items from let to right, top to bottom (`row` is default). This can be changed to `column`, not it will go top to bottom , left to right. By adding `dense`, grid will try to fill the holes in grid by rearranging items. E.g.
 
 ```

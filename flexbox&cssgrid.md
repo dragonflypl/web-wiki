@@ -6,7 +6,7 @@
 - `grid-gap` - creates gutter in grid between elements. It is shorthand to `grid-row-gap` + `grid-column-gap`.
 - `grid-template-areas` - The grid-template-areas CSS property specifies named grid areas. Contains items that should be visible in the grid. `grid-template-areas` combined with media queries are insane powerful when it comes to creating responsive layouts.
 
-```
+```css
 grid-template-areas:
     "header"
     "section"
@@ -23,15 +23,55 @@ grid-template-areas:
  
  `grid-template-columns: 40px 1fr 2fr;`
  
+ `grid-template-columns` /  `grid-template-rows ` columns/rows can be named (named grid lines)
+ 
+ Now, these names can be used e.g. in `grid-row` / `grid-column` to specify where item starts / ends. E.g.
+ 
+ ```css
+ #container {
+  grid-gap: 20px;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 
+    [col-1] 1fr 
+    [col-2] 2fr 
+    [col-3] 1fr;
+}
+
+ footer {
+  grid-column: col-1 / span 3;
+}
+ ```
+ 
+ There can be multiple names for the same line e.g. 
+ 
+ ```css
+  #container {
+  grid-template-columns: 
+    [col-1-start] 1fr 
+    [col-1-end col-2-start] 2fr 
+    [col-2-end col-3-start] 1fr;
+    [col-3-end];
+}
+ ```
+ 
+ - `grid-template-rows` are the same as `grid-template-columns`. 
+ 
 ### Children props
 
 - `grid-area` - assigns a name to the element. Name that can be used in `grid-template-areas`
 - `grid-column` / `grid-row` (shorthands for `grid-column-start` + `grid-column-end` / `grid-row-start` + `grid-row-end`) - enable rearranging grid items or make them span across many cells. E.g.
 
-```
+```css
 grid-column: 1 / span 3;
 grid-row-start: 1;
 grid-row-end: 3;
+```
+
+If the value for `*-end` is `-1` then it means : till the end of column / row. E.g.
+
+```css
+grid-column: 1 / -1
 ```
 
 ## Flexbox spec

@@ -75,6 +75,20 @@ footer {
 ```
 
 - `grid-gap` - creates gutter in grid between elements. It is shorthand to `grid-row-gap` + `grid-column-gap`.
+- `grid-template` - Is a shorthand for `grid-template-areas/rows/columns`
+
+```css
+.container {
+  display: grid;
+  grid-gap: 20px;
+  height: 100vh;
+  grid-template: [header-top] "nav1 nav2 nav3" 1fr [header-bottom]
+                 [main-top]   "main main nav3" 5fr [main-bottom]
+                              / 2fr auto 1fr;
+}
+```
+
+- `grid` - is a shorthand for template rows and columns
 - `grid-template-areas` - The grid-template-areas CSS property specifies named grid areas. Contains items that should be visible in the grid. `grid-template-areas` combined with media queries are insane powerful when it comes to creating responsive layouts.
 
 ```css
@@ -264,6 +278,7 @@ h1 {
 
 ## Links
 
+- [Build Complex Layouts with CSS Grid Layout](https://egghead.io/courses/build-complex-layouts-with-css-grid-layout)
 - [Style an Application from Start to Finish](https://egghead.io/lessons/css-inform-the-user-of-interactions-with-css-transitions) making TODO React tutorial app look awesome with flexbox and others.
 - [Flexbox Fundamentals on egghead.io](https://egghead.io/lessons/flexbox-using-flexbox-in-websites-and-applications)
 - https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties

@@ -45,6 +45,34 @@ or
 ### Container props
 
 - `display:grid` - created block grid, other grids are `inline-grid` and `subgrid`
+- `grid-auto-flow` - by default, grid places items from let to right, top to bottom (`row` is default). This can be changed to `column`, not it will go top to bottom , left to right. By adding `dense`, grid will try to fill the holes in grid by rearranging items. E.g.
+
+```
+#container {
+  grid-gap: 1px;
+  height: 90vh;
+  display: grid;
+  grid-auto-flow: row dense;
+  grid-template-columns: 
+     repeat(4, 100px);
+  grid-template-rows: 
+     repeat(4, 100px);
+}
+
+header {
+  background-color: red;  
+}
+
+section {
+  background-color: green;
+  grid-column: span 2;
+}
+
+footer {
+  background-color: blue;
+}
+```
+
 - `grid-gap` - creates gutter in grid between elements. It is shorthand to `grid-row-gap` + `grid-column-gap`.
 - `grid-template-areas` - The grid-template-areas CSS property specifies named grid areas. Contains items that should be visible in the grid. `grid-template-areas` combined with media queries are insane powerful when it comes to creating responsive layouts.
 

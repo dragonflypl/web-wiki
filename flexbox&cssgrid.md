@@ -117,6 +117,17 @@ grid-template-areas:
 }
 ```
 
+  - `auto-fill` and `auto-fit` can be used with `repeat` to specify an arbitrary number of rows/cols. That means that css grid will create automatically maximum number of cols/rows that can fill available space. Here, each column will have at least 100px and will grow automatically if there is more space (use `auto-fit` to streatch columns/rows if there are not enough items to cover cols/rows). For 500px available space, grid will create 5 columns:
+  
+```css
+#container {
+  grid-gap: 1px;
+  height: 90vh;
+  display: grid;
+  grid-template-columns: 
+    repeat(auto-fill, minmax(100px, auto));
+}
+```
 ### Children props
 
 - `grid-area` - assigns a name to the element. Name that can be used in `grid-template-areas`

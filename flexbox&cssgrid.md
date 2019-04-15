@@ -160,6 +160,7 @@ grid-template-areas:
 ### Children props
 
 - `grid-area` - assigns a name to the element. Name that can be used in `grid-template-areas`
+- `order`: specifies and order, by default it is `0` , greater value puts towards the end. Affects both cols/rows. Similar to `grid-column/row`
 - `grid-column` / `grid-row` (shorthands for `grid-column-start` + `grid-column-end` / `grid-row-start` + `grid-row-end`) - enable rearranging grid items or make them span across many cells. E.g.
 
 ```css

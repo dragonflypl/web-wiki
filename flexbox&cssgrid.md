@@ -99,6 +99,24 @@ grid-template-areas:
  
  - `grid-template-rows` are the same as `grid-template-columns`. 
  
+ - `repeat` function can be used on `grid-template-rows/columns` to avoid repetition. Any expression `grid-template-rows/columns` can be wrapped in `repeat`
+ 
+ ```css
+ /* it defines 6 rows and 20 columns /*
+ #container {
+  grid-template-columns: 
+    repeat(20, 
+      minmax(min-content, 1fr) 
+    );
+  grid-template-rows: 
+    repeat(2, 
+      [col-1] minmax(min-content, auto) 
+      [col-2] minmax(min-content, auto)
+      [col-3] minmax(min-content, auto) 
+    );
+}
+```
+
 ### Children props
 
 - `grid-area` - assigns a name to the element. Name that can be used in `grid-template-areas`

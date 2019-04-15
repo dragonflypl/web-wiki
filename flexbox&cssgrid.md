@@ -1,3 +1,39 @@
+## Grid spec
+
+### Container props
+
+- `display:grid` - created block grid, other grids are `inline-grid` and `subgrid`
+- `grid-gap` - creates gutter in grid between elements. It is shorthand to `grid-row-gap` + `grid-column-gap`.
+- `grid-template-areas` - The grid-template-areas CSS property specifies named grid areas. Contains items that should be visible in the grid. `grid-template-areas` combined with media queries are insane powerful when it comes to creating responsive layouts.
+
+```
+grid-template-areas:
+    "header"
+    "section"
+    "aside-1"
+    "aside-2"
+    "footer";
+```
+
+- `grid-template-columns` - defines columns of the grid. Specifies widths of columns. numbers and `auto` units are possible.
+ 
+ `grid-template-columns: 100px auto 100px;`
+ 
+ or 
+ 
+ `grid-template-columns: 40px 1fr 2fr;`
+ 
+### Children props
+
+- `grid-area` - assigns a name to the element. Name that can be used in `grid-template-areas`
+- `grid-column` / `grid-row` (shorthands for `grid-column-start` + `grid-column-end` / `grid-row-start` + `grid-row-end`) - enable rearranging grid items or make them span across many cells. E.g.
+
+```
+grid-column: 1 / span 3;
+grid-row-start: 1;
+grid-row-end: 3;
+```
+
 ## Flexbox spec
 
 With the ability to reorder children, wrap elements and divide up space on a collection of dynamic children, Flexbox is an essential layout tool for responsive applications and websites.

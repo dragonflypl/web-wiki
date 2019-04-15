@@ -1,5 +1,6 @@
 ## Done
 
+- https://egghead.io/lessons/css-control-image-aspect-ratio-using-css - short but awesome CSS tricks
 - https://egghead.io/courses/build-complex-layouts-with-css-grid-layout - cool intro to CSS Grid
 - https://egghead.io/courses/style-an-application-from-start-to-finish - awesome walkthrough of making React TODO app look awesome with CSS
 - https://egghead.io/courses/flexbox-fundamentals - super Flexbox tutorial

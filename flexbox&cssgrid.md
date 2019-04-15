@@ -22,12 +22,23 @@ This is unit that refers to available space (for rows: height, for columns: widt
 
 There's a `minmax` function that takes min and max value e.g. `minmax(100px, 3fr)` that grid item take. This is awesome! Some special "units" are `min-content` / `max-content` that are useful if we have text that can overflow the area of the item. With `minmax(min-content, ...)` we specify that item will be never smaller then it's content minimal size. E.g.
 
-```
+```css
 #container {
   grid-template-rows: 
     [col-1] minmax(min-content, 1fr) 
     [col-2] 5fr 
     [col-3] minmax(min-content, 1fr) 
+}
+```
+
+or 
+
+```css
+#container {
+  grid-template-rows: 
+    [col-1] minmax(min-content, auto) 
+    [col-2] auto
+    [col-3] minmax(min-content, auto) 
 }
 ```
 

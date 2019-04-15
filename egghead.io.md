@@ -1,4 +1,7 @@
 ## Done
+
+- https://egghead.io/courses/build-complex-layouts-with-css-grid-layout - cool intro to CSS Grid
+- https://egghead.io/courses/style-an-application-from-start-to-finish - awesome walkthrough of making React TODO app look awesome with CSS
 - https://egghead.io/courses/flexbox-fundamentals - super Flexbox tutorial
 - https://egghead.io/courses/css-selectors-in-depth - Basics of selectors , but more or less comprehensive guide
 - https://egghead.io/courses/functional-programming-in-javascript-with-ramda-js

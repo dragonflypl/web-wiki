@@ -1,5 +1,25 @@
 ## Grid spec
 
+### `fr` unit
+
+This is unit that refers to available space (for rows: height, for columns: width). E.g.
+
+```css
+#container {
+  grid-gap: 20px;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 
+    [col-1] 1fr 
+    [col-2] 2fr 
+    [col-3] 1fr;
+  grid-template-rows: 
+    [col-1] 1fr 
+    [col-2] 10fr 
+    [col-3] 1fr;    
+}
+```
+
 ### Container props
 
 - `display:grid` - created block grid, other grids are `inline-grid` and `subgrid`

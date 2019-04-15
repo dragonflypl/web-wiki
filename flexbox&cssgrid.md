@@ -175,6 +175,10 @@ If the value for `*-end` is `-1` then it means : till the end of column / row. E
 grid-column: 1 / -1
 ```
 
+### Nesting grids
+
+Grids can be nested by making grid item (direct child of grid container) a `display: grid`. No additional work is needed.
+
 ## Flexbox spec
 
 With the ability to reorder children, wrap elements and divide up space on a collection of dynamic children, Flexbox is an essential layout tool for responsive applications and websites.

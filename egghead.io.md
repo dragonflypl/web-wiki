@@ -1,7 +1,6 @@
 ## Done
-
-- https://egghead.io/courses/css-selectors-in-depth
-  - Basics of selectors , but more or less comprehensive guide
+- https://egghead.io/courses/flexbox-fundamentals - super Flexbox tutorial
+- https://egghead.io/courses/css-selectors-in-depth - Basics of selectors , but more or less comprehensive guide
 - https://egghead.io/courses/functional-programming-in-javascript-with-ramda-js
   - great Ramda stuff
 - https://egghead.io/courses/json-web-token-jwt-authentication-with-node-js-and-auth0

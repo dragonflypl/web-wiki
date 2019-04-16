@@ -17,6 +17,40 @@ p {
 }
 ```
 
+- `@function` directive allows for creating custom functions
+- `@for` enables making loops. This is powerful with interpolation and mixins e.g.
+
+```scss
+@mixin light-color-class($color, $color-name, $i) {
+  $color-value: if($i == 1, $color, lighten($color, 3% * $i));
+
+  .#{$color-name}#{$i} {
+    color: $color-value;
+  }
+}
+
+@for $i from 1 through 10 {
+  @include light-color-class(#BA0000, passion, $i);  
+}
+```
+
+- `@each` directive enables iteration over lists and maps (yes, scss supports maps and lists):
+
+```scss
+$superheroes: wonder-woman, spiderman, batman, superman;
+
+$hero-media:  (1 375px 768px crimson),
+              (2 768px 1000px darkred),
+              (3 1200px 1400px grey),
+              (4 768px 1200px blue);
+
+@each $i, $bp-start, $bp-end, $color in $hero-media {
+  @media only screen and (min-width: $bp-start) and (max-width: $bp-end) {
+    .#{nth($superheroes, $i)} { background-color: $color; }
+  }
+}
+```
+
 - mixins are powerful: they have default arguments, named arguments, `@content;`, variable number of arguments with `...`. To create mixin, use `@mixin` , and to use it, use `@include` e.g.
 
 ```scss
@@ -160,3 +194,7 @@ Analyze performance / good practices:
 - https://github.com/macbre/analyze-css
 - csscss
 - parker
+
+## Resources
+
+- [Learn the Best and Most Useful SCSS](https://egghead.io/courses/learn-the-best-and-most-useful-scss)

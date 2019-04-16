@@ -1,5 +1,6 @@
 ## Done
 
+- https://egghead.io/lessons/react-build-your-own-formik-using-react-hooks-with-jared-palmer - cool tutorial how to build `Formik` with React Hooks
 - https://egghead.io/courses/optimize-user-experience-for-mobile-devices-and-browsers average stuff on how to improve experience on mobile devices, but some nice features are here (like srcset / sticky / fixed position header)
 - https://egghead.io/lessons/css-control-image-aspect-ratio-using-css - short but awesome CSS tricks
 - https://egghead.io/courses/build-complex-layouts-with-css-grid-layout - cool intro to CSS Grid

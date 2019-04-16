@@ -1,4 +1,60 @@
-## Categorization
+## SCSS
+
+- What is partial ? : This is file that starts with `_` and will be not compiled on its own. Instead it will be available for importins in other `scss` files.
+- Order matters in `SCSS` : if you use variable that was not yet declared, it will throw an error.
+- nesting is possible and `&` refers to parent selector in nesting hierarchy
+- variables start with `$` e.g. `$primary-color: blue`, 
+  - can be block scoped
+  - can be overriden (order matters)
+  - can be interpolated e.g. `#{$primary-color}`
+  - scss has functions e.g. for color manipulation (`lighten`, `darken`, `scale_color`, `complement`, `transparentize`, `mix`). Just call them e.g.
+  
+ ```scss
+p {
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+  color: mix($base-color, black, 5%);
+}
+```
+
+- mixins are powerful: they have default arguments, named arguments, `@content;`, variable number of arguments with `...`. To create mixin, use `@mixin` , and to use it, use `@include` e.g.
+
+```scss
+@mixin media($min-width) {
+  @media screen and (min-width: $min-width) { @content; }
+}
+
+@mixin make-transitions($transitions...) { 
+  transition: $transitions; 
+}
+
+.some-selector {
+  @include media(800px) { content: url("../images/bamf.jpg"); }
+  @include make-transitions(margin 1s, border-radius 1s, border 1s, transform 1s);
+}
+```
+
+- `@extend <selector|placeholder>` allows something like inheritance in OOP. One selector can extend another.
+- placeholder selector starts with `%` e.g. `%some-base` and it won't get compiled into the output. It can be referenced in other places e.g. via `@extend` e.g. 
+
+
+```scss
+%some-base { color: red }
+
+.one {  
+  @extend %some-base;
+}
+
+.two {  
+  @extend %some-base;
+}
+```
+
+Placeholders can be interpolated e.g. `@extend %#{to-be-interpolated}`
+
+## SMACSS
+
+### Categorization
 
 - Base: regular tag selectors, no classes etc.
 - Layout: sidebar, header, footer, main content + grid system
@@ -10,7 +66,7 @@
 
 Every style we write should go to one of the categories.
 
-## Naming conventions
+### Naming conventions
 
 > Use class over id
 
@@ -38,7 +94,7 @@ Every style we write should go to one of the categories.
  - `moduleName` + `moduleName-subModule` + `moduleName--subComponent`
  
 
-### Modules separation example
+#### Modules separation example
 
 - given we have a `megadropdown` module
 
@@ -58,13 +114,13 @@ Every style we write should go to one of the categories.
 </ul>
 ```
 
-## Decoupling CSS from HTML
+### Decoupling CSS from HTML
  
-### What is base? 
+#### What is base? 
  
  Ask yourself a question whenever you write a general rule with tag name only. Think about it wisely, because some day web site might change and something that was true for all elements (e.g. buttons) might change. So do not add fancy styles with `button` selector, instead create a module `.my-buton`.
  
-### Depth of aplicability
+#### Depth of aplicability
 
 Don't nest too deep in selectors (max 2-3 long selectors). Also use child selectors e.g. `#someId a` might hide the relationship between element with id an anchor (they might be many many other elements/modules in between)
 
@@ -75,7 +131,7 @@ So:
 - use fewer selectors (possibly one)
 - use child selectors to limit depth
 
-## State-based design
+### State-based design
 
 How state can be expressed / queries:
 
@@ -85,11 +141,11 @@ How state can be expressed / queries:
 - media queries - keep them with modules / components , not in completely separate file
 
 
-## Preprocessors is SMACSS
+### Preprocessors is SMACSS
 
 ... Preprocessors make it easy to do heavy nesting - don't use this power!
 
-## Summary
+### Summary
 
 Best practices:
 

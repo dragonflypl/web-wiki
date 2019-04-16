@@ -1,5 +1,6 @@
 ## Articles
 
+- [Understanding how react-testing-library works with Kent C. Dodds](https://egghead.io/lessons/react-understanding-how-react-testing-library-works-with-kent-c-dodds)
 - [AHA Testing](https://kentcdodds.com/blog/aha-testing) - how to make abstractions (avoid repetitions in tests) e.g. create setup functions aka test object factory
 - [Test Isolation with React](https://kentcdodds.com/blog/test-isolation-with-react) - how to isolate tests and write test object factory
 

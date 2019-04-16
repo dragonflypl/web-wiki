@@ -314,6 +314,10 @@ Don't use it, unless you're using some kind of provider component along with HoC
 
 > IMPORTANT NOTE: This API is obsolete and will be removed!!!! https://reactjs.org/docs/legacy-context.html. Use this one instead: https://reactjs.org/docs/context.html
 
+### useContext + React.createContext
+
+[React Context for State Management](https://egghead.io/courses/react-context-for-state-management) is a great tutorial on how to write an app that uses context for state management (app is too small to use Redux etc.) and shows how to create HOC / Provider components, how to do updates of provided values etc. Basically most of the stuff you'll need to do with React's context.
+
 ## Type checking
 
 It's possible to guard against invalid properties passed to components with `PropTypes`:

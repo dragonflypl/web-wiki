@@ -1,5 +1,6 @@
 ## Done
 
+- https://egghead.io/courses/react-context-for-state-management - React Context for State Management
 - https://egghead.io/courses/learn-the-best-and-most-useful-scss - Learn the Best and Most Useful SCSS - rapid course on main SCSS features
 - https://egghead.io/lessons/react-build-your-own-formik-using-react-hooks-with-jared-palmer - cool tutorial how to build `Formik` with React Hooks
 - https://egghead.io/courses/optimize-user-experience-for-mobile-devices-and-browsers average stuff on how to improve experience on mobile devices, but some nice features are here (like srcset / sticky / fixed position header)

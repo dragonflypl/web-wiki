@@ -1,6 +1,7 @@
 ## Done
 
 - https://egghead.io/courses/manage-complex-state-in-react-apps-with-mobx - Manage Complex State in React Apps with MobX: Poor, gives some examples without explanations / to fast / hard to understand. Only positive are code examples.
+- https://egghead.io/courses/manage-application-state-with-mobx-state-tree - MobX state tree, quite ok
 - https://egghead.io/courses/react-context-for-state-management - React Context for State Management
 - https://egghead.io/courses/learn-the-best-and-most-useful-scss - Learn the Best and Most Useful SCSS - rapid course on main SCSS features
 - https://egghead.io/lessons/react-build-your-own-formik-using-react-hooks-with-jared-palmer - cool tutorial how to build `Formik` with React Hooks

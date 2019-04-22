@@ -2,6 +2,75 @@
 
 - [Functional Redux Reducers with Ramda](https://alligator.io/redux/functional-redux-reducers-with-ramda/) - fantastic example of using Ramda to create redux reducers.
 
+## Immutability
+
+### Immer
+
+- [Immutable Data with Immer and React setState](https://codedaily.io/screencasts/86/Immutable-Data-with-Immer-and-React-setState)
+- [Immutability in React and Redux: The Complete Guide](https://daveceddia.com/react-redux-immutability-guide/)
+- [The Rise of Immer in React](https://www.netlify.com/blog/2018/09/12/the-rise-of-immer-in-react/) - why Immer? On it's fundamentals and aligmnemt with React's philosophy
+-  The big advantage of Immer, is that you don’t have to learn (nor load) an entire new library for your data structures. Immer operates on normal JavaScript objects and arrays
+- [Introducing Immer: Immutability the easy way](https://hackernoon.com/introducing-immer-immutability-the-easy-way-9d73d8f71cb3) - how immer works + code snippets from author
+- https://medium.com/workday-engineering/workday-prism-analytics-the-search-for-a-strongly-typed-immutable-state-a09f6768b2b5 - pure theory. How `Immer` compares to `Immutable.js` and hot it is better.
+
+Compare:
+
+```
+const byId = (state, action) => {
+  switch (action.type) {
+    case RECEIVE_PRODUCTS:
+      return {
+        ...state,
+        ...action.products.reduce((obj, product) => {
+          obj[product.id] = product
+          return obj
+        }, {})
+      }
+    default:      
+      return state
+  }
+}
+```
+
+to:
+
+```js
+const byId = (state, action) =>
+  produce(state, draft => {
+    switch (action.type) {
+      case RECEIVE_PRODUCTS:
+        action.products.forEach(product => {
+          draft[product.id] = product
+        })
+        break
+    }
+  })
+```
+
+or 
+
+```js
+// ImmutableJS
+const newMap = map.updateIn(['inMap', 'inList'], list => list.push(4))
+
+// Immer
+draft.inMap.inList.push(4)
+```
+
+#### Currying and Redux reducers
+
+```js
+const byId = produce((draft, action) => {
+  switch (action.type) {
+    case RECEIVE_PRODUCTS:
+      action.products.forEach(product => {
+        draft[product.id] = product
+      })
+      break
+  }
+})
+```
+
 ## FP API
 
 > https://egghead.io/courses/functional-programming-in-javascript-with-ramda-js is great

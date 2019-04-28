@@ -1,5 +1,7 @@
 ## Articles
 
+- [Fear, trust and JavaScript: When types and functional programming fail](https://www.reaktor.com/blog/fear-trust-and-javascript/)
+  - Consider learning PureScript / ReasonML / Elm / ClojureScript - FUCK!
 - [Functional Redux Reducers with Ramda](https://alligator.io/redux/functional-redux-reducers-with-ramda/) - fantastic example of using Ramda to create redux reducers.
 
 ## Immutability

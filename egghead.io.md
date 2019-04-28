@@ -1,5 +1,6 @@
 ## Done
 
+- https://egghead.io/playlists/how-i-created-and-deployed-patio11bot-com-from-start-to-finish-as-a-static-html-site-c6f3daa5 - How I Created and Deployed patio11bot.com from Start to Finish as a Static HTML Site (quick, nice and simple tutorial for simple web site with svg, animation, google fonts, netlify deployment)
 - https://egghead.io/courses/manage-complex-state-in-react-apps-with-mobx - Manage Complex State in React Apps with MobX: Poor, gives some examples without explanations / to fast / hard to understand. Only positive are code examples.
 - https://egghead.io/courses/manage-application-state-with-mobx-state-tree - MobX state tree, quite ok
 - https://egghead.io/courses/react-context-for-state-management - React Context for State Management

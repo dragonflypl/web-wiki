@@ -1,3 +1,11 @@
+## SVG
+
+### Embedding
+
+- with `img` tag: easy, but doesn't let us access the internal SVG elements
+- inline with `svg` tag
+- with `object` tag : which is best as it does not clutter html as svg tag and gives access to svg internal elements (img does not allow)
+
 ## SCSS
 
 - What is partial ? : This is file that starts with `_` and will be not compiled on its own. Instead it will be available for importins in other `scss` files.

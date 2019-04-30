@@ -1,7 +1,7 @@
 ## Articles
 
 - [Simple Made Easy](https://www.infoq.com/presentations/Simple-Made-Easy) video:
-  - Simplicity is prerequisite for relability
+  - Simplicity is prerequisite for relability. By Rich Hickey, the author of Clojure. Watch it from time to time...
 - [Fear, trust and JavaScript: When types and functional programming fail](https://www.reaktor.com/blog/fear-trust-and-javascript/)
   - Consider learning PureScript / ReasonML / Elm / ClojureScript - FUCK!
   - [Fear, trust and PureScript: Building on trust with types and functional programming](https://www.reaktor.com/blog/fear-trust-and-purescript) : PureScript and Programming without the fear.

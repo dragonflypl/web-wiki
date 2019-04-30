@@ -256,3 +256,4 @@ console.log(map(array, op));
 ## Resources
 
 - <https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8> : curry vs partial application
+- <https://egghead.io/courses/safer-javascript-with-the-maybe-type> - Safer JavaScript with the Maybe Type

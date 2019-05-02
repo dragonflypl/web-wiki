@@ -1,5 +1,6 @@
 ## Done
 
+- https://egghead.io/courses/reduce-redux-boilerplate-with-redux-actions - Reduce Redux Boilerplate with Redux-Actions. It adds some bolierplate, but ultimately... Worth considering.
 - https://egghead.io/courses/safer-javascript-with-the-maybe-type - Safer JavaScript with the Maybe Type
 - https://egghead.io/playlists/how-i-created-and-deployed-patio11bot-com-from-start-to-finish-as-a-static-html-site-c6f3daa5 - How I Created and Deployed patio11bot.com from Start to Finish as a Static HTML Site (quick, nice and simple tutorial for simple web site with svg, animation, google fonts, netlify deployment)
 - https://egghead.io/courses/manage-complex-state-in-react-apps-with-mobx - Manage Complex State in React Apps with MobX: Poor, gives some examples without explanations / to fast / hard to understand. Only positive are code examples.

@@ -425,6 +425,10 @@ import { fetchTodos } from '../actions';
 const mapDispatchToProps = { fetchTodos }
 ```
 
+## Other Libs
+
+- [Reduce Redux Boilerplate with Redux-Actions](https://egghead.io/courses/reduce-redux-boilerplate-with-redux-actions) and here is code <https://github.com/avanslaars/redux-actions-course>
+
 ## FAQ
 
 ### How can I debug redux

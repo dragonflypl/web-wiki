@@ -108,7 +108,7 @@ const middleArgumentLater = threeArgs('value for a', __, 'value for c')
 - `R.propEq` - returns predicate that checks for prop equality, used commonly with `ifElse/when/unless`
 - `R.prop` - get property value from object
 - `R.path` - similar to prop, but goes deep. `propOr` and `pathOr` are similar to prop and path combined with defaultTo
-- `R.assoc` - set prop on object (of course return new instance by cloning) - this is a setter
+- `R.assoc` - set prop on object (of course return new instance by cloning) - this is a setter. There is `assocPath` for going deep. for deleting props, use `dissoc` or `omit`.
 - `R.lensProp` - creates lens with getter and setter (`prop` and `assoc`) for a prop created automatically
 - `R.lens` - create a lest (getter/setter created manually). `R.view\set` is used to use lens
 - `R.over` - apply function on item via lens

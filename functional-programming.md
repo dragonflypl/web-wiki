@@ -79,6 +79,7 @@ const byId = produce((draft, action) => {
 
 ## FP API
 
+> http://randycoulman.com/blog/2016/07/19/thinking-in-ramda-wrap-up/ - great series called "Thinking in Ramda"
 > https://egghead.io/courses/functional-programming-in-javascript-with-ramda-js is great
 
 - `R.__` - placeholder LOL, a way to specify arguments that will be provided later
@@ -88,6 +89,7 @@ const threeArgs = curry((a, b, c) => { /* ... */ })
 const middleArgumentLater = threeArgs('value for a', __, 'value for c')
 ```
 
+- `R.adjust` - for updating single element in the array. Similar to `evolve`
 - `R.defaultTo` - checks if some value is nil and it so, then returns other (default) value
 - `R.indexBy` - creates an lookup from objects collection by a property
 - `R.flip` - wraps the function and reverses order of params. Useful with e.g. merge and inside redux reducers.

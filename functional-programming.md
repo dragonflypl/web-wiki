@@ -81,7 +81,14 @@ const byId = produce((draft, action) => {
 
 > https://egghead.io/courses/functional-programming-in-javascript-with-ramda-js is great
 
-- `R.__` - placeholder LOL
+- `R.__` - placeholder LOL, a way to specify arguments that will be provided later
+
+```
+const threeArgs = curry((a, b, c) => { /* ... */ })
+const middleArgumentLater = threeArgs('value for a', __, 'value for c')
+```
+
+- `R.defaultTo` - checks if some value is nil and it so, then returns other (default) value
 - `R.indexBy` - creates an lookup from objects collection by a property
 - `R.flip` - wraps the function and reverses order of params. Useful with e.g. merge and inside redux reducers.
 - `R.tap` - for debugging etc.
@@ -91,12 +98,13 @@ const byId = produce((draft, action) => {
 - `R.uniq` - returns unique items from collection. Similar are `R.uniqBy` and `R.uniqWith`
 - `R.constructN/construct` - wraps constructor function inside curried function
 - `R.allPass` - accepts multiple predicates that all must be satisfied to return true. `R.anyPass` is similar (only one predicate must return true)
+- `R.both/either` - similar to `allPass` and `anyPass` but operate on two functions / conditions.
 - `R.chain` - this is `flatMap` - it maps over the collection and calls the function and then concats the result
 - `R.propSatisfies` - can be used to create declarative conditions that prop must satisfy
 - `R.where` - to create if statements with multiple conditions, used with `equals/lt/gt`
 - `R.equals/lt/gt` - for copmarsion of arguments
 - `R.T` - returns true
-- `R.ifElse/when/unless/cond` - executes functions based on first function (predicate) return value
+- `R.ifElse/when/unless/cond` - executes functions based on first function (predicate) return value. Use `when/unless` if one of `ifElse` arguments if `identity`. `cond` is replacement for switch statement.
 - `R.propEq` - returns predicate that checks for prop equality, used commonly with `ifElse/when/unless`
 - `R.propOr` - get property value from object or return default value - this is a getter. Version without default value is `R.prop`
 - `R.assoc` - set prop on object (of course return new instance by cloning) - this is a setter
@@ -122,6 +130,8 @@ const byId = produce((draft, action) => {
 - `R.zip` - merges two collections by matching index. Commonly used with `fromPairs`
 - `R.merge` - just like Object.assign / `...` operator. Merges two objects.
 - `R.zipObj` - is equal to `pipe(zip, fromPairs)`
+- `R.complement` - negates a function
+- `R.not` - negates value
 
 
 ## Other

@@ -113,7 +113,8 @@ const middleArgumentLater = threeArgs('value for a', __, 'value for c')
 - `R.assoc` - set prop on object (of course return new instance by cloning) - this is a setter. There is `assocPath` for going deep. for deleting props, use `dissoc` or `omit`.
 - `R.lensProp` - creates lens with getter and setter (`prop` and `assoc`) for a prop created automatically
 - `R.lens` - create a lest (getter/setter created manually). `R.view\set` is used to use lens
-- `R.over` - apply function on item via lens
+  - `R.over` - applies a transformation function to the lens
+  - `R.set/view` - get or set via lens
 - `R.compose` - compose functions, passing params right to left. `R.pipe` goes left to right
 - `R.converge` - pass multiple params into first function from array of transformation functions
 - `R.useWith` - similar to `R.converge`. It passed arguments down to array of transformation functions.

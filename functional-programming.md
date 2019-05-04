@@ -79,7 +79,9 @@ const byId = produce((draft, action) => {
 
 ## Transducers
 
-This topic deserves separate header
+This topic deserves separate header.
+
+> transducer: a function that accepts an existing transformer and returns a new transformer that modifies the transformation in some way, and delegates additional handling to the wrapped transformer.
 
 - [Streaming Logs with Transducers and Ramda](https://simplectic.com/blog/2015/ramda-transducers-logs/) - how awesome is that! Write a transducer in ramda that can handle streams
 - [Quickly Transform Data with Transducers](https://egghead.io/courses/quickly-transform-data-with-transducers) - awesome course that guides through writing your own transducers and then switching to ready libs. Awesome!

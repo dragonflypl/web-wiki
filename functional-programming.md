@@ -84,12 +84,19 @@ This topic deserves separate header.
 > transducer: a function that accepts an existing transformer and returns a new transformer that modifies the transformation in some way, and delegates additional handling to the wrapped transformer.
 
 - [Streaming Logs with Transducers and Ramda](https://simplectic.com/blog/2015/ramda-transducers-logs/) - how awesome is that! Write a transducer in ramda that can handle streams
+  - [Transducers Explained: Part 1]<https://simplectic.com/blog/2014/transducers-explained-1/>
+  - [Transducers Explained: Pipelines]<https://simplectic.com/blog/2014/transducers-explained-pipelines/>
 - [Quickly Transform Data with Transducers](https://egghead.io/courses/quickly-transform-data-with-transducers) - awesome course that guides through writing your own transducers and then switching to ready libs. Awesome!
 - Helpful lips:
   - <https://github.com/jlongster/transducers.js>
   - <https://github.com/cognitect-labs/transducers-js>
   - <https://github.com/transduce/transduce-stream>
-  
+
+
+### Warning
+
+- It turns out that, although function composition is right-to-left, the transformation itself runs left-to-right when doing transreducers - bottom line : compose functions are executed left to right!
+
 ## FP API
 
 > http://randycoulman.com/blog/2016/07/19/thinking-in-ramda-wrap-up/ - great series called "Thinking in Ramda"

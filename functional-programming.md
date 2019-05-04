@@ -77,6 +77,17 @@ const byId = produce((draft, action) => {
 })
 ```
 
+## Transducers
+
+This topic deserves separate header
+
+- [Streaming Logs with Transducers and Ramda](https://simplectic.com/blog/2015/ramda-transducers-logs/) - how awesome is that! Write a transducer in ramda that can handle streams
+- [Quickly Transform Data with Transducers](https://egghead.io/courses/quickly-transform-data-with-transducers) - awesome course that guides through writing your own transducers and then switching to ready libs. Awesome!
+- Helpful lips:
+  - <https://github.com/jlongster/transducers.js>
+  - <https://github.com/cognitect-labs/transducers-js>
+  - <https://github.com/transduce/transduce-stream>
+  
 ## FP API
 
 > http://randycoulman.com/blog/2016/07/19/thinking-in-ramda-wrap-up/ - great series called "Thinking in Ramda"
@@ -89,6 +100,8 @@ const threeArgs = curry((a, b, c) => { /* ... */ })
 const middleArgumentLater = threeArgs('value for a', __, 'value for c')
 ```
 
+- Transducers
+  - `R.into` - is shorthand for `transduce`. Basically it figures out last reducer based on accumulator type
 - `R.adjust` - for updating single element in the array. Similar to `evolve`
 - `R.defaultTo` - checks if some value is nil and it so, then returns other (default) value
 - `R.indexBy` - creates an lookup from objects collection by a property

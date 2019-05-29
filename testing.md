@@ -21,7 +21,7 @@ function renderCounter(props) {
 - [Effective Snapshot Testing](https://kentcdodds.com/blog/effective-snapshot-testing)
 - [Write tests. Not too many. Mostly integration.](https://kentcdodds.com/blog/write-tests) with [Video](https://www.youtube.com/watch?list=PLV5CVI1eNcJgNqzNwcs4UKrlJdhfDjshf&v=Fha2bVoC8SE)
   - Don't test implementation details (something that client code would never do, and refactor should not break tests)
-  - Price \ Speed \ Confidence : three dimentions of tests
+  - Price \ Speed \ Confidence : three dimensions of tests
 
 ## Puppeteer
 
@@ -41,7 +41,7 @@ function renderCounter(props) {
   - server side rendering (even if framework does not support it)
   - code coverage API + puppeteer-to-istanbul
   - crawl SPA
-  - service worker valication
+  - service worker validation
 - Resources:
   - https://github.com/GoogleChromeLabs/puppeteer-examples
   - https://www.youtube.com/watch?v=lhZOFUY1weo browser automation with puppeteer

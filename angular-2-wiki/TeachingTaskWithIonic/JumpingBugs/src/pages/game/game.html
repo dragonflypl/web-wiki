@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Game
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div id="game">
+    <video id="video" width="100%" preload autoplay loop muted controls></video>
+    <canvas id="videoCanvas" width="{{gameUI.width}}" height="{{gameUI.height}}"></canvas>
+  </div>
+  <ion-item *ngIf="game">
+    Score:
+    <ion-badge item-end>{{game.score}} of {{settings.gameLength - game.shufflesLeft}} / {{settings.gameLength}}</ion-badge>
+    <ion-icon name="bug" item-end></ion-icon>
+  </ion-item>
+  <ion-item>
+    <ion-range min="0" pin="true" [max]="gameUI.calibrationRange" [(ngModel)]="gameUI.calibration" color="secondary">
+      <ion-label range-left>0</ion-label>
+      <ion-label range-right>{{gameUI.calibrationRange}}</ion-label>
+    </ion-range>
+  </ion-item>
+  <ion-item>
+    Tracked color:
+    <ion-badge item-end>{{settings.hexColor}}</ion-badge>
+  </ion-item>
+  <ion-item>
+    Game speed:
+    <ion-badge item-end>{{settings.gameSpeed}}</ion-badge>
+  </ion-item>
+  <ion-item>
+    Game length:
+    <ion-badge item-end>{{settings.gameLength}}</ion-badge>
+  </ion-item>
+  <button ion-button block *ngIf="!trackerTask?.inRunning()" (click)="start()">Start</button>
+  <button ion-button block color="danger" *ngIf="trackerTask?.inRunning()" (click)="stop()">Stop</button>
+</ion-content>

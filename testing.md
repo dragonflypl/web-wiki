@@ -1,3 +1,108 @@
+## Articles
+
+- [Understanding how react-testing-library works with Kent C. Dodds](https://egghead.io/lessons/react-understanding-how-react-testing-library-works-with-kent-c-dodds)
+- [AHA Testing](https://kentcdodds.com/blog/aha-testing) - how to make abstractions (avoid repetitions in tests) e.g. create setup functions aka test object factory
+- [Test Isolation with React](https://kentcdodds.com/blog/test-isolation-with-react) - how to isolate tests and write test object factory
+
+```js
+function renderCounter(props) {
+  const utils = renderIntoDocument(
+    <Counter maxClicks={4} initialCount={3} {...props} />,
+  )
+  const counterButton = utils.getByText(/^count/i)
+  return {...utils, counterButton}
+}
+```
+
+- [Testing Practices and Principles Workshop (Assert.js Conf)](https://www.youtube.com/watch?v=VQZx1Z3sW0E&list=PLV5CVI1eNcJgNqzNwcs4UKrlJdhfDjshf) with [Testing Workshop Repository](https://github.com/kentcdodds/testing-workshop)
+- [Static vs Unit vs Integration vs E2E Testing for Frontend Apps](https://kentcdodds.com/blog/unit-vs-integration-vs-e2e-tests)
+- [Why I Never Use Shallow Rendering](https://kentcdodds.com/blog/why-i-never-use-shallow-rendering) + [Migrating from shallow rendering react components to explicit component mocks](https://www.youtube.com/watch?v=LHUdxkThTM0&list=PLV5CVI1eNcJgCrPH_e6d57KRUTiDZgs0u)
+  - [Confidently Ship Production React](https://egghead.io/lessons/react-confidently-ship-production-react-apps)
+- [Effective Snapshot Testing](https://kentcdodds.com/blog/effective-snapshot-testing)
+- [Write tests. Not too many. Mostly integration.](https://kentcdodds.com/blog/write-tests) with [Video](https://www.youtube.com/watch?list=PLV5CVI1eNcJgNqzNwcs4UKrlJdhfDjshf&v=Fha2bVoC8SE)
+  - Don't test implementation details (something that client code would never do, and refactor should not break tests)
+  - Price \ Speed \ Confidence : three dimensions of tests
+
+## Puppeteer
+
+- use together with faker to simulate data
+- not a testing framework. Can be used with testing frameworks to automate browsers
+- can be used to E2E testing
+- only Chrome is supported. This is API to control Chrome! Puppeteer is Chrome.
+- works with Jest/Mocha/Jasmine etc.
+- test are not brittle!
+- async/await support
+- access to everything in devtools (console output/network/profile etc... everything!) e.g. write assertion to query console and check if there are no errors / warnings
+- enables intercepting requests
+- visual regression tests
+- there's a puppeteer recorder Chrome extension: https://github.com/checkly/puppeteer-recorder
+- zero config: just pass path to chrome executable
+- Cool stuff that can be made
+  - server side rendering (even if framework does not support it)
+  - code coverage API + puppeteer-to-istanbul
+  - crawl SPA
+  - service worker validation
+- Resources:
+  - https://github.com/GoogleChromeLabs/puppeteer-examples
+  - https://www.youtube.com/watch?v=lhZOFUY1weo browser automation with puppeteer
+  - https://www.youtube.com/watch?v=xwiWqEkrtyQ e2e testing basics
+  - https://www.youtube.com/watch?v=U_z9x6ZtDow ways to measure performance
+  - https://www.youtube.com/watch?v=ARt3zDHSsd4 + http://carmalou.com/intro-to-puppeteer/#1 some API examples & slides
+  - https://www.youtube.com/watch?v=7-XnEMrQnn4 devtools new stuff + pupeter intro
+  - https://egghead.io/courses/end-to-end-testing-with-google-s-puppeteer-and-jest
+  
+  - Code snippets
+ 
+ ### Ability to watch console & errors
+ 
+ Just subscribe to events `page.on('console', () => {})` and `page.on('pageerror')`.
+ 
+ ### How to intercept requests
+ 
+ ```
+ page.setRequestInterception(true)
+ page.on('request', req => {
+  if (sth) req.abort() else req.continue();
+ }
+ ```
+ 
+ ### How to wait for idle network
+ 
+  ```
+  page.goto(url, {waitUntil: 'networkidle0'});
+  page.content();
+  ```
+### How to run script in page context
+
+```
+page.evaluate
+```
+
+### How to click
+
+```
+page.click(selector);
+```
+
+### How to wait for elements
+
+```
+page.waitForSelector(selector);
+```
+
+### How to type
+
+```
+page.focus(selector);
+page.keyboard.type(text);
+```
+
+or 
+
+```
+page.type(selector, text)
+```
+
 # AngularJS - with testability in mind
 
 AngularJS is written with testability in mind - it things are done **the right way**:

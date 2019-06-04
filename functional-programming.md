@@ -1,3 +1,167 @@
+## Articles
+
+- [Simple Made Easy](https://www.infoq.com/presentations/Simple-Made-Easy) video:
+  - Simplicity is prerequisite for relability. By Rich Hickey, the author of Clojure. Watch it from time to time...
+- [Fear, trust and JavaScript: When types and functional programming fail](https://www.reaktor.com/blog/fear-trust-and-javascript/)
+  - Consider learning PureScript / ReasonML / Elm / ClojureScript - FUCK!
+  - [Fear, trust and PureScript: Building on trust with types and functional programming](https://www.reaktor.com/blog/fear-trust-and-purescript) : PureScript and Programming without the fear.
+- [Functional Redux Reducers with Ramda](https://alligator.io/redux/functional-redux-reducers-with-ramda/) - fantastic example of using Ramda to create redux reducers.
+- [Immutable Deep State Updates in React with Ramda.js](https://vanslaars.io/post/setstate-lenses/) - lens and `setState`
+
+## Immutability
+
+### Immer
+
+- [Immutable Data with Immer and React setState](https://codedaily.io/screencasts/86/Immutable-Data-with-Immer-and-React-setState)
+- [Immutability in React and Redux: The Complete Guide](https://daveceddia.com/react-redux-immutability-guide/)
+- [The Rise of Immer in React](https://www.netlify.com/blog/2018/09/12/the-rise-of-immer-in-react/) - why Immer? On it's fundamentals and aligmnemt with React's philosophy
+-  The big advantage of Immer, is that you don’t have to learn (nor load) an entire new library for your data structures. Immer operates on normal JavaScript objects and arrays
+- [Introducing Immer: Immutability the easy way](https://hackernoon.com/introducing-immer-immutability-the-easy-way-9d73d8f71cb3) - how immer works + code snippets from author
+- https://medium.com/workday-engineering/workday-prism-analytics-the-search-for-a-strongly-typed-immutable-state-a09f6768b2b5 - pure theory. How `Immer` compares to `Immutable.js` and hot it is better.
+
+Compare:
+
+```
+const byId = (state, action) => {
+  switch (action.type) {
+    case RECEIVE_PRODUCTS:
+      return {
+        ...state,
+        ...action.products.reduce((obj, product) => {
+          obj[product.id] = product
+          return obj
+        }, {})
+      }
+    default:      
+      return state
+  }
+}
+```
+
+to:
+
+```js
+const byId = (state, action) =>
+  produce(state, draft => {
+    switch (action.type) {
+      case RECEIVE_PRODUCTS:
+        action.products.forEach(product => {
+          draft[product.id] = product
+        })
+        break
+    }
+  })
+```
+
+or 
+
+```js
+// ImmutableJS
+const newMap = map.updateIn(['inMap', 'inList'], list => list.push(4))
+
+// Immer
+draft.inMap.inList.push(4)
+```
+
+#### Currying and Redux reducers
+
+```js
+const byId = produce((draft, action) => {
+  switch (action.type) {
+    case RECEIVE_PRODUCTS:
+      action.products.forEach(product => {
+        draft[product.id] = product
+      })
+      break
+  }
+})
+```
+
+## Transducers
+
+This topic deserves separate header.
+
+> transducer: a function that accepts an existing transformer and returns a new transformer that modifies the transformation in some way, and delegates additional handling to the wrapped transformer.
+
+- [Streaming Logs with Transducers and Ramda](https://simplectic.com/blog/2015/ramda-transducers-logs/) - how awesome is that! Write a transducer in ramda that can handle streams
+  - [Transducers Explained: Part 1]<https://simplectic.com/blog/2014/transducers-explained-1/>
+  - [Transducers Explained: Pipelines]<https://simplectic.com/blog/2014/transducers-explained-pipelines/>
+- [Quickly Transform Data with Transducers](https://egghead.io/courses/quickly-transform-data-with-transducers) - awesome course that guides through writing your own transducers and then switching to ready libs. Awesome!
+- Helpful lips:
+  - <https://github.com/jlongster/transducers.js>
+  - <https://github.com/cognitect-labs/transducers-js>
+  - <https://github.com/transduce/transduce-stream>
+
+
+### Warning
+
+- It turns out that, although function composition is right-to-left, the transformation itself runs left-to-right when doing transreducers - bottom line : compose functions are executed left to right!
+
+## FP API
+
+> http://randycoulman.com/blog/2016/07/19/thinking-in-ramda-wrap-up/ - great series called "Thinking in Ramda"
+> https://egghead.io/courses/functional-programming-in-javascript-with-ramda-js is great
+
+- `R.__` - placeholder LOL, a way to specify arguments that will be provided later
+
+```
+const threeArgs = curry((a, b, c) => { /* ... */ })
+const middleArgumentLater = threeArgs('value for a', __, 'value for c')
+```
+
+- Transducers
+  - `R.into` - is shorthand for `transduce`. Basically it figures out last reducer based on accumulator type
+- `R.adjust` - for updating single element in the array. Similar to `evolve`
+- `R.defaultTo` - checks if some value is nil and it so, then returns other (default) value
+- `R.indexBy` - creates an lookup from objects collection by a property
+- `R.flip` - wraps the function and reverses order of params. Useful with e.g. merge and inside redux reducers.
+- `R.tap` - for debugging etc.
+- `R.ascend/descend` - create comparer for object's property
+- `R.sort/sortWith/sortBy` - different sorting options. Work nicely with `R.ascend/descend`
+- `R.invoker` - invokes method on an object
+- `R.uniq` - returns unique items from collection. Similar are `R.uniqBy` and `R.uniqWith`
+- `R.constructN/construct` - wraps constructor function inside curried function
+- `R.allPass` - accepts multiple predicates that all must be satisfied to return true. `R.anyPass` is similar (only one predicate must return true)
+- `R.both/either` - similar to `allPass` and `anyPass` but operate on two functions / conditions.
+- `R.chain` - this is `flatMap` - it maps over the collection and calls the function and then concats the result
+- `R.propSatisfies` - can be used to create declarative conditions that prop must satisfy
+- `R.where` - to create if statements with multiple conditions, used with `equals/lt/gt`
+- `R.equals/lt/gt` - for copmarsion of arguments
+- `R.T` - returns true
+- `R.ifElse/when/unless/cond` - executes functions based on first function (predicate) return value. Use `when/unless` if one of `ifElse` arguments if `identity`. `cond` is replacement for switch statement.
+- `R.propEq` - returns predicate that checks for prop equality, used commonly with `ifElse/when/unless`
+- `R.prop` - get property value from object
+- `R.path` - similar to prop, but goes deep. `propOr` and `pathOr` are similar to prop and path combined with defaultTo
+- `R.assoc` - set prop on object (of course return new instance by cloning) - this is a setter. There is `assocPath` for going deep. for deleting props, use `dissoc` or `omit`.
+- `R.lensProp` - creates lens with getter and setter (`prop` and `assoc`) for a prop created automatically
+- `R.lens` - create a lest (getter/setter created manually). `R.view\set` is used to use lens
+  - `R.over` - applies a transformation function to the lens
+  - `R.set/view` - get or set via lens
+- `R.compose` - compose functions, passing params right to left. `R.pipe` goes left to right
+- `R.converge` - pass multiple params into first function from array of transformation functions
+- `R.useWith` - similar to `R.converge`. It passed arguments down to array of transformation functions.
+- `R.identity` - returns what was passed to it
+- `R.tail` - removes 1st element from collection and returns rest
+- `R.split` - splits by character
+- `R.fromPairs` - creates an object from list of tuples (array with two elements) where first item is key and second is value. Opposite is `R.toPairs`
+- `R.pick` - picks properties from object. `R.pickBy/pickAll` are variants. `R.omit` is opposite.
+- `R.project`- map + pick 
+- `R.pluck` - picks single named prop from functor items (similar to `pick`). This is equal to `map` + `prop`
+- `R.filter/reject/partition` - for filtering based on predicate. `partition` creates two groups for `false` and `true`.
+- `R.curry/curryN/uncurry/uncurryN` - for curring and uncurring
+- `R.evolve` - perform a transformation of the object. Each transformation is defined via `prop:fn` 
+- `R.tryCatch` - as name suggests
+- `R.always` - always returns the same value, used e.g. with `R.tryCatch`
+- `R.unfold` - builds a list from a seed value
+- `R.zip` - merges two collections by matching index. Commonly used with `fromPairs`
+- `R.merge` - just like Object.assign / `...` operator. Merges two objects.
+- `R.zipObj` - is equal to `pipe(zip, fromPairs)`
+- `R.complement` - negates a function
+- `R.not` - negates value
+
+
+## Other
+
 > What is monad
 
 A monad is a type with a bind function and a toMonad function. The bind function goes mechanically from monad to monad without explicitly unveiling a monad's pertinent value.
@@ -129,3 +293,4 @@ console.log(map(array, op));
 ## Resources
 
 - <https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8> : curry vs partial application
+- <https://egghead.io/courses/safer-javascript-with-the-maybe-type> - Safer JavaScript with the Maybe Type

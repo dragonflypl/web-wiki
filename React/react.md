@@ -1,6 +1,30 @@
+# React
+
+- [React as a UI Runtime, February 2, 2019](https://overreacted.io/react-as-a-ui-runtime/) - amazing coverage of... React internals and philosophy
+
+## React hooks
+
+- [Build Your Own Formik Using React Hooks with Jared Palmer](https://egghead.io/lessons/react-build-your-own-formik-using-react-hooks-with-jared-palmer)
+- [A Complete Guide to useEffect March 9, 2019](https://overreacted.io/a-complete-guide-to-useeffect/)
+
 ## React app
 
 First decision to make is to decide on components structure.
+
+## React fiber and reconsiliation
+
+Basics:
+
+- <https://reactjs.org/docs/lists-and-keys.html>
+- <https://reactjs.org/docs/reconciliation.html>
+- <https://medium.com/@gethylgeorge/how-virtual-dom-and-diffing-works-in-react-6fc805f9f84e>
+- <https://css-tricks.com/how-react-reconciliation-works/>
+
+Advanced:
+
+- https://medium.com/react-in-depth/inside-fiber-in-depth-overview-of-the-new-reconciliation-algorithm-in-react-e1c04700ef6e
+- https://medium.com/react-in-depth/in-depth-explanation-of-state-and-props-update-in-react-51ab94563311 - Przeczytaj
+- https://medium.com/react-in-depth/the-how-and-why-on-reacts-usage-of-linked-list-in-fiber-67f1014d0eb7 
 
 ## React Components
 
@@ -289,6 +313,10 @@ Using Context API explicitly is tricky, and at least makes testing harder (globa
 Don't use it, unless you're using some kind of provider component along with HoC that binds context with base component's props.
 
 > IMPORTANT NOTE: This API is obsolete and will be removed!!!! https://reactjs.org/docs/legacy-context.html. Use this one instead: https://reactjs.org/docs/context.html
+
+### useContext + React.createContext
+
+[React Context for State Management](https://egghead.io/courses/react-context-for-state-management) is a great tutorial on how to write an app that uses context for state management (app is too small to use Redux etc.) and shows how to create HOC / Provider components, how to do updates of provided values etc. Basically most of the stuff you'll need to do with React's context.
 
 ## Type checking
 

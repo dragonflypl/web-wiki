@@ -1,5 +1,18 @@
 Web-wiki
 =========
+
+## Learning resources
+
+- https://css-tricks.com/learning-to-learn/ - learn how to learn:
+  - https://github.com/humanwhocodes/computer-science-in-javascript : Collection of classic computer science paradigms, algorithms, and approaches written in JavaScript
+  - https://github.com/prakhar1989/awesome-courses e.g. Algorithms
+  - https://www.amazon.com/CSS-Definitive-Guide-Visual-Presentation/dp/1449393195/
+  - https://github.com/micromata/awesome-javascript-learning
+  - https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-pure-function-d1c076bec976
+  
+- https://wesbos.com/ - guy is doing paid/free courses e.g.
+  - https://cssgrid.io/
+
 ## Awesome node / gulp
 #### eslint
 

@@ -1,5 +1,47 @@
 # Performance
 
+## TODO
+
+- Akamai Advanced caching concepts Part 2
+- Basically google for Akamai on youtube
+
+> ## You cannot optimize what you cannot measure
+
+Why performance is important ? <https://wpostats.com/> : Case studies and experiments demonstrating the impact of web performance optimization (WPO) on user experience and business metrics.
+
+## Course
+
+- https://learning.oreilly.com/videos/tl-dr-web-performance/9781492029915/9781492029915-video316955
+
+## Books
+
+- High Performance Images
+- High Performance Web Sites
+- Responsive & Fast
+- Browser Networking
+
+## HTTP/2
+
+Gives multiplexing, header compression + compression with e.g. Brotli over https.
+
+Don't use server push as it is hard. Instead do resource hints.
+
+## Resource Hints 
+
+Use resource hints like preconnect / preload / prefetch / async / defer .
+
+More info : <https://www.keycdn.com/blog/resource-hints>
+
+## Responsive images
+
+- <https://www.youtube.com/watch?v=dJDoPFbcJR4> - srcset, sizes, picture explained along with breakpoint practices
+- `srcset` and `sizes` explained: <https://builtvisible.com/responsive-images-for-busy-people-a-quick-primer/>
+- <https://www.responsivebreakpoints.com/> - tool for computing responsive images sets / breakpoints
+
+## Compression
+
+**Brotli** - new compression algorithm, it requires HTTPS (Wthe technical reason for brotli being HTTPS only is that otherwise, there’s a very high chance that brotli content would break over certain networks). For static content use Brotli (because it is slower), but for dynamic content still use gzip (slightly bigger output, but blazing fast).
+
 ## HTTP Caching
 
 - every browser ships with HTTP cache
@@ -306,6 +348,7 @@ When browser is fetching CSS & JS resources, next step it to parse CSS and const
 - Preload Scanner: bloody browser's feature that scans DOM (without parsing) and seeks for resources (js/css) and preloads it, so that when parser gets to the link/script tag, the resource is already there.
 
 ### Questions
+
 - why Paint events happend before last css finishes downloading (for page)
 - http://chimera.labs.oreilly.com/books/1230000000545 - book High Performance Browser Networking
 - https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-interactivity-with-javascript#parser-blocking-vs-asynchronous-javascript **TODO**
@@ -314,6 +357,8 @@ When browser is fetching CSS & JS resources, next step it to parse CSS and const
 - https://developers.google.com/speed/docs/insights/mobile - how to deliver a page that can be rendered in one second or less **TODO**
 
 ### Resources
+
+- Akamai workshop slides: <https://www.slideshare.net/GarethHughes3/tldr-web-performance-workshop>
 - http://blog.gigaspaces.com/amazon-found-every-100ms-of-latency-cost-them-1-in-sales/
 - https://developers.google.com/web/showcase/
  - https://developers.google.com/web/showcase/2016/aliexpress
@@ -336,13 +381,17 @@ When browser is fetching CSS & JS resources, next step it to parse CSS and const
 - https://medium.com/@luisvieira_gmr/html5-prefetch-1e54f6dda15d#.l6hf7tmn2 - HTML prefetch TODO!
 
 #### Online Tools 
+
 - http://checkgzipcompression.com/
 - http://loadtestertool.com/
 - http://richpreview.com/
 - http://www.imageoptimizer.net/
 - http://dataurl.net/
+- https://www.webpagetest.org
+- https://developers.google.com/speed/pagespeed/insights
 
 #### DevTools
+
 - DevTools docs: https://developers.google.com/web/tools/chrome-devtools/ 
 - Two Paint events, what's the difference:
  - http://stackoverflow.com/questions/27392133/in-the-dev-tools-timeline-what-are-the-empty-green-rectangles/27426601

@@ -7,6 +7,7 @@
   - [Fear, trust and PureScript: Building on trust with types and functional programming](https://www.reaktor.com/blog/fear-trust-and-purescript) : PureScript and Programming without the fear.
 - [Functional Redux Reducers with Ramda](https://alligator.io/redux/functional-redux-reducers-with-ramda/) - fantastic example of using Ramda to create redux reducers.
 - [Immutable Deep State Updates in React with Ramda.js](https://vanslaars.io/post/setstate-lenses/) - lens and `setState`
+- [Functional programming in Javascript is an antipattern](https://hackernoon.com/functional-programming-in-javascript-is-an-antipattern-58526819f21e)
 
 ## Immutability
 

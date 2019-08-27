@@ -278,7 +278,8 @@ h1 {
 
 ## Links
 
-- [WHAT THE FLEXBOX](https://flexbox.io/) - great course
+- [WHAT THE CSS GRID](https://cssgrid.io/) - great css grid course
+- [WHAT THE FLEXBOX](https://flexbox.io/) - great flexbox course
 - [Build Complex Layouts with CSS Grid Layout](https://egghead.io/courses/build-complex-layouts-with-css-grid-layout)
 - [Style an Application from Start to Finish](https://egghead.io/courses/style-an-application-from-start-to-finish) making TODO React tutorial app look awesome with flexbox and others.
 - [Flexbox Fundamentals on egghead.io](https://egghead.io/lessons/flexbox-using-flexbox-in-websites-and-applications)

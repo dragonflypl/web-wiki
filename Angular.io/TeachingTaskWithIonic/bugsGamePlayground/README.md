@@ -1,1 +1,0 @@
-# Canvas course https://app.pluralsight.com/library/courses/html5-canvas-fundamentals/table-of-contents

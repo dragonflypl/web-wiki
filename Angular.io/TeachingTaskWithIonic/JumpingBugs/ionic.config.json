@@ -1,8 +1,0 @@
-{
-  "name": "JumpingBugs",
-  "app_id": "ebb8e04b",
-  "type": "ionic-angular",
-  "integrations": {
-    "cordova": {}
-  }
-}
